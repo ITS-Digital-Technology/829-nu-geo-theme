@@ -1,0 +1,171 @@
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-weight: 700;
+    line-height: 1;
+
+    margin: 0 0 47px;
+
+    color: $heading-color-base;
+    &:only-child
+    {
+        margin: 0;
+    }
+    p + &
+    {
+        margin-top: 42px;
+
+        @include sm()
+        {
+            margin-top: 35px;
+        }
+    }
+}
+
+h1
+{
+    font-size: 64px;
+
+    margin: 0 0 47px;
+
+    @include sm()
+    {
+        font-size: 30px;
+
+        margin: 0 0 38px;
+    }
+}
+h2
+{
+    font-size: 48px;
+    line-height: 52px;
+
+    margin: 0 0 32px;
+
+    @include sm()
+    {
+        font-size: 24px;
+        line-height: 26px;
+
+        margin: 0 0 14px;
+    }
+    p + &
+    {
+        margin-top: 60px;
+
+        @include sm()
+        {
+            margin-top: 44px;
+        }
+    }
+}
+h3
+{
+    font-size: 32px;
+    line-height: 36px;
+
+    margin: 0 0 18px;
+
+    @include sm()
+    {
+        font-size: 18px;
+        line-height: 24px;
+
+        margin: 0 0 13px;
+    }
+}
+h4
+{
+    font-size: 21px;
+    line-height: 24px;
+
+    margin: 0 0 3px;
+
+    @include sm()
+    {
+        font-size: 16px;
+        line-height: 24px;
+
+        margin: 0;
+    }
+    p + &
+    {
+        margin-top: 37px;
+
+        @include sm()
+        {
+            margin-top: 24px;
+        }
+    }
+}
+h5
+{
+    font-size: 16px;
+    line-height: 18px;
+
+    margin: 0 0 15px;
+    p + &
+    {
+        margin-top: 32px;
+    }
+}
+h6
+{
+    font-size: 14px;
+    line-height: 16px;
+
+    margin: 0 0 15px;
+    p + &
+    {
+        margin-top: 28px;
+    }
+}
+/* Text Elements */
+p
+{
+    margin: 0 0 32px;
+    &:last-child{
+        margin:0;
+    }
+    @include sm()
+    {
+        margin: 0 0 24px;
+    }
+    ul,
+    ol + &
+    {
+        margin-top: 32px;
+
+        @include sm()
+        {
+            margin-top: 24px;
+        }
+    }
+}
+strong
+{
+    font-weight: 700;
+}
+/* Horizontal Line */
+hr
+{
+    margin: 70px 0;
+
+    border-top: 1px solid $text-color-alt;
+    @include sm()
+    {
+        margin: 52px 0;
+    }
+}
+
+::selection {
+  background: $color-2;
+}
+::-moz-selection {
+  background: $color-2;
+}

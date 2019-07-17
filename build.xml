@@ -1,0 +1,43 @@
+<project name="project" default="build">
+  <target name="build">
+    <echo>Building project...</echo>
+
+    <!-- Install dependencies -->
+    <exec executable="yarn" failonerror="true">
+        <arg value="--non-interactive" />
+        <arg value="--pure-lockfile" />
+    </exec>
+    <exec executable="composer" failonerror="true">
+        <arg value="install" />
+    </exec>
+
+    <!-- Build project -->
+    <exec executable="yarn" failonerror="true">
+        <arg value="build" />
+    </exec>
+
+    <!-- Import database -->
+    <exec executable="vendor/bin/wp">
+        <arg value="db" />
+        <arg value="create" />
+        <arg value="--quiet" />
+    </exec>
+    <exec executable="vendor/bin/wp">
+        <arg value="rewrite" />
+        <arg value="flush" />
+        <arg value="--hard" />
+    </exec>
+    <exec executable="yarn" failonerror="true">
+        <arg value="db-import" />
+    </exec>
+
+    <!-- Regenerate images -->
+    <exec executable="vendor/bin/wp">
+        <arg value="media" />
+        <arg value="regenerate" />
+        <arg value="--yes" />
+    </exec>
+
+    <echo>Building... Done</echo>
+  </target>
+</project>

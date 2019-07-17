@@ -1,0 +1,118 @@
+/* Buttons */
+.c-btn
+{
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 16px;
+
+    display: inline-block;
+
+    min-width: 200px;
+    padding: 25px 15px 23px;
+
+    transition: all .2s linear;
+    text-align: center;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: $text-color-opposite;
+    background: $color-1;
+
+    @include sm()
+    {
+        padding: 16px 15px 15px;
+    }
+    &:hover
+    {
+        text-decoration: none;
+
+        color: $text-color-opposite;
+        background: $color-1-hover;
+    }
+    &.c-btn-color-alt
+    {
+        padding: 23px 15px 21px;
+
+        color: $color-1;
+        border: 2px solid $text-color-opposite;
+        background: $text-color-opposite;
+
+        @include sm()
+        {
+            padding: 14px 15px 13px;
+        }
+        &:hover
+        {
+            color: $text-color-opposite;
+            background: transparent;
+        }
+    }
+    &-wrapper
+    {
+        line-height: 16px;
+
+        display: block;
+
+        margin: 7px 0 40px;
+
+        text-align:left;
+        &.align-center{
+            text-align:center;
+        }
+        &.align-right {
+            text-align:right;
+        }
+        @include sm()
+        {
+            margin: 5px 0 31px;
+        }
+        &:last-child
+        {
+            margin-bottom: 0;
+        }
+    }
+    &-icon
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &-secondary
+    {
+        position: relative;
+
+        min-width: 0;
+        padding: 0 25px 10px 0;
+
+        color: $color-1;
+        border-bottom: 2px solid $color-1;
+        background: transparent;
+
+        @include sm()
+        {
+            padding: 0 14px 5px 0;
+        }
+        svg
+        {
+            *
+            {
+                stroke: $color-1;
+            }
+        }
+        &:hover
+        {
+            padding-right: 51px;
+
+            color: $color-1-hover;
+            border-bottom-color: $color-1-hover;
+            background: transparent;
+            svg
+            {
+                *
+                {
+                    stroke: $color-1-hover;
+                }
+            }
+        }
+    }
+}

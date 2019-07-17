@@ -1,0 +1,38 @@
+.block-gallery-slider
+{
+    padding: 27px 0 49px;
+
+    @include sm()
+    {
+        padding: 20px 0 38px;
+    }
+}
+.bc-gallery
+{
+    &__slider
+    {
+        padding: 0;
+
+        @include sm()
+        {
+            padding: 0 20px;
+        }
+    }
+    &__caption
+    {
+        font-size: 14px;
+        line-height: 18px;
+
+        padding: 19px 15px;
+
+        text-align: center;
+
+        @include sm()
+        {
+            font-size: 12px;
+            line-height: 14px;
+
+            padding: 13px 15px;
+        }
+    }
+}

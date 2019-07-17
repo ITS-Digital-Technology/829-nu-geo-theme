@@ -1,0 +1,140 @@
+.leadparagraph
+{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+
+    margin: 0 0 60px;
+
+    @include sm()
+    {
+        font-size: 16px;
+        line-height: 24px;
+
+        margin: 0 0 44px;
+    }
+}
+
+.highlight-text
+{
+    padding: 3px 0;
+
+    background: $color-2;
+}
+
+blockquote.alternate,
+blockquote
+{
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 48px;
+
+    position: relative;
+
+    margin: 55px 0;
+    padding: 11px 38px 54px;
+
+    border-left: 2px solid $color-4;
+
+    @include sm()
+    {
+        font-size: 21px;
+        line-height: 24px;
+
+        margin: 40px 0 42px;
+        padding: 6px 14px 44px 18px;
+    }
+    &:not([class])
+    {
+        padding: 11px 38px;
+
+        @include sm()
+        {
+            padding: 6px 14px 6px 18px;
+        }
+         > p
+        {
+            &:before,
+            &:after
+            {
+                display: inline;
+            }
+            &:before
+            {
+                position: absolute;
+                top: 10px;
+                left: 26px;
+
+                content: '“';
+
+                @include sm()
+                {
+                    top: 6px;
+                    left: 11px;
+                }
+            }
+            &:after
+            {
+                content: '”';
+            }
+        }
+    }
+    p
+    {
+        margin: 0;
+    }
+    cite
+    {
+        font-style: normal;
+        &:before,
+        &:after
+        {
+            display: inline;
+        }
+        &:before
+        {
+            position: absolute;
+            top: 10px;
+            left: 26px;
+
+            content: '“';
+
+            @include sm()
+            {
+                top: 6px;
+                left: 11px;
+            }
+        }
+        &:after
+        {
+            content: '”';
+        }
+    }
+    .author
+    {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+
+        position: absolute;
+        bottom: 13px;
+        left: 38px;
+
+        @include sm()
+        {
+            font-size: 14px;
+            line-height: 16px;
+
+            bottom: 10px;
+            left: 18px;
+        }
+        &:before
+        {
+            display: inline;
+
+            margin-right: 4px;
+
+            content: '—';
+        }
+    }
+}

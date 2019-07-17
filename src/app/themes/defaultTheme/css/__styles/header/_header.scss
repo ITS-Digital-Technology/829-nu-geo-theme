@@ -1,0 +1,165 @@
+/* Main Header */
+.main-header
+{
+    font-weight: 500;
+
+    position: relative;
+    background-color: $body-color;
+    z-index:10;
+    .row{
+        @include md()
+        {
+            margin:0;
+        }
+    }
+    &__top
+    {
+        background: $color-2;
+
+        @include md()
+        {
+            display: none;
+        }
+    }
+    &__logo
+    {
+        display: inline-block;
+
+        max-width: 200px;
+
+        @include md()
+        {
+            max-width: 150px;
+        }
+        @include sm()
+        {
+            max-width: 100px;
+        }
+    }
+    &__wrapper
+    {
+        width: 100%;
+        max-width: 1310px;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        @include md()
+        {
+            padding: 0 40px;
+        }
+        @include sm()
+        {
+            padding: 0 20px;
+        }
+    }
+    &__nav
+    {
+        font-size: 16px;
+        line-height: 18px;
+
+        position: static;
+
+        @include lg()
+        {
+            font-size: 14px;
+            line-height: 16px;
+        }
+        @include md()
+        {
+            display: none;
+        }
+        .highlight-text{
+            padding:0;
+        }
+        li
+        {
+            padding: 0 7px;
+        }
+         > .menu
+        {
+            display: flex;
+
+            justify-content: space-between;
+             > li
+            {
+                padding: 55px 0;
+            }
+        }
+        a
+        {
+            position: relative;
+
+            display: inline-block;
+
+            color: $text-color-base;
+            &:before
+            {
+                position: absolute;
+                right: 0;
+                bottom: -3px;
+                left: 0;
+
+                display: block;
+
+                height: 2px;
+
+                content: '';
+                transition: background .2s linear;
+
+                background: transparent;
+            }
+            &:focus
+            {
+                color: currentColor;
+            }
+            &:hover
+            {
+                color: currentColor;
+                &:before
+                {
+                    background: $color-1;
+                }
+            }
+        }
+    }
+    &__subnav
+    {
+        font-size: 12px;
+        line-height: 14px;
+
+        padding: 17px 0;
+
+        text-align: right;
+        li
+        {
+            margin-right: 15px;
+            &:last-child
+            {
+                margin-right: 0;
+            }
+        }
+        a:hover
+        {
+            color: $color-5;
+        }
+    }
+    &__right
+    {
+        text-align: right;
+
+        @include md()
+        {
+            display: none;
+        }
+    }
+    &__left{
+        @include md()
+        {
+            padding: 16px 0;
+        }
+        @include sm()
+        {
+            padding: 13px 0;
+        }
+    }
+}

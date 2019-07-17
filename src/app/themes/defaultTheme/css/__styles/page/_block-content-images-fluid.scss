@@ -1,0 +1,122 @@
+.block-content-images
+{
+    background: $color-3;
+    h3
+    {
+        @include sm()
+        {
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+    &.has-container
+    {
+        background: transparent;
+        .row
+        {
+            margin: 0;
+
+            background: $color-3;
+        }
+        .b-content-images__content-wrapper
+        {
+            max-width: 353px;
+
+            @include md()
+            {
+                max-width: 500px;
+            }
+            @include sm()
+            {
+                padding: 40px 10px 46px;
+            }
+        }
+    }
+}
+.b-content-images
+{
+    &__content-wrapper
+    {
+        max-width: 370px;
+        margin: 0 auto;
+        padding: 20px 0;
+        position:relative;
+        left:30px;
+        @include md()
+        {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 146px 0 175px;
+            left:auto;
+        }
+        @include sm()
+        {
+            padding: 46px 10px 43px;
+        }
+        p
+        {
+            margin: 0 0 16px;
+        }
+    }
+    &__image
+    {
+        img
+        {
+            width: 100%;
+        }
+    }
+    &__col
+    {
+        &.image-left
+        {
+            padding-right: 60px;
+            padding-left: 0;
+
+            @include md()
+            {
+                padding: 0;
+            }
+            .has-container &
+            {
+                padding-right: 77px;
+
+                @include md()
+                {
+                    padding: 0;
+                }
+            }
+        }
+        &.image-right
+        {
+            padding-right: 0;
+            padding-left: 60px;
+
+            @include md()
+            {
+                padding: 0;
+            }
+            .has-container &
+            {
+                padding-left: 77px;
+
+                @include md()
+                {
+                    padding: 0;
+                }
+            }
+        }
+        &.content-right
+        {
+            .b-content-images__content-wrapper
+            {
+                margin: 0 auto;
+                left: -30px;
+                @include md()
+                {
+                    left: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

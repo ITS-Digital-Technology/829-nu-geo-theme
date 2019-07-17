@@ -1,0 +1,30 @@
+/* Embed Video Styles */
+.iframe-wrapper
+{
+    position: relative;
+
+    overflow: hidden;
+
+    max-width: 100%;
+    height: 0;
+    margin: 38px auto;
+    padding-bottom: 56.6%;
+
+    @include sm()
+    {
+        margin: 31px auto;
+    }
+}
+.iframe-wrapper iframe,
+.iframe-wrapper object,
+.iframe-wrapper embed
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}

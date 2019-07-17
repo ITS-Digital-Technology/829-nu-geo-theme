@@ -1,0 +1,46 @@
+.block-cta
+{
+    padding: 64px 0;
+
+    color: $text-color-opposite;
+    background: $color-1;
+
+    @include md()
+    {
+        text-align: center;
+    }
+    @include sm()
+    {
+        padding: 51px 0 48px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+    {
+        color: currentColor;
+    }
+    &__text-wrapper
+    {
+        @include md()
+        {
+            padding-top: 5px;
+            padding-bottom: 39px;
+        }
+        @include sm()
+        {
+            padding-bottom:20px;
+        }
+    }
+    &__button-wrapper
+    {
+        text-align: right;
+
+        @include md()
+        {
+            text-align: center;
+        }
+    }
+}
