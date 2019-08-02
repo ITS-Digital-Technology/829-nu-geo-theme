@@ -18,7 +18,8 @@ the_post();
 		<div class="entry">
 			<?php
 
-			the_content();
+			defaultContent();
+			ContentBlock::display_theme_blocks();
 			wp_link_pages();
 
 			?>

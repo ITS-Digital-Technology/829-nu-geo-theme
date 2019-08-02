@@ -26,6 +26,7 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
+//User added scripts in ACF fields
 function userScripts($acf_field_name) {
   $in_footer = $acf_field_name === 'footer_scripts' ? true : false;
 
@@ -55,3 +56,21 @@ function loadAssets() {
 }
 
 add_action('wp_enqueue_scripts', 'loadAssets');
+
+//Conditionally display the_content
+function defaultContent() {
+  if (get_the_content() !== "") {
+    $content = '<section class="block-content default-content">
+        <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-12 col-lg-8 offset-lg-2">
+          '.get_the_content().'
+          </div>
+        </div>
+      </div>
+    </section>';
+
+    $content = apply_filters('the_content', $content);
+    echo $content;
+  }
+}
