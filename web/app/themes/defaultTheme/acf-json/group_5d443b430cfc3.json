@@ -1,104 +1,11 @@
 {
-    "key": "group_5afeb147b0a95",
-    "title": "Header - Fields",
+    "key": "group_5d443b430cfc3",
+    "title": "Footer Fields",
     "fields": [
         {
-            "key": "field_5afeb16f2be0c",
-            "label": "Display Sub Navigation",
-            "name": "h_display_sub_navigation",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5afeb1822be0d",
-            "label": "Sub Navigation",
-            "name": "h_sub_navigation",
-            "type": "navmenu",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5afeb16f2be0c",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "output": "html",
-            "menu_class": "",
-            "menu_id": "",
-            "container": "",
-            "container_class": "",
-            "container_id": "",
-            "before": "",
-            "after": "",
-            "link_before": "",
-            "link_after": ""
-        },
-        {
-            "key": "field_5afeb1e8e8fc9",
-            "label": "Display CTA",
-            "name": "h_display_cta",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5afeb21be8fca",
-            "label": "CTA",
-            "name": "h_cta",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5afeb1e8e8fc9",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_5d443caac7cb1",
-            "label": "Header Scripts",
-            "name": "header_scripts",
+            "key": "field_5d443b7c415cf",
+            "label": "Footer Scripts",
+            "name": "footer_scripts",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -108,14 +15,14 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5d443ce7c7cb2",
+            "collapsed": "field_5d443ba5415d0",
             "min": 0,
             "max": 0,
             "layout": "row",
             "button_label": "Add Script",
             "sub_fields": [
                 {
-                    "key": "field_5d443ce7c7cb2",
+                    "key": "field_5d443ba5415d0",
                     "label": "Script Name",
                     "name": "script_name",
                     "type": "text",
@@ -134,7 +41,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d443cf6c7cb3",
+                    "key": "field_5d443bb2415d1",
                     "label": "Script Type",
                     "name": "script_type",
                     "type": "radio",
@@ -158,7 +65,7 @@
                     "save_other_choice": 0
                 },
                 {
-                    "key": "field_5d443d0dc7cb4",
+                    "key": "field_5d443bdd415d2",
                     "label": "External Script",
                     "name": "external_script",
                     "type": "text",
@@ -167,7 +74,7 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_5d443cf6c7cb3",
+                                "field": "field_5d443bb2415d1",
                                 "operator": "==",
                                 "value": "external"
                             }
@@ -185,16 +92,16 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5d443d30c7cb5",
+                    "key": "field_5d443c02415d3",
                     "label": "Internal Script",
                     "name": "internal_script",
                     "type": "textarea",
                     "instructions": "Please only add the code between <script> tags. They will automatically be inserted on the page.",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_5d443cf6c7cb3",
+                                "field": "field_5d443bb2415d1",
                                 "operator": "==",
                                 "value": "internal"
                             }
@@ -219,7 +126,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-header"
+                "value": "acf-options-footer"
             }
         ]
     ],
@@ -231,5 +138,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1564753262
+    "modified": 1564753010
 }
