@@ -66,25 +66,6 @@
                             "delay": 1
                         },
                         {
-                            "key": "field_5922b4f444b59",
-                            "label": "Use Default Content Field",
-                            "name": "use_default_content_field",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
                             "key": "field_599abb17ee388",
                             "label": "Options",
                             "name": "",
@@ -1850,5 +1831,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528813736
+    "modified": 1564757019
 }

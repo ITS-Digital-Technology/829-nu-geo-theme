@@ -1,0 +1,251 @@
+//Text Inputs
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+textarea {
+  padding: 5px 4px;
+  border: 1px solid #CCC;
+  width: 100%;
+}
+
+textarea {
+  height: 200px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+select {
+  width: 100%;
+
+  &[multiple="multiple"] {
+    option {
+      padding: 4px 8px;
+    }
+  }
+}
+
+label {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+//Gravity Forms (turn off Gravity Forms CSS in plugin settings)
+.gform_heading {
+  display: none;
+}
+
+ul.gform_fields {
+  padding-left: 0;
+}
+
+li.gfield {
+  list-style: none;
+  margin-bottom: 16px;
+  clear: both;
+}
+
+.ginput_container_radio,
+.ginput_container_checkbox {
+  > ul {
+    padding-left: 0;
+
+    > li {
+      list-style: none;
+
+      label {
+        font-weight: normal;
+        font-size: .875em;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  br {
+    display: none;
+  }
+}
+
+.gform_footer {
+  clear: both;
+
+  br {
+    display: none;
+  }
+}
+
+.ginput_complex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > * {
+    width: calc(50% - 8px);
+    margin-bottom: 0;
+
+    &.address_line_1,
+    &.address_line_2 {
+      width: 100%;
+    }
+
+    br {
+      display: none;
+    }
+
+    label {
+      font-size: .813em;
+      letter-spacing: .5pt;
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  li {
+    &.gf_left_half,
+    &.gf_right_half {
+      float: left;
+      width: calc(50% - 8px);
+    }
+  
+    &.gf_left_half {
+      margin-right: 16px;
+      clear: both;
+    }
+  
+    &.gf_right_half {
+      clear: none;
+    }
+
+    &.gf_left_third,
+    &.gf_middle_third,
+    &.gf_right_third {
+      float: left;
+      width: calc(33.3% - (32px / 3));
+    }
+
+    &.gf_left_third,
+    &.gf_middle_third {
+      margin-right: 16px;
+    }
+
+    &.gf_left_third {
+      clear: both;
+    }
+
+    &.gf_middle_third,
+    &.gf_right_third {
+      clear: none;
+    }
+  }
+}
+
+//Hubspot Forms
+.hbspt-form {
+  fieldset {
+    max-width: 100% !important;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  textarea,
+  select { 
+    width: 100% !important;
+  }
+
+  .form-columns-2,
+  .form-columns-3 {
+    > div {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .form-columns-2 {
+    > div {
+      width: calc(50% - 8px) !important;
+    }
+  }
+
+  .form-columns-3 {
+    > div {
+      width: calc(33.3% - (32px / 3)) !important;
+    }
+  }
+
+  .hs-richtext {
+    margin-bottom: 16px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+
+    > ul {
+      padding-left: 0;
+
+      > li {
+        list-style: none;
+
+        label {
+          font-weight: normal;
+          font-size: .875em;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  .input {
+    margin-right: 0 !important;
+
+    > ul {
+      margin-top: 0;
+      padding-left: 0;
+
+      > li {
+        list-style: none;
+
+        label {
+          font-weight: normal;
+          font-size: .875em;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+//Required Inputs (*)
+.gfield_required,
+.hs-form-required {
+  margin-left: 4px;
+  color: red;
+}
+
+//Error Messages 
+.hs-error-msgs {
+  margin-top: 0;
+}
+
+.validation_error {
+  margin-bottom: 16px;
+}
+
+.validation_message,
+.validation_error,
+.hs-error-msg {
+  font-weight: normal;
+  font-size: .875em;
+  line-height: 1.5;
+  color: red;
+}
