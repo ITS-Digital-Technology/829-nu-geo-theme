@@ -8,6 +8,7 @@ import Video from '../__utils/video';
 import { SimpleSlider, LightboxSlider } from '../__utils/sliders';
 import smoothScroll from '../__utils/smoothScroll';
 import Tables from '../__utils/tables';
+import Forms from '../__utils/forms';
 
 const headerMobile = new MobileHeader();
 
@@ -29,6 +30,7 @@ const controller = {
     },
     loaded() {
         document.querySelector('body').classList.add('page-has-loaded');
+        Forms();
     },
     resized() {
         headerMobile.resized();
