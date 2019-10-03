@@ -7,7 +7,7 @@ web/wp
 web/.htaccess
 web/app/plugins/*
 web/app/upgrade
-web/app/uploads/**/*-*x*.*
+web/app/uploads
 
 # Compiled assets
 web/app/themes/**/bundle.js
