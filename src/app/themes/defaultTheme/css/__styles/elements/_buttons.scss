@@ -116,3 +116,24 @@
         }
     }
 }
+
+.c-btn-group {
+    display: flex;
+    margin: 0 0 38px;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    .c-btn-wrapper {
+        margin: 0;
+
+        @include xs() {
+            margin: 10px auto !important;
+            text-align: center;
+            width: 100%;
+        }
+
+        & + .c-btn-wrapper {
+            margin-left: 11px;
+        }
+    }
+}

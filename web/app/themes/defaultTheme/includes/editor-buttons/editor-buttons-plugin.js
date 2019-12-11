@@ -223,6 +223,12 @@
                         }
                     },
                     {
+                        text: 'Group Buttons',
+                        onclick: function (e) {
+                            ed.insertContent( '[group_buttons]' + ed.selection.getContent() + '[/group_buttons]');
+                        }
+                    },
+                    {
                         text: 'Blockquote',
                         onClick: function() {
                             ed.windowManager.open({
