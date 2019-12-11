@@ -112,8 +112,25 @@
                     },
                     {
                         text: 'Lead Paragraph',
-                        onclick: function (e) {
-                            ed.insertContent( '[leadparagraph]' + ed.selection.getContent() + '[/leadparagraph]');
+                        onclick: function(e) {
+                            ed.windowManager.open({
+                                title: 'Lead Paragraph Settings',
+                                body: [
+                                    {
+                                        type: 'listbox',
+                                        name: 'alignment',
+                                        label: 'Alignment: ',
+                                        values: [
+                                            { text: 'Left', value: 'left' },
+                                            { text: 'Right', value: 'right' },
+                                            { text: 'Center', value: 'center' }
+                                        ]
+                                    }
+                                ],
+                                onsubmit: function (e) {
+                                    ed.insertContent( '[leadparagraph alignment="'+ e.data.alignment +'"]' + ed.selection.getContent() + '[/leadparagraph]');
+                                }
+                            });
                         }
                     },
                     {
