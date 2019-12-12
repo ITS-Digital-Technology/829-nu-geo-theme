@@ -112,8 +112,25 @@
                     },
                     {
                         text: 'Lead Paragraph',
-                        onclick: function (e) {
-                            ed.insertContent( '[leadparagraph]' + ed.selection.getContent() + '[/leadparagraph]');
+                        onclick: function(e) {
+                            ed.windowManager.open({
+                                title: 'Lead Paragraph Settings',
+                                body: [
+                                    {
+                                        type: 'listbox',
+                                        name: 'alignment',
+                                        label: 'Alignment: ',
+                                        values: [
+                                            { text: 'Left', value: 'left' },
+                                            { text: 'Right', value: 'right' },
+                                            { text: 'Center', value: 'center' }
+                                        ]
+                                    }
+                                ],
+                                onsubmit: function (e) {
+                                    ed.insertContent( '[leadparagraph alignment="'+ e.data.alignment +'"]' + ed.selection.getContent() + '[/leadparagraph]');
+                                }
+                            });
                         }
                     },
                     {
@@ -203,6 +220,12 @@
                                     ed.insertContent('[button href="' + e.data.btnUrl + '" target="' + e.data.btnTarget + '" style="' + e.data.style + '" alignment="' + e.data.alignment + '" color="' + e.data.color + '"]' + ed.selection.getContent() + '[/button]');
                                 }
                             });
+                        }
+                    },
+                    {
+                        text: 'Group Buttons',
+                        onclick: function (e) {
+                            ed.insertContent( '[group_buttons]' + ed.selection.getContent() + '[/group_buttons]');
                         }
                     },
                     {

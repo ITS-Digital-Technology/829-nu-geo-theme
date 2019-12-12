@@ -1,5 +1,4 @@
 const Forms = () => {
-  console.log('Forms init');
   const hubspotForm = document.querySelectorAll('.hbspt-form form.hs-custom-style');
 
   //Remove hubspot's styling from forms
