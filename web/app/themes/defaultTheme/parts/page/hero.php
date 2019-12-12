@@ -13,10 +13,16 @@
         $thumbnail = get_the_post_thumbnail_url();
         $vertical_align = get_field('featured_image_vertical');
         $horizontal_align = get_field('featured_image_horizontal');
+        $vertical_align_mobile = get_field('featured_image_vertical_mobile');
+        $horizontal_align_mobile = get_field('featured_image_horizontal_mobile');
         $thumbnail_align = 'center center';
 
         if (!empty($vertical_align) && !empty($horizontal_align)){
-            $thumbnail_align = $vertical_align . ' ' . $horizontal_align;
+            $thumbnail_align = $vertical_align.' '.$horizontal_align;
+        }
+
+        if (!empty($vertical_align_mobile) && !empty($horizontal_align_mobile)){
+            $thumbnail_align_mobile = $vertical_align_mobile.' '.$horizontal_align_mobile;
         }
 
         $block_class[] = 'page-hero';
@@ -24,9 +30,29 @@
         if(!empty($thumbnail)){
             $block_class[] = 'page-hero--thumbnail';
             $thumbnail_class = 'page-hero__thumbnail';
-            $style = 'background-image: url(' .  $thumbnail .  '); background-position:' . $thumbnail_align;
+            $css_class = '.'.$thumbnail_class;
+            $style = 'background-image: url(' .  $thumbnail .  ');';
         }
 ?>
+
+<?php if(!$banner_bool && $vertical_align && $horizontal_align): ?>
+<style>
+    <?php echo $css_class; ?> {
+        background-position: <?php echo $thumbnail_align ?>;
+    }
+</style>
+<?php endif; ?>
+
+<?php if(!$banner_bool && $vertical_align_mobile && $horizontal_align_mobile): ?>
+<style>
+    @media only screen and (max-width: 767px) {
+        <?php echo $css_class; ?> {
+            background-position: <?php echo $thumbnail_align_mobile ?>;
+        }
+    }
+</style>
+<?php endif; ?>
+
 <section class="<?php echo implode(' ', $block_class); ?>">
     <?php if(!empty($thumbnail)): ?>
     <div class="<?php echo $thumbnail_class; ?>" style="<?php echo $style; ?>"></div>
