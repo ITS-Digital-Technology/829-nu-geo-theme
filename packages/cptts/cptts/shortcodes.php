@@ -14,7 +14,6 @@ if ( ! class_exists( 'Cptts_Shortcodes' ) ):
             'blockquote_func' => 'blockquote',
             'leadparagraph_func' => 'leadparagraph',
             'highlight_func' => 'highlight',
-            'dropcap_func' => 'dropcap',
             'hook_func' => 'hook',
             'full_width_func' => 'full_width',
             'content_images_func' => 'content_image',
@@ -76,12 +75,6 @@ if ( ! class_exists( 'Cptts_Shortcodes' ) ):
             ), $atts );
 
             return '<span class="highlight-text">'.$content.'</span>';
-        }
-        function dropcap_func( $atts, $content = null ) {
-            shortcode_atts( array(
-            ), $atts );
-
-            return '<span class="dropcap">'.$content.'</span>';
         }
         function hook_func( $atts, $content = null ) {
             shortcode_atts( array(
