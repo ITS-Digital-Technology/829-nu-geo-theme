@@ -140,12 +140,6 @@
                         }
                     },
                     {
-                        text: 'Dropcap',
-                        onclick: function (e) {
-                            ed.insertContent( '[dropcap]' + ed.selection.getContent() + '[/dropcap]');
-                        }
-                    },
-                    {
                         text: 'Scroll Hook',
                         onClick: function () {
                             ed.windowManager.open( {
