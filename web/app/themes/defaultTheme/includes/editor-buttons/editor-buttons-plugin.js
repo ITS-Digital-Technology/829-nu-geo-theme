@@ -66,12 +66,6 @@
                 type: 'menubutton',
                 menu: [
                     {
-                        text: 'Full Width Container',
-                        onclick: function (e) {
-                            ed.insertContent( '[full_width]' + ed.selection.getContent() + '[/full_width]');
-                        }
-                    },
-                    {
                         text: 'Accordions',
                         menu: [
                             {
