@@ -134,12 +134,6 @@
                         }
                     },
                     {
-                        text: 'Highlight',
-                        onclick: function (e) {
-                            ed.insertContent( '[highlight]' + ed.selection.getContent() + '[/highlight]');
-                        }
-                    },
-                    {
                         text: 'Scroll Hook',
                         onClick: function () {
                             ed.windowManager.open( {
