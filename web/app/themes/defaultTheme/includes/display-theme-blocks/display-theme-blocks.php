@@ -11,7 +11,6 @@ class ContentBlock {
 
     private static $theme_blocks_locations = array(
         'block_content'              => 'page/content',
-        'block_full_width'           => 'page/block-fullwidth',
         'block_tabs'                 => 'page/block-tabs',
         'block_slider_gallery'       => 'page/block-content-gallery',
         'block_content_links'        => 'page/block-content-links',
