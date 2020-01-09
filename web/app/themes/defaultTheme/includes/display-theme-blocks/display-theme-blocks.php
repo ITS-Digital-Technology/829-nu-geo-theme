@@ -19,6 +19,7 @@ class ContentBlock {
         'block_img_composition'      => 'page/block-image-composition/main',
         'block_content_images_fluid' => 'page/block-content-images-fluid',
         'block_call_to_action'       => 'page/block-cta',
+        'universal_block'            => 'page/universal-block',
     );
 
     private function __construct(){}
