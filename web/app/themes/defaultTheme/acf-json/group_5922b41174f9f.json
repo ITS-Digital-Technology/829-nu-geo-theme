@@ -874,6 +874,25 @@
                                     "layout": "block",
                                     "sub_fields": [
                                         {
+                                            "key": "field_5b04014ebf8da",
+                                            "label": "Add Padding Between Images?",
+                                            "name": "add_padding",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 1,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
+                                        },
+                                        {
                                             "key": "field_5b04017fbf8db",
                                             "label": "Image left",
                                             "name": "image_left",
@@ -920,25 +939,6 @@
                                             "max_height": "",
                                             "max_size": "",
                                             "mime_types": ""
-                                        },
-                                        {
-                                            "key": "field_5b04014ebf8da",
-                                            "label": "Add Padding Between Images?",
-                                            "name": "add_padding",
-                                            "type": "true_false",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "message": "",
-                                            "default_value": 0,
-                                            "ui": 1,
-                                            "ui_on_text": "",
-                                            "ui_off_text": ""
                                         }
                                     ]
                                 },
@@ -1766,6 +1766,41 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5e17938f9d5e2": {
+                    "key": "layout_5e17938f9d5e2",
+                    "name": "universal_block",
+                    "label": "Block - Universal Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e1793979d5e3",
+                            "label": "Universal Block",
+                            "name": "universal_block",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "universal_block"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "elements": "",
+                            "min": "",
+                            "max": 1,
+                            "return_format": "id"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Block",
@@ -1792,6 +1827,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "universal_block"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1802,5 +1844,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576178350
+    "modified": 1578604248
 }

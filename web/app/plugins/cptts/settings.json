@@ -14,6 +14,22 @@
         "title"
       ]
     }
+	},
+	"create_post_type": {
+    "universal_block": {
+      "slug": "universal-block",
+      "label_single": "Universal Block",
+      "label_multi": "Universal Blocks",
+      "menu_name": "Universal Blocks",
+      "hierarchical": false,
+      "public": false,
+      "menu_icon": "dashicons-editor-kitchensink",
+      "publicly_queryable": true,
+      "show_ui": true,
+      "supports": [
+        "title"
+      ]
+    }
   }
 }
 /* ================================================================ */
