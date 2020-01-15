@@ -36,7 +36,7 @@
 		"wpackagist-plugin/wordpress-importer": "*",
 		"wpackagist-plugin/regenerate-thumbnails": "*",
 		"wpackagist-plugin/tablepress": "^1.9",
-		"wpackagist-plugin/svg-support": "^2.3",
+		"wpackagist-plugin/safe-svg": "^1.9",
 		"wpackagist-plugin/wp-retina-2x": "^5.2",
 		"wpackagist-plugin/bulk-page-creator": "^1.1",
 		"wpackagist-plugin/duplicate-post": "^3.2",
