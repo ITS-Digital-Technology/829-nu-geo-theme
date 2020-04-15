@@ -19,7 +19,7 @@
                 "5922b42a7fd37": {
                     "key": "5922b42a7fd37",
                     "name": "block_content",
-                    "label": "Block - Content",
+                    "label": "Content",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -290,7 +290,7 @@
                 "5926097480eb6": {
                     "key": "5926097480eb6",
                     "name": "block_tabs",
-                    "label": "Block - Tabs",
+                    "label": "Tabs",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -471,7 +471,7 @@
                 "5927f717dfe72": {
                     "key": "5927f717dfe72",
                     "name": "block_slider_gallery",
-                    "label": "Block - Slider Gallery",
+                    "label": "Slider Gallery",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -522,7 +522,7 @@
                 "592f5de310961": {
                     "key": "592f5de310961",
                     "name": "block_gallery_lightbox",
-                    "label": "Block - Gallery Lightbox",
+                    "label": "Gallery Lightbox",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -573,7 +573,7 @@
                 "5b02ec2778168": {
                     "key": "5b02ec2778168",
                     "name": "block_img_composition",
-                    "label": "Block - Image Composition",
+                    "label": "Image Composition",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1109,7 +1109,7 @@
                 "592bb72ec4e03": {
                     "key": "592bb72ec4e03",
                     "name": "block_content_links",
-                    "label": "Block - Images Links",
+                    "label": "Images Links",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1317,7 +1317,7 @@
                 "5b02705e31316": {
                     "key": "5b02705e31316",
                     "name": "block_text_links",
-                    "label": "Block - Text Links",
+                    "label": "Text Links",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1503,7 +1503,7 @@
                 "599415c7011c0": {
                     "key": "599415c7011c0",
                     "name": "block_content_images_fluid",
-                    "label": "Block - Content + Image",
+                    "label": "Content + Image",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1711,7 +1711,7 @@
                 "5b026a6b69bd0": {
                     "key": "5b026a6b69bd0",
                     "name": "block_call_to_action",
-                    "label": "Block - Call To Action",
+                    "label": "Call To Action",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1770,7 +1770,7 @@
                 "layout_5e17938f9d5e2": {
                     "key": "layout_5e17938f9d5e2",
                     "name": "universal_block",
-                    "label": "Block - Universal Block",
+                    "label": "Universal Block",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1844,5 +1844,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579101576
+    "modified": 1586967013
 }
