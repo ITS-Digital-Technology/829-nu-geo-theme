@@ -14,40 +14,36 @@ $heading_text = get_blog_heading();
 ?>
 
 	<main class="content container">
-		<?php
+		<div class="row">
+			<div class="col-12">
 
-		if ( have_posts() ) :
-			if ( $heading_text ) :
-				?>
+			<?php if(have_posts()): ?>
 
-				<h1><?php echo $heading_text; ?></h1>
+				<?php if($heading_text): ?>
+					<h1><?php echo $heading_text; ?></h1>
+				<?php endif; ?>
+
+				<?php get_theme_part( 'archive/loop-post' ); ?>
 
 				<?php
-			endif;
+				$args = array(
+					'mid_size'           => 3,
+					'prev_text'          => __( 'Prev' ),
+					'next_text'          => __( 'Next' ),
+					'screen_reader_text' => __( 'Posts navigation' ),
+				);
 
-			get_theme_part( 'archive/loop-post' );
-		else :
-			?>
+				the_posts_pagination( $args );
+				?>
 
-			<h2><?php _e( 'Sorry, nothing found.', 'defaultTheme' ); ?></h2>
+			<?php else: ?>
+				<h2><?php _e( 'Sorry, nothing found.', 'defaultTheme' ); ?></h2>
+			<?php endif; ?>
 
-			<?php
-		endif;
-
-		?>
+		
+			</div>
+		</div>
 	</main>
 
 <?php
-
-get_template_part( 'sidebar' );
-
-$args = array(
-	'mid_size'           => 3,
-	'prev_text'          => __( 'Prev' ),
-	'next_text'          => __( 'Next' ),
-	'screen_reader_text' => __( 'Posts navigation' ),
-);
-
-the_posts_pagination( $args );
-
 get_footer();
