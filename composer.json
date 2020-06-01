@@ -14,6 +14,10 @@
             }
         },
         {
+            "type": "vcs",
+            "url": "git@bitbucket.org:829studios/829-blog-category-filter-plugin.git"
+        },
+        {
             "type": "composer",
             "url": "https://wpackagist.org"
         }
@@ -30,6 +34,7 @@
         "acf-better-urls/acf-better-urls": "^1.0.0",
         "acf-navmenu/acf-navmenu": "^1.0.0",
         "cptts/cptts": "^1.0.0",
+        "eight29/eight29-filters": "dev-master",
         "gravityforms/gravityforms": "^2.3.2.11",
         "tablepress-responsive-tables/tablepress-responsive-tables": "^1.0.0",
         "wpackagist-plugin/classic-editor": "*",
