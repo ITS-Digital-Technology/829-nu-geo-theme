@@ -555,14 +555,8 @@ class acf_field_betterurls extends acf_field {
 
 		wp_enqueue_media();
 
-		wp_register_script( 'acf-input-betterurls-select2', $dir . 'js/select2.js' );
-		wp_enqueue_script('acf-input-betterurls-select2');
-
 		wp_register_script( 'acf-input-betterurls', $dir . 'js/input.js' );
 		wp_enqueue_script('acf-input-betterurls');
-
-		wp_register_style( 'acf-input-betterurls-select2', $dir . 'css/select2.css' );
-		wp_enqueue_style('acf-input-betterurls-select2');
 
 		wp_register_style( 'acf-input-betterurls', $dir . 'css/input.css' );
 		wp_enqueue_style('acf-input-betterurls');

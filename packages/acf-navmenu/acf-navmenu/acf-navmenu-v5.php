@@ -193,15 +193,9 @@ class acf_field_navmenu extends acf_field {
 	function input_admin_enqueue_scripts()
 	{
 		$dir = plugin_dir_url( __FILE__ );
-
-		wp_register_script( 'acf-input-navmenu-select2', $dir . 'js/select2.js' );
-		wp_enqueue_script('acf-input-navmenu-select2');
 		
 		wp_register_script( 'acf-input-navmenu', $dir . 'js/input.js' );
 		wp_enqueue_script('acf-input-navmenu');
-
-		wp_register_style( 'acf-input-navmenu-select2', $dir . 'css/select2.css' ); 
-		wp_enqueue_style('acf-input-navmenu-select2');
 
 		wp_register_style( 'acf-input-navmenu', $dir . 'css/input.css' ); 
 		wp_enqueue_style('acf-input-navmenu');
