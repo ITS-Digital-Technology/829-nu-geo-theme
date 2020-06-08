@@ -555,7 +555,7 @@ class acf_field_betterurls extends acf_field {
 
 		wp_enqueue_media();
 
-		wp_register_script( 'acf-input-betterurls', $dir . 'js/input.js' );
+		wp_register_script( 'acf-input-betterurls', $dir . 'js/input.js', ['acf-input'] );
 		wp_enqueue_script('acf-input-betterurls');
 
 		wp_register_style( 'acf-input-betterurls', $dir . 'css/input.css' );

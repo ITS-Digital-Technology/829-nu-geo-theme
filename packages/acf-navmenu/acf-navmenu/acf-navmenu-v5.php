@@ -194,7 +194,7 @@ class acf_field_navmenu extends acf_field {
 	{
 		$dir = plugin_dir_url( __FILE__ );
 		
-		wp_register_script( 'acf-input-navmenu', $dir . 'js/input.js' );
+		wp_register_script( 'acf-input-navmenu', $dir . 'js/input.js', ['acf-input'] );
 		wp_enqueue_script('acf-input-navmenu');
 
 		wp_register_style( 'acf-input-navmenu', $dir . 'css/input.css' ); 
