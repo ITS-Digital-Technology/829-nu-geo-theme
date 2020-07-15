@@ -1,6 +1,8 @@
 <?php
 /**
  * Theme shortcodes
+ * 
+ * Please follow the same format for registering new shortcodes.
  */
 
 namespace BaseTheme\Shortcodes;
@@ -29,7 +31,7 @@ add_shortcode( 'group_buttons', 'BaseTheme\Shortcodes\group_buttons' );
 
 // Blockquote
 function blockquote( $atts, $content = null ) {
-    shortcode_atts( array(
+    $atts = shortcode_atts( array(
         'author' => ''
     ), $atts );
 
@@ -82,7 +84,7 @@ function hook( $atts, $content = null ) {
 add_shortcode( 'hook', 'BaseTheme\Shortcodes\hook' );
 
 // Content Images
-function content_images( $atts, $content ) {
+function content_image( $atts, $content ) {
     extract(shortcode_atts( array(
         'align'  => 'none',
         'spacing'  => 'normal',
@@ -94,7 +96,7 @@ function content_images( $atts, $content ) {
         $images_class .= ' content-image-multiple';
     return '<div class="' . $images_class . '">' . do_shortcode($content) . '</div>';
 }
-add_shortcode( 'content_images', 'BaseTheme\Shortcodes\content_images' );
+add_shortcode( 'content_image', 'BaseTheme\Shortcodes\content_image' );
 
 // Full width image.
 function full_width_image($atts, $content) {
@@ -126,7 +128,7 @@ function accordion_wrapper($atts, $content) {
     <div class="page-accordion">
         <div class="container">
             <div class="row">
-                <div class="<?php echo ContentBlock::get_block_size_class(); ?>">
+                <div class="<?php echo \ContentBlock::get_block_size_class(); ?>">
                     <?php echo do_shortcode($content); ?>
                 </div>
             </div>
@@ -143,10 +145,10 @@ function accordion_wrapper($atts, $content) {
 add_shortcode( 'accordion_wrapper', 'BaseTheme\Shortcodes\accordion_wrapper' );
 
 // Accordion (Bellow)
-function accordion($atts, $content) {
+function accordion( $atts, $content ) {
     $acc_class = 'single-accordion';
     $acc_style = '';
-    if ( $vars['state'] === 'open' ) {
+    if ( $atts['state'] === 'open' ) {
         $acc_class .= ' active';
         $acc_style = ' style="display:block;"';
     }
@@ -155,7 +157,7 @@ function accordion($atts, $content) {
     ?>
 
     <div class="<?php echo $acc_class; ?>">
-        <div class="single-accordion__title"><h4><?php echo $vars['title']; ?><span class="single-accordion__icons"></span></h4></div>
+        <div class="single-accordion__title"><h4><?php echo $atts['title']; ?><span class="single-accordion__icons"></span></h4></div>
         <div class="single-accordion__content"<?php echo $acc_style; ?>><?php echo do_shortcode($content); ?></div>
     </div>
 
@@ -169,22 +171,22 @@ add_shortcode( 'accordion', 'BaseTheme\Shortcodes\accordion' );
 
 // Columns
 // sets the container column width
-function columns_func($atts, $content) {
-    shortcode_atts( array(
+function columns($atts, $content) {
+    $atts = shortcode_atts( array(
         'desktop'  => '10',
         'tablet'  => '10',
         'mobile'  => '12'
     ), $atts );
 
-    $cols_desktop_class = 'col-lg-' . $vars['desktop'];
-    $cols_tablet_class = 'col-md-' . $vars['tablet'];
-    $cols_mobile_class = 'col-' . $vars['mobile'];
+    $cols_desktop_class = 'col-lg-' . $atts['desktop'];
+    $cols_tablet_class = 'col-md-' . $atts['tablet'];
+    $cols_mobile_class = 'col-' . $atts['mobile'];
     $cols_class = $cols_mobile_class . ' ' . $cols_tablet_class . ' ' . $cols_desktop_class;
     $block_class[] = 'page-columns';
-    if (isset($vars['spacingtop']) && $vars['spacingtop'] == 'true'){
+    if (isset($atts['spacingtop']) && $atts['spacingtop'] == 'true'){
         $block_class[] = 'columns-spacing-top';
     }
-    if (isset($vars['spacingbottom']) && $vars['spacingbottom'] == 'true'){
+    if (isset($atts['spacingbottom']) && $atts['spacingbottom'] == 'true'){
         $block_class[] = 'columns-spacing-bottom';
     }
 
