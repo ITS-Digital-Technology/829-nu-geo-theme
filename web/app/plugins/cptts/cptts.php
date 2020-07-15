@@ -10,7 +10,6 @@ License: GPL
 Copyright: Theme Owner
 */
 
-include_once 'shortcodes.php';
 
 if ( ! class_exists( 'Cptts' ) ):
 
