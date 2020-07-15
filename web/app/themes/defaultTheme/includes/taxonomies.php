@@ -2,7 +2,7 @@
 /**
  * Register theme taxonomies
  * 
- * Please follow the same format for registering new post types.
+ * Please follow the same format for registering new taxonomies.
  * 
  * Reference: https://developer.wordpress.org/reference/functions/register_taxonomy/
  */
