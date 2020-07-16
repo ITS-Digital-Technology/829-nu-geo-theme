@@ -6,7 +6,6 @@ node_modules/
 web/wp
 web/.htaccess
 web/app/plugins/*
-!web/app/plugins/cptts
 web/app/upgrade
 web/app/uploads
 
