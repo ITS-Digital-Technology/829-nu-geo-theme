@@ -3,7 +3,7 @@ import MobileHeader from '../__header/mobileHeader';
 import Accordion from '../__shortcodes/accordions';
 import Tabs from '../__page/tabs';
 import GalleryLightbox from '../__page/lightboxGallery';
-import Video from '../__utils/video';
+import video from '../__utils/video';
 import { SimpleSlider, LightboxSlider } from '../__utils/sliders';
 import smoothScroll from '../__utils/smoothScroll';
 import Tables from '../__utils/tables';
@@ -19,7 +19,7 @@ const controller = {
         headerMobile.init();
         Accordion.init();
         Tabs.init();
-        Video();
+        video.init();
         SimpleSlider.init();
         LightboxSlider.init();
         GalleryLightbox.init();
