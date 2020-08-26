@@ -3,7 +3,6 @@ import MobileHeader from '../__header/mobileHeader';
 import Accordion from '../__shortcodes/accordions';
 import Tabs from '../__page/tabs';
 import GalleryLightbox from '../__page/lightboxGallery';
-import bindScrollEvents from '../__utils/lockScroll';
 import Video from '../__utils/video';
 import { SimpleSlider, LightboxSlider } from '../__utils/sliders';
 import smoothScroll from '../__utils/smoothScroll';
@@ -20,7 +19,6 @@ const controller = {
         headerMobile.init();
         Accordion.init();
         Tabs.init();
-        bindScrollEvents();
         Video();
         SimpleSlider.init();
         LightboxSlider.init();
