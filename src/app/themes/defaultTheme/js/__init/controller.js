@@ -36,6 +36,12 @@ const controller = {
         Tables.responsiveTableWidth();
         GalleryLightbox.refreshSlider();
     },
+    scrolled() {
+
+    },
+    keyDown(e){
+
+    },
     mouseUp(e) {
         headerMobile.hideOutsideClick(e);
     },
