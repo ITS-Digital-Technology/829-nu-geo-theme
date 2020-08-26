@@ -32,8 +32,7 @@ const controller = {
     },
     resized() {
         headerMobile.resized();
-        Tables.toggleTablesShadow();
-        Tables.responsiveTableWidth();
+        Tables.toggleShadow();
         GalleryLightbox.refreshSlider();
     },
     scrolled() {
