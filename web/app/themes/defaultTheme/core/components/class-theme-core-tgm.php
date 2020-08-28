@@ -21,16 +21,6 @@ class Theme_Core_TGM extends Theme_Core_Component {
 		require_once get_stylesheet_directory() . '/core/plugins/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 
 		$plugins = array(
-			array(
-				'name'               => 'Custom Post Types, Taxonomies and Shortcodes',
-				'slug'               => 'cptts',
-				'source'             => get_stylesheet_directory() . '/core/plugins/cptts.zip',
-				'required'           => true,
-				'version'            => '0.5',
-				'force_activation'   => true,
-				'force_deactivation' => false,
-				'external_url'       => '',
-			),
 		);
 
 		$config = array(
