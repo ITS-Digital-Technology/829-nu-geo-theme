@@ -21,7 +21,7 @@ function oembed_video_wrapper( $cached_html, $url ) {
 		$title = __('wistia video','defaultTheme');
 	} elseif ( strpos( $url, 'vimeo' ) !== false ) {
 		$class  .= ' vimeo';
-		$data    = json_decode( file_get_contents( "https://vimeo.com/api/oembed.json?url=https://vimeo.com/$id" ) );
+		$data    = json_decode( file_get_contents( "https://vimeo.com/api/oembed.json?url=$url" ) );
 		$img_src = preg_replace( '/_[\s\S]+?\./', '.', $data->thumbnail_url );
 		$title = __('vimeo video','defaultTheme');
 	} else {
