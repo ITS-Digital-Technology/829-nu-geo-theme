@@ -131,9 +131,4 @@ gulp.task('wp-regen', cb => {
     cb();
 });
 
-gulp.task('install', cb => {
-    runSequence(
-        'wp-install',
-        cb
-    );
-});
+gulp.task( 'install', gulp.series('wp-install') );
