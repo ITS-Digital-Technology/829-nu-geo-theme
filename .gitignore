@@ -12,6 +12,8 @@ web/app/uploads
 # Compiled assets
 web/app/themes/**/bundle.js
 web/app/themes/*/css/style.css
+web/app/themes/**/fonts/
+src/app/themes/**/css/__styles/_iconfont.scss
 
 # Filepacks
 web/filepack*
