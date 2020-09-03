@@ -1,6 +1,8 @@
 const gulp = require('gulp');
-const gulpConfig = require('../gulp.config')
+const config = require('../gulp.config')
 
+const fs = require('fs');
+const path = require('path');
 const wpcli = require('../env/wpcli');
 
 /*
