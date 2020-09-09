@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "473be178617b8920819472b62686e322",
+    "content-hash": "540384a16b3f7ccad034097a73611256",
     "packages": [
         {
             "name": "acf-better-urls/acf-better-urls",
@@ -186,18 +186,18 @@
             }
         },
         {
-            "name": "eight29/eight29-filters",
+            "name": "eight29/eight29-filters-react",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:829studios/829-blog-category-filter-plugin.git",
-                "reference": "38e437bd83806576e357b82ee492857117caa4fc"
+                "url": "git@bitbucket.org:829studios/829-blog-category-filters-react.git",
+                "reference": "6c681254d1c5847166e03d1c8cb8729b30d2511a"
             },
             "require": {
                 "composer/installers": "^1.0"
             },
             "type": "wordpress-plugin",
-            "time": "2020-06-01T16:24:59+00:00"
+            "time": "2020-09-09T13:22:57+00:00"
         },
         {
             "name": "gravityforms/gravityforms",
@@ -1506,7 +1506,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "eight29/eight29-filters": 20
+        "eight29/eight29-filters-react": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
