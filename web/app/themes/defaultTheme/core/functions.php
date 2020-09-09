@@ -61,3 +61,46 @@ function get_blog_heading() {
 
 	return null;
 }
+
+// Sample data for filter plugin (this should be formatted as an associative array)
+
+// $data = [
+// 	"post" => [
+// 		"category" => [
+// 			"label" => "Categories", 
+// 			"type" => "button-group" 
+// 		]
+// 	],
+// 	"post_b" => [
+// 		"tax_b1" => [
+// 			"label" => "Tax 1", 
+// 			"type" => "select" 
+// 		],
+// 		"tax_b2" => [
+// 			"label" => "Tax 2", 
+// 			"type" => "select" 
+// 		]
+// 	],
+// 	"post_c" => [
+// 		"tax_c1" => [
+// 			"label" => "Tax 1", 
+// 			"type" => "checkbox" 
+// 		]
+// 	],
+// 	"post_d" => [
+// 		"tax_d1" => [
+// 			"label" => "Tax 1", 
+// 			"type" => "multi-select" 
+// 		],
+// 		"tax_d2" => [
+// 			"label" => "Tax 2", 
+// 			"type" => "multi-select" 
+// 		]
+// 	]
+// ]; 
+
+// Pass data to filter plugin here
+
+// if (class_exists('eight29_filters')) {
+// 	$eight29_filters->set_post_data($data);
+// }
