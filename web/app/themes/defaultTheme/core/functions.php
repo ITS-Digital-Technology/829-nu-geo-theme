@@ -62,7 +62,8 @@ function get_blog_heading() {
 	return null;
 }
 
-// Sample data for filter plugin (this should be formatted as an associative array)
+//Sample data for filter plugin (this should be formatted as an associative array)
+//TODO add readme link
 
 // $data = [
 // 	"post" => [
@@ -99,7 +100,7 @@ function get_blog_heading() {
 // 	]
 // ]; 
 
-// Pass data to filter plugin here
+//Pass data to filter plugin here
 
 // if (class_exists('eight29_filters')) {
 // 	$eight29_filters->set_post_data($data);
