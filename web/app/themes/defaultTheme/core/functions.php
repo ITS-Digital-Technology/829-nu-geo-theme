@@ -63,7 +63,7 @@ function get_blog_heading() {
 }
 
 //Sample data for filter plugin (this should be formatted as an associative array)
-//TODO add readme link
+//Read here for instructions: https://bitbucket.org/829studios/829-blog-category-filters-react/src/master/
 
 // $eight29_filter_data = [
 // 	"post" => [

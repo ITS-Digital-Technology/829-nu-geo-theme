@@ -22,6 +22,7 @@ $term_id = $tax_conditions ? get_queried_object()->term_id : NULL;
 				<?php 
 				if (class_exists('eight29_filters') && !is_search()) {
 					//Update the conditional and attributes as needed
+					//Full list of attributes here: https://bitbucket.org/829studios/829-blog-category-filters-react/src/master/
 					echo do_shortcode('[eight29_filters 
 					post_type="'.$post_type.'" 
 					display_sidebar="top" 
