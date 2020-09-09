@@ -65,7 +65,7 @@ function get_blog_heading() {
 //Sample data for filter plugin (this should be formatted as an associative array)
 //TODO add readme link
 
-// $data = [
+// $eight29_filter_data = [
 // 	"post" => [
 // 		"category" => [
 // 			"label" => "Categories", 
@@ -103,5 +103,5 @@ function get_blog_heading() {
 //Pass data to filter plugin here
 
 // if (class_exists('eight29_filters')) {
-// 	$eight29_filters->set_post_data($data);
+// 	$eight29_filters->set_post_data($eight29_filter_data);
 // }
