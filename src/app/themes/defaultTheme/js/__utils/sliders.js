@@ -1,53 +1,34 @@
 const $ = jQuery.noConflict();
 
 class Slider {
-    constructor(sel, fade = false, num = 1, tabNum = 1, slideSpeed = 600, variableWidth = false) {
-        this.selector = sel;
-        this.num = num;
-        this.tabNum = tabNum;
-        this.variableWidth = variableWidth;
-        this.slideSpeed = slideSpeed;
-        this.fade = fade;
+    constructor( selector, args = {} ) {
+        this.selector = selector;
+        this.args = args;
     }
-    init() {
-        const {
-            num,
-            fade,
-            tabNum,
-            slideSpeed,
-            variableWidth,
-        } = this;
 
-        function slideSettings() {
-            $(this).slick({
-                dots: false,
-                arrows: true,
-                infinite: true,
-                slidesToShow: num,
-                slidesToScroll: 1,
-                variableWidth,
-                fade,
-                pauseOnHover: false,
-                speed: slideSpeed,
-                responsive: [
-                    {
-                        breakpoint: 991,
-                        settings: {
-                            slidesToShow: tabNum,
-                            slidesToScroll: 1,
-                        },
-                    },
-                    {
-                        breakpoint: 767,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                        },
-                    },
-                ],
-            });
+    getDefaultSlickSettings() {
+        return {
+            dots: false,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            pauseOnHover: false,
+            speed: 600,
         }
-        $(this.selector).each(slideSettings);
+    }
+
+    /**
+     * Override our default slick settings with args provided to the class.
+     */
+    getSlickSettings() {
+        return Object.assign( {}, this.getDefaultSlickSettings(), this.args );
+    }
+
+    init() {
+        let settings = this.getSlickSettings();
+
+        $( this.selector ).slick( settings );
     }
 }
 const SimpleSlider = new Slider('.bc-gallery__slider');
