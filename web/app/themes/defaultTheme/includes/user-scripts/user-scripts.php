@@ -3,7 +3,9 @@
 function userScripts($acf_field_name) {
   $in_footer = $acf_field_name === 'footer_scripts' ? true : false;
 
-  if(have_rows($acf_field_name, 'option')): while(have_rows($acf_field_name, 'option')): the_row();
+  $field = get_field( $acf_field_name, 'option' );
+  if( ! empty( $field ) ): 
+    while(have_rows($acf_field_name, 'option')): the_row();
 
     $script_name = get_sub_field('script_name');
     $script_name = str_replace(' ', '_', $script_name);
