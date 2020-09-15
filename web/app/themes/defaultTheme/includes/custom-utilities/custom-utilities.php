@@ -177,3 +177,39 @@ function get_back_url_by_ref() {
 		return home_url('/');
 	}
 }
+
+/**
+ * Get theme setting from the theme settings.json file
+ * @param  string Setting to grab from the file
+ * @return mixed
+ */
+function get_theme_setting( $setting ) {
+	global $theme_settings_file;
+
+	if ( empty( $theme_settings_file ) ) {
+		$theme_settings_file = file_get_contents( get_stylesheet_directory() . '/settings.json' );
+		$theme_settings_file = json_decode( preg_replace( '/\/\*(?s).*?\*\//', '', $theme_settings_file ) );
+	}
+
+
+	if ( property_exists( $theme_settings_file, $setting ) ) {
+		return $theme_settings_file->{ $setting };
+	}
+
+	return false;
+}
+
+function rem_calc( $value ) {
+    return intval ( $value ) / 16 . 'rem';
+}
+
+
+function is_url_200($url) {
+	$headers = get_headers($url, 1);
+
+	if (strpos($headers[0],'200') === false) {
+		return false;
+	} else {
+		return true;
+	}
+}
