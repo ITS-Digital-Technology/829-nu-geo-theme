@@ -37,7 +37,7 @@ function blockquote( $atts, $content = null ) {
 
     return '<blockquote class="alternate"><cite>'.$content.'</cite><span class="author">'.$atts['author'].'</span></blockquote>';
 }
-add_shortcode( 'group_buttons', 'BaseTheme\Shortcodes\blockquote' );
+add_shortcode( 'blockquote', 'BaseTheme\Shortcodes\blockquote' );
 
 // Lead Paragraph
 function leadparagraph( $atts, $content = null ) {
