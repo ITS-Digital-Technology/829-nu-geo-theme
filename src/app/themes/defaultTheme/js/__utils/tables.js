@@ -1,38 +1,25 @@
 const $ = jQuery.noConflict();
+
 class Tables {
     constructor() {
         this.tables = $('table.tablepress');
     }
+
     init() {
-        this.wrapTables();
-        this.responsiveTableWidth();
-        this.toggleTablesShadow();
+        this.toggleShadow();
     }
-    wrapTables() {
-        this.tables.wrap('<div class="table-wrapper"></div>');
-    }
-    toggleTablesShadow() {
-        function shadowFunc() {
-            const el = $(this);
-            const body = el.find('tbody');
-            if (body[0].offsetWidth < body[0].scrollWidth) {
-                el.addClass('has-scroll');
-            } else {
-                el.removeClass('has-scroll');
+
+    toggleShadow() {
+        this.tables.each((i, el) => {
+            const item = $(el);
+            const scrollWrapper = item.closest('.tablepress-scroll-wrapper');
+
+            scrollWrapper.removeClass('has-scroll');
+            if (item[0].offsetWidth > scrollWrapper.width()) {
+                scrollWrapper.addClass('has-scroll');
             }
-        }
-        this.tables.each(shadowFunc);
-    }
-    responsiveTableWidth() {
-        function tableWidth() {
-            const newWidth = $(window).width() - $(this).offset().left;
-            if ($('.tablet-checker').is(':visible')) {
-                $(this).width(newWidth);
-            } else {
-                $(this).width('');
-            }
-        }
-        this.tables.each(tableWidth);
+        });
     }
 }
+
 export default new Tables();

@@ -1,4 +1,4 @@
-import { enableScroll, stopScroll } from '../__utils/lockScroll';
+import lockScroll from '../__utils/lockScroll';
 
 const $ = jQuery.noConflict();
 
@@ -22,7 +22,7 @@ class LightboxGallery {
 
         lightboxBlock.find('.lightbox-gallery__gallery-wrapper').addClass('active');
         lightboxBlock.find('.lightbox-gallery__slider').slick('slickGoTo', slideNum, true);
-        stopScroll();
+        lockScroll.lock();
     }
     refreshSlider() {
         this.lightboxes.slick('refresh');
@@ -30,7 +30,7 @@ class LightboxGallery {
     closeLightbox() {
         const lightboxWrapper = $(this).parent('.lightbox-gallery__gallery-wrapper');
         lightboxWrapper.removeClass('active');
-        enableScroll();
+        lockScroll.unlock();
     }
 }
 export default new LightboxGallery();

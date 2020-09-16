@@ -1,25 +1,28 @@
-// Fix for disabled scroll on IOS
-const $ = jQuery.noConflict();
-let disableScroll = false;
-let scrollPos = 0;
-function stopScroll() {
-    disableScroll = true;
-    scrollPos = $(window).scrollTop();
-    $('body').addClass('lock-scroll');
-}
-function enableScroll() {
-    disableScroll = false;
-    $('body').removeClass('lock-scroll');
-}
-function bindScrollEvents() {
-    $(window).bind('scroll', () => {
-        if (disableScroll) {
-            $(window).scrollTop(scrollPos);
+/**
+ * --------------------------------------------------------------------------
+ * Lock screen
+ * Function locking screen scrolling, e.g for modals, menus or other
+ * --------------------------------------------------------------------------
+ */
+
+const lockScroll = {
+    isLocked: false,
+    lock() {
+        if (this.isLocked) {
+            return;
         }
-    });
-    $(window).bind('touchmove', () => {
-        $(window).trigger('scroll');
-    });
-}
-export default bindScrollEvents;
-export { enableScroll, stopScroll };
+        this.isLocked = true;
+
+        document.body.style.overflow = 'hidden';
+    },
+    unlock() {
+        if (!this.isLocked) {
+            return;
+        }
+        this.isLocked = false;
+
+        document.body.style.overflow = '';
+    }
+};
+
+export default lockScroll;
