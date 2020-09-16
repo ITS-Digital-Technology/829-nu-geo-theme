@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const gulpConfig = require('./gulp.config')
 
+require('dotenv').config();
 require( './tasks/iconfont' )
 require( './tasks/styles' )
 require( './tasks/scripts' )
@@ -18,10 +19,11 @@ gulp.task('default', gulp.series(
 
 gulp.task('build', gulp.series('default'))
 
-gulp.task('watch', gulp.series(
+gulp.task(
+    'watch', 
     gulp.parallel(
         'styles:watch',
-        'scripts:watch'
-    ),
-    'browsersync'
-))
+        'scripts:watch',
+        'browsersync'
+    )
+)

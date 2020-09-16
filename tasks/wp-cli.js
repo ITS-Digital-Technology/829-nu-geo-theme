@@ -74,7 +74,7 @@ gulp.task('db:export', cb => {
 
 gulp.task('db:import', cb => {
     const fileName = config.envArgs['file'] || 'db';
-    if (!fs.existsSync(path.resolve(__dirname, `db/${fileName}.sql`))) {
+    if (!fs.existsSync(path.resolve(__dirname, `../db/${fileName}.sql`))) {
         cb();
         return;
     }
