@@ -44,7 +44,7 @@
 		"wpackagist-plugin/wp-retina-2x": "^5.2",
 		"wpackagist-plugin/bulk-page-creator": "^1.1",
 		"wpackagist-plugin/duplicate-post": "^3.2",
-		"wpackagist-plugin/ewww-image-optimizer": "^4.2",
+		"wpackagist-plugin/ewww-image-optimizer": "^5.7.1",
 		"wpackagist-plugin/import-users-from-csv-with-meta": "*",
 		"wpackagist-plugin/user-role-editor": "^4.42",
 		"wpackagist-plugin/w3-total-cache": "^0.9.7",

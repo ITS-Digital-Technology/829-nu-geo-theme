@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23750fc879eb2e0200e0839fbf11f243",
+    "content-hash": "1d5ad708268418e81525c0303c81a04b",
     "packages": [
         {
             "name": "acf-better-urls/acf-better-urls",
@@ -173,31 +173,18 @@
             "time": "2020-04-07T06:57:05+00:00"
         },
         {
-            "name": "cptts/cptts",
-            "version": "1.0.2",
-            "dist": {
-                "type": "path",
-                "url": "packages/cptts/cptts",
-                "reference": "7f462a29c8248ce12f0efc94b4156043b5300186"
-            },
-            "type": "wordpress-plugin",
-            "transport-options": {
-                "symlink": false
-            }
-        },
-        {
             "name": "eight29/eight29-filters-react",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:829studios/829-blog-category-filters-react.git",
-                "reference": "63ce0802fd8822a05810a2a2399a8568f95857fa"
+                "reference": "73d886bdbb07567e6a83a9f7f85770f3e40dd62e"
             },
             "require": {
                 "composer/installers": "^1.0"
             },
             "type": "wordpress-plugin",
-            "time": "2020-09-09T20:08:19+00:00"
+            "time": "2020-09-17T20:23:49+00:00"
         },
         {
             "name": "gravityforms/gravityforms",
@@ -701,15 +688,15 @@
         },
         {
             "name": "wpackagist-plugin/duplicate-post",
-            "version": "3.2.5",
+            "version": "3.2.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/duplicate-post/",
-                "reference": "tags/3.2.5"
+                "reference": "tags/3.2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/duplicate-post.3.2.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/duplicate-post.3.2.6.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -719,15 +706,15 @@
         },
         {
             "name": "wpackagist-plugin/ewww-image-optimizer",
-            "version": "4.9.3",
+            "version": "5.7.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ewww-image-optimizer/",
-                "reference": "tags/4.9.3"
+                "reference": "tags/5.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.4.9.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.5.7.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
