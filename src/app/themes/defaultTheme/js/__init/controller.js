@@ -8,6 +8,7 @@ import { SimpleSlider, LightboxSlider } from '../__utils/sliders';
 import smoothScroll from '../__utils/smoothScroll';
 import Tables from '../__utils/tables';
 import Forms from '../__utils/forms';
+import vhUnit from '../__utils/vhUnit';
 
 const headerMobile = new MobileHeader();
 
@@ -25,15 +26,18 @@ const controller = {
         GalleryLightbox.init();
         smoothScroll();
         Tables.init();
+        vhUnit();
     },
     loaded() {
         document.querySelector('body').classList.add('page-has-loaded');
         Forms();
+        vhUnit();
     },
     resized() {
         headerMobile.resized();
         Tables.toggleShadow();
         GalleryLightbox.refreshSlider();
+        vhUnit();
     },
     scrolled() {
 
