@@ -207,16 +207,20 @@ ul:not([class])
 
 
 /* Normalize links across browsers */
-a
-{
-    transition: all .2s linear;
+a {
+    color: $text-color-base;
     text-decoration: none;
-
-    color: $link-color;
-    border-bottom: 1px solid transparent;
-    img
-    {
-        border: 0;
+    transition: color .2s;
+    &:hover {
+        color: $text-color-base;
+        text-decoration: none;
+    }
+    &:not([class]) {
+        color: $link-color;
+        text-decoration: underline;
+        &:hover {
+            color: $link-hover-color;
+        }
     }
 }
 
@@ -241,16 +245,6 @@ a:hover
     @include sm()
     {
         margin: 0 0 31px;
-    }
-}
-
-.tablet-checker
-{
-    display: none;
-
-    @include md()
-    {
-        display: block;
     }
 }
 

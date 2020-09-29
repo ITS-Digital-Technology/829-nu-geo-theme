@@ -14,7 +14,6 @@
             get_theme_part( 'footer/footer-bottom' );
     ?></footer>
 </div> <!-- /#page -->
-<span class="tablet-checker"></span>
 <?php wp_footer(); ?>
 
 </body>
