@@ -1,22 +1,14 @@
 import controller from './__init/controller';
 import detectTabNav from './__utils/detectTabNav';
+import throttle from 'lodash/throttle';
 
 let handled = false;
 
 controller.init();
 
-window.addEventListener('load', () => {
-	controller.loaded();
-});
-
-window.addEventListener('resize', () => {
-	controller.resized();
-});
-
-window.addEventListener('scroll', e => {
-	controller.scrolled(e);
-});
-
+window.addEventListener('load', controller.loaded);
+window.addEventListener('scroll', throttle(controller.scrolled, 100), { passive: true });
+window.addEventListener('resize', throttle(controller.resized, 100));
 window.addEventListener('keydown', e => {
     detectTabNav(e);
     controller.keyDown(e);

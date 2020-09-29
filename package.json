@@ -26,5 +26,8 @@
     "build": "gulp build --production",
     "db-import": "gulp db:import",
     "watch": "gulp watch"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
