@@ -97,7 +97,7 @@ gulp.task('db:import', cb => {
  * Insallation
  */
 gulp.task('wp-install', cb => {
-    wpcli('db', [ 'create' ]);
+    wpcli('db', [ 'create || true' ]);
 
     wpcli('core', [
         'install',
