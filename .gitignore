@@ -13,6 +13,7 @@ web/app/uploads
 web/app/themes/**/bundle.js
 web/app/themes/**/bundle.ie.js
 web/app/themes/*/css/style.css
+web/app/themes/*/css/iconfont.css
 web/app/themes/**/fonts/
 src/app/themes/**/css/__styles/_iconfont.scss
 

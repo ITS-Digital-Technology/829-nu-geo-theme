@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d5ad708268418e81525c0303c81a04b",
+    "content-hash": "1d908a685c6cab6201f49d61af0ceccf",
     "packages": [
         {
             "name": "acf-better-urls/acf-better-urls",
@@ -16,7 +16,8 @@
             },
             "type": "wordpress-plugin",
             "transport-options": {
-                "symlink": false
+                "symlink": false,
+                "relative": true
             }
         },
         {
@@ -29,7 +30,8 @@
             },
             "type": "wordpress-plugin",
             "transport-options": {
-                "symlink": false
+                "symlink": false,
+                "relative": true
             }
         },
         {
@@ -42,7 +44,8 @@
             },
             "type": "wordpress-plugin",
             "transport-options": {
-                "symlink": false
+                "symlink": false,
+                "relative": true
             }
         },
         {
@@ -173,18 +176,32 @@
             "time": "2020-04-07T06:57:05+00:00"
         },
         {
-            "name": "eight29/eight29-filters-react",
+            "name": "eight29/acf-icon-picker",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:829studios/829-blog-category-filters-react.git",
-                "reference": "73d886bdbb07567e6a83a9f7f85770f3e40dd62e"
+                "url": "git@bitbucket.org:829studios/acf-icon-picker.git",
+                "reference": "67dd11f82e8931882af02dbfae12ed1421b6ed56"
             },
             "require": {
                 "composer/installers": "^1.0"
             },
             "type": "wordpress-plugin",
-            "time": "2020-09-17T20:23:49+00:00"
+            "time": "2020-10-06T13:51:04+00:00"
+        },
+        {
+            "name": "eight29/eight29-filters-react",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:829studios/829-blog-category-filters-react.git",
+                "reference": "3fb276dc7c15fb203e934536e269c442e285ab62"
+            },
+            "require": {
+                "composer/installers": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "time": "2020-10-06T14:07:39+00:00"
         },
         {
             "name": "gravityforms/gravityforms",
@@ -196,7 +213,8 @@
             },
             "type": "wordpress-plugin",
             "transport-options": {
-                "symlink": false
+                "symlink": false,
+                "relative": true
             }
         },
         {
@@ -557,7 +575,8 @@
             },
             "type": "wordpress-plugin",
             "transport-options": {
-                "symlink": false
+                "symlink": false,
+                "relative": true
             }
         },
         {
@@ -724,15 +743,15 @@
         },
         {
             "name": "wpackagist-plugin/import-users-from-csv-with-meta",
-            "version": "1.15.9",
+            "version": "1.15.9.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/import-users-from-csv-with-meta/",
-                "reference": "tags/1.15.9"
+                "reference": "tags/1.15.9.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/import-users-from-csv-with-meta.1.15.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/import-users-from-csv-with-meta.1.15.9.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -868,15 +887,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "14.9",
+            "version": "15.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/14.9"
+                "reference": "tags/15.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.14.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1596,7 +1615,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "eight29/eight29-filters-react": 20
+        "eight29/eight29-filters-react": 20,
+        "eight29/acf-icon-picker": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
