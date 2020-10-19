@@ -11,13 +11,14 @@
 }
 
 $font-iconfont:	"<%= fontName %>";
+$iconfont-size:	24px !default;
 
 <% _.each(glyphs, function(glyph) { %>$<%= className %>-<%= glyph.name %>: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
 <% }); %>
 
 [class^="icon-"] {
   font-family: $font-iconfont;
-	font-size: 24px;
+	font-size: $iconfont-size;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;

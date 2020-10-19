@@ -18,6 +18,10 @@
             "url": "git@bitbucket.org:829studios/829-blog-category-filters-react.git"
         },
         {
+            "type": "vcs",
+            "url": "git@bitbucket.org:829studios/acf-icon-picker.git"
+        },
+        {
             "type": "composer",
             "url": "https://wpackagist.org"
         }
@@ -34,6 +38,7 @@
         "acf-better-urls/acf-better-urls": "^1.0.0",
         "acf-navmenu/acf-navmenu": "^1.0.0",
         "eight29/eight29-filters-react": "dev-master",
+        "eight29/acf-icon-picker": "dev-master",
         "gravityforms/gravityforms": "^2.3.2.11",
         "tablepress-responsive-tables/tablepress-responsive-tables": "^1.0.0",
         "wpackagist-plugin/classic-editor": "*",
