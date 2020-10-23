@@ -174,16 +174,14 @@ add_shortcode( 'accordion', 'BaseTheme\Shortcodes\accordion' );
 // Columns
 // sets the container column width
 function columns( $atts, $content ) {
-	extract(
-        shortcode_atts(
-            array(
-                'desktop' => '10',
-			    'tablet'  => '10',
-			    'mobile'  => '12',
-            ),
-            $atts
-        )
-    );
+	$atts = shortcode_atts( array(
+        'desktop'       => '10',
+        'tablet'        => '10',
+        'mobile'        => '12',
+        'spacingtop'    => 'false',
+        'spacingbottom' => 'false'
+    ), $atts );
+
 	$cols_desktop_class = 'col-lg-' . $atts['desktop'];
 	$cols_tablet_class  = 'col-md-' . $atts['tablet'];
 	$cols_mobile_class  = 'col-' . $atts['mobile'];
