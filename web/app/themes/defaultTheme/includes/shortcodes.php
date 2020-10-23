@@ -187,10 +187,10 @@ function columns( $atts, $content ) {
 	$cols_mobile_class  = 'col-' . $atts['mobile'];
 	$cols_class         = $cols_mobile_class . ' ' . $cols_tablet_class . ' ' . $cols_desktop_class;
 	$block_class[]      = 'page-columns';
-	if ( isset( $atts['spacingtop'] ) && $atts['spacingtop'] == 'true' ) {
+	if ( $atts['spacingtop'] == 'true' ) {
 		$block_class[] = 'columns-spacing-top';
 	}
-	if ( isset( $atts['spacingbottom'] ) && $atts['spacingbottom'] == 'true' ) {
+	if ( $atts['spacingbottom'] == 'true' ) {
         $block_class[] = 'columns-spacing-bottom';
 	}
 	ob_start();
