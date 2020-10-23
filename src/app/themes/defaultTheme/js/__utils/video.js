@@ -18,13 +18,15 @@ const video = {
         });
 
         const parent = $(this).parents('.iframe-wrapper');
-        parent.find('iframe')[0].src = parent.find('iframe')[0].dataset.src;
+        let source = parent.find('iframe')[0].dataset.src;
         if (!parent.hasClass('wistia')) {
-            parent.find('iframe')[0].src += '&autoplay=1&loop=1&rel=0&wmode=transparent';
+            source += '&autoplay=1&loop=1&rel=0&wmode=transparent';
         } else {
-            parent.find('iframe')[0].src = `https://fast.wistia.net/embed/iframe/${parent.data('video-id')}?autoplay=1&silentAutoPlay=false`;
+            source = `https://fast.wistia.net/embed/iframe/${parent.data('video-id')}?autoplay=1&silentAutoPlay=false`;
         }
+        parent.find('iframe')[0].src = source;
         $(this).delay(300).fadeOut();
+
     }
 };
 
