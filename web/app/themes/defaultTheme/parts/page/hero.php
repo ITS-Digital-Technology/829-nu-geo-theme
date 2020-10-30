@@ -58,6 +58,7 @@
     <div class="<?php echo $thumbnail_class; ?>" style="<?php echo $style; ?>"></div>
     <?php endif; ?>
     <div class="container">
+    test
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="page-hero__content"><?php

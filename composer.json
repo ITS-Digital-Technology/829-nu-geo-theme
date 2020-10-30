@@ -27,14 +27,15 @@
         }
     ],
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.0",
         "composer/installers": "^1.4",
         "vlucas/phpdotenv": "^2.0.1",
         "johnpbloch/wordpress": "^5.0.3",
         "oscarotero/env": "^1.1.0",
         "roots/wp-password-bcrypt": "1.0.0",
         "roots/wp-config": "1.0.0",
-        "advanced-custom-fields-pro/advanced-custom-fields-pro": "^5.8.0",
+        "filp/whoops": "*",
+        "advanced-custom-fields-pro/advanced-custom-fields-pro": "^5.9.1",
         "acf-better-urls/acf-better-urls": "^1.0.0",
         "acf-navmenu/acf-navmenu": "^1.0.0",
         "eight29/eight29-filters-react": "dev-master",
