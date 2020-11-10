@@ -35,118 +35,50 @@
 }
 
 blockquote.alternate,
-blockquote
-{
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 48px;
-
-    position: relative;
-
-    margin: 55px 0;
-    padding: 11px 38px 54px;
-
-    border-left: 2px solid $color-4;
-
-    @include sm()
-    {
-        font-size: 21px;
-        line-height: 24px;
-
-        margin: 40px 0 42px;
-        padding: 6px 14px 44px 18px;
+blockquote {
+    padding: 0 rem(40);
+    margin: rem(48) 0;
+    font-size: rem(34);
+    font-weight: 400;
+    font-style: italic;
+    line-height: rem(40);
+    text-align: left;
+    border-left: rem(4) solid $text-color-base;
+    @include sm {
+        padding: 0 0 0 rem(15);
+        margin: rem(36) 0;
+        font-size: rem(25);
+        line-height: rem(24);
     }
-    &:not([class])
-    {
-        padding: 11px 38px;
-
-        @include sm()
-        {
-            padding: 6px 14px 6px 18px;
-        }
-         > p
-        {
-            &:before,
-            &:after
-            {
-                display: inline;
-            }
-            &:before
-            {
-                position: absolute;
-                top: 10px;
-                left: 26px;
-
-                content: '“';
-
-                @include sm()
-                {
-                    top: 6px;
-                    left: 11px;
-                }
-            }
-            &:after
-            {
-                content: '”';
-            }
-        }
-    }
-    p
-    {
+    & > p {
         margin: 0;
-    }
-    cite
-    {
-        font-style: normal;
-        &:before,
-        &:after
-        {
+        &::before,
+        &::after {
+            content: '"';
             display: inline;
-        }
-        &:before
-        {
-            position: absolute;
-            top: 10px;
-            left: 26px;
-
-            content: '“';
-
-            @include sm()
-            {
-                top: 6px;
-                left: 11px;
+            @include sm {
+                content: none;
             }
         }
-        &:after
-        {
-            content: '”';
+        &::after {
+            content: '"';
+            @include sm {
+                content: none;
+            }
         }
     }
-    .author
-    {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 18px;
-
-        position: absolute;
-        bottom: 13px;
-        left: 38px;
-
-        @include sm()
-        {
-            font-size: 14px;
-            line-height: 16px;
-
-            bottom: 10px;
-            left: 18px;
+    footer {
+        margin-top: rem(32);
+        @include sm {
+            margin-top: rem(24);
         }
-        &:before
-        {
+        &:before {
+            content: '–';
             display: inline;
-
-            margin-right: 4px;
-
-            content: '—';
+            margin-right: rem(10);
+            @include sm {
+                margin-right: rem(5);
+            }
         }
     }
 }

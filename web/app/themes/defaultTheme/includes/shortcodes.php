@@ -1,7 +1,7 @@
 <?php
 /**
  * Theme shortcodes
- * 
+ *
  * Please follow the same format for registering new shortcodes.
  */
 
@@ -31,11 +31,13 @@ add_shortcode( 'group_buttons', 'BaseTheme\Shortcodes\group_buttons' );
 
 // Blockquote
 function blockquote( $atts, $content = null ) {
-    $atts = shortcode_atts( array(
-        'author' => ''
-    ), $atts );
-
-    return '<blockquote class="alternate"><cite>'.$content.'</cite><span class="author">'.$atts['author'].'</span></blockquote>';
+	$atts = shortcode_atts(
+		array(
+			'author' => '',
+		),
+		$atts
+	);
+	return '<blockquote class="alternate"><p>' . $content . '</p><footer>' . $atts['author'] . '</footer></blockquote>';
 }
 add_shortcode( 'blockquote', 'BaseTheme\Shortcodes\blockquote' );
 
@@ -92,7 +94,7 @@ function content_image( $atts, $content ) {
 
     $images_class = 'content-image content-image__align-' . $align . ' spacing-' . $spacing;
     $images_count = substr_count($content, '<img');
-    if($images_count > 1) 
+    if($images_count > 1)
         $images_class .= ' content-image-multiple';
     return '<div class="' . $images_class . '">' . do_shortcode($content) . '</div>';
 }
@@ -101,7 +103,7 @@ add_shortcode( 'content_image', 'BaseTheme\Shortcodes\content_image' );
 // Full width image.
 function full_width_image($atts, $content) {
     ob_start();
-    break_grid('close'); 
+    break_grid('close');
     ?>
 
     <div class="page-fullwidth-image">
@@ -110,11 +112,11 @@ function full_width_image($atts, $content) {
         </figure>
     </div>
 
-    <?php 
+    <?php
     break_grid('open');
     $output = ob_get_contents();
     ob_end_clean();
-    
+
 	return $output;
 }
 add_shortcode( 'full_width_image', 'BaseTheme\Shortcodes\full_width_image' );
@@ -122,7 +124,7 @@ add_shortcode( 'full_width_image', 'BaseTheme\Shortcodes\full_width_image' );
 // Accordion Wrapper
 function accordion_wrapper($atts, $content) {
     ob_start();
-    break_grid('close'); 
+    break_grid('close');
     ?>
 
     <div class="page-accordion">
@@ -135,11 +137,11 @@ function accordion_wrapper($atts, $content) {
         </div>
     </div>
 
-    <?php 
+    <?php
     break_grid('open');
     $output = ob_get_contents();
     ob_end_clean();
-    
+
 	return $output;
 }
 add_shortcode( 'accordion_wrapper', 'BaseTheme\Shortcodes\accordion_wrapper' );
@@ -164,49 +166,47 @@ function accordion( $atts, $content ) {
     <?php
     $output = ob_get_contents();
     ob_end_clean();
-    
+
 	return $output;
 }
 add_shortcode( 'accordion', 'BaseTheme\Shortcodes\accordion' );
 
 // Columns
 // sets the container column width
-function columns($atts, $content) {
-    $atts = shortcode_atts( array(
-        'desktop'  => '10',
-        'tablet'  => '10',
-        'mobile'  => '12'
+function columns( $atts, $content ) {
+	$atts = shortcode_atts( array(
+        'desktop'       => '10',
+        'tablet'        => '10',
+        'mobile'        => '12',
+        'spacingtop'    => 'false',
+        'spacingbottom' => 'false'
     ), $atts );
 
-    $cols_desktop_class = 'col-lg-' . $atts['desktop'];
-    $cols_tablet_class = 'col-md-' . $atts['tablet'];
-    $cols_mobile_class = 'col-' . $atts['mobile'];
-    $cols_class = $cols_mobile_class . ' ' . $cols_tablet_class . ' ' . $cols_desktop_class;
-    $block_class[] = 'page-columns';
-    if (isset($atts['spacingtop']) && $atts['spacingtop'] == 'true'){
-        $block_class[] = 'columns-spacing-top';
-    }
-    if (isset($atts['spacingbottom']) && $atts['spacingbottom'] == 'true'){
+	$cols_desktop_class = 'col-lg-' . $atts['desktop'];
+	$cols_tablet_class  = 'col-md-' . $atts['tablet'];
+	$cols_mobile_class  = 'col-' . $atts['mobile'];
+	$cols_class         = $cols_mobile_class . ' ' . $cols_tablet_class . ' ' . $cols_desktop_class;
+	$block_class[]      = 'page-columns';
+	if ( $atts['spacingtop'] == 'true' ) {
+		$block_class[] = 'columns-spacing-top';
+	}
+	if ( $atts['spacingbottom'] == 'true' ) {
         $block_class[] = 'columns-spacing-bottom';
-    }
-
-    ob_start();
-    break_grid('close'); 
-    ?>
-
-    <div class="<?php echo implode(' ',$block_class); ?>">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="<?php echo $cols_class; ?>"><?php echo do_shortcode($content); ?></div><?php
-            ?></div>
-        </div>
-    </div>
-
-    <?php 
-    break_grid('open');
-    $output = ob_get_contents();
-    ob_end_clean();
-    
+	}
+	ob_start();
+	break_grid( 'close' );
+	?>
+    <div class="<?php echo implode( ' ', $block_class ); ?>">
+		<div class="container">
+			<div class="row justify-content-center">
+                <div class="<?php echo $cols_class; ?>"><?php echo do_shortcode( $content ); ?></div>
+            </div>
+		</div>
+	</div>
+	<?php
+	break_grid( 'open' );
+	$output = ob_get_contents();
+	ob_end_clean();
 	return $output;
 }
 add_shortcode( 'columns', 'BaseTheme\Shortcodes\columns' );
