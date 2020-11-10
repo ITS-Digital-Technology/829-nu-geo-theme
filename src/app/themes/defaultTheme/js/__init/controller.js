@@ -1,29 +1,27 @@
 import MegaMenu from '../__header/MegaMenu';
-import MobileHeader from '../__header/mobileHeader';
-import Accordion from '../__shortcodes/accordions';
-import Tabs from '../__page/tabs';
-import GalleryLightbox from '../__page/lightboxGallery';
+import MobileHeader from '../__header/MobileHeader';
+import Accordion from '../__shortcodes/Accordions';
+import Tabs from '../__page/Tabs';
+import LightboxGallery from '../__page/LightboxGallery';
 import video from '../__utils/video';
-import { SimpleSlider, LightboxSlider } from '../__utils/sliders';
+import { SimpleSlider, LightboxSlider } from '../__utils/Sliders';
 import smoothScroll from '../__utils/smoothScroll';
-import Tables from '../__utils/tables';
+import Tables from '../__utils/Tables';
 import Forms from '../__utils/forms';
 import vhUnit from '../__utils/vhUnit';
-
-const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
 const controller = {
     init() {
         document.querySelector('html').classList.remove('no-js');
         MegaMenu.init();
-        headerMobile.init();
+        MobileHeader.init();
         Accordion.init();
         Tabs.init();
         video.init();
         SimpleSlider.init();
         LightboxSlider.init();
-        GalleryLightbox.init();
+        LightboxGallery.init();
         smoothScroll();
         Tables.init();
         vhUnit();
@@ -34,9 +32,9 @@ const controller = {
         vhUnit();
     },
     resized() {
-        headerMobile.resized();
+        MobileHeader.resized();
         Tables.toggleShadow();
-        GalleryLightbox.refreshSlider();
+        LightboxGallery.refreshSlider();
         vhUnit();
     },
     scrolled() {
@@ -46,7 +44,7 @@ const controller = {
 
     },
     mouseUp(e) {
-        headerMobile.hideOutsideClick(e);
+        MobileHeader.hideOutsideClick(e);
     },
 };
 export default controller;

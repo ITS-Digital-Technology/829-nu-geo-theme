@@ -1,4 +1,4 @@
-import MobileHeader from '../__header/mobileHeader';
+import MobileHeader from '../__header/MobileHeader';
 
 const $ = jQuery.noConflict();
 function scrollFunc(e) {
