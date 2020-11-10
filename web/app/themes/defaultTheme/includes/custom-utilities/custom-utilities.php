@@ -213,3 +213,16 @@ function is_url_200($url) {
 		return true;
 	}
 }
+
+function wp_acf_link ( $link = false, $class = false, $icon = false ) {
+	if ( $link ) {
+        $link_url     = $link['url'];
+		$link_title   = $link['title'];
+		$link_target  = $link['target'] ? 'target="_blank" rel="noopener"' : 'target="_self"';
+        $link_class   = $class ? 'class="' . $class . '"' : '';
+
+		return '<a ' . $link_class . ' href="' . $link_url . '" ' . $link_target . '><span>' . $link_title . '</span>' . $icon . '</a>';
+	}
+
+	return;
+}
