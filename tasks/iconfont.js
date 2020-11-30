@@ -10,7 +10,7 @@ const srcThemeDir = config.paths.srcRoot + config.paths.themes + config.paths.th
 const webThemeDir = config.paths.webRoot + config.paths.themes + config.paths.themeName + '/';
 
 gulp.task('iconfont', function(done){
-    var iconStream = gulp.src([config.paths.iconfont.src])
+    var iconStream = gulp.src([srcThemeDir + config.paths.iconfont.iconSrc])
         .pipe(iconfont({
             fontName: 'iconfont-' + config.paths.themeName,
             normalize: true,
