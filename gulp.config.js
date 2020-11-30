@@ -9,7 +9,7 @@ module.exports = {
         webRoot: 'web/app/',
         themes: 'themes/',
         iconfont: {
-            src: 'src/app/themes/**/icons/**/*',
+            iconSrc: '/icons/**/*', //Path inside theme
             scss: 'css/__styles/',
             template: 'css/templates/_iconfont.scss',
             class: 'icon'
