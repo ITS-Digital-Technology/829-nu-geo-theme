@@ -1,0 +1,37 @@
+<?php
+$permalink        = isset( $permalink ) ? $permalink : false;
+$thumbnail        = isset( $thumbnail ) ? $thumbnail : false;
+$cat              = isset( $cat ) ? $cat : false;
+$title            = isset( $title ) ? $title : false;
+$post_author_id   = isset( $post_author_id ) ? $post_author_id : false;
+$post_author_link = get_author_posts_url( $post_author_id );
+$author           = get_the_author_meta( 'display_name', $post_author_id );
+$is_h3			  = isset($is_h3) ? $is_h3 : false;
+?>
+
+
+<article class="blog-post__card">
+	<a class="blog-post__card-link" href="<?php echo $permalink; ?>" aria-label="Post Link"></a>
+	<div class="blog-post__card-wrapper">
+	<?php if ( ! empty( $thumbnail ) ) : ?>
+		<figure class="blog-post__card-thumbnail"><?php echo $thumbnail; ?></figure>
+	<?php endif; ?>
+		<div class="blog-post__card-content">
+		<?php if ( ! empty( $cat ) ) : ?>
+			<div class="blog-post__card-cat">
+				<a class="blog-post__card-cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
+			</div>
+		<?php endif; ?>
+		<?php if ($is_h3) : ?>
+			<h3 class="blog-post__card-title"><?php echo $title; ?></h3>
+		<?php else : ?>
+			<h4 class="blog-post__card-title"><?php echo $title; ?></h4>
+		<?php endif; ?>
+			<div class="blog-post__card-author">
+				<a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post__card__author-link">
+					<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
+				</a>
+			</div>
+		</div>
+	</div>
+</article>

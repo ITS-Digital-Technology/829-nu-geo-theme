@@ -1,0 +1,187 @@
+{
+    "key": "group_59898a81df820",
+    "title": "Mega menu",
+    "fields": [
+        {
+            "key": "field_59898bdb499fd",
+            "label": "Mega Menu Columns",
+            "name": "mega_menu_columns",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "59898bf185149": {
+                    "key": "59898bf185149",
+                    "name": "mmc_wp_menu",
+                    "label": "WP Menu",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_59898c2d499fe",
+                            "label": "Menu",
+                            "name": "mm_wp_menu",
+                            "type": "navmenu",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "output": "menuid",
+                            "menu_class": "",
+                            "menu_id": "",
+                            "container": "",
+                            "container_class": "",
+                            "container_id": "",
+                            "before": "",
+                            "after": "",
+                            "link_before": "",
+                            "link_after": ""
+                        },
+                        {
+                            "key": "field_5b0e6a78b5261",
+                            "label": "Width",
+                            "name": "width",
+                            "type": "range",
+                            "instructions": "Column Width (1-12)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "min": 1,
+                            "max": 12,
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ff5abf329ad5": {
+                    "key": "layout_5ff5abf329ad5",
+                    "name": "mmc_wp_links",
+                    "label": "WP Content Links",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ff5ac0529ad6",
+                            "label": "Links",
+                            "name": "links",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ff5ac0d29ad7",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5ff5ac1529ad8",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5ff5addf14de3",
+                            "label": "Width",
+                            "name": "width",
+                            "type": "range",
+                            "instructions": "Column Width (1-12)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "min": 1,
+                            "max": 12,
+                            "step": 1,
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Item",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ccs_custom_menu_item"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1612172472
+}

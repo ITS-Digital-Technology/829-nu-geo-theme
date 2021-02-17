@@ -1,0 +1,82 @@
+{
+    "key": "group_5ffc548f10545",
+    "title": "Program - Fields",
+    "fields": [
+        {
+            "key": "field_5ffc550d5c388",
+            "label": "Program Link",
+            "name": "program_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_5ffc549db8285",
+            "label": "Application deadline",
+            "name": "program_application_deadline",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_5ffc574e73a9a",
+            "label": "Program Status",
+            "name": "program_status",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "open": "Open",
+                "full": "Full",
+                "pending": "Pending"
+            },
+            "default_value": "open",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "program"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1610383286
+}

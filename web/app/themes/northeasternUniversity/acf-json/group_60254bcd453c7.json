@@ -1,0 +1,103 @@
+{
+    "key": "group_60254bcd453c7",
+    "title": "Search - Options",
+    "fields": [
+        {
+            "key": "field_60254d475cf59",
+            "label": "Search Information",
+            "name": "search_information",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60254cac9efb1",
+                    "label": "Menu Title",
+                    "name": "search_menu_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_60254bd3ce6f9",
+                    "label": "Quick Links",
+                    "name": "search_quick_links",
+                    "type": "navmenu",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "output": "html",
+                    "menu_class": "",
+                    "menu_id": "",
+                    "container": "",
+                    "container_class": "",
+                    "container_id": "",
+                    "before": "",
+                    "after": "",
+                    "link_before": "",
+                    "link_after": ""
+                },
+                {
+                    "key": "field_60254c03ce6fa",
+                    "label": "No Results Info",
+                    "name": "serach_no_results_info",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-search"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1613057386
+}

@@ -1,0 +1,67 @@
+{
+    "key": "group_601a6d555a83a",
+    "title": "Page - Side",
+    "fields": [
+        {
+            "key": "field_601a6d5f36478",
+            "label": "Show additional submenu?",
+            "name": "show_additional_submenu",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_601a6d8a36479",
+            "label": "Menu",
+            "name": "page_undermenu",
+            "type": "navmenu",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "output": "html",
+            "menu_class": "",
+            "menu_id": "",
+            "container": "",
+            "container_class": "",
+            "container_id": "",
+            "before": "",
+            "after": "",
+            "link_before": "",
+            "link_after": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1612344734
+}

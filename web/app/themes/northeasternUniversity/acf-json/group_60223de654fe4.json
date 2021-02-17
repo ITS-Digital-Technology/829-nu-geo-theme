@@ -1,0 +1,144 @@
+{
+    "key": "group_60223de654fe4",
+    "title": "Single News - Hero",
+    "fields": [
+        {
+            "key": "field_60223e2690f0c",
+            "label": "Type",
+            "name": "type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Image",
+                "video": "Video"
+            },
+            "default_value": "image",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60223de66e3cb",
+            "label": "Featured Image Horizontal Alignment",
+            "name": "featured_image_horizontal",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60223e2690f0c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "center",
+                "left": "left",
+                "right": "right"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60223de671e9c",
+            "label": "Featured Image Vertical Alignment",
+            "name": "featured_image_vertical",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60223e2690f0c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "center",
+                "top": "top",
+                "bottom": "bottom"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60223ea190f0d",
+            "label": "Video",
+            "name": "video",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60223e2690f0c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "news"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "discussion",
+        "comments"
+    ],
+    "active": true,
+    "description": "",
+    "modified": 1612943711
+}

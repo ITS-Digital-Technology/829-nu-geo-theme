@@ -1,0 +1,42 @@
+{
+  "name": "eight29-filters",
+  "version": "1.2.7",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svg-react": "^1.0.4",
+    "react": "^16.13.1",
+    "react-datepicker": "^3.3.0",
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.7",
+    "simplebar-react": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-async-generators": "^7.8.4",
+    "@babel/preset-react": "^7.9.4",
+    "bestzip": "^2.1.6",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "sass": "^1.26.10"
+  },
+  "scripts": {
+    "start": "parcel watch src/index.js src/style.scss --public-url ./",
+    "build": "parcel build src/index.js src/style.scss --public-url ./",
+    "build:production": "parcel build src/index.js src/style.scss src/assets/images/* src/assets/images/icons/* --no-content-hash --public-url ./",
+    "zip": "npm run build:production && bestzip eight29-filters-react.zip index.php dist src package.json plugin-update-checker .sassrc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://chris829@bitbucket.org/829studios/829-blog-category-filters-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/829studios/829-blog-category-filters-react/jira"
+  },
+  "homepage": "https://bitbucket.org/829studios/829-blog-category-filters-react/src/master/"
+}
