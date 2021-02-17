@@ -1,0 +1,69 @@
+.staff-appointment {
+    padding: rem(34) rem(46) rem(39) rem(36);
+
+    margin: 0 0 rem(56);
+
+    border-radius: rem(8);
+    background-color: $gray-6;
+
+    @include sm() {
+        padding: rem(23) rem(19) rem(24) rem(19);
+
+        margin: 0 0 rem(32);
+    }
+
+    &__title {
+        margin: 0 0 rem(32);
+
+        @include sm() {
+            margin: 0 0 rem(17);
+        }
+    }
+
+    &__hours {
+        padding-right: rem(43);
+
+        &-item {
+            display: flex;
+
+            margin: 0 0 rem(16);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-day {
+            @include font(16, 24);
+
+            margin-right: rem(15);
+
+            font-family: $font-third;
+            font-weight: 700;
+
+            @include sm() {
+                @include font(14, 24);
+
+                margin-right: rem(21);
+            }
+        }
+
+        &-hour {
+            @include font(16, 24);
+
+            @include sm() {
+                @include font(14, 24);
+            }
+        }
+    }
+
+    .c-btn {
+        margin-top: rem(30);
+
+        @include sm() {
+            width: 100%;
+
+            margin-top: rem(16);
+        }
+    }
+}

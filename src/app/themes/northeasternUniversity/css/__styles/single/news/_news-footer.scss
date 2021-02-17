@@ -1,0 +1,57 @@
+.news-footer {
+    $block: &;
+
+    margin: rem(81) 0 rem(20);
+
+    @include sm() {
+        margin: rem(49) 0 rem(20);
+    }
+
+    &__title {
+        @include font(12, 16);
+
+        margin: 0 0 rem(4);
+
+        font-weight: 700;
+        letter-spacing: rem(1.2);
+        text-transform: uppercase;
+
+        @include sm() {
+            margin: 0 0 rem(10);
+        }
+    }
+
+    &__tags {
+        @include md() {
+            margin-bottom: rem(22);
+        }
+
+        a:not([class]) {
+            @include font(14, 16);
+
+            margin-right: rem(6);
+
+            font-weight: 700;
+            color: $gray-2;
+            text-decoration: none;
+        }
+    }
+
+    &__social {
+        display: flex;
+
+        justify-content: flex-end;
+
+        @include md() {
+            justify-content: flex-start;
+        }
+
+        #{$block}__title {
+            margin-bottom: rem(12);
+
+            @include sm() {
+                margin-bottom: rem(15);
+            }
+        }
+    }
+}

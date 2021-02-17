@@ -1,0 +1,245 @@
+/* Main Header Mobile */
+.btn-hamburger {
+    display: none;
+
+    width: rem(35);
+    height: rem(34);
+    padding: 0;
+    padding: rem(8) rem(5);
+
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    margin: rem(-2) 0 0;
+
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+
+    @include md() {
+        display: block;
+    }
+
+    &:hover,
+    &:focus {
+        outline: 0;
+    }
+
+    span {
+        display: block;
+
+        width: rem(23);
+        height: rem(2);
+
+        position: absolute;
+        left: rem(5);
+        transform: rotate(0deg);
+
+        border-radius: rem(9);
+        background: $text-color-base;
+        opacity: 1;
+
+        transition: .45s ease-in-out;
+    }
+
+    span:nth-child(1) {
+        top: rem(11);
+        transform-origin: left center;
+    }
+
+    span:nth-child(2) {
+        top: rem(18);
+        transform-origin: left center;
+    }
+
+    span:nth-child(3) {
+        top: rem(25);
+        transform-origin: left center;
+    }
+
+    &.open span:nth-child(1) {
+        top: rem(9);
+        left: rem(10);
+        transform: rotate(45deg);
+    }
+
+    &.open span:nth-child(2) {
+        width: 0;
+
+        opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+        top: rem(25);
+        left: rem(10);
+        transform: rotate(-45deg);
+    }
+}
+
+.main-header {
+    &__mobile {
+        display: none;
+
+        @include md {
+            display: flex;
+
+            align-items: center;
+
+            padding: rem(10) rem(15) rem(10) rem(10);
+        }
+    }
+
+    &__search-button-wrapper {
+        @include md {
+            padding: 0 rem(14) 0 0;
+        }
+
+        i {
+            @include md() { 
+                font-size: 29px;
+            }
+        }
+    }
+
+    &__hamburger-wrapper {
+        width: rem(35);
+        height: 100%;
+
+        position: relative;
+    }
+
+    &__nav-mobile {
+        display: none;
+
+        height: calc(100vh - 100px);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: $gray-5;
+        opacity: 0;
+        visibility: hidden;
+
+        &.active {
+            display: block;
+
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &-scroll {
+            height: 100%;
+            padding-bottom: rem(55);
+
+            overflow-y: auto;
+        }
+    }
+
+    &__mobile-menu-wrapper {
+        margin-bottom: rem(32);
+
+        background-color: $color-white;
+
+        >ul.menu {
+            padding: 0;
+
+            margin: 0;
+
+            list-style: none;
+            border-top: rem(1) solid $gray-4;
+
+            >li {
+                >a {
+                    @include font(16, 24);
+
+                    display: inline-block;
+
+                    width: 100%;
+                    padding: rem(20) rem(50) rem(20) rem(20);
+
+                    position: relative;
+
+                    font-weight: 700;
+
+                    border-bottom: rem(1) solid $gray-4;
+
+                    &::after {
+                        content: '';
+
+                        display: inline-block;
+
+                        width: rem(10);
+                        height: rem(10);
+
+                        position: absolute;
+                        top: 50%;
+                        right: rem(30);
+                        transform: translateY(-50%) rotate(45deg);
+
+                        border-top: rem(1) solid $color-dark;
+                        border-right: rem(1) solid $color-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    &__mobile-info-for {
+        padding: 0 rem(20);
+
+        &-text {
+            @include font(16, 24);
+
+            margin-bottom: rem(16);
+
+            font-weight: 300;
+        }
+
+        ul.menu {
+            padding: 0;
+            padding-bottom: rem(16);
+
+            margin: 0;
+
+            list-style: none;
+            border-bottom: rem(1) solid $gray-4;
+
+            li {
+                display: inline-block;
+
+                width: 100%;
+
+                margin-bottom: rem(16);
+
+                a {
+                    @include font(16, 24);
+
+                    display: inline-block;
+
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &__mobile-login-link {
+        padding: rem(15) rem(16) rem(16);
+
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        text-align: center;
+        color: $color-white;
+
+        background: $accent;
+    }
+}

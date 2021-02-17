@@ -1,0 +1,143 @@
+.block-text-links {
+    margin: rem(131) 0;
+
+    @include sm {
+        margin: rem(66) 0;
+    }
+
+    &__top {
+        display: flex;
+
+        align-items: flex-end;
+
+        @include md {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        h2 {
+            margin-bottom: 0;
+
+            @include md {
+                margin-bottom: rem(3);
+            }
+        }
+        .c-btn {
+            margin-left: rem(32);
+
+            @include md {
+                margin: 0;
+            }
+        }
+    }
+
+    &-wrapper {
+        padding: rem(70) 0 rem(32);
+
+        background-color: $gray-6;
+
+        @include md {
+            padding: rem(73) 0 rem(40);
+        }
+    }
+
+    & + & {
+        margin-top: 0;
+    }
+
+    &--bg-shape {
+        padding: 11vw 0 11vw;
+
+        position: relative;
+        margin: 0;;
+        & + .block-related-posts {
+            margin-top: 0;
+
+            @include md {
+                margin-top: rem(40);
+            }
+        }
+        &:after {
+            content: '';
+
+            display: block;
+
+            width: 100%;
+
+            position: absolute;
+            z-index: -1;
+            top: rem(1);
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background-image: url('../images/icons/text-links/pattern-top.svg');
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 100% auto;
+        }
+        &:before {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: rem(1);
+            left: 0;
+
+            background-image: url('../images/icons/text-links/pattern.svg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100% auto;
+        }
+        .block-text-links__row {
+            margin-top: rem(50);
+
+            @include sm {
+                margin-top: rem(30);
+            }
+        }
+    }
+
+    &__row {
+        margin-top: rem(64);
+
+        @include sm {
+            margin-top: rem(39);
+        }
+    }
+
+    &__col {
+        margin-bottom: rem(32);
+
+        @include sm {
+            margin-bottom: rem(16);
+        }
+    }
+
+    .text-link {
+        &:hover {
+            .content-link__title {
+                color: $accent-variant;
+            }
+
+            .content-link {
+                box-shadow: 0 rem(8) rem(18) rgba($color-black, .1);
+            }
+
+            .content-link__icon {
+                transform: translate(4px, -50%);
+
+                color: $accent-variant;
+            }
+        }
+    }
+
+    &--disable-margin {
+        margin: 0;
+    }
+}

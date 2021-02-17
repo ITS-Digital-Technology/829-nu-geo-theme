@@ -1,0 +1,134 @@
+.alert-bar {
+    min-height: rem(32);
+
+    position: relative;
+    z-index: 1;
+
+    background-color: $accent-variant;
+    overflow: hidden;
+
+    @include sm {
+        padding: rem(8) rem(20);
+    }
+
+    &__text {
+        padding: rem(5);
+
+        margin: 0;
+
+        letter-spacing: rem(0.1);
+
+        @include sm {
+            padding: 0;
+
+            letter-spacing: 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: rem(32);
+        padding: rem(0) rem(75) rem(0) rem(70);
+
+        line-height: 1;
+        text-align: center;
+        color: $color-white;
+        white-space: nowrap;
+
+        @include sm {
+            display: block;
+
+            min-height: initial;
+            padding: rem(0) rem(42) rem(0) rem(0);
+
+            text-align: left;
+            white-space: normal;
+        }
+
+        &>* {
+            @include font(14, 16);
+
+            display: inline-block;
+
+            margin-bottom: 0;
+
+            color: $color-white;
+
+            @include sm {
+                display: inline;
+            }
+        }
+
+        a {
+            @include font(14, 16);
+
+            font-weight: 600;
+            color: $color-white;
+            text-decoration: none;
+
+            border-bottom: rem(1) solid $color-white;
+
+            transition: color.2s, border-color .2s;
+
+            @include sm {
+                font-weight: 400;
+            }
+
+            &:hover {
+                color: $accent-variant-light;
+
+                border-color: $accent-variant-light;
+            }
+        }
+    }
+
+    &__close {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: rem(16);
+        transform: translate(0, -50%);
+
+        border: none;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        cursor: pointer;
+
+        @include sm {
+            right: rem(20);
+        }
+
+        &:hover {
+            span {
+                color: $accent-variant;
+            }
+        }
+
+        span {
+            display: inline-block;
+
+            width: rem(20);
+            height: rem(20);
+
+            font-size: rem(20);
+            line-height: 1;
+
+            border-radius: 50%;
+            background-color: $color-white;
+
+            transition: color .2s;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.post-type-archive-news {
+    .eight29-sidebar {
+        padding-top: rem(14);
+
+        margin-bottom: rem(48);
+
+        @include sm {
+            margin-bottom: rem(25);
+        }
+    }
+    .eight29-app .app-layout {
+        margin-bottom: 0!important;
+    }
+    .eight29-sidebar-content {
+        border-bottom: rem(1) solid $gray-3;
+    }
+    .mobile-scroll .eight29-sidebar {
+        overflow: visible;
+    }
+    .mobile-scroll .eight29-sidebar-content-scroll {
+        overflow-x: auto;
+    }
+}

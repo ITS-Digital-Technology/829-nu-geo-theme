@@ -1,0 +1,73 @@
+.related-events {
+    padding-top: 9.7vw;
+
+    position: relative;
+    margin-top: rem(71);
+
+    @include sm() {
+        margin-top: rem(48);
+    }
+
+    &__wrapper {
+        padding-top: rem(66);
+        padding-bottom: rem(109);
+
+        background-color: $gray-5;
+
+        @include sm() {
+            padding-top: rem(55);
+            padding-bottom: rem(26);
+        }
+    }
+
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: rem(1);
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: url('../images/icons/event/featured-event-pattern-2.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+
+    &__header {
+        display: flex;
+
+        align-items: flex-end;
+        justify-content: space-between;
+
+        margin-bottom: rem(48);
+
+        @include md() {
+            flex-direction: column;
+            align-items: flex-start;
+
+            margin-bottom: rem(15);
+        }
+
+        h2 {
+            margin-bottom: 0;
+
+            color: $color-black;
+
+            @include md() {
+                margin-bottom: rem(2);
+            }
+        }
+
+        .c-btn {
+            margin-bottom: rem(4);
+        }
+    }
+}

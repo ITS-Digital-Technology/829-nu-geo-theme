@@ -1,0 +1,7 @@
+.staff-about {
+    margin: 0 0 rem(64);
+
+    @include sm() {
+        margin: 0 0 rem(49);
+    }
+}

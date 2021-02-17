@@ -1,0 +1,44 @@
+.page-content--search {
+    .quick-links {
+        &__title {
+            @include font(12,16);
+
+            margin-bottom: rem(20);
+
+            font-weight: 700;
+            letter-spacing: rem(1.2);
+            text-transform: uppercase;
+        }
+        &__menu {
+            ul {
+                padding: 0;
+
+                margin: 0;
+
+                list-style: none;
+                li {
+                    display: block;;
+                    &:not(:last-child) {
+                        margin-bottom: rem(14);
+                    }
+                    a:not([class]) {
+                        @include font(16,24);
+
+                        display: block;
+
+                        padding: rem(5) 0;
+
+                        font-weight: 400;
+                        color: $text-color-base;
+                        text-decoration: none;
+
+                        transition: color .2s;
+                        &:hover {
+                            color: $accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

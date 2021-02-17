@@ -1,0 +1,204 @@
+.post-type-archive-staff {
+    .eight29-filter-list {
+        margin: 0;
+
+        .simplebar-wrapper {
+            max-height: none;
+        }
+
+        .dropdown-wrapper__label {
+            display: none;
+        }
+
+
+        .accordion-select {
+            & > div {
+                margin-top: 0;
+            }
+            .dropdown-container {
+                display: block;
+
+                width: 100%;
+                height: auto;
+                max-width: 100%!important;
+
+                position: relative;
+                z-index: unset;
+                z-index: 99;
+                right: auto;
+                left: auto;
+
+                border: none;
+                background: transparent;
+                overflow: visible;
+
+                @include min-md {
+                    display: block;
+                }
+
+                div[data-simplebar="init"] {
+                    @include min-md {
+                        display: block;
+                    }
+                }
+
+                &.open {
+                    div[data-simplebar="init"] {
+                        display: block;
+                    }
+                    .dropdown-current::after {
+                        top: 50%;
+                        transform: translate(0,-50%) rotate(180deg) ;
+                    }
+                }
+            }
+
+            .dropdown-list {
+                padding: 0;
+
+                position: relative;
+                margin: 0;
+
+                @include md {
+                    padding: rem(8) 0;
+                }
+
+                > li {
+                    @include ie11 {
+                        height: rem(1);
+                    }
+
+                    display: block;
+
+                    width: 100%;
+                    height: auto;
+                    min-height: 0;
+                    padding: 0;
+
+                    border: none;
+
+                    @include min-md {
+                        display: inline-flex;
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: rem(16);
+
+                        @include md {
+                            margin-bottom: rem(1);
+                        }
+                    }
+
+                    button {
+                        @include font(16,24);
+
+                        display: block;
+
+                        width: auto;
+                        padding: 0;
+
+                        margin: 0;
+
+                        color: $text-color-base;
+
+                        border-bottom: rem(1) solid transparent;
+                        cursor: pointer;
+
+                        transition: color .2s;
+
+                        @include min-md {
+                            display: inline-block;
+                        }
+                        @include md {
+                            width: 100%;
+                            padding: rem(7) rem(20);
+                        }
+
+                        &:hover {
+                            color: $accent;
+                            text-decoration: none;
+                        }
+                        &.active {
+                            color: $accent;
+
+                            border-color: $accent;
+                            background-color: transparent;
+
+                            @include md {
+                                color: $text-color-base;
+
+                                border: 0;
+                                background-color: $gray-6;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dropdown-current {
+                @include font(16,24);
+
+                height: auto;
+                min-height: rem(56);
+                padding: rem(9) rem(50) rem(9) rem(19);
+
+                position: relative;
+
+                font-weight: 700;
+
+                border: rem(1) solid $gray-3;
+                border: 0;
+                border-radius: rem(2);
+                background-color: $color-white;
+                box-shadow: none;
+                cursor: pointer;
+
+                transition: border-color .2s;
+
+                @include min-md {
+                    display: none;
+
+                    border: 0;
+                }
+
+                &:after {
+                    width: rem(25);
+                    height: rem(25);
+
+                    top: 50%;
+                    transform: translate(0,-50%);
+
+                    background: url('../images/icons/archive-staff/chev-expand.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
+                    transition: transform .2s;
+
+                    @include min-md {
+                        display: none;
+                    }
+                }
+
+                & + div {
+                    display: none;
+
+                    @include min-md {
+                        display: block;
+                    }
+                    @include md {
+                        width: 100%;
+
+                        position: relative;
+                        z-index: 4;
+                        top: 100%;
+                        right: 0;
+                        margin-top: 0;
+
+                        border-radius: rem(2);
+                        background-color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}

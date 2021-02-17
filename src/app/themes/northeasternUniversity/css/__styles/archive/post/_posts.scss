@@ -1,0 +1,36 @@
+.blog {
+    .posts-list {
+        margin-bottom: rem(77);
+
+        @include sm {
+            margin-bottom: rem(50);
+        }
+    }
+    .eight29-posts-container {
+        margin-top: rem(40);
+
+        @include sm {
+            margin-top: 0;
+        }
+    }
+    .eight29-posts {
+        margin-bottom: 0;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include md {
+            grid-row-gap: rem(17);
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .eight29-pagination {
+        margin-top: rem(40)!important;
+
+        @include xs {
+            margin-top: rem(81)!important;
+        }
+    }
+}

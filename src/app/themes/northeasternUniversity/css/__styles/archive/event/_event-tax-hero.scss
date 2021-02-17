@@ -1,0 +1,41 @@
+.btn-all-posts {
+    @include font(16, 24);
+
+    display: inline-flex;
+
+    font-weight: 700;
+
+    &:before {
+        @include icon-font('\EA12', #{rem(20)});
+
+        margin: rem(2) rem(8) 0 0;
+    }
+}
+
+.event-tax-hero {
+    &__header {
+        margin-bottom: rem(76);
+
+        @include sm() {
+            margin-bottom: rem(21);
+        }
+    }
+
+    &__wrapper {
+        margin: rem(30) 0 rem(87);
+
+        @include sm() {
+            margin: rem(12) 0 rem(33);
+        }
+    }
+
+    &__term-name {
+        color: $color-dark;
+    }
+
+    &__left {
+        @include sm() {
+            margin: 0 0 rem(14);
+        }
+    }
+}

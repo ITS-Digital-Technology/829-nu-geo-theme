@@ -1,0 +1,308 @@
+.tribe-events-header .tribe-filter-bar.tribe-filter-bar--horizontal {
+    padding: rem(29) rem(24) rem(24);
+
+    position: relative;
+    margin: rem(-53) 0 rem(40);
+
+    border-radius: 0 0 rem(8) rem(8);
+    background-color: $color-white;
+
+    @include sm() {
+        padding: 0;
+
+        order: 2;
+        margin: 0;
+
+        background-color: transparent;
+    }
+
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: calc(100% - #{rem(48)});
+        height: rem(1);
+
+        position: absolute;
+        top: rem(4);
+        left: 50%;
+        transform: translateX(-50%);
+
+        background-color: $gray-5;
+
+        @include sm() {
+            display: none;
+        }
+    }
+
+    .tribe-filter-bar__filters {
+        border: none;
+    }
+
+    .tribe-filter-bar__filters-slide {
+        margin-right: rem(24);
+    }
+
+    .tribe-filter-bar-c-filter {
+        width: rem(300);
+
+        margin-right: rem(23);
+
+        @include sm() {
+            width: 100%;
+
+            margin-bottom: rem(13);
+
+            border: none;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .tribe-filter-bar-c-filter__container {
+        width: 100%;
+        padding: rem(21) rem(13) rem(14);
+
+        bottom: rem(-20);
+
+        @include sm() {
+            padding: rem(21) rem(13) rem(14);
+
+            margin-top: rem(10);
+
+            background-color: $color-white;
+        }
+    }
+
+    .tribe-filter-bar-c-pill {
+        &.tribe-filter-bar-c-pill--has-selections {
+            .tribe-filter-bar-c-pill__pill-label {
+                display: none;
+            }
+        }
+
+        &__pill {
+            @include font(16, 24);
+
+            display: inline-flex;
+
+            align-items: center;
+
+            width: rem(300);
+            height: auto;
+            min-height: rem(48);
+            padding: .7rem 5rem .7rem rem(10);
+
+            position: relative;
+
+            font-family: $font-base;
+            font-weight: 400;
+            text-align: left;
+
+            border: rem(1) solid $gray-3;
+            border-radius: rem(2);
+            border-radius: 0;
+            background-color: $color-white;
+            box-shadow: none;
+            cursor: pointer;
+
+            transition: border-color .2s;
+
+            @include sm {
+                width: 100%;
+                padding: rem(9) rem(50) rem(9) rem(12);
+            }
+
+            &.active {
+                border-color: $accent;
+
+                &::after {
+                    top: 26%;
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:after {
+                content: '';
+
+                display: block;
+
+                width: rem(24);
+                height: rem(24);
+
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                right: rem(10);
+                transform: translate(0, -50%);
+
+                background: url('../images/icons/program-filters/drop-down.svg') no-repeat;
+                background-size: contain;
+
+                transition: .3s ease-in-out all;
+            }
+
+            &:focus,
+            &:hover {
+                background-color: $color-white;
+            }
+
+            &[aria-expanded="true"] {
+                border-color: $accent;
+
+                &:after {
+                    top: 26%;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    .tribe-filter-bar-c-filter__toggle {
+        @extend .tribe-filter-bar-c-pill__pill;
+    }
+
+    .tribe-filter-bar-c-filter--has-selections {
+        .tribe-filter-bar-c-filter__toggle {
+
+            &-label,
+            &-selections-count {
+                display: none;
+            }
+
+            &-selections {
+                display: inline;
+            }
+        }
+    }
+
+    .tribe-filter-bar-c-checkbox {
+        display: flex;
+
+        align-items: center;
+
+        width: 100%;
+        padding: 0;
+
+        position: relative;
+        margin: 0;
+
+        border: none;
+
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+
+        label {
+            @include font(16, 24);
+
+            flex: 1;
+
+            padding-left: rem(33);
+
+            position: relative;
+            margin: 0;
+
+            font-weight: 400;
+            letter-spacing: normal;
+            text-transform: none;
+
+            cursor: pointer;
+
+
+            &::before {
+                content: '';
+                pointer-events: none;
+
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+
+                width: rem(18);
+                height: rem(18);
+
+                position: absolute;
+                z-index: 1;
+                top: rem(11);
+                left: rem(2);
+                transform: translate(0, -50%);
+
+                line-height: 0;
+
+                border: rem(2) solid $text-color-base;
+                border-radius: rem(2);
+                background-color: transparent;
+                backface-visibility: hidden;
+
+                transition: all .2s;
+            }
+
+            &:after {
+                content: '';
+                pointer-events: none;
+
+                width: rem(40);
+                height: rem(40);
+
+                position: absolute;
+                z-index: -1;
+                top: rem(12);
+                left: rem(-9);
+                transform: translate(0, -50%);
+
+                border-radius: 50%;
+                background-color: $gray-5;
+                opacity: 0;
+                backface-visibility: hidden;
+
+                transition: all .2s;
+            }
+
+            &:hover {
+                opacity: 1;
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        input {
+            position: absolute;
+            top: rem(2);
+            left: rem(2);
+
+            opacity: 0;
+
+            &:before {
+                display: none;
+            }
+
+            &:checked~label {
+                &::before {
+                    content: '';
+
+                    border-color: $accent;
+                    background: $accent url('../images/icons/check-white.svg') no-repeat center / contain;
+                    background-size: rem(12) rem(12);
+                }
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            html.user-tab-nav & {
+                &:focus~label::before {
+                    content: '';
+
+                    outline: $outline;
+                }
+            }
+        }
+    }
+}

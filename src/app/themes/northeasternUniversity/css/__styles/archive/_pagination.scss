@@ -1,0 +1,112 @@
+.eight29-pagination-list > li button {
+    @include font(16,16);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: $font-third;
+    font-weight: 700;
+    color: $text-color-base;
+
+    cursor: pointer;
+
+    transition: background .2s,color .2s;
+
+    @include md {
+        width: rem(36);
+        height: rem(36);
+    }
+
+    &.current-page {
+        pointer-events: none;
+
+        color: $color-white;
+
+        background: $accent;
+    }
+    &:hover {
+        color: $color-white;
+
+        background: $accent;
+        .touch-device & {
+            background: $accent;
+        }
+    }
+}
+
+.eight29-pagination-next,
+.eight29-pagination-prev {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    @include md {
+        max-width: rem(23);
+    }
+    .eight29-pagination-arrow {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        display: inline-block;
+
+        font-size: rem(28);
+        color: $color-dark;
+
+        transition: color .2s;
+    }
+    button:not([disabled="disabled"]) {
+        cursor: pointer;
+        span {
+            cursor: pointer;
+        }
+        &:hover {
+            span {
+                color: $accent;
+                .touch-device & {
+                    color: $text-color-base;
+                }
+            }
+        }
+    }
+    button[disabled="disabled"],
+    button:disabled {
+        pointer-events: none!important;
+
+        opacity: .5;
+    }
+}
+.eight29-pagination-list {
+    padding: 0 rem(4);
+    & > li {
+        @include md {
+            margin: 0 rem(2)!important;
+        }
+    }
+    .last-item,
+    .first-item {
+        display: flex;
+
+        align-items: center;
+    }
+    .first-item {
+        &:after {
+            @include sm {
+                min-width: rem(20)!important;
+            }
+        }
+    }
+    .last-item {
+        &:before {
+            @include sm {
+                min-width: rem(20)!important;
+            }
+        }
+    }
+}

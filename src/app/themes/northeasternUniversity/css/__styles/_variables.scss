@@ -1,0 +1,83 @@
+// 1. TEXT
+// ---------------------------------------------
+
+// Regular text
+$font-base: 'Lato', sans-serif;
+$font-sec: 'ff-real-headline-pro', sans-serif;
+$font-third: 'Open Sans', sans-serif;
+$font-size-base: 20px;
+$line-height-base: 32px;
+$font-weight-base: 300;
+
+// Colors
+
+
+
+//to delete
+$color-1: #e84b47;
+$color-1-hover: #cf4240;
+$color-2: #d5d9de;
+$color-3: #eff0f2;
+$color-4: #f3a5a3;
+$color-5: #58697a;
+$color-6: #e7e9ec;
+$color-7: #ece6d5;
+
+
+
+//Colors
+//PRIMARY
+$accent: #db192b;
+$accent-variant: #a81321;
+$accent-variant-light: #f56565;
+$color-dark: #1f1f1f;
+$color-black: #000000;
+$color-white: #ffffff;
+
+//SECONDARY
+$dark-blue: #385775;
+$blue: #006eb5;
+$aqua: #52cfe5;
+$teal: #00cfb5;
+$yellow: #ffbf3d;
+$yellow-light: #e5d4ab;
+
+//NEUTRAL
+$gray-1: #525252;
+$gray-2: #666666;
+$gray-3: #b8b8b8;
+$gray-4: #d0d0d0;
+$gray-5: #ebebeb;
+$gray-6: #f7f7f7;
+$gray-7: #bbbbbb;
+$gray-8: #979797;
+$gray-9: #c4c4c4;
+$gray-10: #e1e1e1;
+$gray-11: #afafaf;
+
+
+//SEMANTIC
+$error: #b00020;
+$warning: #faa614;
+$success: #008738;
+$information: #006bb2;
+
+//GLOBAL
+$body-color: $color-white;
+$text-color-base: $color-dark;
+$text-color-alt: #828f9b;
+$text-color-opposite: #ffffff;
+$heading-color-base: $color-dark;
+
+// Links
+$link-color: $accent;
+$link-hover-color: $accent-variant;
+
+// 2. WORDPRESS
+// ---------------------------------------------
+
+$media-margin: 30px;
+$media-margin-mobile: 20px;
+
+// Outline
+$outline: 2px solid #7aacfe;

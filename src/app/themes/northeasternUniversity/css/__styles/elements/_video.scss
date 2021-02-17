@@ -1,0 +1,98 @@
+/* Embed Video Styles */
+.iframe-wrapper {
+    $root: &;
+
+    height: 0;
+    max-width: 100%;
+    padding-bottom: 56.25%;
+
+    position: relative;
+    margin: rem(79) auto;
+
+    overflow: hidden;
+
+    @include sm {
+        margin: rem(50) auto;
+    }
+
+    &__overlay {
+        position: absolute;
+        z-index: 1;
+        top: rem(-10);
+        right: rem(-10);
+        bottom: rem(-10);
+        left: rem(-10);
+
+        background-color: black;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__play {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(64);
+        height: rem(64);
+        padding: 0;
+
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        border: 0;
+        border-radius: 50%;
+        background-color: $color-white;
+        cursor: pointer;
+
+        transition: background-color .2s;
+
+        &::before {
+            content: '';
+            pointer-events: none;
+
+            width: 0;
+            height: 0;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left: rem(2);
+
+            border-width: rem(10) 0 rem(10) rem(15);
+            border-style: solid;
+            border-color: transparent transparent transparent $accent;
+
+            transition: border-color .2s;
+
+            @include sm {
+                border-width: rem(11) 0 rem(11) rem(17);
+            }
+        }
+
+        &:hover {
+            // background-color: $accent-variant;
+            &::before {
+                border-color: transparent transparent transparent $accent-variant;
+            }
+        }
+    }
+
+    iframe,
+    object,
+    embed {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

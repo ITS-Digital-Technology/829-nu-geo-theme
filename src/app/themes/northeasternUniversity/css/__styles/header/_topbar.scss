@@ -1,0 +1,478 @@
+.topbar {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    &::before {
+        content: '';
+        pointer-events: none;
+
+        height: calc(var(--vh100, 1vh) * 100 - #{rem(48)});
+
+        position: fixed;
+        top: rem(48);
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: rgba($color-black, .5);
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity .2s, visibility .2s;
+
+        @include lg {
+            display: none;
+        }
+
+        .alert-bar-on & {
+            height: calc(var(--vh100, 1vh) * 100 - #{rem(80)});
+
+            top: rem(80);
+        }
+
+        .is-sticky & {
+            height: calc(var(--vh100, 1vh) * 100 - #{rem(48)});
+        }
+    }
+
+    &.active::before {
+        pointer-events: initial;
+
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__logo {
+        margin-left: rem(23);
+
+        @include lg {
+            margin-left: rem(3);
+        }
+
+        img,
+        svg {
+            max-height: rem(48);
+
+            @include lg {
+                max-height: rem(43);
+            }
+        }
+    }
+
+    &__button {
+        @include font(14, 16);
+
+        -webkit-appearance: none;
+
+        height: 100%;
+        padding: 0;
+        padding-right: rem(58);
+
+        position: relative;
+        margin: 0;
+
+        color: $color-white;
+        letter-spacing: rem(.9);
+        text-transform: uppercase;
+
+        border: none;
+        background: transparent;
+        cursor: pointer;
+
+        @include lg {
+            padding-right: rem(36);
+
+            text-align: left;
+            letter-spacing: rem(.7);
+        }
+
+        appearance: none;
+
+        &::after {
+            content: '';
+
+            display: inline-block;
+
+            width: 0;
+            height: 0;
+
+            position: absolute;
+            top: 50%;
+            right: rem(33);
+            transform: translateY(-50%);
+
+            border-top: rem(4) solid $color-white;
+            border-right: rem(4) solid transparent;
+            border-left: rem(4) solid transparent;
+
+            transition: transform .2s;
+
+            @include lg {
+                right: rem(11);
+            }
+        }
+
+        &.active {
+            &::after {
+                transform: translateY(-55%) rotate(180deg);
+            }
+        }
+
+        &-text {
+            transition: opacity .2s, visibility .2s;
+        }
+
+        .hidden {
+            display: none;
+
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &__subnav {
+        pointer-events: none;
+
+        display: flex;
+
+        height: calc(var(--vh100, 1vh) * 100 - #{rem(48)});
+
+        position: fixed;
+        z-index: 1000;
+        top: rem(48);
+        right: 0;
+        bottom: 0;
+
+        background: $color-black;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: height .2s, opacity .2s, visibility .2s;
+
+        @include lg {
+            width: 100%;
+            height: calc(var(--vh100, 1vh) * 100 - #{rem(43)});
+
+            top: rem(43);
+        }
+
+        &.active {
+            pointer-events: initial;
+
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .alert-bar-on & {
+            height: calc(var(--vh100, 1vh) * 100 - #{rem(80)});
+
+            top: rem(80);
+
+            @include lg {
+                top: rem(110);
+            }
+        }
+
+        .is-sticky & {
+            height: calc(var(--vh100, 1vh) * 100 - #{rem(48)});
+
+            @include lg {
+                height: calc(var(--vh100, 1vh) * 100 - #{rem(43)});
+            }
+        }
+
+        .hide-on-desktop {
+            display: none;
+
+            @include lg {
+                display: block;
+            }
+        }
+
+        .hide-on-mobile {
+            @include lg {
+                display: none;
+            }
+        }
+    }
+
+    &__subnav-left {
+        flex: 0 0 rem(294);
+
+        max-width: rem(294);
+
+        position: relative;
+
+        overflow-y: auto;
+
+        @include lg {
+            flex: 1 1 auto;
+
+            max-width: 100%;
+        }
+    }
+
+    &__subnav-right {
+        flex: 0 0 rem(459);
+
+        max-width: rem(459);
+
+        position: relative;
+
+        background: $color-white;
+        overflow-y: auto;
+    }
+
+
+    &__menu {
+        display: block;
+
+        padding: 0;
+
+        margin: 0 0 rem(20) 0;
+
+        line-height: 1;
+
+        list-style: none;
+    }
+
+    &__menu-entry {
+        padding: 0;
+
+        margin: 0;
+
+        line-height: 1;
+
+        button {
+            @include font(14, 18);
+
+            -webkit-appearance: none;
+
+            width: 100%;
+            padding: rem(16) rem(30);
+
+            margin: 0;
+
+            font-weight: 300;
+            text-align: left;
+            color: $color-7;
+            letter-spacing: rem(1);
+            text-transform: uppercase;
+
+            border: none;
+            border-bottom: rem(1) solid rgba($color-7, .2);
+            outline: 0;
+            background: $color-black;
+            cursor: pointer;
+
+            transition: color .3s, background .3s, font-weight .3s;
+
+            appearance: none;
+
+            &:hover,
+            &.active {
+                font-weight: 500;
+                color: $color-black;
+
+                background: $color-7;
+
+                @include lg {
+                    font-weight: 300;
+                    color: $color-7;
+
+                    background-color: $color-black;
+                }
+            }
+
+            &.active {
+                @include lg {
+                    font-weight: 600;
+                    color: $color-black;
+
+                    border-bottom: rem(1) solid transparent;
+                    background: $color-white;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        width: calc(100% - #{rem(60)});
+
+        margin: 0 rem(30) rem(20);
+    }
+
+    &__menu-accordion {
+        display: none;
+
+        @include lg {
+            padding: 0 rem(30) rem(16);
+
+            margin: 0;
+
+            list-style: none;
+            background: $color-white;
+        }
+    }
+}
+
+.links-icons {
+    display: flex;
+
+    flex-direction: column;
+
+    &__link {
+        display: flex;
+
+        align-items: center;
+
+        padding: 0 rem(30);
+
+        margin-bottom: rem(17);
+
+        &:hover {
+            .links-icons__text::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__icon {
+        min-width: rem(34);
+        max-width: rem(34);
+
+        margin-right: rem(10);
+
+        line-height: 1;
+    }
+
+    &__text {
+        @include font(14, 18);
+
+        padding-bottom: rem(3);
+
+        position: relative;
+
+        color: $color-white;
+
+        &::after {
+            content: '';
+
+            display: inline-block;
+
+            position: absolute;
+            right: 0;
+            bottom: rem(-2);
+            left: 0;
+
+            border-bottom: rem(1) solid $accent;
+            opacity: 0;
+
+            transition: opacity .2s;
+        }
+    }
+}
+
+.subnav-tabs {
+    width: rem(442);
+    height: 100%;
+
+    position: relative;
+
+    &__overlay {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: $color-white;
+    }
+
+    &__tab {
+        display: flex;
+
+        flex-direction: column;
+
+        padding: rem(24) rem(20) 0 rem(13);
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        margin: 0;
+
+        list-style: none;
+
+        &.active {
+            z-index: 4;
+        }
+    }
+
+    &__title {
+        @include font(32, 36);
+
+        font-weight: 300;
+    }
+}
+
+.tmi {
+    margin-bottom: rem(10);
+
+    @include lg {
+        margin-bottom: rem(16);
+    }
+
+    &:last-child {
+        @include lg {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        @include font(14, 18);
+
+        display: flex;
+
+        align-items: center;
+
+        min-height: rem(50);
+
+        @include lg {
+            min-height: initial;
+
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            .tmi__text span {
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    &__text {
+        display: inline-block;
+
+        span {
+            width: calc(100%);
+            background-image: linear-gradient(transparent calc(100% - 1px), $accent 1px);
+            background-repeat: no-repeat;
+            background-size: 0% 100%;
+            transition: background-size 1s;
+        }
+    }
+
+    &__image {
+        max-width: rem(50);
+
+        margin-right: rem(10);
+
+        @include lg {
+            display: none;
+        }
+    }
+}

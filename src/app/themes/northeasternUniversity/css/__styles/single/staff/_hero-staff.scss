@@ -1,0 +1,99 @@
+.hero-staff {
+    padding-bottom: 8.7vw;
+
+    position: relative;
+    margin-bottom: rem(67);
+
+    @include sm() {
+        margin-bottom: rem(43)
+    }
+
+    &:after {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: url('../images/icons/staff/hero-staff-pattern-2.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+
+    &__wrapper {
+        padding: rem(30) 0 0;
+
+        background-color: $yellow;
+
+        @include md() {
+            padding: rem(16) 0 rem(29);
+        }
+    }
+
+    &__left {
+        display: flex;
+
+        flex-direction: column;
+
+        padding-bottom: rem(30);
+
+        @include sm() {
+            padding-bottom: rem(25);
+        }
+
+        .btn-all-posts {
+            margin-bottom: rem(67);
+
+            @include md() {
+                margin-bottom: rem(25);
+            }
+        }
+    }
+
+    &__cat {
+        @include font(12, 16);
+
+        margin: 0 0 rem(17);
+
+        font-weight: 700;
+        letter-spacing: rem(1.2);
+        text-transform: uppercase;
+
+        @include sm() {
+            margin: 0 0 rem(5);
+        }
+    }
+
+    &__title {
+        margin: 0 0 rem(15);
+
+        @include sm() {
+            margin: 0 0 rem(3);
+        }
+    }
+
+    &__right {
+        padding-top: rem(49);
+
+        margin-bottom: rem(-134);
+
+        @include md() {
+            padding-top: 0;
+
+            margin-bottom: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

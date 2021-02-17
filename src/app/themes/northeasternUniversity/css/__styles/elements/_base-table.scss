@@ -1,0 +1,176 @@
+/* BASE TABLES */
+#page {
+    .tablepress-table-name {
+        @extend h2;
+    }
+
+    .tablepress-scroll-wrapper {
+        position: relative;
+
+        th {
+            @include sm {
+                min-width: rem(128);
+            }
+        }
+
+        &.has-scroll {
+            @include xsm {
+                margin-right: rem(-20);
+            }
+
+            .tablepress {
+                display: block;
+
+                overflow-x: auto;
+            }
+        }
+    }
+
+    .tablepress {
+        margin: 0 0 rem(32);
+
+        white-space: nowrap;
+
+        @include sm {
+            margin: rem(25) 0 rem(25);
+        }
+
+        caption {
+            display: none;
+        }
+
+        thead {
+            th {
+                @include font(16,24);
+
+                padding: rem(12) rem(15) rem(12);
+
+                position: relative;
+
+                font-weight: 700;
+
+                border: none;
+                background-color: $color-white;
+
+                @include sm {
+                    @include font(14,16);
+                }
+
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                @include font(16,24);
+
+                padding: rem(11) rem(15);
+
+                position: relative;
+
+                border: none;
+
+                @include sm {
+                    @include font(14,24);
+
+                    padding: rem(8) rem(15);
+                }
+
+                br {
+                    display: none;
+                }
+            }
+
+            tr {
+                border-top: rem(1) solid $gray-4;
+                &:last-child {
+                    border-bottom: rem(1) solid $gray-4;
+                }
+                &:nth-child(2n-1) {
+                    background-color: $gray-6;
+                }
+
+                &:nth-child(2n) {
+                    background-color: $color-white;
+                }
+            }
+        }
+
+        // stack
+        &.tablepress-responsive-stack-phone {
+            thead {
+                th {
+                    min-width: rem(222);
+                }
+            }
+            tbody {
+                white-space: normal;
+
+                td {
+                    padding: rem(11) rem(15);
+
+                    vertical-align: middle;
+
+                    text-align: left;
+
+                    @include sm {
+                        padding: rem(9);
+
+                        &:first-child {
+                            padding-top: rem(30);
+                        }
+
+                        &:last-child {
+                            padding-bottom: rem(30);
+                        }
+                    }
+                }
+
+                tr {
+                    @include sm {
+                        border-bottom: rem(1) solid $gray-4;
+                    }
+                }
+            }
+        }
+
+        // flip
+        &.tablepress-responsive-phone {
+            @include xsm {
+                width: calc(100% + #{rem(20)});
+
+                margin-right: rem(-20);
+            }
+
+            thead {
+                @include sm {
+                    border-right: rem(1) solid $gray-4;
+                }
+                th {
+                    @include sm {
+                        padding: rem(13) rem(21) rem(11) 0;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    @include sm {
+                        border-top: 0;
+                        border-right: rem(1) solid $gray-4;
+
+                        &:last-child {
+                            border-right: none;
+                        }
+                    }
+                }
+                td {
+                    @include sm {
+                        padding: rem(8) rem(29) rem(8) rem(15);
+                    }
+                }
+            }
+        }
+    }
+}

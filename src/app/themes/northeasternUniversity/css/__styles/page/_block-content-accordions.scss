@@ -1,0 +1,52 @@
+.block-content-accordions {
+    padding: 10vw 0 0 0;
+
+    position: relative;
+    &-wrapper {
+        padding: rem(70) 0 rem(125);
+
+        background-color: $gray-5;
+
+        @include sm {
+            padding: rem(54) 0 rem(60);
+        }
+    }
+    .side-content {
+        @include md {
+            margin-bottom: rem(32);
+        }
+        h2 {
+            margin-bottom: rem(10);
+
+            @include sm {
+                margin-bottom: rem(2);
+            }
+        }
+        .c-btn-wrapper {
+            margin: rem(10) 0 rem(45);
+
+            @include sm {
+                margin: rem(2) 0 rem(20);
+            }
+        }
+    }
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: rem(1);
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: url(../images/icons/content-accordions/pattern.svg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% auto;
+    }
+}

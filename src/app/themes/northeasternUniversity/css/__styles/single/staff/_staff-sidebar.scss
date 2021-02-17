@@ -1,0 +1,7 @@
+.staff-sidebar {
+    margin-bottom: rem(30);
+
+    @include lg() {
+        margin-bottom: rem(52);
+    }
+}

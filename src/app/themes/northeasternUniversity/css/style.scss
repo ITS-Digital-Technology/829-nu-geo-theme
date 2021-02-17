@@ -1,0 +1,20 @@
+// Non-CSS stuff: mixins and variables
+@import "__styles/variables";
+@import "__styles/iconfont";
+@import "__styles/mixins";
+@import "__styles/mobile";
+
+// Reset and unify styles
+@import "__styles/init/init";
+
+// Layout
+@import "__styles/elements/init";
+@import "__styles/shortcodes/init";
+@import "__styles/header/init";
+@import "__styles/page/init";
+@import "__styles/footer/init";
+@import "__styles/archive/init";
+@import "__styles/single/init";
+@import "__styles/tpl-compare-products/init";
+@import "__styles/tpl-program-landing/init";
+@import "__styles/search/init";

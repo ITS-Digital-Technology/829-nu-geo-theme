@@ -1,0 +1,198 @@
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 rem(49);
+
+    font-family: $font-base;
+    line-height: 1;
+    color: $heading-color-base;
+    &:only-child {
+        margin-bottom: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    p + & {
+        margin-top: rem(42);
+
+        @include sm {
+            margin-top: rem(36);
+        }
+    }
+}
+
+h1,
+.h1 {
+    @include font(60,64);
+
+    margin: 0 0 rem(49);
+
+    font-family: $font-sec;
+    font-weight: 700;
+
+    @include sm {
+        @include font(34,40);
+
+        margin: 0 0 rem(16);
+    }
+}
+h2,
+.h2 {
+    @include font(42,48);
+
+    margin: 0 0 rem(32);
+
+    font-family: $font-sec;
+    font-weight: 700;
+
+    @include sm {
+        @include font(24,32);
+
+        margin: 0 0 rem(16);
+    }
+
+    p + & {
+        margin-top: rem(82);
+
+        @include sm {
+            margin-top: rem(49);
+        }
+    }
+    p.leadparagraph + & {
+        margin-top: rem(82);
+
+        @include sm {
+            margin-top: rem(41);
+        }
+    }
+}
+h3,
+.h3 {
+    @include font(26,32);
+
+    margin: 0 0 rem(16);
+
+    font-family: $font-sec;
+    font-weight: 500;
+
+    @include sm {
+        @include font(18,24);
+
+        margin: 0 0 rem(8);
+    }
+
+    p + & {
+        margin-top: rem(49);
+
+        @include sm {
+            margin-top: rem(32);
+        }
+    }
+}
+h4,
+.h4 {
+    @include font(20,24);
+
+    margin: 0 0 rem(16);
+
+    font-weight: 700;
+
+    @include sm {
+        @include font(16,24);
+
+        margin: 0 0 rem(8);
+    }
+
+    p + & {
+        margin-top: rem(46);
+
+        @include sm {
+            margin-top: rem(22);
+        }
+    }
+}
+h5,
+.h5 {
+    @include font(16,24);
+
+    margin: 0 0 rem(8);
+
+    font-weight: 700;
+
+    @include sm {
+        @include font(14,16);
+    }
+
+    p + & {
+        margin-top: rem(32);
+
+        @include sm {
+            margin-top: rem(24);
+        }
+    }
+}
+h6,
+.h6 {
+    @include font(14,16);
+
+    margin: 0 0 rem(8);
+
+    font-weight: 700;
+
+    @include sm {
+        font-size: rem(12);
+    }
+
+    p + & {
+        margin-top: rem(32);
+
+        @include sm {
+            margin-top: rem(25);
+        }
+    }
+}
+
+/* Text Elements */
+p {
+    margin: 0 0 rem(32);
+
+    @include sm {
+        margin: 0 0 rem(16);
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+    & + ul:not([class]),
+    & + ol,
+    ul:not([class]) + &,
+    ol + & {
+        @include sm {
+            margin-top: rem(22);
+        }
+    }
+}
+strong {
+    font-weight: 700;
+}
+/* Horizontal Line */
+hr {
+    margin: rem(94) 0;
+
+    border-top: rem(1) solid $gray-3;
+
+    @include sm {
+        margin: rem(54) 0;
+    }
+}
+
+::selection {
+    background: rgba($accent, .1);
+}
+::-moz-selection {
+    background: rgba($accent,.1);
+}

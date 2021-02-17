@@ -1,0 +1,247 @@
+.block-post-hero {
+    padding: rem(32) 0 0 0;
+
+    position: relative;
+    z-index: 1;
+    margin-bottom: rem(80);
+
+    @include md {
+        padding: rem(16) 0 0 0;
+
+        margin-bottom: rem(48);
+    }
+
+    &:after {
+        content: '';
+        pointer-events: none;
+
+        width: 100%;
+        height: 100%;
+        min-height: rem(600);
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-image: url('../images/icons/single-blog/pattern-dark.svg'),
+        url('../images/icons/single-blog/pattern-light.svg');
+        background-repeat: no-repeat;
+        background-position: top 0 right 0, top 0 right 0;
+        background-size: 100% auto;
+
+        @include xl {
+            top: rem(150);
+        }
+        @include md {
+            top: rem(292);
+        }
+        ;
+    }
+
+    &:before {
+        content: '';
+        pointer-events: none;
+
+        width: 100%;
+        height: rem(400);
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-color: $aqua;
+
+        @include md {
+            height: auto;
+
+            bottom: rem(200);
+        }
+        @include xs {
+            bottom: rem(100);
+        }
+    }
+
+
+    &__back {
+        @include font(16, 24);
+
+        display: block;
+
+        padding-left: rem(18);
+
+        position: relative;
+        margin-left: rem(14);
+
+        font-weight: 700;
+        text-align: left;
+
+        @include md {
+            margin-left: rem(10);
+        }
+
+        &::before {
+            content: '';
+
+            display: inline-block;
+
+            width: rem(8);
+            height: rem(8);
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) rotate(45deg);
+
+            border-bottom: rem(2) solid $color-dark;
+            border-left: rem(2) solid $color-dark;
+        }
+    }
+
+
+    &__wrapper {
+        display: flex;
+
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: rem(56);
+
+        margin-bottom: rem(80);
+
+        @include md {
+            padding-top: rem(34);
+
+            margin-bottom: rem(28);
+        }
+    }
+
+    &__cat-link {
+        @include font(16, 24);
+
+        display: inline-block;
+
+        width: 100%;
+
+        margin-bottom: rem(26);
+
+        font-weight: 700;
+        text-align: center;
+
+        @include md {
+            @include font(14, 16);
+
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__title {
+        max-width: rem(850);
+
+        margin-bottom: rem(30);
+
+        text-align: center;
+
+        @include md {
+            margin-bottom: rem(13);
+        }
+    }
+
+    &__meta {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        @include md {
+            flex-direction: column;
+        }
+    }
+
+    &__author {
+        line-height: 1;
+
+        @include md {
+            margin-bottom: rem(8);
+        }
+    }
+
+    &__author-link {
+        @include font(16, 24);
+
+        display: inline-block;
+
+        padding-right: rem(18);
+
+        position: relative;
+
+        font-weight: 700;
+
+        transition: color .2s;
+
+        @include md {
+            @include font(14, 16);
+
+            padding-right: 0;
+        }
+
+        &:hover {
+            color: $accent;
+        }
+        &::after {
+            content: '';
+
+            display: inline-block;
+
+            width: 0;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            border-right: rem(1) solid $color-dark;
+
+            @include md {
+                display: none;
+            }
+        }
+    }
+
+    &__date {
+        @include font(16, 24);
+
+        padding-left: rem(18);
+
+        @include md {
+            @include font(14, 16);
+
+            padding-left: 0;
+        }
+    }
+
+    &__thumbnail {
+        min-height: rem(728);
+
+        position: relative;
+
+        @include lg {
+            min-height: initial;
+        }
+
+        img {
+            width: 100%;
+            min-height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.content-link {
+    padding: rem(15) rem(50) rem(15) rem(15);
+
+    position: relative;
+
+    border-radius: rem(4);
+    background-color: $color-white;
+    box-shadow: 0 0 rem(10) rgba($color-black, .1);
+
+    transition: box-shadow .2s;
+    &__title {
+        @include font(16,24);
+
+        margin: 0;
+
+        color: $accent;
+
+        transition: color .2s;
+    }
+    &__icon {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: rem(20);
+        transform: translate(0, -50%);
+
+        line-height: 0;
+        color: $accent;
+
+        transition: color .2s, transform .2s;
+    }
+}

@@ -1,0 +1,196 @@
+.block-content-images {
+    $block: &;
+
+    margin: rem(131) 0;
+
+    @include lg {
+        margin: rem(80) 0;
+    }
+
+    @include sm {
+        margin: rem(53) 0;
+    }
+
+    h2 {
+        @include sm {
+            line-height: rem(32);
+        }
+    }
+
+    +.block-content-images {
+        margin-top: rem(160);
+
+        @include lg {
+            margin-top: rem(80);
+        }
+
+        @include sm {
+            margin-top: rem(53);
+        }
+    }
+
+    +.block-cta {
+        margin-top: rem(158);
+
+        @include lg {
+            margin-top: rem(80);
+        }
+
+        @include sm {
+            margin-top: rem(73);
+        }
+    }
+
+    .b-content-images__image {
+        position: relative;
+        margin-bottom: rem(23);
+
+        img {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:before {
+            content: '';
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translate(rem(23), rem(23));
+
+            background: $yellow;
+
+            @include md {
+                display: none;
+            }
+        }
+    }
+
+    .image-left {
+        order: -1;
+
+        .b-content-images__image {
+            &:before {
+                transform: translate(rem(-23), rem(23));
+            }
+        }
+    }
+
+    .image-left,
+    .image-right {
+        @include md {
+            order: -1;
+            margin-bottom: rem(30);
+        }
+
+        @include sm {
+            margin-bottom: rem(25);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &--pattern {
+        position: relative;
+
+        #{$block}__wrapper {
+            padding: rem(97) 0;
+
+            background-color: $gray-5;
+
+            @include sm() {
+                padding: rem(65) 0;
+            }
+        }
+
+        &-top {
+            padding-top: 9.7vw;
+
+            &:before {
+                content: "";
+
+                display: block;
+
+                width: 100%;
+
+                position: absolute;
+                z-index: -1;
+                top: rem(2);
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                background: url('../images/icons/event/featured-event-pattern-2.svg');
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: cover;
+                background-size: 100% auto;
+            }
+
+            &:not(.block-content-images--pattern-bottom)+.block-content-images--pattern:not(.block-content-images--pattern-top) {
+                margin-top: rem(-132);
+
+                @include md() {
+                    margin-top: rem(-81);
+                }
+
+                @include sm() {
+                    margin-top: rem(-77);
+                }
+
+                #{$block}__wrapper {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        &-bottom {
+            padding-bottom: 9vw;
+
+            &:after {
+                content: "";
+
+                display: block;
+
+                width: 100%;
+
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                right: 0;
+                bottom: .1rem;
+                left: 0;
+
+                background-image: url('../images/icons/compare-programs/compare-progams-pattern.svg');
+                background-repeat: no-repeat;
+                background-position: bottom;
+                background-size: cover;
+                background-size: 100% auto;
+            }
+
+            .block-content-images__wrapper {
+                padding-bottom: rem(74);
+
+                @include sm() {
+                    padding-bottom: rem(50);
+                }
+            }
+
+            &+.block-cta {
+                margin-top: rem(-17);
+
+                @include md() {
+                    margin-top: rem(66);
+                }
+            }
+        }
+    }
+}

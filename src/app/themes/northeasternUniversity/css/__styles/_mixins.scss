@@ -1,0 +1,154 @@
+@mixin cf {
+    &:before,
+    &:after {
+        content: '';
+
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin force-gpu-acc {
+    backface-visibility: hidden;
+
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+@mixin icon-font( $content: '', $font-size: 24px ) {
+    content: $content;
+
+    font-family: $font-iconfont;
+    font-size: $font-size;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+// Mixin for VW size pixels declaration on specific breakpoint vw-size(16px, 1200) - 16px on 1200 width breakpoint
+@function vw-size($s, $w: 1440) {
+    @return ($s / $w) * 100 + vw;
+}
+
+@function rem( $px, $base: 10 ) {
+    $px: strip-units( $px );
+    @return ( $px / $base ) * 1rem;
+}
+
+@function strip-units( $number ) {
+    @return $number / ( $number * 0 + 1 );
+}
+
+@function rel($size, $rel) {
+    @return $size / $rel;
+}
+
+@function em($size, $rel) {
+    @return rel($size, $rel) * 1em;
+}
+
+@mixin font($fontSize, $lineHeight) {
+    font-size: rem($fontSize);
+    line-height: rel($lineHeight, $fontSize);
+}
+
+@mixin font-px($fontSize, $lineHeight) {
+    font-size: $fontSize * 1px;
+    line-height: rel($lineHeight, $fontSize);
+}
+
+// Detect ie11
+@mixin ie11() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+// Detect firefox
+@mixin firefox() {
+    @-moz-document url-prefix() {
+        @content;
+    }
+}
+
+// Detect Safari
+@mixin safari() {
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        @content;
+    }
+}
+
+@mixin ifNotTouchDevice($class: $is-touch-device-class) {
+    html:not(#{$class}) & {
+        @content;
+    }
+}
+
+@mixin ifTouchDevice($class: $is-touch-device-class) {
+    html#{$class} & {
+        @content;
+    }
+}
+
+@mixin hover() {
+    &:hover {
+        @include ifNotTouchDevice {
+            @content;
+        }
+    }
+}
+
+@mixin object-fit-cover() {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: cover;
+}
+
+@mixin placeholder() {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        @content;
+    }
+    &::-moz-placeholder {
+        opacity: 1;
+        /* Firefox 19+ */
+        @content;
+    }
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        @content;
+    }
+    &::-ms-input-placeholder {
+        /* Edge */
+        @content;
+    }
+    &:placeholder-shown {
+        /* Standard one last! */
+        @content;
+    }
+}
+
+@mixin flex($width) {
+    flex: 0 0 $width;
+
+    width: $width;
+    max-width: $width;
+}

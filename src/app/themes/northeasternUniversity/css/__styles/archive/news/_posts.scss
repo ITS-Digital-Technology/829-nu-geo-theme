@@ -1,0 +1,34 @@
+.post-type-archive-news {
+    background-color: $gray-5;
+    .posts-list {
+        position: relative;
+        z-index: 1;
+        margin-bottom: rem(44);
+
+        @include sm {
+            margin-bottom: rem(49);
+        }
+    }
+    .eight29-posts {
+        grid-row-gap: rem(48);
+
+        margin-bottom: 0;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include md {
+            grid-row-gap: rem(20);
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .eight29-pagination {
+        margin-top: rem(80)!important;
+
+        @include xs {
+            margin-top: rem(51)!important;
+        }
+    }
+}

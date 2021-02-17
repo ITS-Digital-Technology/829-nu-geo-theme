@@ -1,0 +1,102 @@
+.cookie-bar {
+    padding: rem(14) 0;
+
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: $color-white;
+
+    @include md {
+        z-index: 3;
+    }
+
+    &__text {
+        @include font(14, 16);
+
+        font-weight: 700;
+        color: $color-dark;
+
+        @include md {
+            margin-bottom: rem(16);
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+
+        align-items: center;
+
+        @include md {
+            display: block;
+        }
+
+        &--right {
+            justify-content: flex-end;
+        }
+    }
+
+    &__accept {
+        @include font(14, 16);
+
+        padding: .8rem 2rem;
+
+        margin-right: rem(22);
+
+        @include md {
+            width: 240px;
+        }
+    }
+    &__icon {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        line-height: 1;
+    }
+    &__close {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(20);
+        height: rem(20);
+        padding: 0;
+
+        margin: 0;
+        margin-right: rem(2);
+
+        line-height: 1;
+        color: $color-white;
+
+        border: none;
+        border-radius: 50%;
+        background-color: $color-dark;
+        cursor: pointer;
+
+        transition: background-color .2s;
+
+        @include md {
+            position: absolute;
+            top: 50%;
+            right: rem(12);
+            transform: translateY(-50%);
+        }
+
+        &:hover {
+            background-color: $accent;
+        }
+
+        i {
+            font-size: rem(14);
+        }
+    }
+}

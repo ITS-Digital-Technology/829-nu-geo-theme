@@ -1,0 +1,172 @@
+.single-event-hero {
+    padding-bottom: 8.7vw;
+
+    position: relative;
+    margin-bottom: rem(56);
+
+    color: $color-white;
+
+    @include md() {
+        margin-bottom: rem(35);
+    }
+
+    &:after {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: rem(1);
+        left: 0;
+
+        background-image: url('../images/icons/event/single-hero-pattern.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+
+
+    a {
+        color: $color-white;
+    }
+
+    .btn-all-posts {
+        margin-bottom: rem(48);
+
+        @include sm() {
+            margin-bottom: rem(32);
+        }
+    }
+
+    .container-fluid {
+        @include md() {
+            max-width: rem(720);
+        }
+    }
+
+    &__left {
+        display: flex;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        max-width: rem(630);
+        padding: rem(32) rem(4) rem(32) 0;
+
+        margin-left: auto;
+
+        @include md() {
+            max-width: none;
+        }
+
+        @include sm() {
+            padding: rem(16) 0 rem(26) 0;
+        }
+    }
+
+    &__right {
+        padding-right: 0;
+
+        @include sm() {
+            padding-left: 0;
+        }
+    }
+
+    &__cat {
+        @include font(14, 16);
+
+        margin-bottom: rem(17);
+
+        font-weight: 700;
+
+        @include sm() {
+            @include font(12, 16);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(27);
+
+        color: $color-white;
+
+        @include sm() {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__image {
+        padding-left: rem(29);
+
+        @include md() {
+            padding-bottom: rem(30);
+            padding-left: 0;
+        }
+
+        @include sm() {
+            padding-bottom: rem(16);
+        }
+
+        img {
+            width: 100%;
+
+            object-fit: cover;
+        }
+    }
+
+    &__date {
+        @include font(20, 24);
+
+        font-weight: 700;
+
+        @include sm() {
+            @include font(16, 24);
+        }
+
+        div {
+            display: flex;
+
+            align-items: center;
+        }
+
+        i {
+            margin-right: rem(8);
+
+            font-size: rem(26);
+
+            @include sm() {
+                font-size: rem(21);
+            }
+        }
+    }
+
+    &__day {
+        margin-bottom: rem(15);
+
+        @include sm() {
+            margin-bottom: rem(7);
+        }
+    }
+
+    &__start-time {
+        margin-right: .4rem;
+
+        &+.single-event-hero__end-time::before {
+            content: '–';
+
+            display: inline-block;
+
+            margin-right: .4rem;
+        }
+    }
+
+    &__wrapper {
+        background-color: $color-dark;
+    }
+}

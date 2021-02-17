@@ -1,0 +1,65 @@
+.post-type-archive-program {
+    .posts-list {
+        padding-bottom: 8vw;
+
+        position: relative;
+
+        @include md {
+            margin-bottom: rem(50);
+        }
+
+        &:after {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: rem(1);
+            left: 0;
+
+            background-image: url('../images/icons/archive-programs/pattern.svg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            background-size: 100% auto;
+        }
+    }
+    .eight29-posts-container {
+        padding: rem(16) 0 rem(85) 0;
+
+        position: relative;
+
+        background-color: $gray-5;
+
+        @include md {
+            padding: rem(16) 0 rem(53) 0;
+        }
+    }
+    .eight29-posts {
+        grid-row-gap: rem(40);
+
+        margin-bottom: 0;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include md {
+            grid-row-gap: rem(20);
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .eight29-pagination {
+        margin-top: rem(80)!important;
+
+        @include xs {
+            margin-top: rem(51)!important;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+.block-featured-programs {
+    padding: 6vw 0 6vw;
+
+    position: relative;
+    margin: rem(80) 0;
+
+    &-wrapper {
+        padding-top: rem(80);
+
+        background-color: $gray-6;
+    }
+    + .block-testimonial-slider {
+        margin-top: rem(-95);
+
+        @include md {
+            margin-top: rem(-45);
+        }
+    }
+    .program-card {
+        @include md {
+            margin-bottom: rem(20);
+        }
+    }
+    &:after {
+        content: '';
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: rem(1);
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: url('../images/icons/featured-programs/pattern-top.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% auto;
+    }
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: rem(1);
+        left: 0;
+
+        background-image: url(../images/icons/featured-programs/pattern-bottom.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+    .featured-programs {
+        &__wrapper-top {
+            margin-bottom: rem(35);
+
+            text-align: center;
+
+            @include sm {
+                margin-bottom: rem(28);
+            }
+            h2 {
+                margin-bottom: rem(15);
+
+                @include sm {
+                    margin-bottom: rem(10);
+                }
+            }
+        }
+    }
+}

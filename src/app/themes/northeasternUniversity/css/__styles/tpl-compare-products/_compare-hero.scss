@@ -1,0 +1,53 @@
+.hero-compare {
+    padding-bottom: 11vw;
+
+    position: relative;
+
+    text-align: center;
+
+    &:after {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: $gray-5 url(../images/icons/compare-programs/compare-progams-hero-pattern.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+
+    &__wrapper {
+        padding: rem(114) 0 0;
+
+        background-color: $aqua;
+        position: relative;
+        z-index: 1;
+
+        @include sm() {
+            padding: rem(76) 0 rem(27);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(30);
+
+        @include sm() {
+            margin-bottom: rem(14);
+        }
+    }
+
+    &__description {
+        max-width: rem(799);
+
+        margin: 0 auto !important;
+    }
+}

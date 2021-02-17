@@ -1,0 +1,42 @@
+.block-related-posts {
+    margin: rem(105) 0;
+
+    @include md {
+        margin: rem(31) 0;
+    }
+    .related-posts {
+        &__top {
+            display: flex;
+
+            align-items: flex-end;
+
+            margin-bottom: rem(46);
+
+            @include md {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            h2 {
+                margin-bottom: 0;
+
+                @include md {
+                    margin-bottom: rem(3);
+                }
+            }
+            .c-btn {
+                margin-left: rem(20);
+
+                @include md {
+                    margin: 0;
+                }
+            }
+        }
+        &__post-col {
+            &:not(:last-child) {
+                @include md {
+                    margin-bottom: rem(16);
+                }
+            }
+        }
+    }
+}

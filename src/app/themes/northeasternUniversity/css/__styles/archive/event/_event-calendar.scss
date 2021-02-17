@@ -1,0 +1,29 @@
+.tribe-events .datepicker .day.active,
+.tribe-events .datepicker .day.active.focused,
+.tribe-events .datepicker .day.active:focus,
+.tribe-events .datepicker .day.active:hover,
+.tribe-events .datepicker .month.active,
+.tribe-events .datepicker .month.active.focused,
+.tribe-events .datepicker .month.active:focus,
+.tribe-events .datepicker .month.active:hover,
+.tribe-events .datepicker .year.active,
+.tribe-events .datepicker .year.active.focused,
+.tribe-events .datepicker .year.active:focus,
+.tribe-events .datepicker .year.active:hover {
+    background: $accent;
+}
+
+.tribe-events .datepicker .day.current,
+.tribe-events .datepicker .day.current.focused,
+.tribe-events .datepicker .day.current:focus,
+.tribe-events .datepicker .day.current:hover,
+.tribe-events .datepicker .month.current,
+.tribe-events .datepicker .month.current.focused,
+.tribe-events .datepicker .month.current:focus,
+.tribe-events .datepicker .month.current:hover,
+.tribe-events .datepicker .year.current,
+.tribe-events .datepicker .year.current.focused,
+.tribe-events .datepicker .year.current:focus,
+.tribe-events .datepicker .year.current:hover {
+    background: rgba($accent, .3);
+}

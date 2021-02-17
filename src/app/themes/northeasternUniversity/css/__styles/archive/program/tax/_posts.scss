@@ -1,0 +1,34 @@
+.program-posts-taxonomy {
+    padding: rem(120) 0 rem(87);
+
+    background-color: $gray-5;
+
+    @include md {
+        padding: rem(47) 0 rem(49);
+    }
+    .eight29-app > :first-child {
+        margin: 0;
+    }
+    .eight29-posts {
+        grid-row-gap: rem(40);
+
+        margin-bottom: 0;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include md {
+            grid-row-gap: rem(20);
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .eight29-pagination {
+        margin-top: rem(75)!important;
+
+        @include xs {
+            margin-top: rem(51)!important;
+        }
+    }
+}
