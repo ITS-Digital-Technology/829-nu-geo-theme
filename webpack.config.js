@@ -1,6 +1,6 @@
 const path = require('path');
 
-const themeAt = 'app/themes/defaultTheme/js';
+const themeAt = 'app/themes/northeasternUniversity/js';
 const settings = {
     entry: path.resolve(__dirname, 'src', themeAt, 'script.js'),
     output: {

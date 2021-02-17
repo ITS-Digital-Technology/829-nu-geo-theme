@@ -4,7 +4,7 @@ const envArgs = getArguments();
 
 module.exports = {
     paths: {
-        themeName: 'defaultTheme',
+        themeName: 'northeasternUniversity',
         srcRoot: 'src/app/',
         webRoot: 'web/app/',
         themes: 'themes/',
