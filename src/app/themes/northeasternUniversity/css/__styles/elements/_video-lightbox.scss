@@ -21,9 +21,6 @@
 
     @include sm {
         padding-top: rem(16);
-
-        background-image: url(../images/slider/lightbox-bg-mobile.svg);
-        background-position: center bottom;
     }
 
     &:not(.active) {
