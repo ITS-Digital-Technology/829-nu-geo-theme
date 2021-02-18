@@ -9,7 +9,7 @@
 
 
 $title         = isset( $title ) ? $title : '';
-$humbnail      = isset( $thumbnail ) ? $thumbnail : false;
+$thumbnail      = isset( $thumbnail ) ? $thumbnail : false;
 $block_class   = isset( $block_class ) ? $block_class : false;
 $block_class[] = 'page-hero-home';
 $gradient      = get_field('hero_display_gradient');
