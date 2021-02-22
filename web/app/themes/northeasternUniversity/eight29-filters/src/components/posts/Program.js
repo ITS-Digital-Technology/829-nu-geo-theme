@@ -56,9 +56,12 @@ function post(props) {
                 type = el;
             }
         });
-        type = <div className="program-card__type-wrapper">
-            <a className="program-card__type" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
-        </div>
+
+        if (type && type.length > 0) {
+            type = <div className="program-card__type-wrapper">
+                <a className="program-card__type" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
+            </div>
+        }
     }
 
     //title
