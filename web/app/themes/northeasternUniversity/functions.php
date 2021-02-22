@@ -25,3 +25,26 @@ require_once 'core/init.php';
  *
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
+
+function parse_api_data($url) {
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+  $result = curl_exec($ch);
+  curl_close($ch);
+
+  $result = str_replace('_cb_getProgramSearchResults(', '', $result);
+  $result = str_replace(');', '', $result);
+  return $result;
+}
+
+function create_programs_json() {
+  $url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callname=getProgramSearchResults&ResponseEncoding=json';
+
+  $result = parse_api_data($url);
+  file_put_contents(get_template_directory().'/data.json', $result);
+}
+
+add_action('terra_dotta_query', 'create_programs_json');
