@@ -15,6 +15,7 @@ web/app/themes/**/bundle.ie.js
 web/app/themes/*/css/style.css
 web/app/themes/*/css/iconfont.css
 web/app/themes/**/fonts/
+web/app/themes/northeasternUniversity/data.json
 src/app/themes/**/css/__styles/_iconfont.scss
 
 # Filepacks
