@@ -1,5 +1,5 @@
 <?php
-$types           = isset( $_GET['p_types'] ) ? array_map('intval', explode(',', $_GET['p_types'])) : [];
+$types           = isset( $_GET['p_type'] ) ? array_map('intval', explode(',', $_GET['p_type'])) : [];
 $countries       = isset( $_GET['p_country'] ) ? array_map('intval', explode(',', $_GET['p_country'])) : [];
 $terms           = isset( $_GET['p_term'] ) ? array_map('intval', explode(',', $_GET['p_term'])) : [];
 $fields_of_study = isset( $_GET['p_field_of_study'] ) ? array_map('intval', explode(',', $_GET['p_field_of_study'])) : [];

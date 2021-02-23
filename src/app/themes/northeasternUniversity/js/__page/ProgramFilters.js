@@ -50,11 +50,11 @@ class ProgramFilters {
         this.fieldsOfStudy = [];
 
         const filtersAll = $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox]:not([data-id="all"])');
-        let bool;
+        let bool = false;
         filtersAll.each((index,el) =>{
-            if(!$(el).prop('checked') == true) {
+            if($(el).prop('checked') === false) {
                 bool = false;
-                return
+                return false;
             } else {
                 bool= true;
             }
@@ -65,7 +65,7 @@ class ProgramFilters {
             $(e.delegateTarget).attr('disabled',true);
         }
 
-        if( $(e.delegateTarget).data('id') !== 'all' && $(e.delegateTarget).prop('checked') == false ){
+        if( $(e.delegateTarget).data('id') !== 'all' && $(e.delegateTarget).prop('checked') === false ){
            $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').attr('disabled', false);
            $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').prop('checked', false);
         } else if(bool){
