@@ -24,6 +24,7 @@ function post(props) {
     let country;
     let terms=[];
     let app_deadline;
+    let termContent;
 
 
     //feature-image
@@ -106,6 +107,14 @@ function post(props) {
 
 
     //info
+    if (terms && terms.length > 0) {
+        termContent = <div className="program-card__info-terms">
+            <span className="program-card__info-name program-card__info-name-terms">Term(s): </span>
+            {terms}
+
+        </div>
+    }
+    
     info =  <div className="program-card__info">
                 <div className="program-card__info-location">
                     <span className="program-card__info-name program-card__info-name-location ">Location: </span>
@@ -118,11 +127,8 @@ function post(props) {
                     : null
                     }
                 </div>
-                <div className="program-card__info-terms">
-                    <span className="program-card__info-name program-card__info-name-terms">Term(s): </span>
-                    {terms}
-
-                </div>
+                
+                {termContent}
             </div>
 
     //appdeadline

@@ -36,15 +36,33 @@ function parse_api_data($url) {
   curl_close($ch);
 
   $result = str_replace('_cb_getProgramSearchResults(', '', $result);
+  $result = str_replace('_cb_getProgramBrochure(', '', $result);
   $result = str_replace(');', '', $result);
-  return $result;
+  $formatted = json_decode($result);
+
+  return $formatted;
 }
 
 function create_programs_json() {
   $url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callname=getProgramSearchResults&ResponseEncoding=json';
+  $program_url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callName=getProgramBrochure&ResponseEncoding=JSON&Program_ID=';
 
+  //Connect to API to get a list of all available programs
   $result = parse_api_data($url);
-  file_put_contents(get_template_directory().'/data.json', $result);
+  $programs = $result->PROGRAM;
+  $data = [];
+
+  //Loop thru the program list and get details about each program and add those details to an array
+  foreach ($programs as $program) {
+    $program_id = $program->PROGRAM_ID;
+    $api_url = $program_url.$program_id;
+    $api_result = parse_api_data($api_url);
+    array_push($data, $api_result);
+  }
+
+  //JSON format the array and dump into a JSON file for WP All Import to process
+  $data = json_encode($data);
+  file_put_contents(get_template_directory().'/data.json', $data);
 }
 
 add_action('terra_dotta_query', 'create_programs_json');
