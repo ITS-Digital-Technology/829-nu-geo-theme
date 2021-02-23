@@ -51224,7 +51224,8 @@ function post(props) {
   var city;
   var country;
   var terms = [];
-  var app_deadline; //feature-image
+  var app_deadline;
+  var termContent; //feature-image
 
   featuredImage = /*#__PURE__*/_react.default.createElement("figure", {
     className: "program-card__thumbnail",
@@ -51327,6 +51328,14 @@ function post(props) {
     }, term.name, i < terms.length - 1 ? ", " : null);
   }); //info
 
+  if (terms && terms.length > 0) {
+    termContent = /*#__PURE__*/_react.default.createElement("div", {
+      className: "program-card__info-terms"
+    }, /*#__PURE__*/_react.default.createElement("span", {
+      className: "program-card__info-name program-card__info-name-terms"
+    }, "Term(s): "), terms);
+  }
+
   info = /*#__PURE__*/_react.default.createElement("div", {
     className: "program-card__info"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -51345,11 +51354,7 @@ function post(props) {
     dangerouslySetInnerHTML: {
       __html: country[0].name
     }
-  }) : null), /*#__PURE__*/_react.default.createElement("div", {
-    className: "program-card__info-terms"
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "program-card__info-name program-card__info-name-terms"
-  }, "Term(s): "), terms)); //appdeadline
+  }) : null), termContent); //appdeadline
 
   if (post.acf_program_card_app_deadline) {
     app_deadline = /*#__PURE__*/_react.default.createElement("p", {
@@ -54786,7 +54791,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60916" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53372" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
