@@ -63,6 +63,17 @@ function create_programs_json() {
   //JSON format the array and dump into a JSON file for WP All Import to process
   $data = json_encode($data);
   file_put_contents(get_template_directory().'/data.json', $data);
+
+  //Trigger Import for WP All Import
+  $trigger_url = get_field('wp_all_import_trigger_url', 'option');
+  wp_remote_get($trigger_url);
 }
 
 add_action('terra_dotta_query', 'create_programs_json');
+
+function ping_import() {
+  $processing_url = get_field('wp_all_import_processing_url', 'option');
+  wp_remote_get($processing_url);
+}
+
+add_action('processing_wp_all_import', 'ping_import');
