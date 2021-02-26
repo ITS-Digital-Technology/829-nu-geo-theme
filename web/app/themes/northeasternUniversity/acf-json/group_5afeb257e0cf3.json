@@ -44,6 +44,44 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_60390dfeab742",
+            "label": "WP All Import Trigger URL",
+            "name": "wp_all_import_trigger_url",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60390e16ab743",
+            "label": "WP All Import Processing URL",
+            "name": "wp_all_import_processing_url",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -63,5 +101,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612951443
+    "modified": 1614351912
 }
