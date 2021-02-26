@@ -35814,7 +35814,8 @@ function FilterContainer(props) {
       scrollable = props.scrollable,
       collapsible = props.collapsible,
       terraDotta = props.terraDotta,
-      postType = props.postType;
+      postType = props.postType,
+      filterId = props.filterId;
   var collapseClass = collapsible ? 'collapsible' : '';
 
   var _useState = (0, _react.useState)(false),
@@ -35934,6 +35935,7 @@ function FilterContainer(props) {
     }
   })))));
   return /*#__PURE__*/_react.default.createElement("div", {
+    id: filterId,
     className: "eight29-filter ".concat(className)
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "accordion-select ".concat(toggleClass(), " ").concat(collapseClass)
@@ -36286,6 +36288,7 @@ function FilterCheckbox(props) {
   var childContent;
   var filterContent;
   var selectAll;
+  var filterId = '';
 
   if (taxonomy) {
     termList = taxonomy.map(function (term, index) {
@@ -36421,8 +36424,13 @@ function FilterCheckbox(props) {
     }, termList);
   }
 
+  if (taxSlug) {
+    filterId = "filter-".concat(taxSlug);
+  }
+
   var filterClass = "filter-checkbox ".concat(classFilter);
   return /*#__PURE__*/_react.default.createElement(_FilterContainer.default, {
+    filterId: filterId,
     className: filterClass,
     label: label,
     selected: selected,
@@ -36467,6 +36475,7 @@ function FilterSelect(props) {
   var allTerms = [];
   var parentContent;
   var childContent;
+  var filterId = '';
 
   function changeValue(value) {
     if (value === 'empty') {
@@ -36513,7 +36522,12 @@ function FilterSelect(props) {
     });
   }
 
+  if (taxSlug) {
+    filterId = "filter-".concat(taxSlug);
+  }
+
   return /*#__PURE__*/_react.default.createElement(_FilterContainer.default, {
+    filterId: filterId,
     className: "filter-select",
     label: label,
     collapsible: collapsible,
@@ -36582,6 +36596,7 @@ function FilterAccordionMultiSelect(props) {
   var parentContent;
   var childContent;
   var filterContent;
+  var filterId = '';
 
   function clickHandler(e, object) {
     e.preventDefault();
@@ -36653,7 +36668,12 @@ function FilterAccordionMultiSelect(props) {
     filterContent = /*#__PURE__*/_react.default.createElement("ul", null, allTerms);
   }
 
+  if (taxSlug) {
+    filterId = "filter-".concat(taxSlug);
+  }
+
   return /*#__PURE__*/_react.default.createElement(_FilterContainer.default, {
+    filterId: filterId,
     className: "filter-accordion-multi-select",
     label: label,
     selected: selected,
@@ -36720,6 +36740,7 @@ function FilterAccordionSingleSelect(props) {
   var parentContent;
   var childContent;
   var filterContent;
+  var filterId = '';
 
   function clickHandler(e, object) {
     e.preventDefault();
@@ -36807,7 +36828,12 @@ function FilterAccordionSingleSelect(props) {
     filterContent = /*#__PURE__*/_react.default.createElement("ul", null, allTerms);
   }
 
+  if (taxSlug) {
+    filterId = "filter-".concat(taxSlug);
+  }
+
   return /*#__PURE__*/_react.default.createElement(_FilterContainer.default, {
+    filterId: filterId,
     className: "filter-accordion-single-select",
     label: label,
     postType: postType,
@@ -36849,6 +36875,7 @@ function FilterButtonGroup(props) {
       isSelected = props.isSelected;
   var allTerms = [];
   var termContent;
+  var filterId = '';
 
   function resetCat(e) {
     e.preventDefault();
@@ -36907,7 +36934,12 @@ function FilterButtonGroup(props) {
     });
   }
 
+  if (taxSlug) {
+    filterId = "filter-".concat(taxSlug);
+  }
+
   return /*#__PURE__*/_react.default.createElement(_FilterContainer.default, {
+    filterId: filterId,
     className: "filter-button-group",
     label: label,
     selected: selected,
@@ -54791,7 +54823,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53372" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59524" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
