@@ -208,3 +208,76 @@ $eight29_filter_data = [
 if (class_exists('eight29_filters')) {
     $eight29_filters->set_post_data($eight29_filter_data);
 }
+
+//Generate options from field data
+function get_filter_names($field) {
+    $field['choices'] = [];
+    $data = [];
+
+
+    //TODO: get data without hardcoding
+
+    $fields = [
+        "program_type" => [
+			"label" => "Program Type",
+            "type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_type
+		],
+		"country" => [
+			"label" => "Country",
+			"type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_country
+        ],
+        "term" => [
+			"label" => "Term",
+			"type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_term
+        ],
+        "field_of_study" =>[
+            "label" => "Field of Study",
+			"type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_field_of_study
+        ],
+        "program_track" => [
+            "label" => "Program Track",
+            "type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_track
+        ],
+        "city" => [
+            "label" => "City",
+            "type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_city
+        ],
+        "region" => [
+            "label" => "Region",
+            "type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_region
+        ],
+        "class_type" => [
+            "label" => "Class Type",
+            "type" => "checkbox",
+            "dropdown" => true,
+            "terraDotta" => $program_class_type
+        ]
+    ];
+  
+    $filters = $fields;
+  
+    foreach($filters as $filter_name => $filter_info) {
+      array_push($data, [
+          $filter_name => $filter_name
+      ]);
+    }
+  
+    $field['choices'] = $data;
+    return $field;
+  }
+  
+  add_filter('acf/load_field/name=filter_name', 'get_filter_names');
