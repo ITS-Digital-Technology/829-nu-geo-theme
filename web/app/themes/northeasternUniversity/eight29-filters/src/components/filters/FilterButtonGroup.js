@@ -19,6 +19,7 @@ function FilterButtonGroup(props) {
   const allTerms = [];
 
   let termContent;
+  let filterId = '';
 
   function resetCat(e) {
     e.preventDefault();
@@ -83,8 +84,13 @@ function FilterButtonGroup(props) {
     });
   }
 
+  if (taxSlug) {
+    filterId = `filter-${taxSlug}`;
+  }
+
   return (
     <FilterContainer
+    filterId={filterId}
     className="filter-button-group"
     label={label}
     selected={selected}

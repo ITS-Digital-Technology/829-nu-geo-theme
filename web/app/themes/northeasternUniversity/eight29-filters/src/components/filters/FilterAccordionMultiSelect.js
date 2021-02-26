@@ -22,6 +22,7 @@ function FilterAccordionMultiSelect(props) {
   let parentContent;
   let childContent;
   let filterContent;
+  let filterId = '';
 
   function clickHandler(e, object) {
     e.preventDefault();
@@ -97,14 +98,20 @@ function FilterAccordionMultiSelect(props) {
       </ul>
     </DropdownContainer>
   }
+
   else {
     filterContent = <ul>
       {allTerms}
     </ul>
   }
 
+  if (taxSlug) {
+    filterId = `filter-${taxSlug}`;
+  }
+
   return (
-    <FilterContainer 
+    <FilterContainer
+    filterId={filterId}
     className="filter-accordion-multi-select"
     label={label}
     selected={selected}

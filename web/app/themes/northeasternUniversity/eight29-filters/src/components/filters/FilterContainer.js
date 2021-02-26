@@ -10,7 +10,8 @@ function FilterContainer(props) {
     scrollable,
     collapsible,
     terraDotta,
-    postType
+    postType,
+    filterId
   } = props;
 
   const collapseClass = collapsible ? 'collapsible' : '';
@@ -100,7 +101,7 @@ function FilterContainer(props) {
     </div>
 
   return(
-    <div className={`eight29-filter ${className}`}>
+    <div id={filterId} className={`eight29-filter ${className}`}>
       <div className={`accordion-select ${toggleClass()} ${collapseClass}`}>
         {labelcontent}
         <div>

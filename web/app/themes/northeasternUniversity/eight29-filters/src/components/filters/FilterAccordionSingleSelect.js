@@ -24,6 +24,7 @@ function FilterAccordionSingleSelect(props) {
   let parentContent;
   let childContent;
   let filterContent;
+  let filterId = '';
 
   function clickHandler(e, object) {
     e.preventDefault();
@@ -120,14 +121,20 @@ function FilterAccordionSingleSelect(props) {
         </ul>
       </DropdownContainer>
   }
+
   else {
     filterContent = <ul>
       {allTerms}
     </ul>
   }
 
+  if (taxSlug) {
+    filterId = `filter-${taxSlug}`;
+  }
+
   return (
     <FilterContainer
+    filterId={filterId}
     className="filter-accordion-single-select"
     label={label}
     postType={postType}
