@@ -28,6 +28,7 @@ function FilterCheckbox(props) {
   let childContent;
   let filterContent;
   let selectAll;
+  let filterId = '';
 
   if (taxonomy) {
     termList = taxonomy.map((term, index) => {
@@ -162,15 +163,22 @@ function FilterCheckbox(props) {
       </ul>
     </DropdownContainer>
   }
+
   else {
     filterContent = <ul className="checkboxes">
       {termList}
     </ul>
   }
+
+  if (taxSlug) {
+    filterId = `filter-${taxSlug}`;
+  }
+
   const filterClass = `filter-checkbox ${classFilter}`;
 
   return (
     <FilterContainer
+    filterId={filterId}
     className={filterClass}
     label={label}
     selected={selected}

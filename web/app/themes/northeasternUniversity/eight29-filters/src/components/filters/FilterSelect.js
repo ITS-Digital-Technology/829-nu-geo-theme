@@ -19,6 +19,7 @@ function FilterSelect(props) {
 
   let parentContent;
   let childContent;
+  let filterId = '';
 
   function changeValue(value) {
     if (value === 'empty') {
@@ -81,8 +82,13 @@ function FilterSelect(props) {
     });
   }
 
+  if (taxSlug) {
+    filterId = `filter-${taxSlug}`;
+  }
+
   return (
-    <FilterContainer 
+    <FilterContainer
+    filterId={filterId} 
     className="filter-select"
     label={label}
     collapsible={collapsible}
