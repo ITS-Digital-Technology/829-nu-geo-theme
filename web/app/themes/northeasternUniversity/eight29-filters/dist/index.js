@@ -52820,8 +52820,6 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _FeaturedImage = _interopRequireDefault(require("../FeaturedImage"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function searchResult(props) {
@@ -52830,31 +52828,30 @@ function searchResult(props) {
   var featuredImage;
   var cat = '';
   var excerpt = '';
+  var link = '';
 
-  if (post.excerpt.rendered) {
-    excerpt = post.excerpt.rendered;
+  if (post.excerpt) {
+    excerpt = post.excerpt;
   } else {
-    excerpt = post.content.rendered;
+    excerpt = post.content;
   }
 
-  if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:term')) {
-    if (post._embedded['wp:term'][0]) {
-      if (post._embedded['wp:term'][0][0] && post._embedded['wp:term'][0][0]['name']) {
-        cat = /*#__PURE__*/_react.default.createElement("p", {
-          class: "search-result-card__cat"
-        }, post._embedded['wp:term'][0][0]['name']);
+  if (post.cat) {
+    cat = /*#__PURE__*/_react.default.createElement("p", {
+      className: "search-result-card__cat",
+      dangerouslySetInnerHTML: {
+        __html: post.cat
       }
-    }
+    });
   }
 
-  if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
+  if (post.featured_image) {
     featuredImage = /*#__PURE__*/_react.default.createElement("figure", {
-      className: "search-result-card__thumbnail"
-    }, /*#__PURE__*/_react.default.createElement(_FeaturedImage.default, {
-      imageSize: 'search-thumbnail',
-      image: post._embedded['wp:featuredmedia'],
-      srcset: post.featured_image_srcset
-    }));
+      className: "search-result-card__thumbnail",
+      dangerouslySetInnerHTML: {
+        __html: post.featured_image
+      }
+    });
   }
 
   function theExcerpt(content) {
@@ -52880,11 +52877,17 @@ function searchResult(props) {
     });
   }
 
+  if (post.post_type === 'program') {
+    link = post.link;
+  } else {
+    link = post.permalink;
+  }
+
   return /*#__PURE__*/_react.default.createElement("article", {
     className: "search-result-card"
   }, /*#__PURE__*/_react.default.createElement("a", {
     className: "search-result-card__link",
-    href: post.link,
+    href: link,
     "data-id": post.id
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: "search-result-card__wrapper"
@@ -52893,14 +52896,14 @@ function searchResult(props) {
   }, cat, /*#__PURE__*/_react.default.createElement("h5", {
     className: "search-result-card__title",
     dangerouslySetInnerHTML: {
-      __html: post.title.rendered
+      __html: post.title
     }
   }), excerpt), featuredImage && featuredImage));
 }
 
 var _default = searchResult;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../FeaturedImage":"components/FeaturedImage.js"}],"components/search/SearchTopInput.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/search/SearchTopInput.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54823,7 +54826,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59524" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59877" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -87,7 +87,7 @@ function acf_staff_postion( $response, $post, $request ) {
 add_filter( 'rest_prepare_staff', 'acf_staff_postion', 10, 3 );
 
 
-//custom search endpoint
+// custom search endpoint
 function northeasternUniversity_register_search_route() {
 	register_rest_route(
 		'custom-search/v1',
@@ -119,62 +119,92 @@ function northeasternUniversity_get_search_args() {
 }
 
 function northeasternUniversity_ajax_search( $request ) {
-	$posts   = [];
-	$results = [];
-    $exclude_posts = [];
+	$posts         = [];
+	$results       = [];
+	$exclude_posts = [];
 
+	// hide_from_search
+	$args = array(
+		'post_type'      => [ 'page', 'post', 'news', 'staff', 'program' ],
+		'posts_per_page' => -1,
+	);
 
-    // hide_from_search
-    $args = array(
-        'post_type'      => [ 'page', 'post', 'news', 'staff', 'program' ],
-        'posts_per_page' => -1,
-    );
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
 
-    $query = new WP_Query($args);
-    if ($query->have_posts()) {
+		while ( $query->have_posts() ) :
+			$query->the_post();
+			$id               = get_the_ID();
+			$hide_from_search = get_field( 'hide_from_search', $id );
+			if ( $hide_from_search === true ) {
+				$exclude_posts[] = $id;
+			}
+		endwhile;
+		wp_reset_postdata();
+	}
 
-        while ($query->have_posts()) : $query->the_post();
-            $id = get_the_ID();
-            $hide_from_search = get_field('hide_from_search', $id);
-            if($hide_from_search === true) {
-                $exclude_posts[] = $id;
-            }
-        endwhile;
-        wp_reset_postdata();
-    }
+	$args = array(
+		'post_type'      => [ 'page', 'post', 'news', 'staff', 'program' ],
+		'paged'          => $request['page'],
+		'posts_per_page' => $request['per_page'],
+		's'              => $request['s'],
+		'post__not_in'   => $exclude_posts,
+	);
 
+	$query = new WP_Query( $args );
 
-		$args = array(
-            'post_type'      => [ 'page', 'post', 'news', 'staff', 'program' ],
-			'paged'          => $request['page'],
-			'posts_per_page' => $request['per_page'],
-			's'              => $request['s'],
-			'post__not_in'   => $exclude_posts,
+	if ( empty( $query->posts ) ) {
+		return new WP_Error( 'no_posts', __( 'No post found' ), array( 'status' => 404 ) );
+	}
+
+	$max_pages = $query->max_num_pages;
+	$total     = $query->found_posts;
+
+	while ( $query->have_posts() ) {
+		$query->the_post();
+		$id             = get_the_ID();
+		$title          = get_the_title( $id );
+		$post_type      = get_post_type( $id );
+		$content        = get_the_content( $id );
+		$excerpt        = get_the_excerpt( $id );
+		$permalink      = get_the_permalink( $id );
+		$featured_image = wp_get_attachment_image( get_post_thumbnail_id( $id ), 'search-thumbnail' );
+		$link           = '';
+		if ( $post_type === 'program' ) {
+			$link = get_field( 'program_link', $id )['url'];
+			$cat  = get_primary_taxonomy_term( $id, 'program_type' )['title'];
+		} elseif ( $post_type === 'staff' ) {
+			$cat = get_primary_taxonomy_term( $id, 'staff_category' )['title'];
+		} elseif ( $post_type === 'news' ) {
+			$cat = get_primary_taxonomy_term( $id, 'news_category' )['title'];
+		} elseif ( $post_type === 'post' ) {
+			$cat = get_primary_taxonomy_term( $id, 'post_content_type' )['title'];
+		} else {
+			$cat = '';
+
+		}
+		array_push(
+			$results,
+			array(
+				'id'             => $id,
+				'title'          => $title,
+				'permalink'      => $permalink,
+				'post_type'      => $post_type,
+				'content'        => $content,
+				'excerpt'        => $excerpt,
+				'featured_image' => $featured_image,
+				'link'           => $link,
+				'cat'            => $cat,
+
+			)
 		);
+	}
 
-		$query = new WP_Query( $args );
+	$response = new WP_REST_Response( $results, 200 );
 
-		if ( empty( $query->posts ) ) {
-			return new WP_Error( 'no_posts', __( 'No post found' ), array( 'status' => 404 ) );
-		}
+	$response->header( 'X-WP-Total', $total );
+	$response->header( 'X-WP-TotalPages', $max_pages );
 
-		$max_pages = $query->max_num_pages;
-		$total     = $query->found_posts;
-
-		$posts = $query->posts;
-
-		$controller = new WP_REST_Posts_Controller( 'post' );
-
-		foreach ( $posts as $post ) {
-			$response = $controller->prepare_item_for_response( $post, $request );
-			$data[]   = $controller->prepare_response_for_collection( $response );
-		}
-
-		$response = new WP_REST_Response( $data, 200 );
-
-		$response->header( 'X-WP-Total', $total );
-		$response->header( 'X-WP-TotalPages', $max_pages );
-
-		return $response;
+	return $response;
 
 }
