@@ -214,7 +214,6 @@ function get_filter_names($field) {
     $field['choices'] = [];
     $data = [];
 
-
     //TODO: get data without hardcoding
 
     $fields = [
@@ -271,9 +270,7 @@ function get_filter_names($field) {
     $filters = $fields;
   
     foreach($filters as $filter_name => $filter_info) {
-      array_push($data, [
-          $filter_name => $filter_name
-      ]);
+        $data[$filter_name] = $filter_info['label'];
     }
   
     $field['choices'] = $data;
