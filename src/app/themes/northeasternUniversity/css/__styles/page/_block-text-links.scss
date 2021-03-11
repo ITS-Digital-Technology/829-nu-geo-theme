@@ -45,10 +45,10 @@
     }
 
     &--bg-shape {
-        padding: 11vw 0 11vw;
+        padding: 10vw 0 10vw;
 
         position: relative;
-        margin: 0;;
+        margin: 0;
         & + .block-related-posts {
             margin-top: 0;
 
@@ -57,7 +57,7 @@
             }
         }
         &:after {
-            content: '';
+            content: "";
 
             display: block;
 
@@ -70,7 +70,7 @@
             bottom: 0;
             left: 0;
 
-            background-image: url('../images/icons/text-links/pattern-top.svg');
+            background-image: url("../images/icons/text-links/pattern-top.svg");
             background-repeat: no-repeat;
             background-position: top;
             background-size: 100% auto;
@@ -89,7 +89,7 @@
             bottom: rem(1);
             left: 0;
 
-            background-image: url('../images/icons/text-links/pattern.svg');
+            background-image: url("../images/icons/text-links/pattern.svg");
             background-repeat: no-repeat;
             background-position: bottom;
             background-size: 100% auto;
