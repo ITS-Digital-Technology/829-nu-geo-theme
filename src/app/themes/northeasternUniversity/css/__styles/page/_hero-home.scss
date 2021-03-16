@@ -13,6 +13,10 @@
     // min-height: 0;
     // }
 
+    .video-bg {
+        z-index: 1;
+    }
+
     &__wrapper {
         display: flex;
 
@@ -38,7 +42,7 @@
     &.page-hero--text,
     &.page-hero--gradient {
         .page-hero-home__wrapper:after {
-            content: '';
+            content: "";
 
             width: 100%;
             height: rem(192);
@@ -70,7 +74,7 @@
         justify-content: flex-start;
 
         position: relative;
-        z-index: 1;
+        z-index: 2;
     }
 
     .page-hero__content {
@@ -83,16 +87,16 @@
         }
 
         h1 {
-            @include font(80,80);
+            @include font(80, 80);
 
             text-align: left;
             color: $color-white;
 
             @include lg {
-                @include font(60,64);
+                @include font(60, 64);
             }
             @include sm {
-                @include font(34,40);
+                @include font(34, 40);
             }
         }
     }

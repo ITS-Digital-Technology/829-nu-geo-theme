@@ -135,6 +135,30 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_605092505e35a",
+            "label": "Background Video",
+            "name": "hero_background_video",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ff85e2992739",
+                        "operator": "==",
+                        "value": "home"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
         }
     ],
     "location": [
@@ -154,5 +178,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612536972
+    "modified": 1615893269
 }
