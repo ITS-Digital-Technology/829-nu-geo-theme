@@ -50,9 +50,12 @@ function post(props) {
                 type = el;
             }
         });
-        type = <div className="blog-post__card-cat">
-            <a className="blog-post__card-cat-link" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
-        </div>
+
+        if (type && type.length > 0) {            
+            type = <div className="blog-post__card-cat">
+                <a className="blog-post__card-cat-link" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
+            </div>
+        }
     }
 
     if (post.author && displayAuthor) {
