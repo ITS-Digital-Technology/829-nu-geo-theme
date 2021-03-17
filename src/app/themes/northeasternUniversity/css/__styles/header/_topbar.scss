@@ -5,7 +5,7 @@
     justify-content: space-between;
 
     &::before {
-        content: '';
+        content: "";
         pointer-events: none;
 
         height: calc(var(--vh100, 1vh) * 100 - #{rem(48)});
@@ -16,11 +16,11 @@
         bottom: 0;
         left: 0;
 
-        background: rgba($color-black, .5);
+        background: rgba($color-black, 0.5);
         opacity: 0;
         visibility: hidden;
 
-        transition: opacity .2s, visibility .2s;
+        transition: opacity 0.2s, visibility 0.2s;
 
         @include lg {
             display: none;
@@ -74,7 +74,7 @@
         margin: 0;
 
         color: $color-white;
-        letter-spacing: rem(.9);
+        letter-spacing: rem(0.9);
         text-transform: uppercase;
 
         border: none;
@@ -85,13 +85,13 @@
             padding-right: rem(36);
 
             text-align: left;
-            letter-spacing: rem(.7);
+            letter-spacing: rem(0.7);
         }
 
         appearance: none;
 
         &::after {
-            content: '';
+            content: "";
 
             display: inline-block;
 
@@ -107,7 +107,7 @@
             border-right: rem(4) solid transparent;
             border-left: rem(4) solid transparent;
 
-            transition: transform .2s;
+            transition: transform 0.2s;
 
             @include lg {
                 right: rem(11);
@@ -121,7 +121,7 @@
         }
 
         &-text {
-            transition: opacity .2s, visibility .2s;
+            transition: opacity 0.2s, visibility 0.2s;
         }
 
         .hidden {
@@ -149,7 +149,7 @@
         opacity: 0;
         visibility: hidden;
 
-        transition: height .2s, opacity .2s, visibility .2s;
+        transition: height 0.2s, opacity 0.2s, visibility 0.2s;
 
         @include lg {
             width: 100%;
@@ -225,7 +225,6 @@
         overflow-y: auto;
     }
 
-
     &__menu {
         display: block;
 
@@ -236,6 +235,31 @@
         line-height: 1;
 
         list-style: none;
+    }
+
+    &__menu-item a {
+        span {
+            position: relative;
+            &:after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background-color: $accent;
+                transition: transform 0.6s ease-in-out;
+                transform: scaleX(0);
+                transform-origin: left center;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            span::after {
+                transform: scaleX(1);
+            }
+        }
     }
 
     &__menu-entry {
@@ -262,12 +286,12 @@
             text-transform: uppercase;
 
             border: none;
-            border-bottom: rem(1) solid rgba($color-7, .2);
+            border-bottom: rem(1) solid rgba($color-7, 0.2);
             outline: 0;
             background: $color-black;
             cursor: pointer;
 
-            transition: color .3s, background .3s, font-weight .3s;
+            transition: color 0.3s, background 0.3s, font-weight 0.3s;
 
             appearance: none;
 
@@ -307,13 +331,49 @@
     &__menu-accordion {
         display: none;
 
-        @include lg {
+        @include lg-up() {
+            display: none !important;
+        }
+
+        .menu {
             padding: 0 rem(30) rem(16);
 
             margin: 0;
 
             list-style: none;
             background: $color-white;
+
+            li:not(:last-child) {
+                margin-bottom: rem(16);
+            }
+
+            a {
+                font-size: rem(14);
+                font-weight: 500;
+                line-height: rem(18);
+                display: inline-block;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    background-color: $accent;
+                    transition: transform 0.6s ease-in-out;
+                    transform: scaleX(0);
+                    transform-origin: left center;
+                }
+
+                &:hover,
+                &:focus {
+                    &::after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
         }
     }
 }
@@ -358,7 +418,7 @@
         color: $color-white;
 
         &::after {
-            content: '';
+            content: "";
 
             display: inline-block;
 
@@ -370,7 +430,7 @@
             border-bottom: rem(1) solid $accent;
             opacity: 0;
 
-            transition: opacity .2s;
+            transition: opacity 0.2s;
         }
     }
 }
@@ -393,23 +453,20 @@
     }
 
     &__tab {
+        display: none;
+        padding: rem(24) rem(20) 0 rem(13);
+        opacity: 0;
+        &.active {
+            display: block;
+            animation: fadeInDb 0.4s ease-in-out forwards;
+        }
+    }
+
+    &__list {
+        flex-direction: column;
         display: flex;
 
-        flex-direction: column;
-
-        padding: rem(24) rem(20) 0 rem(13);
-
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        margin: 0;
-
         list-style: none;
-
-        &.active {
-            z-index: 4;
-        }
     }
 
     &__title {
@@ -474,5 +531,15 @@
         @include lg {
             display: none;
         }
+    }
+}
+
+@keyframes fadeInDb {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

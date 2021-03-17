@@ -18,49 +18,32 @@ $cta = get_field('htb_cta', 'options');
 <div class="topbar__subnav">
     <div class="topbar__subnav-left">
     <!-- menu start -->
-    <?php if (!empty($menus)) : ?>
+    <?php if( have_rows('htb_menus', 'options') ): ?>
         <ul class="topbar__menu">
-        <?php
-        $i = 0;
+        <?php while( have_rows('htb_menus', 'options') ): the_row();
+            $menu = get_sub_field('menu');
+            $menu_obj = wp_get_nav_menu_object($menu);
+            $tab_title = get_sub_field('title');
+            $menu_title = $menu_obj->name;
+            $title = !empty($tab_title) ? $tab_title : $menu_title;
+            $i = get_row_index() - 1;
 
-        foreach($menus as $menu) :
-            $menu_object = wp_get_nav_menu_object($menu['menu']);
-            $menu_items = wp_get_nav_menu_items($menu['menu']);
+            $args = [
+                'menu' => $menu,
+                'container_class' => 'topbar__menu-accordion',
+            ];
         ?>
             <li class="topbar__menu-entry">
                 <button data-target="subnav-tab-<?php echo $i; ?>">
-                    <?php echo $menu_object->name; ?>
+                    <?php echo $title; ?>
                 </button>
 
-                <ul class="topbar__menu-accordion">
-                <?php
-                foreach($menu_items as $menu_item) :
-                    $id = $menu_item->ID;
-                    $image = get_field('menu_item_image', $id);
-                ?>
-                    <li class="topbar__menu-item tmi">
-                        <a href="<?php echo get_permalink($id); ?>">
-                        <?php if (!empty($image)) : ?>
-                            <figure class="tmi__image">
-                                <?php echo f_img($image, 'testimonial-img'); ?>
-                            </figure>
-                        <?php endif; ?>
-                            <span class="tmi__text">
-                                <span>
-                                    <?php echo $menu_item->post_title; ?>
-                                </span>
-                            </span>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-                </ul>
+                <?php wp_nav_menu($args); ?>
             </li>
-        <?php
-            $i++;
-        endforeach;
-        ?>
+        <?php endwhile; ?>
         </ul>
     <?php endif; ?>
+
     <!-- menu end -->
 
     <!-- links with icons start -->
@@ -95,45 +78,40 @@ $cta = get_field('htb_cta', 'options');
 
     <div class="topbar__subnav-right hide-on-mobile">
         <div class="topbar__menu-list subnav-tabs">
-        <?php
-        $i = 0;
+        <?php if( have_rows('htb_menus', 'options') ): ?>
+            <?php while( have_rows('htb_menus', 'options') ): the_row();
+                $menu = get_sub_field('menu');
+                $menu_obj = wp_get_nav_menu_object($menu);
+                $pane_title = get_sub_field('pane_title');
+                $tab_title = get_sub_field('title');
+                $menu_title = $menu_obj->name;
+                $i = get_row_index() - 1;
 
-        foreach($menus as $menu) :
-            $menu_object = wp_get_nav_menu_object($menu['menu']);
-            $menu_items = wp_get_nav_menu_items($menu['menu']);
-        ?>
-            <ul class="subnav-tabs__tab" id="subnav-tab-<?php echo $i; ?>">
+                $args = [
+                    'menu' => $menu,
+                    'walker'=> new Tab_Menu_Walker,
+                    'menu_class' => 'subnav-tabs__list',
+                ];
+
+                if (!empty($pane_title)) {
+                    $title = $pane_title;
+                } else if (!empty($tab_title)) {
+                    $title = $tab_title;
+                } else {
+                    $title = $menu_title;
+                }
+            ?>
+            
+            <nav class="subnav-tabs__tab" id="subnav-tab-<?php echo $i; ?>">
                 <p class="subnav-tabs__title">
-                    <?php echo $menu_object->name; ?>
+                    <?php echo $title; ?>
                 </p>
-            <?php
-            foreach($menu_items as $menu_item) :
-                $id = $menu_item->ID;
-                $image = get_field('menu_item_image', $id);
-            ?>
-                <li class="topbar__menu-item tmi subnav-tabs__link" >
-                    <a href="<?php echo get_permalink($id); ?>">
-                    <?php if (!empty($image)) : ?>
-                        <figure class="tmi__image">
-                            <?php echo f_img($image, 'testimonial-img'); ?>
-                        </figure>
-                    <?php endif; ?>
-                        <span class="tmi__text">
-                            <span>
-                                <?php echo $menu_item->post_title; ?>
-                            </span>
-                        </span>
-                    </a>
-                </li>
-            <?php
-            endforeach;
-            ?>
-            </ul>
-        <?php
-            $i++;
-        endforeach;
-        ?>
-            <div class="subnav-tabs__overlay"></div>
+
+                <?php wp_nav_menu($args); ?>
+            </nav>
+
+            <?php endwhile; ?>
+        <?php endif; ?>
         </div>
     </div>
 </div>

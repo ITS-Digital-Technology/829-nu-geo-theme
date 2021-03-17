@@ -13,7 +13,7 @@ foreach ($links as $single) :
         $link_title  = $link['title'];
         $link_target = $link['target'] ? $link['target'] : '_self';
 ?>
-    <a class="mm-link <?php echo !empty($image) ? 'mm-link--has-image' : ''; ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"  target="_blank">
+    <a class="mm-link <?php echo !empty($image) ? 'mm-link--has-image' : ''; ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
     <?php if (!empty($image)) : ?>
         <figure class="mm-link__image">
             <?php echo f_img($image, 'mega-menu-link-image'); ?>
