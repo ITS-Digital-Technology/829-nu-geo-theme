@@ -352,6 +352,44 @@
                     "after": "",
                     "link_before": "",
                     "link_after": ""
+                },
+                {
+                    "key": "field_60506fdb224b7",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Leave this empty if you want to use the menu name as a title.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6050cdde7405a",
+                    "label": "Pane Title",
+                    "name": "pane_title",
+                    "type": "text",
+                    "instructions": "Leave this empty if you want to use the title field text.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -448,5 +486,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611050385
+    "modified": 1615908725
 }
