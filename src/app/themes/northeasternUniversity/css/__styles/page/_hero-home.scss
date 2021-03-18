@@ -45,13 +45,14 @@
             content: "";
 
             width: 100%;
-            height: rem(192);
+            height: rem(420);
 
             position: absolute;
             right: 0;
             bottom: 0;
             left: 0;
             transform: rotate(180deg);
+            z-index: 2;
 
             background: linear-gradient(180deg, #1f1f1f 0%, rgba(31, 31, 31, 0) 100%);
         }
@@ -74,7 +75,7 @@
         justify-content: flex-start;
 
         position: relative;
-        z-index: 2;
+        z-index: 3;
     }
 
     .page-hero__content {
