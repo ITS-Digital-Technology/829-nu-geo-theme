@@ -4,21 +4,18 @@ const $ = jQuery.noConflict();
 function scrollFunc(e) {
     e.preventDefault();
     const header = $('.main-header');
-    const stickyClass = 'main-header--sticky';
     const target = $($(this).attr('href'));
-    let stickyHeight = 0;
-    if (header.hasClass(stickyClass)) {
-        stickyHeight = header.outerHeight();
-    }
+    const headerHeight = header.outerHeight();
+    
     if ($(this).attr('href') === '#next' && $(this).parents('section').next().length > 0) {
         // Smooth Scroll to next section
         $('html, body').animate({
-            scrollTop: $(this).parents('section').next().offset().top - stickyHeight,
+            scrollTop: $(this).parents('section').next().offset().top - headerHeight,
         }, 600);
         MobileHeader.hideWrapper('.btn-hamburger', $('body'));
     } else if (target.length) {
         $('html, body').animate({
-            scrollTop: target.offset().top - stickyHeight,
+            scrollTop: target.offset().top - headerHeight,
         }, 600);
         MobileHeader.hideWrapper('.btn-hamburger', $('body'));
     }
