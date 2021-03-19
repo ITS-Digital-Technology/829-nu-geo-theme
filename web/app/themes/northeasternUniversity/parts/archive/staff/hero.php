@@ -14,9 +14,12 @@ $thumbnail           = wp_get_attachment_image(
 $info_box_title      = get_field( 'staff_hero_info_box_title', 'options' );
 $info_box_department = get_field( 'staff_hero_info_box_department', 'options' );
 $info_box_button     = get_field( 'staff_hero_info_box_button', 'options' );
+$info_box_show       = get_field( 'staff_hero_info_box_show', 'options' );
+$class 				 = $info_box_show ? '' : ' no-infobox';
+
 ?>
 
-<section class="staff-directory-hero">
+<section class="staff-directory-hero<?php echo $class; ?>">
 <?php if ( ! empty( $thumbnail ) ) : ?>
 	<figure class="staff-directory-hero__thumbnail"><?php echo $thumbnail; ?></figure>
 <?php endif; ?>
@@ -32,6 +35,7 @@ $info_box_button     = get_field( 'staff_hero_info_box_button', 'options' );
 				<?php endif; ?>
 				</div>
 			</div>
+			<?php if ( !empty( $info_box_show ) ) : ?>
 			<div class="col-12 col-lg-5 col-xl-4 offset-lg-1">
 				<div class="staff-info-box">
 					<div class="staff-info-box__wrapper">
@@ -84,6 +88,7 @@ $info_box_button     = get_field( 'staff_hero_info_box_button', 'options' );
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 

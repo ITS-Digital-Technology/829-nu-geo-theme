@@ -214,6 +214,25 @@
             "return_format": "array"
         },
         {
+            "key": "field_60537b40d0c12",
+            "label": "Info Box Show",
+            "name": "staff_hero_info_box_show",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_602113e2f2419",
             "label": "Default Image",
             "name": "",
@@ -271,5 +290,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612780598
+    "modified": 1616083801
 }

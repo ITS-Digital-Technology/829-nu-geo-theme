@@ -10,6 +10,20 @@
 
     overflow: hidden;
 
+    &.no-infobox {
+        &::after {
+            content: none;
+        }
+        
+        &::before {
+            right: 0;
+        }
+
+        @include md {
+            padding-bottom: 0;
+        }
+    }
+
     @include md {
         flex-direction: column;
 
@@ -86,6 +100,7 @@
         @include md {
             display: none;
         }
+
     }
     &:before {
         content: '';
@@ -113,6 +128,10 @@
         right: 0;
         bottom: 0;
         left: 0;
+
+        .no-infobox & {
+            width: 100%;
+        }
 
         @include md {
             width: 100%;
