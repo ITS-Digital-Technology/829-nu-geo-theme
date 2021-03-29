@@ -101,7 +101,7 @@ function post(props) {
     }
 
     terms = terms.map((term,i)=>(
-        <a key={i} className="program-card__info-term" href={term.link}>{term.name}
+        <a key={i} className="program-card__info-term" href={term.link}>{term['name'].replace('&amp;', '&')}
         {i < terms.length - 1 ? ", " : null}</a>
     ));
 
