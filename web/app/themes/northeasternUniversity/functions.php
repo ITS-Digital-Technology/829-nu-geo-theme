@@ -35,6 +35,11 @@ function check_data($data) {
   }
 }
 
+function stringify($array) {
+  $data = implode(', ', $array);
+  return $data;
+}
+
 function parse_api_data($url) {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -73,7 +78,6 @@ function create_programs_json() {
     $program_id = $program_data->DETAILS->PROGRAM_ID;
     $program_link = 'https://goglobal.northeastern.edu/index.cfm?FuseAction=Programs.ViewProgramAngular&id='.$program_id;
     $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
-    $program_deadline = $program_deadline !== NULL ? $program_deadline : false;
     $locations = $program_data->DETAILS->LOCATIONS->LOCATION;
     $program_name = $program_data->DETAILS->PROGRAM_NAME;
 
@@ -103,7 +107,7 @@ function create_programs_json() {
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study') {
-          array_push($fields_of_study, $parameter->PARAM_VALUE);
+          array_push($fields_of_study, $parameter->PARAM_VALUE); //API has whitespace in it
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution') {
@@ -119,8 +123,8 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types);
-      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study);
+      $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
+      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
       $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode);
       $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
@@ -139,7 +143,7 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->TERMS = check_data($program_terms);
+      $program_data->DETAILS->CUSTOM->TERMS = check_data($program_terms) ? stringify($program_terms) : false;
     }
 
     if ($locations) {
@@ -177,9 +181,9 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->COUNTRIES = check_data($program_countries);
-      $program_data->DETAILS->CUSTOM->CITIES = check_data($program_cities);
-      $program_data->DETAILS->CUSTOM->REGIONS = check_data($program_regions);
+      $program_data->DETAILS->CUSTOM->COUNTRIES = check_data($program_countries) ? stringify($program_countries) : false;
+      $program_data->DETAILS->CUSTOM->CITIES = check_data($program_cities) ? stringify($program_cities) : false;
+      $program_data->DETAILS->CUSTOM->REGIONS = check_data($program_regions) ? stringify($program_regions) : false;
     }
 
     array_push($data, $program_data);
