@@ -26,6 +26,20 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
+function check_data($data) {
+  if (empty($data) || $data === NULL || $data === false || count($data) === 0) {
+    return false;
+  }
+  else {
+    return $data;
+  }
+}
+
+function stringify($array) {
+  $data = implode(', ', $array);
+  return $data;
+}
+
 function parse_api_data($url) {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -57,7 +71,122 @@ function create_programs_json() {
     $program_id = $program->PROGRAM_ID;
     $api_url = $program_url.$program_id;
     $api_result = parse_api_data($api_url);
-    array_push($data, $api_result);
+    $program_data = $api_result;
+
+    $parameters = $program_data->DETAILS->PARAMETERS->PARAMETER;
+    $terms = $program_data->DETAILS->TERMS->TERM;
+    $program_id = $program_data->DETAILS->PROGRAM_ID;
+    $program_link = 'https://goglobal.northeastern.edu/index.cfm?FuseAction=Programs.ViewProgramAngular&id='.$program_id;
+    $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
+    $locations = $program_data->DETAILS->LOCATIONS->LOCATION;
+    $program_name = $program_data->DETAILS->PROGRAM_NAME;
+
+    //Format the last updated time
+    $current_time = date("F d, Y g:i A");
+    $timezone = new DateTimeZone('America/New_York');
+    $formatted_time = new DateTime($current_time);
+    $formatted_time->setTimeZone($timezone);
+
+    //Add all of the data needed into the "custom" object
+    $program_data->DETAILS->CUSTOM->PROGRAM_NAME = check_data($program_name);
+    $program_data->DETAILS->CUSTOM->PROGRAM_ID = check_data($program_id);
+    $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
+    $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = check_data($program_deadline);
+    $program_data->DETAILS->CUSTOM->LAST_UPDATED = $formatted_time;
+
+    if ($parameters) {
+      $program_types = [];
+      $fields_of_study = [];
+      $partners = [];
+      $program_mode = '';
+      $internship = false;
+
+      foreach($parameters as $parameter) {
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Global Program Type') {
+          array_push($program_types, $parameter->PARAM_VALUE);
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study') {
+          array_push($fields_of_study, $parameter->PARAM_VALUE); //API has whitespace in it
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution') {
+          array_push($partners, $parameter->PARAM_VALUE);
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Mode') {
+          $program_mode = $parameter->PARAM_VALUE;
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES') {
+          $internship = true;
+        }
+      }
+
+      $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
+      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
+      $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
+      $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode);
+      $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
+    }
+
+    if ($terms) {
+      $program_terms = [];
+
+      if ($terms->PROGRAM_TERM) {
+        array_push($program_terms, $terms->PROGRAM_TERM);
+      }
+
+      else {
+        foreach($terms as $term) {
+          array_push($program_terms, $term->PROGRAM_TERM);
+        }
+      }
+
+      $program_data->DETAILS->CUSTOM->TERMS = check_data($program_terms) ? stringify($program_terms) : false;
+    }
+
+    if ($locations) {
+      $program_countries = [];
+      $program_cities = [];
+      $program_regions = [];
+
+      if ($locations->PROGRAM_COUNTRY) {
+        array_push($program_countries, $locations->PROGRAM_COUNTRY);
+      }
+
+      else {
+        foreach($locations as $country) {
+          array_push($program_countries, $country->PROGRAM_COUNTRY);
+        }
+      }
+
+      if ($locations->PROGRAM_CITY) {
+        array_push($program_cities, $locations->PROGRAM_CITY);
+      }
+
+      else {
+        foreach($locations as $city) {
+          array_push($program_cities, $city->PROGRAM_CITY);
+        }
+      }
+
+      if ($locations->PROGRAM_REGION) {
+        array_push($program_regions, $locations->PROGRAM_REGION);
+      }
+
+      else {
+        foreach($locations as $city) {
+          array_push($program_regions, $city->PROGRAM_REGION);
+        }
+      }
+
+      $program_data->DETAILS->CUSTOM->COUNTRIES = check_data($program_countries) ? stringify($program_countries) : false;
+      $program_data->DETAILS->CUSTOM->CITIES = check_data($program_cities) ? stringify($program_cities) : false;
+      $program_data->DETAILS->CUSTOM->REGIONS = check_data($program_regions) ? stringify($program_regions) : false;
+    }
+
+    array_push($data, $program_data);
   }
 
   //JSON format the array and dump into a JSON file for WP All Import to process
