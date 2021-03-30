@@ -27,7 +27,7 @@ require_once 'core/init.php';
 recursive_include( get_template_directory() . '/widgets', 0 );
 
 function check_data($data) {
-  if (!empty($data) || $data === NULL || $data === false || count($data) === 0) {
+  if (empty($data) || $data === NULL || $data === false || count($data) === 0) {
     return false;
   }
   else {
@@ -84,10 +84,10 @@ function create_programs_json() {
     $formatted_time->setTimeZone($timezone);
 
     //Add all of the data needed into the "custom" object
-    $program_data->DETAILS->CUSTOM->PROGRAM_NAME = $program_name;
-    $program_data->DETAILS->CUSTOM->PROGRAM_ID = $program_id;
+    $program_data->DETAILS->CUSTOM->PROGRAM_NAME = check_data($program_name);
+    $program_data->DETAILS->CUSTOM->PROGRAM_ID = check_data($program_id);
     $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
-    $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = $program_deadline;
+    $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = check_data($program_deadline);
     $program_data->DETAILS->CUSTOM->LAST_UPDATED = $formatted_time;
 
     if ($parameters) {
@@ -111,7 +111,7 @@ function create_programs_json() {
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Program Mode') {
-          array_push($partners, $parameter->PARAM_VALUE);
+          $program_mode = $parameter->PARAM_VALUE;
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES') {
@@ -119,11 +119,11 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = $program_types;
-      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = $fields_of_study;
-      $program_data->DETAILS->CUSTOM->PARTNERS = $partners;
-      $program_data->DETAILS->CUSTOM->PROGRAM_MODE = $program_mode;
-      $program_data->DETAILS->CUSTOM->INTERNSHIP = $internship;
+      $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types);
+      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study);
+      $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
+      $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode);
+      $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
     }
 
     if ($terms) {
@@ -139,7 +139,7 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->TERMS = $program_terms;
+      $program_data->DETAILS->CUSTOM->TERMS = check_data($program_terms);
     }
 
     if ($locations) {
@@ -177,9 +177,9 @@ function create_programs_json() {
         }
       }
 
-      $program_data->DETAILS->CUSTOM->COUNTRIES = $program_countries;
-      $program_data->DETAILS->CUSTOM->CITIES = $program_cities;
-      $program_data->DETAILS->CUSTOM->REGIONS = $program_regions;
+      $program_data->DETAILS->CUSTOM->COUNTRIES = check_data($program_countries);
+      $program_data->DETAILS->CUSTOM->CITIES = check_data($program_cities);
+      $program_data->DETAILS->CUSTOM->REGIONS = check_data($program_regions);
     }
 
     array_push($data, $program_data);
