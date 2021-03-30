@@ -26,6 +26,15 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
+function check_data($data) {
+  if (!empty($data) || $data === NULL || $data === false || count($data) === 0) {
+    return false;
+  }
+  else {
+    return $data;
+  }
+}
+
 function parse_api_data($url) {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
