@@ -51,13 +51,49 @@ function create_programs_json() {
   $result = parse_api_data($url);
   $programs = $result->PROGRAM;
   $data = [];
+  $all_program_data = [];
 
   //Loop thru the program list and get details about each program and add those details to an array
   foreach ($programs as $program) {
     $program_id = $program->PROGRAM_ID;
     $api_url = $program_url.$program_id;
     $api_result = parse_api_data($api_url);
-    array_push($data, $api_result);
+    $program_data = $api_result;
+
+    $parameters = $program_data->DETAILS->PARAMETERS->PARAMETER;
+    //TODO: VAR for terms;
+
+    if ($parameters) {
+      $program_types = [];
+      $fields_of_study = [];
+      $partners = [];
+      $internship = false;
+
+      foreach($parameters as $parameter) {
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Global Program Type' ) {
+          array_push($program_types, $parameter->PARAM_VALUE);
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study' ) {
+          array_push($fields_of_study, $parameter->PARAM_VALUE);
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution' ) {
+          array_push($partners, $parameter->PARAM_VALUE);
+        }
+
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES' ) {
+          $internship = true;
+        }
+      }
+
+      $program_data->DETAILS->CUSTOM->PROGRAM_TYPE = $program_types;
+      $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = $fields_of_study;
+      $program_data->DETAILS->CUSTOM->PARTNERS = $partners;
+      $program_data->DETAILS->CUSTOM->INTERNSHIP = $internship;
+    }
+
+    array_push($data, $program_data);
   }
 
   //JSON format the array and dump into a JSON file for WP All Import to process
