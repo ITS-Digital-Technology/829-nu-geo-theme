@@ -13,6 +13,7 @@ function staff(props) {
     let categoryItems;
     let featuredImage;
     let position;
+    let theCategory = '';
 
 
     featuredImage = <figure className="staff-card__thumbnail" dangerouslySetInnerHTML={{ __html: acfData.acf_staff_card_image }}></figure>;
@@ -43,6 +44,8 @@ function staff(props) {
                 >{category.name}</a>
             );
         });
+
+        theCategory = categoryItems[0];
     }
 
     if (post.acf_single_staff_position) {
@@ -55,7 +58,7 @@ function staff(props) {
             {featuredImage}
             <div className="staff-card__content">
                 <div className="staff-card__category">
-                    {categoryItems[0]}
+                    {theCategory}
                 </div>
                 <h4 className="staff-card__title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                 {position}
