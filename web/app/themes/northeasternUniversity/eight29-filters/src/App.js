@@ -135,6 +135,9 @@ function App(props) {
         else if (order === 'xyz') {
             orderString = `&order=desc&orderby=title`;
         }
+        else if (order === 'menu_order') {
+            orderString = `&order=desc&orderby=menu_order`;
+        }
         else {
             orderString = '';
         }
@@ -642,7 +645,6 @@ function App(props) {
                 postsPerPage={postsPerPage}
                 maxPages={maxPages}
                 loading={loading}
-                order={order}
                 postType={postType}
                 postTypes={postTypes}
                 filterReset={filterReset}

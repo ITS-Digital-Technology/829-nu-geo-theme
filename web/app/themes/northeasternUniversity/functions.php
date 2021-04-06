@@ -26,6 +26,15 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
+//Re-order staff post staff for REST API
+add_filter(
+  'rest_staff_collection_params',
+  function( $params ) {
+      $params['orderby']['enum'][] = 'menu_order';
+      return $params;
+  }, 10,1
+);
+
 function check_data($data) {
   if (empty($data) || $data === NULL || $data === false || count($data) === 0) {
     return false;
