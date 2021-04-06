@@ -642,7 +642,6 @@ function App(props) {
                 postsPerPage={postsPerPage}
                 maxPages={maxPages}
                 loading={loading}
-                order={order}
                 postType={postType}
                 postTypes={postTypes}
                 filterReset={filterReset}
