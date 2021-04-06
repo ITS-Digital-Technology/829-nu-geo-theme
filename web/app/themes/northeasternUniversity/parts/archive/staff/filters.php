@@ -7,6 +7,7 @@
             posts_per_row="3"
             pagination_style="more"
             layout="staff"
+            order_by="menu_order"
             ]');
         }
     ?>
