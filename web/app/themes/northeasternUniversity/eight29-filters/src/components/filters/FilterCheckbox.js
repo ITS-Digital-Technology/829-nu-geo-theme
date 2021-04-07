@@ -142,7 +142,7 @@ function FilterCheckbox(props) {
           onChange={() => {addToSelected(termIds, taxSlug), setCloseRequest(true)}}
         ></input>
 
-        <label htmlFor={`select-all-${taxSlug}`}>All Terms</label>
+        <label htmlFor={`select-all-${taxSlug}`}>All</label>
       </div>
     </li>;
 
