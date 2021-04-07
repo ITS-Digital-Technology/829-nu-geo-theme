@@ -50,7 +50,7 @@ function FilterCheckbox(props) {
           }
 
           return (
-            <li key={index}>
+            <li id={`term-${child.slug}`} key={index}>
               <input
                 type="checkbox"
                 value={child.slug}
@@ -85,7 +85,7 @@ function FilterCheckbox(props) {
         }
 
         return (
-          <li key={term.id} className={`${toggleTermClass(term.slug)}`}>
+          <li id={`term-${term.slug}`} key={term.id} className={`${toggleTermClass(term.slug)}`}>
             <div>
               <input
                 type="checkbox"
