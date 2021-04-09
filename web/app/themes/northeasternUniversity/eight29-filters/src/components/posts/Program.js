@@ -134,7 +134,7 @@ function post(props) {
     //appdeadline
     if(post.acf_program_card_app_deadline){
     app_deadline = <p className="program-card__application-deadline">
-        <span className="program-card__application-deadline-name">Application: </span>
+        <span className="program-card__application-deadline-name">Application Deadline: </span>
         <span className="program-card__application-deadline-date">{post.acf_program_card_app_deadline}</span>
     </p>
     }
