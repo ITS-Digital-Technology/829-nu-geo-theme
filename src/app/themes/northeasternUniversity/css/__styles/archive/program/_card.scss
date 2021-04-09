@@ -242,3 +242,9 @@
         margin-top: 0;
     }
 }
+
+.post-type-archive-program  {
+    .program-card__title {
+        text-transform: capitalize;
+    }
+}
