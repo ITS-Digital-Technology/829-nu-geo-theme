@@ -24,6 +24,7 @@ $preselect = get_post_type() === 'program' ? "data-pre-select='$JSON'" : null;
             posts_per_row="3"
             display_search="true"
             pagination_style="pagination"
+            order_by="abc"
             display_sort = "true"
             display_results = "true"]');
         }
