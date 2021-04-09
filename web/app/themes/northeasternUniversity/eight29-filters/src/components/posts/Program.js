@@ -25,6 +25,7 @@ function post(props) {
     let terms=[];
     let app_deadline;
     let termContent;
+    let postTitle;
 
 
     //feature-image
@@ -66,7 +67,10 @@ function post(props) {
     }
 
     //title
-    title= <h3 className="program-card__title" dangerouslySetInnerHTML={{__html: post.title.rendered}}/>
+    postTitle = post['title']['rendered'];
+    postTitle = postTitle.toLowerCase();
+
+    title= <h3 className="program-card__title" dangerouslySetInnerHTML={{__html: postTitle}}/>
 
     //city
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:term') && post.city) {
