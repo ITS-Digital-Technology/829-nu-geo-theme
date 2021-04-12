@@ -1,7 +1,7 @@
 <?php
-$term            = get_queried_object();
-$taxonomy        = $term->taxonomy;
-$term_id         = $term->term_id;
+$term     = get_queried_object();
+$taxonomy = is_author() ? 'author' : $term->taxonomy;
+$term_id  = is_author() ? $term->data->ID : $term->term_id;
 ?>
 <section class="blog-posts-taxonomy">
 	<div class="blog-posts-taxonomy__cards-wrapper">
