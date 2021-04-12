@@ -16,7 +16,7 @@ $terms           = get_terms(
 $current_label_id = (str_replace(' ', '-', strtolower($current_label)));
 ?>
 
-<div class="program-filters__filter">
+<div id="filter-<?php echo $taxonomy; ?>" class="program-filters__filter">
 	<span class="program-filters__filter-label"><?php echo $label; ?></span>
     <button class="program-filters__filter-trigger <?php echo $taxonomy;?>"><?php echo $current_label;?></button>
     <div class="program-filters__filter-list-wrapper" data-simplebar data-simplebar-auto-hide="false">

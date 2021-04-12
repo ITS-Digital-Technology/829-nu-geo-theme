@@ -30,7 +30,7 @@ if($mobile_modal){
                                     'countries' => $countries,
                                     'terms'     => $terms,
                                     'fields_of_study' => $fields_of_study,
-                                    'current_label' => __('All Programs', 'northeasternUniversity')
+                                    'current_label' => __('Program Type', 'northeasternUniversity')
                                 ]
                             );
                             get_theme_part(
@@ -42,7 +42,7 @@ if($mobile_modal){
                                     'countries' => $countries,
                                     'terms'     => $terms,
                                     'fields_of_study' => $fields_of_study,
-                                    'current_label' => __('All Countries', 'northeasternUniversity')
+                                    'current_label' => __('Country', 'northeasternUniversity')
                                 ]
                             );
                             get_theme_part(
@@ -54,7 +54,7 @@ if($mobile_modal){
                                     'countries' => $countries,
                                     'terms'     => $terms,
                                     'fields_of_study' => $fields_of_study,
-                                    'current_label' => __('All Terms', 'northeasternUniversity')
+                                    'current_label' => __('Term', 'northeasternUniversity')
                                 ]
                             );
                             get_theme_part(
@@ -66,7 +66,7 @@ if($mobile_modal){
                                     'countries' => $countries,
                                     'terms'     => $terms,
                                     'fields_of_study' => $fields_of_study,
-                                    'current_label' => __('All Fields', 'northeasternUniversity')
+                                    'current_label' => __('Field of Study', 'northeasternUniversity')
                                 ]
                             );
                             ?>
