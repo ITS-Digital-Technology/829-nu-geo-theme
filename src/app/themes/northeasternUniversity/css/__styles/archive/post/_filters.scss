@@ -411,3 +411,35 @@
         }
     }
 }
+
+.post-type-archive-staff {
+    .filter-button-group {
+        max-width: 308px !important;
+        overflow: hidden;
+
+        .button-wrap {
+            display: block;
+            border-bottom: none;
+
+            button {
+                text-align: left;
+                display: block;
+                margin-bottom: 1.6rem;
+                border-bottom: none;
+
+                &.active {
+                    text-decoration: underline;
+                    color: #db192b;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 992px) {
+        .eight29-sidebar {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 3rem !important;
+        }
+    }
+}
