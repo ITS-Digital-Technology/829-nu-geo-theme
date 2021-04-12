@@ -48,6 +48,7 @@ if ( ! $banner_bool ) :
 		$block_class[] = 'page-hero';
 
 		?>
+		<a class="skip-main" href="#contentstart">Skip to main content</a>
 <section class="<?php echo implode( ' ', $block_class ); ?>">
 	<div class="page-hero-wrapper">
 		<?php if ( ! empty( $title ) ) : ?>
@@ -66,6 +67,7 @@ if ( ! $banner_bool ) :
 	<?php endif; ?>
 	</div>
 </section>
+<div id="contentstart" tabindex="-1"></div>
 		<?php
 	endif;
 endif;
