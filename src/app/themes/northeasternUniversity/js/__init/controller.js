@@ -3,7 +3,7 @@ import MobileHeader from '../__header/MobileHeader';
 import alertBar from '../__header/alertBar';
 import stickyHeader from '../__header/stickyHeader';
 import SideMenu from '../__header/SideMenu';
-import search from '../__header/search';
+import Search from '../__header/search';
 import Accordion from '../__shortcodes/Accordions';
 import Tabs from '../__page/Tabs';
 import LightboxGallery from '../__page/LightboxGallery';
@@ -33,7 +33,7 @@ const controller = {
 		SideMenu.init();
 		MobileHeader.init();
 		stickyHeader.resized();
-		search.init();
+		Search.init();
 		Accordion.init();
 		Tabs.init();
 		video.init();
@@ -79,10 +79,12 @@ const controller = {
 	keyDown(e) {
 		LightboxGallery.keyDown(e);
 		LightboxVideo.keyDown(e);
+		Search.keyDown(e);
 	},
 	mouseUp(e) {
 		MobileHeader.hideOutsideClick(e);
 		ProgramFilters.hideOutsideClick(e);
+		Search.hideOutsideClick(e);
 	},
 	gformRender() {
 		forms.select();

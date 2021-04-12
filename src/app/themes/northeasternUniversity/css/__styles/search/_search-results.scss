@@ -1,12 +1,14 @@
 .page-content--search {
-    .layout-search {
-        margin: 0;
-    }
-    .eight29-posts-container {
+    .search-found-posts {
         padding-top: 5vw;
 
         position: relative;
         margin: 0;
+        .posts-list {
+            @include md {
+                margin-bottom: rem(64);
+            }
+        }
         &-wrapper {
             padding: rem(62) 0 rem(157);
 
@@ -37,7 +39,7 @@
         }
     }
     .search-results-info {
-        @include font(16,24);
+        @include font(16, 24);
 
         margin: 0 0 rem(40) 0;
 
@@ -72,10 +74,10 @@
         }
     }
     .eight29-pagination {
-        margin-top: rem(107)!important;
+        margin-top: rem(107) !important;
 
         @include md {
-            margin-top: rem(60)!important;
+            margin-top: rem(60) !important;
         }
     }
 }
