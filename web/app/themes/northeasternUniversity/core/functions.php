@@ -148,7 +148,8 @@ $eight29_filter_data = [
     "staff" => [
         "staff_category" => [
             "label" => "",
-            "type" => "accordion-single-select",
+            //"type" => "accordion-single-select",
+            "type" => "button-group",
             "dropdown" => true
         ],
     ],

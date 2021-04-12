@@ -253,14 +253,15 @@ function App(props) {
 
     const loadPosts = async function () {
         let requestURL = `${wp.home_url}/wp-json/wp/v2/${postTypeParamter()}?${categoryParamter()}${searchParamter()}page=${currentPage}&per_page=${postsPerPage}&_embed${orderParamter()}${excludeParamter()}${taxRelationParamter()}`;
+
         if (layout === 'search') {
             requestURL = `${
                 wp.home_url
             }/wp-json/custom-search/v1/search?${searchParamter()}page=${currentPage}&per_page=${postsPerPage}&_embed
             `;
-            console.log(requestURL);
         }
-
+        
+        console.log(requestURL);
         setLoading(true);
 
         const response = await fetch(requestURL);
@@ -523,7 +524,14 @@ function App(props) {
         setSelected(selectedCopy);
         setCurrentPage(1);
         clearSearchTerm();
-        setOrder('date');
+        
+        if (orderBy) {
+            setOrder(orderBy)
+        }
+        else {
+            setOrder('date');
+        }
+    
         setFilterReset(true);
         setChangedFilter(true);
     }
