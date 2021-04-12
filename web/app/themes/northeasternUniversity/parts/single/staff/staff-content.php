@@ -71,10 +71,14 @@ if ( ! empty( $columns ) ) {
 		<div class="staff-about__wrapper"><?php echo $about_content; ?></div>
 	</section>
 <?php endif; ?>
+
 	<div class="staff-button">
-		<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="c-btn c-btn-tertiary c-btn-color-normal">
+		<?php if($next_post->ID !== get_the_ID()): ?>
+			<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="c-btn c-btn-tertiary c-btn-color-normal">
 			<span><?php esc_html_e( 'Next: Meet', 'northeasternUniversity' ); echo ' ' . $next_post->post_title;  ?></span>
 			<span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span>
 		</a>
+		<?php endif; ?>
 	</div>
+
 </div>
