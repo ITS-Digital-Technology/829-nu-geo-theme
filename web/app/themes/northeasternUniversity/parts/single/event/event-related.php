@@ -33,9 +33,11 @@ $events = tribe_get_events(
 		)
 	]
 );
+
+$related_class = count($events) === 0 ? 'no-related-events' : '';
 ?>
 
-<section class="related-events">
+<section class="related-events <?php echo $related_class; ?>">
 	<div class="related-events__wrapper">
 		<div class="container">
 			<div class="row">
