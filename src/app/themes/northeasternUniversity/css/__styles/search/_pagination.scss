@@ -1,0 +1,123 @@
+.pagination {
+    position: relative;
+    z-index: 1;
+    // margin-top: 60px;
+
+    // @include sm {
+    //     margin: 45px 0 12px;
+    // }
+
+    &.hidden {
+        display: none !important;
+    }
+
+    &__numbers-wrapper {
+        display: flex;
+
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__arrow,
+    .page-numbers {
+        flex-shrink: 0;
+
+        width: rem(44);
+        height: rem(44);
+
+        @include md {
+            width: rem(30);
+            height: rem(30);
+        }
+    }
+
+    .page-numbers {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 5px !important;
+
+        font-family: $font-third;
+        font-size: rem(16);
+        font-weight: 700;
+        line-height: 1;
+        color: $text-color-base;
+
+        border-radius: 50%;
+        background-color: transparent;
+        cursor: pointer;
+
+        transition: background .2s, color .2s;
+
+        @include md {
+            margin: 0 rem(2) !important;
+        }
+
+        &.current {
+            pointer-events: none;
+
+            color: $color-white;
+
+            background: $accent;
+        }
+
+        &.dots {
+            width: rem(44);
+
+            @include md {
+                width: rem(30);
+            }
+        }
+
+        &:not(.current):not(.dots):hover {
+            color: $color-white;
+
+            background: $accent;
+            .touch-device & {
+                background: $accent;
+            }
+        }
+    }
+
+    .eight29-pagination-next,
+    .eight29-pagination-prev {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        @include md {
+            max-width: rem(20);
+        }
+        .eight29-pagination-arrow {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pagination-arrow:not([disabled="disabled"]) {
+            cursor: pointer;
+            span {
+                cursor: pointer;
+            }
+            &:hover {
+                span {
+                    color: $accent;
+                    .touch-device & {
+                        color: $text-color-base;
+                    }
+                }
+            }
+        }
+
+        &.disabled {
+            pointer-events: none !important;
+
+            opacity: .5;
+        }
+    }
+}

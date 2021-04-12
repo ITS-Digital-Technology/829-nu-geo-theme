@@ -81,7 +81,7 @@ function gallery() {
         'supports'            => [ 'title', 'revisions' ],
         'taxonomies'          => [],
         'publicly_queryable'  => false,
-        'public'              => true,
+        'public'              => false,
         'menu_icon'           => 'dashicons-format-gallery',
         'has_archive'         => false,
     ] );
