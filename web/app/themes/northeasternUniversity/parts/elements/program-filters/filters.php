@@ -1,3 +1,6 @@
+<?php //TODO: update styles to change width of element to same as browse-programs ?>
+<?php //get_template_part('filter-options'); ?>
+
 <?php
 $program_types   = isset( $program_types ) ? $program_types : [];
 $countries       = isset( $countries ) ? $countries : [];
@@ -30,7 +33,7 @@ if($mobile_modal){
                                     'countries' => $countries,
                                     'terms'     => $terms,
                                     'fields_of_study' => $fields_of_study,
-                                    'current_label' => __('Program Type', 'northeasternUniversity')
+                                    'current_label' => __('Program Type', 'northeasternUniversity'),
                                 ]
                             );
                             get_theme_part(
