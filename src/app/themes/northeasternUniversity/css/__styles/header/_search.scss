@@ -1,7 +1,7 @@
 .search-bar {
     pointer-events: none;
 
-    display: flex;
+    display: none;
 
     align-items: center;
     justify-content: center;
@@ -35,6 +35,7 @@
 
     &.active {
         pointer-events: all;
+        display: flex;
 
         opacity: 1;
     }
