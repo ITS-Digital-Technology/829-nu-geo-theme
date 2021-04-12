@@ -41,3 +41,4 @@
     <?php endif; ?>
     </div>
 </section>
+<section class="bg-pattern"></section>

@@ -245,3 +245,31 @@
         }
     }
 }
+
+.single-post {
+    .no-thumbnail {
+        .block-post-hero {
+            margin-bottom: 0;
+            background: #52cfe5;
+            padding-bottom: 3.2rem;
+
+            &::before, &::after {
+                //top: -5rem;
+                display: none;
+            }
+        }
+
+        .bg-pattern {
+            display: block;
+            width: 100%;
+            background: url('../images/bottom-blue-curve.svg') bottom center no-repeat;
+            position: static;
+            margin-bottom: 90px;
+            height: 8rem;
+
+            @include md {
+                height: 4rem;
+            }
+        }
+    }
+}
