@@ -148,7 +148,7 @@
     &--no-image {
         .news-card {
             &__title {
-                margin-top: rem(-29);
+                //margin-top: rem(-29);
 
                 @include md() {
                     margin-top: 0;
@@ -161,6 +161,7 @@
 
             &__cat {
                 border-bottom: rem(1) solid $gray-4;
+                margin-bottom: 1.6rem;
 
                 @include md() {
                     border-bottom: 0;
