@@ -166,9 +166,11 @@
 
     &__author {
         line-height: 1;
+        margin-right: rem(18);
 
         @include md {
             margin-bottom: rem(8);
+            margin-right: 0;
         }
     }
 
@@ -218,7 +220,7 @@
     &__date {
         @include font(16, 24);
 
-        padding-left: rem(18);
+        //padding-left: rem(18);
 
         @include md {
             @include font(14, 16);
