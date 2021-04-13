@@ -27,11 +27,14 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 		<?php else : ?>
 			<h4 class="blog-post__card-title"><?php echo $title; ?></h4>
 		<?php endif; ?>
-			<div class="blog-post__card-author">
-				<a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post__card__author-link">
-					<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
-				</a>
-			</div>
+
+			<?php if ($author !== 'Northeastern University'): ?>
+				<div class="blog-post__card-author">
+					<a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post__card__author-link">
+						<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
+					</a>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </article>
