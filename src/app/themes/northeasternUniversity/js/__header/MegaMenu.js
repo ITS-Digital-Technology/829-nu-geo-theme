@@ -48,6 +48,10 @@ class MegaMenu {
             $('.menu-item-type-post_type').attr('aria-expanded', 'false');
             $(this).attr('aria-expanded', 'true');
         });
+
+        $('.menu-item-type-post_type a').focus('focusin', function () {
+            MegaMenu.hideMegaMenu();
+        });
         $(document).on('click touchstart', MegaMenu.hideMegaMenuOnTouch);
     }
     toggleMegaMenu(e) {
