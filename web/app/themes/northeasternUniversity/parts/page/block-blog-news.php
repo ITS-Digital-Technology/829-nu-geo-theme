@@ -43,7 +43,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
                                 $author           = get_the_author_meta( 'display_name', $post_author_id );
                                 $thumbnail        = get_the_post_thumbnail( $post, 'post-card' );
                                 if ( empty( $thumbnail ) ) {
-                                    $thumbnail = wp_get_attachment_image( get_field( 'default_post_thumbnail', 'options' )['ID'],'post-card' );
+                                    $thumbnail = false;
 
                                 }
                                 $permalink = get_permalink( $post );
