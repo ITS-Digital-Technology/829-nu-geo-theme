@@ -59,11 +59,14 @@ if ( empty( $featured_post ) ) {
                         <?php if ( ! empty( $excerpt ) ) : ?>
                             <div class="featured-post-card__excerpt"><?php echo wp_trim_words( $excerpt, 40, '...' ); ?></div>
                         <?php endif; ?>
-                            <div class="featured-post-card__author">
-                                <a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="featured-post-card__author-link">
-                                    <?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
-                                </a>
-                            </div>
+
+                            <?php if ($author !== 'Northeastern University'): ?>
+                                <div class="featured-post-card__author">
+                                    <a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="featured-post-card__author-link">
+                                        <?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </article>

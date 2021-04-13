@@ -58,7 +58,7 @@ function post(props) {
         }
     }
 
-    if (post.author && displayAuthor) {
+    if (post.author && post.author !== 'Northeastern University' && displayAuthor) {
         author = <div className="blog-post__card-author">
             <a href={post._embedded['author'][0]['link']} className="block-post__card__author-link" dangerouslySetInnerHTML={{__html: "By " + post.author}} />
 
