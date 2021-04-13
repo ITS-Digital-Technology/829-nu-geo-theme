@@ -23,11 +23,13 @@
         <?php endif; ?>
             <h1 class="block-post-hero__title"><?php echo get_the_title(); ?></h1>
             <div class="block-post-hero__meta">
-                <div class="block-post-hero__author">
-                    <a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post-hero__author-link">
-                        <?php echo $author; ?>
-                    </a>
-                </div>
+                <?php if($author !== 'Northeastern University'): ?>
+                    <div class="block-post-hero__author">
+                        <a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post-hero__author-link">
+                            <?php echo $author; ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
                 <div class="block-post-hero__date">
                     <?php echo get_the_date(); ?>
                 </div>
