@@ -90,6 +90,13 @@ function create_programs_json() {
     $locations = $program_data->DETAILS->LOCATIONS->LOCATION;
     $program_name = $program_data->DETAILS->PROGRAM_NAME;
 
+    // $featured_image = $program_name;
+    // $featured_image = strtolower($featured_image);
+    // $featured_image = str_replace('-', '_', $featured_image);
+    // $featured_image = str_replace(' ', '_', $featured_image);
+    // $featured_image = str_replace('_', '-', $featured_image);
+    // $featured_image = $featured_image.'.jpg';
+
     //Format the last updated time
     $current_time = date("F d, Y g:i A");
     $timezone = new DateTimeZone('America/New_York');
@@ -102,6 +109,7 @@ function create_programs_json() {
     $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
     $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = check_data($program_deadline);
     $program_data->DETAILS->CUSTOM->LAST_UPDATED = $formatted_time;
+    //$program_data->DETAILS->CUSTOM->FEATURED_IMAGE = $featured_image;
 
     if ($parameters) {
       $program_types = [];
@@ -116,7 +124,9 @@ function create_programs_json() {
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study') {
-          array_push($fields_of_study, $parameter->PARAM_VALUE); //API has whitespace in it
+          $string = $parameter->PARAM_VALUE;
+          $string = preg_replace("/[^A-Za-z :]/", '', $string);
+          array_push($fields_of_study, $string); //API has whitespace in it
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution') {
