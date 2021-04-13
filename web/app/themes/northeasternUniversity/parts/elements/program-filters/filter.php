@@ -23,7 +23,7 @@ $current_label_id = (str_replace(' ', '-', strtolower($current_label)));
         <ul class="program-filters__filter-list">
             <li class="program-filters__filter-list-item select-all">
                 <input type="checkbox" id="<?php echo $current_label_id;?>" data-id="all" data-tax="<?php echo $taxonomy;?>">
-                <label class="program-filters__filter-term" for="<?php echo $current_label_id;?>" ><?php echo $current_label;?></label>
+                <label class="program-filters__filter-term" for="<?php echo $current_label_id;?>" >All</label>
             </li>
         <?php
         foreach ( $terms as $term ) :
