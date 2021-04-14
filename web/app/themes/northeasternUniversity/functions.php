@@ -26,6 +26,15 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
+function load_assets() {
+  wp_enqueue_style('neu-external-menu', 'https://unpkg.com/@northeastern-web/global-elements@^1.0.0/dist/css/index.css');
+
+  wp_enqueue_script('neu-external-menu-global', 'https://unpkg.com/@northeastern-web/global-elements@^1.0.0/dist/js/index.umd.js', NULL, NULL, true);
+  wp_enqueue_script('neu-external-menu-kernl', 'https://unpkg.com/@northeastern-web/kernl-ui@^2.0.0/dist/js/index.umd.js', NULL, NULL, true);
+}
+
+add_action('wp_enqueue_scripts', 'load_assets');
+
 //Re-order staff post staff for REST API
 add_filter(
   'rest_staff_collection_params',
