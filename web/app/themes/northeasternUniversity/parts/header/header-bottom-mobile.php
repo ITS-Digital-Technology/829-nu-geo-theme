@@ -5,7 +5,7 @@
         </button>
     </div>
     <div class="main-header__hamburger-wrapper">
-        <button class="main-header__hamburger btn-hamburger" aria-label="Hamburger Button">
+        <button class="main-header__hamburger btn-hamburger" aria-label="Menu Button">
             <span></span>
             <span></span>
             <span></span>

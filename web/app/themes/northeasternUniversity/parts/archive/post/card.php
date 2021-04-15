@@ -11,7 +11,7 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 
 
 <article class="blog-post__card">
-	<a class="blog-post__card-link" href="<?php echo $permalink; ?>" aria-label="Post Link"></a>
+	<a class="blog-post__card-link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
 	<div class="blog-post__card-wrapper">
 	<?php if ( ! empty( $thumbnail ) ) : ?>
 		<figure class="blog-post__card-thumbnail"><?php echo $thumbnail; ?></figure>
