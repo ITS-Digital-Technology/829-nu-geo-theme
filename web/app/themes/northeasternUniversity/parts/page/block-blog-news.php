@@ -49,7 +49,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
                                 $permalink = get_permalink( $post );
                                 ?>
                                 <article class="post-card">
-                                    <a class="post-card__link" href="<?php echo $permalink; ?>" aria-label="Post Link"></a>
+                                    <a class="post-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
                                     <div class="post-card__wrapper">
                                     <?php if ( ! empty( $thumbnail ) ) : ?>
                                         <figure class="post-card__thumbnail"><?php echo $thumbnail; ?></figure>
@@ -90,7 +90,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
                                 $permalink = get_permalink( $post );
                                 ?>
                                 <article class="news-card">
-                                    <a class="news-card__link" href="<?php echo $permalink; ?>" aria-label="News Link"></a>
+                                    <a class="news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
                                     <div class="news-card__wrapper">
                                     <?php if ( ! empty( $cat ) ) : ?>
                                         <div class="news-card__cat">

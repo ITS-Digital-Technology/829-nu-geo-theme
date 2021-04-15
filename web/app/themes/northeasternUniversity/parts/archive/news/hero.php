@@ -34,7 +34,7 @@ if ( empty( $news_featured_post ) ) {
 			}
 			?>
 			<article class="featured-news-card">
-				<a class="featured-news-card__link" href="<?php echo $permalink; ?>" aria-label="News Link"></a>
+				<a class="featured-news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
 				<div class="featured-news-card__wrapper">
 				<?php if ( ! empty( $thumbnail ) ) : ?>
 					<figure class="featured-news-card__thumbnail">

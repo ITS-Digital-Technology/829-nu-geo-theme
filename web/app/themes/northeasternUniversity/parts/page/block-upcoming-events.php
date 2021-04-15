@@ -55,7 +55,7 @@ $events = tribe_get_events(
                             ?>
                         <article class="upcoming-events-card col-12 col-lg-4">
                             <div class="upcoming-events-card__wrapper">
-                                <a class="upcoming-events-card__link" href="<?php echo $permalink; ?>" aria-label="Event Link"></a>
+                                <a class="upcoming-events-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
                                 <div class="upcoming-events-card__content">
                                 <?php if ( ! empty( $cat ) ) : ?>
                                     <a href="<?php echo $cat['url']; ?>" class="upcoming-events-card__cat"><?php echo $cat['title']; ?></a>

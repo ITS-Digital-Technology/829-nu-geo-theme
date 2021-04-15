@@ -42,7 +42,7 @@ if ( empty( $featured_post ) ) {
                 }
                 ?>
                 <article class="featured-post-card">
-                    <a class="featured-post-card__link" href="<?php echo $permalink; ?>" aria-label="Post Link"></a>
+                    <a class="featured-post-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
                     <div class="featured-post-card__wrapper">
                     <?php if ( ! empty( $thumbnail ) ) : ?>
                         <figure class="featured-post-card__thumbnail">

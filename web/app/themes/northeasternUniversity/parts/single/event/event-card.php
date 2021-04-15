@@ -20,7 +20,7 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 ?>
 <article class="event-card col-12 col-lg-4 <?php if ( empty( $image ) ) { echo 'event-card--no-image'; } ?>">
 	<div class="news-card__container">
-		<a class="event-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="Card Link"></a>
+		<a class="event-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo $title; ?>"></a>
 		<div class="event-card__wrapper">
 			<?php if ( ! empty( $cat ) ) : ?>
 				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="event-card__cat d-none d-lg-block"><?php echo esc_html( $cat['title'] ); ?></a>
