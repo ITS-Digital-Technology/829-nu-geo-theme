@@ -64,7 +64,7 @@ const controller = {
 		Tables.toggleShadow();
 		LightboxGallery.refresh();
 		vhUnit();
-		SideMenu.assignHeightToSubnav();
+		//SideMenu.assignHeightToSubnav();
 		ArchiveModal.resized();
 		stickyHeader.resized();
 		CompareProductsSlider.init();
@@ -73,7 +73,7 @@ const controller = {
 	},
 	scrolled() {
 		stickyHeader.scroll();
-		SideMenu.assignHeightToSubnav();
+		//SideMenu.assignHeightToSubnav();
 		MobileHeader.assignHeightToNav();
 	},
 	keyDown(e) {
