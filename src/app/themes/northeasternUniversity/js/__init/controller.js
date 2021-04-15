@@ -30,7 +30,7 @@ const controller = {
 		document.querySelector('html').classList.remove('no-js');
 		detectDevice();
 		MegaMenu.init();
-		SideMenu.init();
+		//SideMenu.init();
 		MobileHeader.init();
 		stickyHeader.resized();
 		Search.init();
