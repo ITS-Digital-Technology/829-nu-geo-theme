@@ -1,26 +1,43 @@
-import MobileHeader from '../__header/MobileHeader';
-
 const $ = jQuery.noConflict();
+
 function scrollFunc(e) {
-    e.preventDefault();
-    const header = $('.main-header');
-    const target = $($(this).attr('href'));
-    const headerHeight = header.outerHeight();
-    
-    if ($(this).attr('href') === '#next' && $(this).parents('section').next().length > 0) {
-        // Smooth Scroll to next section
-        $('html, body').animate({
-            scrollTop: $(this).parents('section').next().offset().top - headerHeight,
-        }, 600);
-        MobileHeader.hideWrapper('.btn-hamburger', $('body'));
-    } else if (target.length) {
-        $('html, body').animate({
-            scrollTop: target.offset().top - headerHeight,
-        }, 600);
-        MobileHeader.hideWrapper('.btn-hamburger', $('body'));
-    }
+	const body = $('body');
+	const header = $('.main-header');
+
+	let target = false;
+
+	if (e) {
+		e.preventDefault();
+		const trigger = $(e.delegateTarget);
+		target = trigger.attr('href') === '#next' ? trigger.parents('section').next() : $(trigger.attr('href'));
+	} else {
+		const id = window.location.hash;
+		if (id) target = $(id);
+	}
+
+	if (target.length) {
+		let offset = -1; // one pixel inaccuracy
+
+		offset += header.outerHeight();
+
+		const mt = parseInt(target.css('margin-top'), 10);
+		const pt = parseInt(target.css('padding-top'), 10);
+		offset += (mt > 0 && pt === 0) ? mt : 0;
+
+		body.addClass('smooth-scroll');
+		$('html, body').stop().animate({
+			scrollTop: parseInt(target.offset().top - offset, 10),
+		}, 600, () => {
+			setTimeout(() => {
+				body.removeClass('smooth-scroll')
+			}, 100);
+		});
+	}
 }
+
 function smoothScroll() {
-    $('a[href^="#"]:not([href="#"])').on('click', scrollFunc);
+	$('a[href^="#"]:not([href="#"])').on('click', scrollFunc);
+	setTimeout(scrollFunc, 100);
 }
+
 export default smoothScroll;
