@@ -346,3 +346,9 @@
         }
     }
 }
+
+.menu-trigger {
+    &:hover {
+        cursor: pointer;
+    }
+}
