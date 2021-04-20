@@ -22,6 +22,7 @@ $container_classes['tribe-events-calendar-list__event-row--featured'] = $event->
 $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event', 'tribe-common-g-row', 'tribe-common-g-row--gutters' ], $event->ID );
 $type = get_primary_taxonomy_term( $event->ID, 'event_type' );
 $button = get_field( 'rsvp' );
+$title = get_the_title($event->ID);
 
 ?>
 <div <?php tribe_classes( $container_classes ); ?>>
@@ -44,7 +45,7 @@ $button = get_field( 'rsvp' );
                             echo wp_acf_link( $button, 'c-btn c-btn-primary c-btn-color-normal' );
                         }
                     ?>
-                    <a href="<?php echo get_the_permalink( $event ); ?>" class="c-btn c-btn-secondary c-btn-color-normal"><?php _e( 'Learn More', 'northeasternUniversity' ); ?></a>
+                    <a href="<?php echo get_the_permalink( $event ); ?>" aria-label="Learn more about <?php echo $title; ?>" class="c-btn c-btn-secondary c-btn-color-normal"><?php _e( 'Learn More', 'northeasternUniversity' ); ?></a>
                 </div>
             </div>
 		</article>
