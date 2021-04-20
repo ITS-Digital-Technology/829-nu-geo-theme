@@ -24,6 +24,8 @@ import VideoBackground from '../__page/VideoBackground';
 
 import formLabel from '../__utils/formLabel';
 import stopAnimation from '../__utils/stopAnimation';
+import wcagHelper from '../__utils/wcagHelper';
+
 // GLOBAL APP CONTROLLER
 const controller = {
 	init() {
@@ -53,6 +55,7 @@ const controller = {
 		focusArea();
 		cookieBar.init();
 		VideoBackground.init();
+		wcagHelper();
 	},
 	loaded() {
 		document.querySelector('body').classList.add('page-has-loaded');
