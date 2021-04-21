@@ -45,11 +45,26 @@ function wcagHelper() {
     }
   }
 
+  function tribesFilterBar() {
+    const formFields = document.querySelectorAll('form.tribe-filter-bar__form input[type="checkbox"]');
+
+    if (formFields) {
+      formFields.forEach(formField => {
+        const label = formField.nextElementSibling.textContent.trim();
+
+        if (label) {
+          formField.setAttribute('aria-label', label);
+        }
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
     topLevelNav();
     addToAny();
+    tribesFilterBar();
   }
 
   window.addEventListener('DOMContentLoaded', init);
