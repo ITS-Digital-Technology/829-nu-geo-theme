@@ -86,6 +86,16 @@ function wcagHelper() {
     }
   }
 
+  function iframes() {
+    const iframes = document.querySelectorAll('iframe');
+
+    if (iframes) {
+      iframes.forEach(iframe => {
+        iframe.removeAttribute('frameborder');
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -93,6 +103,7 @@ function wcagHelper() {
     addToAny();
     tribesFilterBar();
     emptyTitles();
+    iframes();
   }
 
   window.addEventListener('DOMContentLoaded', init);
