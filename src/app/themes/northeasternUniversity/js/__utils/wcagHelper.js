@@ -48,6 +48,8 @@ function wcagHelper() {
   function tribesFilterBar() {
     const formFields = document.querySelectorAll('form.tribe-filter-bar__form input[type="checkbox"]');
     const fieldSets = document.querySelectorAll('fieldset.tribe-filter-bar-c-filter__filters-fieldset');
+    const headingTitle = document.querySelectorAll('h1');
+    const pageTitle = headingTitle[0] ? headingTitle[0].textContent : '';
 
     if (formFields) {
       formFields.forEach(formField => {
@@ -62,11 +64,14 @@ function wcagHelper() {
     if(fieldSets) {
       fieldSets.forEach(fieldSet => {
         const innerElement = fieldSet.querySelector('.tribe-filter-bar-c-filter__filter-fields');
+        let i = 0;
 
         if (innerElement) {
           innerElement.setAttribute('role', 'group');
-          innerElement.setAttribute('aria-label', 'Event filters');
+          innerElement.setAttribute('aria-label', `Event filters for ${pageTitle} ${i}`);
         }
+
+        i++;
       });
     }
   }
