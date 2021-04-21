@@ -31,7 +31,7 @@ if ( isset( $video ) ) :
 			);
 		}
 
-		$attr  = 'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen';
+		$attr  = 'webkitallowfullscreen mozallowfullscreen allowfullscreen';
 		$src   = add_query_arg( $params, $video_src );
 		$video = str_replace( $video_src, $src, $video );
 		$video = str_replace( '></iframe>', ' ' . $attr . '></iframe>', $video );
