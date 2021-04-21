@@ -65,6 +65,7 @@ function wcagHelper() {
 
         if (innerElement) {
           innerElement.setAttribute('role', 'group');
+          innerElement.setAttribute('aria-label', 'Event filters');
         }
       });
     }
