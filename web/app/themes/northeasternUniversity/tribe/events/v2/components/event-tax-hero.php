@@ -20,7 +20,15 @@ $current_term = get_term_by( 'id', $term_id, $taxonomy_name );
 				</div>
 				<div class="col-12 col-lg-6">
 					<div class="event-tax-hero__left">
-						<h1 class="event-tax-hero__term-name"><?php echo esc_html( $current_term->name ); ?></h1>
+						<?php 
+						if($current_term) {
+							$current_term_name = $current_term->name;
+						}
+						else {
+							$current_term_name = 'Events';
+						}
+						?>
+						<h1 class="event-tax-hero__term-name"><?php echo esc_html( $current_term_name ); ?></h1>
 					</div>
 				</div>
 				<?php if ( ! empty( $current_term->description ) ) : ?>
