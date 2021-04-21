@@ -47,6 +47,7 @@ function wcagHelper() {
 
   function tribesFilterBar() {
     const formFields = document.querySelectorAll('form.tribe-filter-bar__form input[type="checkbox"]');
+    const fieldSets = document.querySelectorAll('fieldset.tribe-filter-bar-c-filter__filters-fieldset');
 
     if (formFields) {
       formFields.forEach(formField => {
@@ -54,6 +55,16 @@ function wcagHelper() {
 
         if (label) {
           formField.setAttribute('aria-label', label);
+        }
+      });
+    }
+
+    if(fieldSets) {
+      fieldSets.forEach(fieldSet => {
+        const innerElement = fieldSet.querySelector('.tribe-filter-bar-c-filter__filter-fields');
+
+        if (innerElement) {
+          innerElement.setAttribute('role', 'group');
         }
       });
     }
