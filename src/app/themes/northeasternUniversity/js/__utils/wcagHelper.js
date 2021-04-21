@@ -76,12 +76,23 @@ function wcagHelper() {
     }
   }
 
+  function emptyTitles() {
+    const headings = document.querySelectorAll('h1.event-tax-hero__term-name:empty');
+
+    if (headings) {
+      headings.forEach(heading => {
+        heading.textContent = 'Events';
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
     topLevelNav();
     addToAny();
     tribesFilterBar();
+    emptyTitles();
   }
 
   window.addEventListener('DOMContentLoaded', init);
