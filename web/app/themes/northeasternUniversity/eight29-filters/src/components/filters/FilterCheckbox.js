@@ -15,6 +15,7 @@ function FilterCheckbox(props) {
     dropdown,
     classFilter,
     toggleSelected,
+    removeFromSelected,
     addToSelected,
     isSelected
   } = props;
@@ -107,6 +108,16 @@ function FilterCheckbox(props) {
     });
   }
 
+  function modifyAll(termIds, taxSlug, totalTerms, totalSelected) {
+    //if all are selected deselect all, else select all
+    if (totalTerms === totalSelected) {
+      removeFromSelected(termIds, taxSlug);
+    }
+    else {
+      addToSelected(termIds, taxSlug);
+    }
+  }
+
   function toggleTerm(slug) {
     if (termOpen){
       const objectCopy = {...termOpen};
@@ -139,7 +150,7 @@ function FilterCheckbox(props) {
           id={`select-all-${taxSlug}`}
           name={`select-all-${taxSlug}`}
           checked={totalTerms === totalSelected}
-          onChange={() => {addToSelected(termIds, taxSlug), setCloseRequest(true)}}
+          onChange={() => {modifyAll(termIds, taxSlug, totalTerms, totalSelected), setCloseRequest(true)}}
         ></input>
 
         <label htmlFor={`select-all-${taxSlug}`}>All</label>
