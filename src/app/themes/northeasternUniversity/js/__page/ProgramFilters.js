@@ -62,14 +62,14 @@ class ProgramFilters {
 
         if ($(e.delegateTarget).data('id') === 'all' ) {
             $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox]').prop('checked', true);
-            $(e.delegateTarget).attr('disabled',true);
+            // $(e.delegateTarget).attr('disabled',true);
         }
 
         if( $(e.delegateTarget).data('id') !== 'all' && $(e.delegateTarget).prop('checked') === false ){
-           $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').attr('disabled', false);
+        //    $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').attr('disabled', false);
            $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').prop('checked', false);
         } else if(bool){
-            $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').attr('disabled', true);
+            // $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').attr('disabled', true);
             $(e.delegateTarget).closest('.program-filters__filter-list').find('input[type=checkbox][data-id="all"]').prop('checked', true);
         }
 
