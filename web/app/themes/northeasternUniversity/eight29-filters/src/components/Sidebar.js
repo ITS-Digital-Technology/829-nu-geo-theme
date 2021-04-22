@@ -39,6 +39,7 @@ function sidebar(props) {
         toggleSelected,
         replaceSelected,
         addToSelected,
+        removeFromSelected,
         isSelected,
         resetSelected,
         searchFieldChange,
@@ -152,6 +153,7 @@ function sidebar(props) {
                     resetSelected={resetSelected}
                     toggleSelected={toggleSelected}
                     replaceSelected={replaceSelected}
+                    removeFromSelected={removeFromSelected}
                     addToSelected={addToSelected}
                     isSelected={isSelected}
                     postType={postType}

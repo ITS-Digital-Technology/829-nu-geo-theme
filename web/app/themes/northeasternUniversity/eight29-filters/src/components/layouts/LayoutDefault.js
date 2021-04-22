@@ -91,6 +91,7 @@ function LayoutDefault(props) {
       orderChange={orderChange}
       toggleSelected={toggleSelected}
       addToSelected={addToSelected}
+      removeFromSelected={removeFromSelected}
       replaceSelected={replaceSelected}
       isSelected={isSelected}
       resetSelected={resetSelected}
