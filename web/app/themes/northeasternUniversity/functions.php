@@ -95,9 +95,25 @@ function create_programs_json() {
     $terms = $program_data->DETAILS->TERMS->TERM;
     $program_id = $program_data->DETAILS->PROGRAM_ID;
     $program_link = 'https://goglobal.northeastern.edu/index.cfm?FuseAction=Programs.ViewProgramAngular&id='.$program_id;
-    $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
     $locations = $program_data->DETAILS->LOCATIONS->LOCATION;
     $program_name = $program_data->DETAILS->PROGRAM_NAME;
+    $program_deadline = false;
+
+    if ($program_data->DETAILS->DATES->DATE->APP_DEADLINE) {
+      $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
+    }
+    else if ($program_data->DETAILS->DATES->DATE) {
+      $deadlines = $program_data->DETAILS->DATES->DATE;
+      $deadline_array = [];
+
+      foreach($deadlines as $deadline) {
+        array_push($deadline_array, $deadline->APP_DEADLINE);
+      }
+
+      if (count($deadline_array) > 0) {
+        $program_deadline = $deadline_array[0];
+      }
+    }
 
     // $featured_image = $program_name;
     // $featured_image = strtolower($featured_image);
@@ -116,7 +132,7 @@ function create_programs_json() {
     $program_data->DETAILS->CUSTOM->PROGRAM_NAME = check_data($program_name);
     $program_data->DETAILS->CUSTOM->PROGRAM_ID = check_data($program_id);
     $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
-    $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = check_data($program_deadline);
+    $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = $program_deadline;
     $program_data->DETAILS->CUSTOM->LAST_UPDATED = $formatted_time;
     //$program_data->DETAILS->CUSTOM->FEATURED_IMAGE = $featured_image;
 
