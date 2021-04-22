@@ -96,6 +96,66 @@ function wcagHelper() {
     }
   }
 
+  function selectAll() {
+    const filters = document.querySelectorAll('.program-filters__filter-list');
+
+    if (filters) {
+      filters.forEach(filter => {
+        const inputs = filter.querySelectorAll('.program-filters__filter-list-item input');
+        const filterParent = filter.closest('.program-filters__filter');
+        const label = filterParent.querySelector('.program-filters__filter-label');
+        const button = filterParent.querySelector('.program-filters__filter-trigger');
+
+        button.addEventListener('click', function() {
+          const items = filterParent.querySelectorAll('li:not(.select-all) input').length;
+          const itemsSelected = filterParent.querySelectorAll('li:not(.select-all) input:checked').length;
+
+          if (items !== itemsSelected) {
+            filterParent.querySelector('input[data-id="all"]').removeAttribute('data-all-selected');
+          }
+
+        });
+
+        if (inputs) {
+          const totalTerms = inputs.length - 1;
+
+          inputs.forEach(input => {
+            input.addEventListener('change', function() {
+              const parent = input.closest('.program-filters__filter-list');
+              const totalSelected = parent.querySelectorAll('li:not(.select-all) input:checked');
+              const selectAll = parent.querySelector('input[data-id="all"]');
+
+              // console.log(`total = ${totalTerms}`);
+              // console.log(`selected = ${totalSelected.length}`);
+
+              if (totalTerms === totalSelected.length) {
+                //console.log('all are selected');
+
+                if (input.getAttribute('data-id') === 'all') {
+                  //console.log('uncheck everything');
+                  const terms = parent.querySelectorAll('li:not(.select-all) input');
+                  if (input.hasAttribute('data-all-selected')) {
+                    terms.forEach(term => {
+                      term.click();
+                    });
+  
+                    button.textContent = label.textContent;
+                    selectAll.removeAttribute('data-all-selected');
+                  }
+                }
+
+                selectAll.setAttribute('data-all-selected', "true");
+              }
+              else {
+                selectAll.removeAttribute('data-all-selected');
+              }
+            });
+          });
+        }
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -104,6 +164,7 @@ function wcagHelper() {
     tribesFilterBar();
     emptyTitles();
     iframes();
+    selectAll();
   }
 
   window.addEventListener('DOMContentLoaded', init);
