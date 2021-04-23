@@ -156,6 +156,41 @@ function wcagHelper() {
     }
   }
 
+  function tabIndex() {
+    const mainMenu = document.querySelector('.main-header__nav-wrapper');
+
+    if (mainMenu) {
+      const mainMenuTopItems = mainMenu.querySelectorAll('.menu-trigger');
+
+      if (mainMenuTopItems) {
+        mainMenuTopItems.forEach(mainMenuTopItem => {
+          mainMenuTopItem.setAttribute('tabIndex', "0");
+
+          mainMenuTopItem.addEventListener('keypress', function(e) {
+            if (e.key === 13 || e.key === 'Enter') {
+              mainMenuTopItem.click();
+            }
+          });
+        });
+      }
+    }
+
+    const rightMenu = document.querySelector('.main-header__right-wrapper');
+
+    if (rightMenu) {
+      const rightMenuButton = rightMenu.querySelector('.main-header__info-for');
+      rightMenuButton.setAttribute('tabIndex', "0");
+      
+      if (rightMenuButton) {
+        rightMenuButton.addEventListener('keypress', function(e) {
+          if (e.key === 13 || e.key === 'Enter') {
+            rightMenuButton.classList.toggle('active');
+          }
+        });
+      }
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -165,6 +200,7 @@ function wcagHelper() {
     emptyTitles();
     iframes();
     selectAll();
+    tabIndex();
   }
 
   window.addEventListener('DOMContentLoaded', init);

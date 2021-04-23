@@ -282,7 +282,7 @@
                 border-bottom: rem(1) solid $color-white;
             }
 
-            &:hover {
+            &:hover, &.active {
                 &+.menu {
                     opacity: 1;
                     visibility: visible;
