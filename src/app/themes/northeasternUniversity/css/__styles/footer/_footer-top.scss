@@ -461,6 +461,17 @@
     }
 }
 
+.mc-field-group {
+    label {
+        display: block;
+        margin-bottom: 8px;
+
+        + br {
+            display: none;
+        }
+    }
+}
+
 #mc_embed_signup {
     p:empty {
         display: none;
