@@ -7,7 +7,8 @@ function wcagHelper() {
         const id = menuItem.getAttribute('id');
 
         if(id) {
-          menuItem.setAttribute('id', '');
+          menuItem.removeAttribute('id');
+          menuItem.classList.add(id);
         }
       });
     }
