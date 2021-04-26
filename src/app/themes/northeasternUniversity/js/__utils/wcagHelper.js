@@ -189,6 +189,42 @@ function wcagHelper() {
         });
       }
     }
+
+    //Non React filters
+    const filters = document.querySelectorAll('.program-filters__filter');
+
+    if (filters) {
+      filters.forEach(filter => {        
+        const filterButton = filter.querySelector('button.program-filters__filter-trigger');
+        const checkboxes = filter.querySelectorAll('input[type="checkbox"]');
+        let menuStatus = false;
+        const filterMenu = filter.querySelector('ul.program-filters__filter-list');
+
+        function toggleMenu() {
+          menuStatus = !menuStatus;
+          filterMenu.setAttribute('aria-expanded', menuStatus);
+        }
+
+        if (filterMenu) {
+          filterMenu.setAttribute('aria-expanded', menuStatus);
+          filterMenu.setAttribute('role', 'option');
+        }
+
+        if (filterButton) {
+          filterButton.addEventListener('click', toggleMenu);
+        }
+
+        if (checkboxes) {
+          checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('keypress', function(e) {
+              if (e.key === 13 || e.key === 'Enter') {
+                checkbox.click();
+              }
+            });
+          });
+        }
+      });
+    }
   }
 
   function init() {
