@@ -487,3 +487,9 @@
 .footer-top__newsletter-text + p {
     display: none;
 }
+
+.newsletter-post__left {
+    input[type="submit"] {
+        margin-top: 32px;
+    }
+}
