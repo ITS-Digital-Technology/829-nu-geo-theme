@@ -227,6 +227,23 @@ function wcagHelper() {
     }
   }
 
+  function newsletterCleanup() {
+    const elements = document.querySelectorAll('#mc_embed_signup_scroll p');
+    const form = document.querySelector('#mc-embedded-subscribe-form');
+
+    if (elements) {
+      elements.forEach(element => {
+        const text = element.innerHTML;
+        element.innerHTML = text.replaceAll('&nbsp;', '');
+      });
+    }
+
+    if (form) {
+      const formContent = form.innerHTML;
+      form.innerHTML = formContent.replaceAll('&nbsp;', '');
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -237,6 +254,7 @@ function wcagHelper() {
     iframes();
     selectAll();
     tabIndex();
+    newsletterCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);

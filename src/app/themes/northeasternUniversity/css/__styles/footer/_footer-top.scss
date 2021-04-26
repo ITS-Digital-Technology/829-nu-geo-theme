@@ -431,3 +431,46 @@
         }
     }
 }
+
+#mc_embed_signup_scroll {
+    display: flex;
+    flex-direction: column;
+
+    > h2 {
+        display: none;
+    }
+
+    input[type="email"], 
+    input[type="text"] {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    p {
+        margin-bottom: 0;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .indicates-required {
+        margin-top: 16px;
+        font-size: 1.2rem;
+        order: 99;
+    }
+}
+
+#mc_embed_signup {
+    p:empty {
+        display: none;
+    }
+}
+
+#mc_embed_signup_scroll {
+    width: 100%;
+}
+
+.footer-top__newsletter-text + p {
+    display: none;
+}
