@@ -53,7 +53,7 @@ if ( ! empty( $columns ) ) {
 			<button class="c-btn c-btn-tertiary c-btn-color-normal staff-focus__btn" target="_blank" rel="noopener">
 				<span><?php esc_html_e( 'See More', 'northeasternUniversity' ); ?></span>
 				<span><?php esc_html_e( 'See Less', 'northeasternUniversity' ); ?></span>
-				<span class="c-btn-icon"><i class="icon-chev-expand"></i></span>
+				<span class="c-btn-icon"><span class="icon-chev-expand"></span></span>
 			</button>
 			<?php
 		endif;
@@ -76,7 +76,7 @@ if ( ! empty( $columns ) ) {
 		<?php if($next_post->ID !== get_the_ID()): ?>
 			<a href="<?php echo get_permalink( $next_post->ID ); ?>" class="c-btn c-btn-tertiary c-btn-color-normal">
 			<span><?php esc_html_e( 'Next: Meet', 'northeasternUniversity' ); echo ' ' . $next_post->post_title;  ?></span>
-			<span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span>
+			<span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span>
 		</a>
 		<?php endif; ?>
 	</div>

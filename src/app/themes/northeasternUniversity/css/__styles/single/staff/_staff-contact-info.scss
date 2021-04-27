@@ -33,7 +33,7 @@
             margin-bottom: 0;
         }
 
-        i {
+        span[class^="icon-"] {
             margin-right: rem(10);
 
             @include sm() {

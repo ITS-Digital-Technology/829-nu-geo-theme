@@ -49,7 +49,7 @@ $cta_button  = isset( $cta_button ) ? $cta_button : get_sub_field( 'cta_button' 
                                     $link_title  = $btn['title'];
                                     $link_target = $btn['target'] ? $btn['target'] : '_self';
                                     ?>
-                                    <a class="content-steps__step-btn c-btn c-btn-tertiary c-btn-color-alt" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span></a>
+                                    <a class="content-steps__step-btn c-btn c-btn-tertiary c-btn-color-alt" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span></a>
                                 <?php endif; ?>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ $cta_button  = isset( $cta_button ) ? $cta_button : get_sub_field( 'cta_button' 
                         $link_title  = $cta_button['title'];
                         $link_target = $cta_button['target'] ? $cta_button['target'] : '_self';
                     ?>
-                    <a class="c-btn c-btn-tertiary c-btn-color-alt" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span></a>
+                    <a class="c-btn c-btn-tertiary c-btn-color-alt" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span></a>
                 <?php endif; ?>
                 </div>
             <?php endif; ?>

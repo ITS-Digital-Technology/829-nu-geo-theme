@@ -99,7 +99,7 @@ $programs = get_sub_field( 'programs' );
 									<button href="#" class="c-btn c-btn-secondary c-btn-color-normal">
 										<span><?php esc_html_e( 'Compare Results', 'northeasternUniversity' ); ?></span>
 										<span><?php esc_html_e( 'Hide Results', 'northeasternUniversity' ); ?></span>
-										<span class="c-btn-icon"><i class="icon-arrow-downward"></i></span>
+										<span class="c-btn-icon"><span class="icon-arrow-downward"></span></span>
 									</button>
 								</div> 
 								<?php endif; ?>                          

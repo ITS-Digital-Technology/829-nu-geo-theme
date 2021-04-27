@@ -18,7 +18,7 @@ if($mobile_modal){
         <div class="container">
             <div class="program-filters__wrapper">
                 <div class="program-filters__inner-wrapper-header">
-                    <button class="program-filters__mobile-close"><i class="icon-close"></i></button>
+                    <button class="program-filters__mobile-close"><span class="icon-close"></span></button>
                 </div>
                 <div class="program-filters__scroll">
                     <div class="program-filters__inner-wrapper-content">

@@ -20,7 +20,7 @@ foreach ($links as $single) :
         </figure>
     <?php endif; ?>
         <div class="mm-link__text">
-            <span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span>
+            <span><?php echo esc_html( $link_title ); ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span>
         </div>
     </a>
 <?php

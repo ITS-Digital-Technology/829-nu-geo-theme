@@ -184,7 +184,7 @@ function sidebar(props) {
                 onClick={(e) => { toggleModal(e) }}
             >
                 <span>Filter</span>
-                <span className="c-btn-icon"><i className="icon-filter"></i></span>
+                <span className="c-btn-icon"><span className="icon-filter"></span></span>
             </button>
 
 

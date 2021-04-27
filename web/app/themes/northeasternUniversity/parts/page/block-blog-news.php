@@ -31,7 +31,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
                         <div class="blog-posts__title-wrapper">
                             <h2 class="blog-posts__title"><?php echo $blog_title; ?></h2>
                             <a class="c-btn c-btn-tertiary c-btn-color-normal" href="<?php echo get_post_type_archive_link( 'post' ); ?>">
-                            <span><?php echo $blog_button_text; ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span></a>
+                            <span><?php echo $blog_button_text; ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span></a>
                         </div>
                         <div class="blog-posts__posts-wrapper">
                             <?php
@@ -79,7 +79,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
                         <div class="news-posts__title-wrapper">
                             <h2 class="news-posts__title"><?php echo $news_title; ?></h2>
                             <a class="c-btn c-btn-tertiary c-btn-color-normal" href="<?php echo get_post_type_archive_link( 'news' ); ?>">
-                            <span><?php echo $news_button_text; ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span></a>
+                            <span><?php echo $news_button_text; ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span></a>
                         </div>
                         <div class="news-posts__posts-wrapper">
                             <?php

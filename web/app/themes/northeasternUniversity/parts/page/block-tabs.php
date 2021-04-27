@@ -20,7 +20,7 @@ if ( $tabs ) :
                     <?php ContentBlock::the_block_title(); ?>
                     <div class="block-tabs__head-nav">
                         <button type="button" aria-label="Button Prev Tab" class="tabs-mobile-trigger prev-tab hide">
-                            <i class="icon-chev-left"></i>
+                            <span class="icon-chev-left"></span>
                         </button>
                         <div class="block-tabs__list">
                         <?php foreach ( $tabs as $key => $item ) : ?>
@@ -29,7 +29,7 @@ if ( $tabs ) :
                         </div>
 
                         <button type="button" aria-label="Button Next Tab" class="tabs-mobile-trigger next-tab">
-                            <i class="icon-chev-right"></i>
+                            <span class="icon-chev-right"></span>
                         </button>
                     </div>
 				</div>

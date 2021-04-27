@@ -13,6 +13,6 @@
 	<label for="search">Search</label>
 	<input id="search" class="search-form__input" type="search" name="s" id="s" placeholder="<?php _e('Search', 'northeasternUniversity'); ?>"/>
 	<button class="search-form__submit" type="submit" aria-label="Search Form Submit" value="<?php _e('Search', 'northeasternUniversity'); ?>">
-		<i class="icon-search"></i>
+		<span class="icon-search"></span>
 	</button>
 </form>

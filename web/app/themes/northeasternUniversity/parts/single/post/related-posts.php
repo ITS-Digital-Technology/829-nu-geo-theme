@@ -38,7 +38,7 @@ if ($query->have_posts()) :
             </h2>
             <a href="<?php echo $related_link; ?>" <?php echo $related_link_target; ?> class="related-blog-posts__all-posts c-btn c-btn-tertiary c-btn-color-normal">
                 <span><?php echo $related_link_title; ?></span>
-                <span class='c-btn-icon'><i class='icon-arrow-right-circle'></i></span>
+                <span class='c-btn-icon'><span class='icon-arrow-right-circle'></span></span>
             </a>
         </div>
         <div class="row related-blog-posts__posts">
