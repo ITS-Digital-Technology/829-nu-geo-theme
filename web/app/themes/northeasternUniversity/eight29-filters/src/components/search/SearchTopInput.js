@@ -73,7 +73,7 @@ function SearchTopInput(props) {
                     className="search-form__close clear-input"
                     onClick={e => clearSearchInput(e) }
                 >
-                    <i className="icon-close"></i>
+                    <span className="icon-close"></span>
                 </button>
             </form>
         </div>

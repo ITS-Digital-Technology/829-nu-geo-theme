@@ -18,7 +18,7 @@ if (!empty($cookie_bar_text)) :
 
                 <button class="cookie-bar__close" aria-label="Cookie Bar Close Button">
                     <span class="cookie-bar__icon">
-                        <i class="icon-close"></i>
+                        <span class="icon-close"></span>
                     </span>
                 </button>
             </div>
