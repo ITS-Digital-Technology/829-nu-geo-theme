@@ -207,7 +207,7 @@
                     @include font(16, 24);
                 }
 
-                i {
+                span[class^="icon-"] {
                     margin-right: rem(10);
 
                     font-size: rem(23);
