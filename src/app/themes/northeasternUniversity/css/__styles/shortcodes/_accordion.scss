@@ -48,7 +48,8 @@
                 letter-spacing: rem(.6);
             }
         }
-        i {
+
+        span[class^="icon-"] {
             pointer-events: none;
 
             position: absolute;
