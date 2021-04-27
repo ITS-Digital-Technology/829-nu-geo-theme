@@ -61,7 +61,7 @@ if ( is_front_page() ) {
 }
 ?>
 </section>
-<div id="contentstart" tabindex="-1"></div>
+<div id="contentstart" tabindex="0"></div>
 <?php
 
 
