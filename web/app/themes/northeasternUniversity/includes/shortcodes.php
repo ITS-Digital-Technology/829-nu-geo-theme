@@ -28,7 +28,7 @@ function button( $atts, $content ) {
 	$class         = "c-btn c-btn-${style} c-btn-color-${color} ${icon_class}";
 	$wrapper_class = $style !== 'tertiary' ? 'c-btn-wrapper' : 'c-btn-wrapper c-btn-wrapper-small';
     $rel           = $target === '_blank' ? ' rel="noopener"' : '';
-    $icon          = $icon ? "<span class='c-btn-icon'><i class=$icon></i></span>" : '';
+    $icon          = $icon ? "<span class='c-btn-icon'><span class=$icon></span></span>" : '';
 
 
 	return "<div class='${wrapper_class} align-${alignment}'><a href='${href}' class='${class}' target='${target}'${rel}><span>${content}</span>${icon}</a></div>";

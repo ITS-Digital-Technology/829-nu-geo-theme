@@ -220,7 +220,7 @@ function wp_acf_link ( $link = false, $class = false, $icon = false ) {
 		$link_title   = $link['title'];
 		$link_target  = $link['target'] ? 'target="_blank" rel="noopener"' : 'target="_self"';
 		$link_class   = $class ? 'class="' . $class . '"' : '';
-		$link_icon    = $icon ? '<span class="c-btn-icon"><i class="' . $icon . '"></i></span>' : '';
+		$link_icon    = $icon ? '<span class="c-btn-icon"><span class="' . $icon . '"></span></span>' : '';
 
 		return '<a aria-label="Learn more about '.$link_title.'" ' . $link_class . ' href="' . $link_url . '" ' . $link_target . '><span>' . $link_title . '</span>' . $link_icon . '</a>';
 	}
