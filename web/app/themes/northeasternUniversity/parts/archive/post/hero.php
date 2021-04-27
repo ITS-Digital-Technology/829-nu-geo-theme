@@ -62,7 +62,7 @@ if ( empty( $featured_post ) ) {
 
                             <?php if ($author !== 'Northeastern University'): ?>
                                 <div class="featured-post-card__author">
-                                    <a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="featured-post-card__author-link">
+                                    <a aria-label="By <?php echo $author; ?>" href="<?php echo $post_author_link; ?>" class="featured-post-card__author-link">
                                         <?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
                                     </a>
                                 </div>
