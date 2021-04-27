@@ -55,13 +55,13 @@ $name                 = preg_split( '/[\s,]+/', $title )[0];
 		</h5>
 	<?php if ( ! empty( $email ) ) : ?>
 		<p class="staff-contact-info__email">
-			<i class="icon-email"></i>
+			<span class="icon-email"></span>
 			<?php echo wp_acf_link( $email, '' ); ?>
 		</p>
 	<?php endif; ?>
 	<?php if ( ! empty( $phone_number ) ) : ?>
 		<p class="staff-contact-info__phone">
-			<i class="icon-phone"></i>
+			<span class="icon-phone"></span>
 			<?php echo wp_acf_link( $phone_number, '' ); ?>
 		</p>
 	<?php endif; ?>

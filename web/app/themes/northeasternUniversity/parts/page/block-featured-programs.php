@@ -18,7 +18,7 @@ if ( empty( $button_text ) ) {
                         <?php
                         if ( ! empty( $button_text ) ) :
                             ?>
-                            <a href="<?php echo get_post_type_archive_link( 'program' ); ?>" target="_self" class="c-btn c-btn-tertiary c-btn-color-normal"><span><?php echo $button_text; ?></span><span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span></a>
+                            <a href="<?php echo get_post_type_archive_link( 'program' ); ?>" target="_self" class="c-btn c-btn-tertiary c-btn-color-normal"><span><?php echo $button_text; ?></span><span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span></a>
                         <?php endif; ?>
                     </div>
                 </div>

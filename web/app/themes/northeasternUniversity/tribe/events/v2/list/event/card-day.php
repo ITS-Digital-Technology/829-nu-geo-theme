@@ -13,12 +13,12 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 }
 ?>
 <div class="tribe-events-calendar-list__event-day">
-    <i class="icon-calendar"></i>
+    <span class="icon-calendar"></span>
     <span><?php esc_html_e( $days ); ?></span>
 </div>
 <?php if ( ! $is_all_day ) : ?>
 <div class="tribe-events-calendar-list__event-time">
-    <i class="icon-time"></i>
+    <span class="icon-time"></span>
     <span class="tribe-events-calendar-list__start-time"><?php echo date( 'g:ia', $start_date ); ?></span>
     <span class="tribe-events-calendar-list__end-time"><?php echo date( 'g:ia', $end_date ); ?></span>
 </div>

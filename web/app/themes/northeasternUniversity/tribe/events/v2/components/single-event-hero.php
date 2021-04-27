@@ -29,12 +29,12 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 						<h1 class="h2 single-event-hero__title"><?php echo esc_html( get_the_title( $event_id ) ); ?></h1>
 						<div class="single-event-hero__date">
 							<div class="single-event-hero__day">
-								<i class="icon-calendar"></i>
+								<span class="icon-calendar"></span>
 								<span><?php esc_html_e( $days ); ?></span>
 							</div>
 							<?php if ( ! $is_all_day ) : ?>
 							<div class="single-event-hero__time">
-								<i class="icon-time"></i>
+								<span class="icon-time"></span>
 								<span class="single-event-hero__start-time"><?php echo date( 'g:ia', $start_date ); ?></span>
 								<span class="single-event-hero__end-time"><?php echo date( 'g:ia', $end_date ); ?></span>
 							</div>

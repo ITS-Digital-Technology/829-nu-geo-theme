@@ -63,12 +63,12 @@ $events = tribe_get_events(
                                     <h4 class="upcoming-events-card__title"><?php echo $title; ?></h4>
                                     <div class="upcoming-events-card__date">
                                         <div class="upcoming-events-card__day">
-                                            <i class="icon-calendar"></i>
+                                            <span class="icon-calendar"></span>
                                             <span><?php esc_html_e( $days ); ?></span>
                                         </div>
                                     <?php if ( ! $is_all_day ) : ?>
                                         <div class="upcoming-events-card__time">
-                                            <i class="icon-time"></i>
+                                            <span class="icon-time"></span>
                                             <span class="upcoming-events-card__start-time"><?php echo date( 'g:ia', $start_date ); ?></span>
                                             <span class="upcoming-events-card__end-time"><?php echo date( 'g:ia', $end_date ); ?></span>
                                         </div>

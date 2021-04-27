@@ -8,7 +8,7 @@ $log_in_link = get_field('h_log_in_link', 'options');
     <div class="main-header__right-wrapper">
         <div class="main-header__search-button-wrapper">
             <button class="main-header__search-button" aria-label="Search Button">
-                <i class="icon-search"></i>
+                <span class="icon-search"></span>
             </button>
         </div>
         <div class="main-header__login">

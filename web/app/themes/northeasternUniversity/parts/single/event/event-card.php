@@ -37,12 +37,12 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 				<h3 class="event-card__title"><?php echo esc_html( $title ); ?></h3>
 				<div class="event-card__date">
 					<div class="event-card__day">
-						<i class="icon-calendar"></i>
+						<span class="icon-calendar"></span>
 						<span><?php esc_html_e( $days, 'northeasternUniversity' ); ?></span>
 					</div>
 					<?php if ( ! $is_all_day ) : ?>
 					<div class="event-card__time">
-						<i class="icon-time"></i>
+						<span class="icon-time"></span>
 						<span class="event-card__start-time"><?php echo date( 'g:ia', $start_date ); ?></span>
 						<span class="event-card__end-time"><?php echo date( 'g:ia', $end_date ); ?></span>
 					</div>

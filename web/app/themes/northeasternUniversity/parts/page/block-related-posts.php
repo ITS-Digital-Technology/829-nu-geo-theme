@@ -25,7 +25,7 @@ $posts = $blog_manual_posts ? $blog_manual_posts : get_posts( $args_posts );
                 ?>
                 <a class="c-btn c-btn-tertiary c-btn-color-normal" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                     <span><?php echo esc_html( $link_title ); ?></span>
-                    <span class="c-btn-icon"><i class="icon-arrow-right-circle"></i></span>
+                    <span class="c-btn-icon"><span class="icon-arrow-right-circle"></span></span>
                 </a>
             <?php endif;?>
             </div>
