@@ -200,16 +200,19 @@ function wcagHelper() {
       filters.forEach(filter => {        
         const filterButton = filter.querySelector('button.program-filters__filter-trigger');
         const checkboxes = filter.querySelectorAll('input[type="checkbox"]');
-        let menuStatus = false;
         const filterMenu = filter.querySelector('ul.program-filters__filter-list');
+        const filterMenuParentTrigger = filterMenu.closest('.program-filters__filter').querySelector('button.program-filters__filter-trigger');
+        const filterLabel = filterMenuParentTrigger.textContent;
 
         function toggleMenu() {
-          menuStatus = !menuStatus;
-          filterMenu.setAttribute('aria-expanded', menuStatus);
+          const menuStatus = filterMenuParentTrigger.classList.contains('active') ? true : false;
+          filterMenuParentTrigger.setAttribute('aria-expanded', menuStatus);
         }
 
         if (filterMenu) {
-          filterMenu.setAttribute('aria-expanded', menuStatus);
+          filterMenuParentTrigger.setAttribute('aria-expanded', false);
+          filterMenuParentTrigger.setAttribute('aria-haspopup', true);
+          filterMenuParentTrigger.setAttribute('aria-label', `Toggle ${filterLabel} filter`);
           filterMenu.setAttribute('role', 'option');
         }
 
@@ -222,7 +225,12 @@ function wcagHelper() {
             checkbox.addEventListener('keypress', function(e) {
               if (e.key === 13 || e.key === 'Enter') {
                 checkbox.click();
+                filterMenuParentTrigger.setAttribute('aria-expanded', false);
               }
+            });
+
+            checkbox.addEventListener('click', function() {
+              filterMenuParentTrigger.setAttribute('aria-expanded', false);
             });
           });
         }
