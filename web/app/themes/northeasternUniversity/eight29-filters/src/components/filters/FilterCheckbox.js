@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import FilterContainer from './FilterContainer';
 import DropdownContainer from './DropdownContainer';
 
@@ -22,6 +22,8 @@ function FilterCheckbox(props) {
 
   const [termOpen, setTermOpen] = useState({});
   const [closeRequest, setCloseRequest] = useState(false);
+
+  const checkboxRef = useRef({});
 
   let termList;
   let parentContent;
@@ -58,6 +60,8 @@ function FilterCheckbox(props) {
                 id={child.id}
                 checked={isSelected(child.id, taxSlug)}
                 onChange={() => {toggleSelected(child, taxSlug), setCloseRequest(true)}}
+                onKeyPress={(e) => {keyPressHandler(e, child.id)}}
+                ref={(checkbox) => checkboxRef.current[child.id] = checkbox}
               ></input>
 
               {childContent}
@@ -95,6 +99,8 @@ function FilterCheckbox(props) {
                 name={term.id}
                 checked={isSelected(term.id, taxSlug)}
                 onChange={() => {toggleSelected(term, taxSlug), setCloseRequest(true)}}
+                onKeyPress={(e) => {keyPressHandler(e, term.id)}}
+                ref={(checkbox) => checkboxRef.current[term.id] = checkbox}
               ></input>
 
               {parentContent}
@@ -106,6 +112,12 @@ function FilterCheckbox(props) {
         );
       }
     });
+  }
+
+  function keyPressHandler(e, currentIndex) {
+    if (e.key === 13 || e.key === 'Enter') {
+      checkboxRef.current[currentIndex].click();
+    }
   }
 
   function modifyAll(termIds, taxSlug, totalTerms, totalSelected) {
@@ -151,6 +163,8 @@ function FilterCheckbox(props) {
           name={`select-all-${taxSlug}`}
           checked={totalTerms === totalSelected}
           onChange={() => {modifyAll(termIds, taxSlug, totalTerms, totalSelected), setCloseRequest(true)}}
+          onKeyPress={(e) => {keyPressHandler(e, 'all')}}
+          ref={(checkbox) => checkboxRef.current['all'] = checkbox}
         ></input>
 
         <label htmlFor={`select-all-${taxSlug}`}>All</label>
