@@ -20,8 +20,11 @@ function wcagHelper() {
     if(menuItems) {
       menuItems.forEach(menuItem => {
         if (menuItem.getAttribute('href') === '#') {
+          const label = menuItem.textContent;
+
           menuItem.removeAttribute('href');
-          menuItem.classList.add('menu-trigger');
+          menuItem.classList.add('menu-trigger'); 
+          menuItem.setAttribute('aria-label', `Toggle ${label} dropdown menu`);
           menuItem.setAttribute('aria-haspopup', true);
           menuItem.setAttribute('aria-expanded', false);
 
