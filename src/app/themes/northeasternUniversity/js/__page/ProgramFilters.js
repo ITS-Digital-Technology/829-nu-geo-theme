@@ -165,7 +165,7 @@ class ProgramFilters {
         let parametersString = '';
 
         if(this.programsTypes.length > 0){
-            programTypeAttr = `p_type=${this.programsTypes}`;
+            programTypeAttr = `p_program_type=${this.programsTypes}`;
             parameters.push(programTypeAttr);
         }
         if(this.countries.length > 0){
