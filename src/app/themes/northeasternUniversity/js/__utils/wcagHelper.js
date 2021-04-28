@@ -22,6 +22,15 @@ function wcagHelper() {
         if (menuItem.getAttribute('href') === '#') {
           menuItem.removeAttribute('href');
           menuItem.classList.add('menu-trigger');
+          menuItem.setAttribute('aria-haspopup', true);
+          menuItem.setAttribute('aria-expanded', false);
+
+          menuItem.addEventListener('click', function(e) {
+            const currentMenuStatus = menuItem.classList.contains('active') ? true : false;
+
+            e.preventDefault();
+            menuItem.setAttribute('aria-expanded', currentMenuStatus);
+          });
         }
       });
     }

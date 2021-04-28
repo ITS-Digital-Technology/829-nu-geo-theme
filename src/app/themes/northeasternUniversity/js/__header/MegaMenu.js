@@ -9,7 +9,7 @@ class MegaMenu {
         this.menu = $('.main-header__nav');
         this.menuItems = this.menu.find('> .menu > .menu-item-type-post_type');
         this.menuItemsLinks = this.menuItems.find('> a');
-        this.menuItems.attr('aria-expanded', 'false');
+        // this.menuItems.attr('aria-expanded', 'false');
     }
     static hideMegaMenu() {
 
@@ -45,8 +45,8 @@ class MegaMenu {
         this.menuItemsLinks.on('click', this.toggleMegaMenu);
         $('.menu-item-type-post_type').on('click', function () {
 
-            $('.menu-item-type-post_type').attr('aria-expanded', 'false');
-            $(this).attr('aria-expanded', 'true');
+            // $('.menu-item-type-post_type').attr('aria-expanded', 'false');
+            // $(this).attr('aria-expanded', 'true');
         });
 
         // $('.menu-item-type-post_type a').focus('focusin', function () {
