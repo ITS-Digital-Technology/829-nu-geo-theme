@@ -264,6 +264,31 @@ function wcagHelper() {
     }
   }
 
+  function accordions() {
+    const accordions = document.querySelectorAll('.single-accordion');
+
+    if (accordions) {
+      accordions.forEach(accordion => {
+        let menuStatus = accordion.classList.contains('active') ? true : false;
+        const accordionTrigger = accordion.querySelector('.single-accordion__title > h4');
+
+        accordionTrigger.setAttribute('tabindex', 0);
+        accordionTrigger.setAttribute('aria-expanded', menuStatus);
+
+        accordionTrigger.addEventListener('click', function() {
+          menuStatus = !menuStatus;
+          accordionTrigger.setAttribute('aria-expanded', menuStatus);
+        });
+
+        accordionTrigger.addEventListener('keypress', function(e) {
+          if (e.key === 13 || e.key === 'Enter') {
+            accordionTrigger.click();
+          }
+        });
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -275,6 +300,7 @@ function wcagHelper() {
     tabIndex();
     newsletterCleanup();
     cookieBar();
+    accordions();
   }
 
   window.addEventListener('DOMContentLoaded', init);
