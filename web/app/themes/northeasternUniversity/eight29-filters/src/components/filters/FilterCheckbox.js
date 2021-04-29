@@ -182,8 +182,9 @@ function FilterCheckbox(props) {
         closeRequest={closeRequest}
         setCloseRequest={setCloseRequest}
         defaultLabel={label}
+        label={label}
       >
-      <ul className="checkboxes dropdown-list">
+      <ul className="checkboxes dropdown-list" role="option">
         {termList}
       </ul>
     </DropdownContainer>

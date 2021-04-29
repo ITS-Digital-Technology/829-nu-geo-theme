@@ -12,6 +12,7 @@ function DropdownContainer(props) {
     closeRequest,
     orderBy,
     postType,
+    label,
 
     setCloseRequest
   } = props;
@@ -109,6 +110,7 @@ function DropdownContainer(props) {
         <button
             className="dropdown-current"
             onClick={(e) => {toggleOpen(e)}}
+            aria-expanded={open} aria-haspopup="true" aria-label={`Toggle ${label} filter`}
         >  {orderBy ? <span>Sort: {currentLabel}</span> : <span>{currentLabel}</span>}</button>
         <SimpleBar>
             {props.children}
