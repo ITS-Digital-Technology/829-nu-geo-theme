@@ -289,6 +289,66 @@ function wcagHelper() {
     }
   }
 
+  function tabs() {
+    const tabBlocks = document.querySelectorAll('.block-tabs');
+
+    if (tabBlocks) {
+      tabBlocks.forEach(tabBlock => {
+        const tabButtons = tabBlock.querySelectorAll('.block-tabs__list-item');
+        const tabPanels = tabBlock.querySelectorAll('.block-tabs__tab-content');
+
+        if (tabButtons && tabPanels) {
+          tabButtons.forEach(tabButton => {
+            const tabStatus = tabButton.classList.contains('active') ? true : false;
+            const tabButtonId = tabButton.getAttribute('data-tab').replace('#', '');
+
+            tabButton.setAttribute('role', 'tab');
+            tabButton.setAttribute('aria-selected', tabStatus);
+            tabButton.setAttribute('aria-controls', `tab-content-${tabButtonId}`);
+            tabButton.setAttribute('id', `tab-button-${tabButtonId}`);
+
+            tabButton.addEventListener('click', function() {
+              const currentTab = tabButton.getAttribute('data-tab').replace('#', '');
+
+              //Reset All Buttons
+              tabButtons.forEach(tabButton => {
+                tabButton.setAttribute('aria-selected', false);
+              });
+
+              //Reset All Content
+              tabPanels.forEach(tabPanel => {
+                tabPanel.setAttribute('hidden', '');
+              });
+
+              tabBlock.querySelector(`#tab-content-${currentTab}`).removeAttribute('hidden');
+              tabButton.setAttribute('aria-selected', true);
+            });
+
+            tabButton.addEventListener('keypress', function(e) {
+              if (e.key === 13 || e.key === 'Enter') {
+                tabButton.click();
+              }
+            });
+          });
+
+          //Tab Content
+          tabPanels.forEach(tabPanel => {
+            const tabPanelId = tabPanel.getAttribute('data-tab').replace('#', '');
+            const tabPanelStatus = tabPanel.classList.contains('active') ? true : false;
+
+            tabPanel.setAttribute('id', `tab-content-${tabPanelId}`);
+            tabPanel.setAttribute('aria-labelledby', `tab-button-${tabPanelId}`);
+            tabPanel.setAttribute('tabindex', 0);
+
+            if (!tabPanelStatus) {
+              tabPanel.setAttribute('hidden', '');
+            }
+          });
+        }
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -301,6 +361,7 @@ function wcagHelper() {
     newsletterCleanup();
     cookieBar();
     accordions();
+    tabs();
   }
 
   window.addEventListener('DOMContentLoaded', init);
