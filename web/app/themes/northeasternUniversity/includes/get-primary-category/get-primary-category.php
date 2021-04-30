@@ -24,7 +24,7 @@ function get_primary_taxonomy_term( $post = null, $taxonomy = 'category' ) {
 			$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
 			$term               = get_term( $wpseo_primary_term );
 
-			if ( is_wp_error( $term ) ) {
+			if ( !is_wp_error( $term ) ) {
 				$term_display = $terms[0]->name;
 				$term_link    = get_term_link( $terms[0]->term_id );
 			} else {
