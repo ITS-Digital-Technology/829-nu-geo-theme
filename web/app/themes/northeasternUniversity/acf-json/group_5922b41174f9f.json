@@ -3678,6 +3678,68 @@
                             "return_format": "array"
                         },
                         {
+                            "key": "field_608c2fd35b702",
+                            "label": "Choose Category?",
+                            "name": "choose_category",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6023a7430e6e7",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_608c20bf54bf3",
+                            "label": "Category",
+                            "name": "category_id",
+                            "type": "taxonomy",
+                            "instructions": "No selection means all topics (default)",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6023a7430e6e7",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "field": "field_608c2fd35b702",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "post_program",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "multiple": 0
+                        },
+                        {
                             "key": "field_6023a7430e6e7",
                             "label": "Manual Selection",
                             "name": "manual_selection",
@@ -3963,5 +4025,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613032576
+    "modified": 1619800242
 }
