@@ -274,21 +274,21 @@ add_action( 'init', 'BaseTheme\Taxonomies\event_type' );
 
 //POST
 //post_content_types
-function post_content_type() {
-	$args = array(
-		'labels'            => get_labels( 'Content Type' ),
-		'hierarchical'      => true,
-		'public'            => true,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'show_in_nav_menus' => true,
-        'show_in_rest'      => true,
-        'rewrite'           => array( 'slug' => 'content-type', 'with_front' => false )
-	);
+// function post_content_type() {
+// 	$args = array(
+// 		'labels'            => get_labels( 'Content Type' ),
+// 		'hierarchical'      => true,
+// 		'public'            => true,
+// 		'show_ui'           => true,
+// 		'show_admin_column' => true,
+// 		'show_in_nav_menus' => true,
+//         'show_in_rest'      => true,
+//         'rewrite'           => array( 'slug' => 'content-type', 'with_front' => false )
+// 	);
 
-	register_taxonomy( 'post_content_type', array( 'post' ), $args );
-}
-add_action( 'init', 'BaseTheme\Taxonomies\post_content_type' );
+// 	register_taxonomy( 'post_content_type', array( 'post' ), $args );
+// }
+// add_action( 'init', 'BaseTheme\Taxonomies\post_content_type' );
 
 // post_topic
 function post_topic() {
