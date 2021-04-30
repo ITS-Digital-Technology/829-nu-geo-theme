@@ -52,11 +52,13 @@ $posts = $blog_manual_selection ? $blog_manual_posts : get_posts( $args_posts );
                     $post_author_link = get_author_posts_url( $post_author_id );
                     $author           = get_the_author_meta( 'display_name', $post_author_id );
                     $thumbnail        = get_the_post_thumbnail( $post, 'thumbnail-card' );
-                    if ( empty( $thumbnail ) ) {
-                        $thumbnail = wp_get_attachment_image( get_field( 'default_post_thumbnail', 'options' )['ID'],'thumbnail-card' );
-
-                    }
+                    $default_image = get_field( 'default_post_thumbnail', 'option' );
                     $permalink = get_permalink( $post );
+
+                    if (empty($thumbnail)) {
+                        $thumbnail = wp_get_attachment_image($default_image, 'thumbnail-card');
+                    }
+
                     ?>
                     <div class="col-12 col-lg-4 related-posts__post-col">
                         <?php get_theme_part('archive/post/card', [
