@@ -3,14 +3,27 @@ $title = get_sub_field('section_title');
 $button = get_sub_field('button');
 $blog_manual_selection = get_sub_field( 'manual_selection' );
 $blog_manual_posts     = get_sub_field( 'posts' );
+$choose_category = get_sub_field('choose_category');
+$category_id = get_sub_field('category_id');
+
+$tax_query_array = [
+    [
+    'taxonomy' => 'post_program',
+    'field' => 'term_id',
+    'terms' => $category_id
+    ]
+];
+
+$tax_query = $category_id && $choose_category ? $tax_query_array : false;
 
 $args_posts = [
 	'posts_per_page' => 3,
+    'tax_query' => $tax_query
 ];
 
-$posts = $blog_manual_posts ? $blog_manual_posts : get_posts( $args_posts );
-
+$posts = $blog_manual_selection ? $blog_manual_posts : get_posts( $args_posts );
 ?>
+
 <section class="block-related-posts">
     <div class="container">
         <div class="related-posts">
