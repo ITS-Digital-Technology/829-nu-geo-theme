@@ -117,11 +117,6 @@ $program_class_type = get_field('td_program_class_type','options');
 
 $eight29_filter_data = [
     "post" => [
-        "post_content_type" => [
-            "label" => "Content Types",
-            "type" => "accordion-single-select",
-            "dropdown" => true
-        ],
         "post_topic" => [
             "label" => "Topics",
             "type" => "accordion-single-select",
