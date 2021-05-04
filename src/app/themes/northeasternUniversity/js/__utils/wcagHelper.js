@@ -349,6 +349,14 @@ function wcagHelper() {
     }
   }
 
+  function player() {
+    const player = document.querySelector('#player');
+
+    if (player) {
+      player.removeAttribute('tabindex');
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -362,6 +370,7 @@ function wcagHelper() {
     cookieBar();
     accordions();
     tabs();
+    player();
   }
 
   window.addEventListener('DOMContentLoaded', init);
