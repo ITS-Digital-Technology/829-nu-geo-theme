@@ -212,7 +212,7 @@ function wcagHelper() {
         if (filterMenu) {
           filterMenuParentTrigger.setAttribute('aria-expanded', false);
           filterMenuParentTrigger.setAttribute('aria-haspopup', true);
-          filterMenuParentTrigger.setAttribute('aria-label', `Toggle ${filterLabel} filter`);
+          filterMenuParentTrigger.setAttribute('aria-label', `${filterLabel}`);
           filterMenu.setAttribute('role', 'option');
         }
 
