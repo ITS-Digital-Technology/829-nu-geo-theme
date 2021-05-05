@@ -85,7 +85,8 @@ function FilterContainer(props) {
         document.body.classList.add('lock-scroll');
         document.body.addEventListener('keydown', function(e) {
           if (e.key === 27 || e.key === 'Escape') {
-            infoModalClose.click();
+            infoModal.classList.remove('active');
+            document.body.classList.remove('lock-scroll');
           }
         });
       } 
