@@ -92,7 +92,7 @@ function FilterContainer(props) {
         });
       } 
       else {
-        infoModals.forEach(el=>el.classList.remove('active'));
+        infoModals.forEach(el => el.classList.remove('active'));
         document.body.classList.remove('lock-scroll');
       }
   }
