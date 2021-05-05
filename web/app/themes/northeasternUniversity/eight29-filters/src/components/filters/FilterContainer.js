@@ -76,10 +76,20 @@ function FilterContainer(props) {
       e.preventDefault();
       const infoModals = document.querySelectorAll('.info-modal');
       const infoModal = e.target.closest('.eight29-filter').querySelector('.info-modal');
+      const infoModalTitle = infoModal.querySelector('h4');
+      const infoModalClose = infoModal.querySelector('.info-modal__close');
 
       if (!infoModal.classList.contains('active')) {
         infoModal.classList.add('active');
+        infoModal.focus();
         document.body.classList.add('lock-scroll');
+        document.body.addEventListener('keydown', function(e) {
+          console.log(e.key);
+
+          if (e.key === 27 || e.key === 'Escape') {
+            infoModalClose.click();
+          }
+        });
       } 
       else {
         infoModals.forEach(el=>el.classList.remove('active'));
@@ -89,7 +99,7 @@ function FilterContainer(props) {
 
   const terraDottaText = terraDotta ? (terraDotta.text && terraDotta.text) : null;
   const terraDottaTitle = terraDotta ? (terraDotta.title && terraDotta.title) : null;
-  
+
   modalInfo = <div className="info-modal">
         <div className="container">
             <div className="info-modal__wrapper">
