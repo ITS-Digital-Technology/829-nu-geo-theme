@@ -84,8 +84,6 @@ function FilterContainer(props) {
         infoModal.focus();
         document.body.classList.add('lock-scroll');
         document.body.addEventListener('keydown', function(e) {
-          console.log(e.key);
-
           if (e.key === 27 || e.key === 'Escape') {
             infoModalClose.click();
           }
