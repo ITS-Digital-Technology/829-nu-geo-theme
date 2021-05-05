@@ -62,7 +62,9 @@ function FilterContainer(props) {
 
   if (label) {
     labelcontent = <h6 onClick={() => toggleOpen()} className={countClass()} data-count={count}>
-      <span>{label}</span>{(terraDotta && terraDotta.title && terraDotta.text) && <button className="btn-info" aria-label="Button Info" onClick={(e) => {toggleTerraModal(e)}}><span className="icon-information-button"></span></button>}
+      <span>{label}</span>{(terraDotta && terraDotta.title && terraDotta.text) && <button className="btn-info" aria-label={`${label} Button Info`} onClick={(e) => {toggleTerraModal(e)}}>
+        <span className="icon-information-button"></span>
+      </button>}
     </h6>
   }
 
@@ -74,17 +76,20 @@ function FilterContainer(props) {
       e.preventDefault();
       const infoModals = document.querySelectorAll('.info-modal');
       const infoModal = e.target.closest('.eight29-filter').querySelector('.info-modal');
-      if( !infoModal.classList.contains('active')){
-            infoModal.classList.add('active');
-            document.body.classList.add('lock-scroll');
-      } else {
-            infoModals.forEach(el=>el.classList.remove('active'));
-            document.body.classList.remove('lock-scroll');
+
+      if (!infoModal.classList.contains('active')) {
+        infoModal.classList.add('active');
+        document.body.classList.add('lock-scroll');
+      } 
+      else {
+        infoModals.forEach(el=>el.classList.remove('active'));
+        document.body.classList.remove('lock-scroll');
       }
   }
 
   const terraDottaText = terraDotta ? (terraDotta.text && terraDotta.text) : null;
   const terraDottaTitle = terraDotta ? (terraDotta.title && terraDotta.title) : null;
+  
   modalInfo = <div className="info-modal">
         <div className="container">
             <div className="info-modal__wrapper">
