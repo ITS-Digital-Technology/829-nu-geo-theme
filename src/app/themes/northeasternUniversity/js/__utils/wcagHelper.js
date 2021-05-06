@@ -255,15 +255,6 @@ function wcagHelper() {
     }
   }
 
-  function cookieBar() {
-    const notice = document.querySelector('#cookie-bar');
-
-    if (notice) {
-      notice.setAttribute('aria-label', 'Cookie Notice');
-      notice.setAttribute('role', 'main');
-    }
-  }
-
   function accordions() {
     const accordions = document.querySelectorAll('.single-accordion');
 
@@ -421,7 +412,6 @@ function wcagHelper() {
     //selectAll();
     tabIndex();
     newsletterCleanup();
-    cookieBar();
     accordions();
     tabs();
     player();
