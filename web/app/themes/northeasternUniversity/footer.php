@@ -8,7 +8,7 @@
  */
 
 ?>
-    <footer class="main-footer">
+    <footer class="main-footer" aria-label="Footer">
         <?php get_theme_part('elements/cookie-bar'); ?>
 
     <?php

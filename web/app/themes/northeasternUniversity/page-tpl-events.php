@@ -13,7 +13,7 @@ get_header();
 
 $wrapper[] = 'event-wrapper';
 ?>
-<main class="page-content">
+<main class="page-content" aria-label="Main">
 <?php
 if ( is_single() ) :
     get_template_part( 'parts/single/event/main' );

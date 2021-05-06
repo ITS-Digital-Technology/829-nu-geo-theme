@@ -10,7 +10,7 @@
 
 get_header();
 ?>
-<main class="page-content">
+<main class="page-content" aria-label="Main">
 	<?php
 	get_theme_part( 'tpl-program-landing/hero' );
 	ContentBlock::display_theme_blocks();

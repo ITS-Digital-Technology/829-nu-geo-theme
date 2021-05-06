@@ -10,7 +10,7 @@
 get_header();
 
 ?>
-	<main class="page-content page-content--search">
+	<main class="page-content page-content--search" aria-label="Main">
 	<?php
 		get_theme_part( 'search/hero' );
 		get_theme_part( 'search/results' );

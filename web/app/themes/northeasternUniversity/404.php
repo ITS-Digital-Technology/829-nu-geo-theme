@@ -11,7 +11,7 @@ get_header();
 $content = get_field( '404_page_content', 'options' );
 ?>
 
-    <main class="page-content page-404">
+    <main class="page-content page-404" aria-label="Main"></main>
         <div class="container">
         <?php
         if ( ! empty( $content ) ) :
