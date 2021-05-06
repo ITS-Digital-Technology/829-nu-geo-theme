@@ -10,6 +10,7 @@ function FilterSelect(props) {
     label,
     collapsible,
     scrollable,
+    classFilter,
     terraDotta,
 
     replaceSelected,
@@ -87,10 +88,12 @@ function FilterSelect(props) {
     filterId = `filter-${taxSlug}`;
   }
 
+  const filterClass = `filter-select ${classFilter}`;
+
   return (
     <FilterContainer
     filterId={filterId} 
-    className="filter-select"
+    className={filterClass}
     label={label}
     collapsible={collapsible}
     scrollable={scrollable}
