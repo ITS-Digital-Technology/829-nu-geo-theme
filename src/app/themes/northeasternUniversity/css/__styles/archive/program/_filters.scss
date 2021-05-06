@@ -29,7 +29,8 @@
     }
 
     //filters
-    .eight29-filter.filter-checkbox {
+    .eight29-filter.filter-checkbox,
+    .eight29-filter.filter-select {
         flex: 0 0 calc(20% - #{rem(22)});
 
         max-width: calc(20% - #{rem(22)});
