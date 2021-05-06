@@ -10,6 +10,7 @@ function FilterSelect(props) {
     label,
     collapsible,
     scrollable,
+    terraDotta,
 
     replaceSelected,
     isSelected
@@ -93,6 +94,7 @@ function FilterSelect(props) {
     label={label}
     collapsible={collapsible}
     scrollable={scrollable}
+    terraDotta={terraDotta}
     >
       <select
         multiple={false}
