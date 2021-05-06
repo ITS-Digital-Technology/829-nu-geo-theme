@@ -14,6 +14,7 @@ function FilterCheckbox(props) {
     scrollable,
     dropdown,
     classFilter,
+    
     toggleSelected,
     removeFromSelected,
     addToSelected,
