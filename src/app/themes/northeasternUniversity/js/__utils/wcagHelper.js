@@ -366,6 +366,9 @@ function wcagHelper() {
         const filterMenus = programFilter.querySelectorAll('.program-filters__filter');
         const searchButton = programFilter.querySelector('.program-filters__search-wrapper > a');
         const searchButtonURL = searchButton.getAttribute('href');
+        const mobileButton = programFilter.querySelector('.program-filters__trigger-mobile');
+        const mobileButtonClose = programFilter.querySelector('.program-filters__mobile-close');
+        const mobileModal = programFilter.querySelector('.program-filters__wrapper-outer');
 
         if(filterMenus && searchButton) {
           filterMenus.forEach(filterMenu => {
@@ -392,6 +395,16 @@ function wcagHelper() {
               
               searchButton.setAttribute('href', selectionString);
             });
+          });
+        }
+
+        if (mobileButton && mobileButtonClose && mobileModal) {
+          mobileButton.addEventListener('click', function() {
+            mobileModal.classList.toggle('active');
+          });
+
+          mobileButtonClose.addEventListener('click', function() {
+            mobileModal.classList.remove('active');
           });
         }
       });
