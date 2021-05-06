@@ -96,7 +96,7 @@ function FilterSelect(props) {
     >
       <select
         multiple={false}
-        value={selected[taxSlug]}
+        value={String(selected[taxSlug])}
         onChange={(e) => {changeValue(e.target.value)}}
       >
         {allTerms}
