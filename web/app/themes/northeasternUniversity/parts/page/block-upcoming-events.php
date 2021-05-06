@@ -60,7 +60,7 @@ $events = tribe_get_events(
                                 <?php if ( ! empty( $cat ) ) : ?>
                                     <a href="<?php echo $cat['url']; ?>" class="upcoming-events-card__cat"><?php echo $cat['title']; ?></a>
                                 <?php endif; ?>
-                                    <h4 class="upcoming-events-card__title"><?php echo $title; ?></h4>
+                                    <span class="upcoming-events-card__title"><?php echo $title; ?></span>
                                     <div class="upcoming-events-card__date">
                                         <div class="upcoming-events-card__day">
                                             <span class="icon-calendar"></span>

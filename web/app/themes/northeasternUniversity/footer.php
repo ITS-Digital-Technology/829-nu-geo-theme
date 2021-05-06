@@ -8,9 +8,9 @@
  */
 
 ?>
-    <?php get_theme_part('elements/cookie-bar'); ?>
-
     <footer class="main-footer">
+        <?php get_theme_part('elements/cookie-bar'); ?>
+
     <?php
         get_theme_part( 'footer/footer-top' );
         get_theme_part( 'footer/footer-bottom' );
