@@ -18,24 +18,14 @@ $current_label_id = (str_replace(' ', '-', strtolower($current_label)));
 
 <div id="filter-<?php echo $taxonomy; ?>" class="program-filters__filter">
 	<span class="program-filters__filter-label"><?php echo $label; ?></span>
-    <button class="program-filters__filter-trigger <?php echo $taxonomy;?>"><?php echo $current_label;?></button>
-    <div class="program-filters__filter-list-wrapper" aria-label="<?php  __( 'Dropdown option listing', 'sr-description' ); ?>" data-simplebar data-simplebar-auto-hide="false">
-        <ul class="program-filters__filter-list">
-            <li class="program-filters__filter-list-item select-all">
-                <input type="checkbox" id="<?php echo $current_label_id;?>" data-id="all" data-tax="<?php echo $taxonomy;?>">
-                <label class="program-filters__filter-term" for="<?php echo $current_label_id;?>" >All</label>
-            </li>
+    <select>
+        <option value="default">Select Filter Name</option>
         <?php
         foreach ( $terms as $term ) :
             ?>
-            <li class="program-filters__filter-list-item">
-                <input type="checkbox" id="<?php echo $term->term_id; ?>" data-id="<?php echo $term->term_id; ?>" data-tax="<?php echo $taxonomy; ?>">
-                <label class="program-filters__filter-term" for="<?php echo $term->term_id; ?>" ><?php echo $term->name; ?></label>
-            </li>
+            <option value="<?php echo $term->term_id; ?>" data-id="<?php echo $term->term_id; ?>" data-tax="<?php echo $taxonomy; ?>"><?php echo $term->name; ?></option>
             <?php
         endforeach;
         ?>
-        </ul>
-    </div>
-	</button>
+    </select>
 </div>
