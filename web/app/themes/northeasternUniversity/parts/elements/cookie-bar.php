@@ -3,7 +3,7 @@ $cookie_bar_text = get_field('cookie_bar_text', 'options');
 
 if (!empty($cookie_bar_text)) :
 ?>
-<div class="cookie-bar" id="cookie-bar">
+<div class="cookie-bar" id="cookie-bar" aria-label="Cookie Notice">
     <div class="container">
         <div class="row">
             <div class="cookie-bar__wrapper col-12 col-lg-8">
