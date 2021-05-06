@@ -194,48 +194,48 @@ function wcagHelper() {
     }
 
     //Non React filters
-    const filters = document.querySelectorAll('.program-filters__filter');
+    // const filters = document.querySelectorAll('.program-filters__filter');
 
-    if (filters) {
-      filters.forEach(filter => {        
-        const filterButton = filter.querySelector('button.program-filters__filter-trigger');
-        const checkboxes = filter.querySelectorAll('input[type="checkbox"]');
-        const filterMenu = filter.querySelector('ul.program-filters__filter-list');
-        const filterMenuParentTrigger = filterMenu.closest('.program-filters__filter').querySelector('button.program-filters__filter-trigger');
-        const filterLabel = filterMenuParentTrigger.textContent;
+    // if (filters) {
+    //   filters.forEach(filter => {        
+    //     const filterButton = filter.querySelector('button.program-filters__filter-trigger');
+    //     const checkboxes = filter.querySelectorAll('input[type="checkbox"]');
+    //     const filterMenu = filter.querySelector('ul.program-filters__filter-list');
+    //     const filterMenuParentTrigger = filterMenu.closest('.program-filters__filter').querySelector('button.program-filters__filter-trigger');
+    //     const filterLabel = filterMenuParentTrigger.textContent;
 
-        function toggleMenu() {
-          const menuStatus = filterMenuParentTrigger.classList.contains('active') ? true : false;
-          filterMenuParentTrigger.setAttribute('aria-expanded', menuStatus);
-        }
+    //     function toggleMenu() {
+    //       const menuStatus = filterMenuParentTrigger.classList.contains('active') ? true : false;
+    //       filterMenuParentTrigger.setAttribute('aria-expanded', menuStatus);
+    //     }
 
-        if (filterMenu) {
-          filterMenuParentTrigger.setAttribute('aria-expanded', false);
-          filterMenuParentTrigger.setAttribute('aria-haspopup', true);
-          filterMenuParentTrigger.setAttribute('aria-label', `${filterLabel}`);
-          filterMenu.setAttribute('role', 'option');
-        }
+    //     if (filterMenu) {
+    //       filterMenuParentTrigger.setAttribute('aria-expanded', false);
+    //       filterMenuParentTrigger.setAttribute('aria-haspopup', true);
+    //       filterMenuParentTrigger.setAttribute('aria-label', `${filterLabel}`);
+    //       filterMenu.setAttribute('role', 'option');
+    //     }
 
-        if (filterButton) {
-          filterButton.addEventListener('click', toggleMenu);
-        }
+    //     if (filterButton) {
+    //       filterButton.addEventListener('click', toggleMenu);
+    //     }
 
-        if (checkboxes) {
-          checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('keypress', function(e) {
-              if (e.key === 13 || e.key === 'Enter') {
-                checkbox.click();
-                filterMenuParentTrigger.setAttribute('aria-expanded', false);
-              }
-            });
+    //     if (checkboxes) {
+    //       checkboxes.forEach(checkbox => {
+    //         checkbox.addEventListener('keypress', function(e) {
+    //           if (e.key === 13 || e.key === 'Enter') {
+    //             checkbox.click();
+    //             filterMenuParentTrigger.setAttribute('aria-expanded', false);
+    //           }
+    //         });
 
-            checkbox.addEventListener('click', function() {
-              filterMenuParentTrigger.setAttribute('aria-expanded', false);
-            });
-          });
-        }
-      });
-    }
+    //         checkbox.addEventListener('click', function() {
+    //           filterMenuParentTrigger.setAttribute('aria-expanded', false);
+    //         });
+    //       });
+    //     }
+    //   });
+    // }
   }
 
   function newsletterCleanup() {
@@ -357,6 +357,60 @@ function wcagHelper() {
     }
   }
 
+  function programSelectMenus() {
+    const programFilters = document.querySelectorAll('.program-filters');
+
+    if (programFilters) {
+      programFilters.forEach(programFilter => {
+        const selections = {};
+        const filterMenus = programFilter.querySelectorAll('.program-filters__filter');
+        const searchButton = programFilter.querySelector('.program-filters__search-wrapper > a');
+        const searchButtonURL = searchButton.getAttribute('href');
+        const mobileButton = programFilter.querySelector('.program-filters__trigger-mobile');
+        const mobileButtonClose = programFilter.querySelector('.program-filters__mobile-close');
+        const mobileModal = programFilter.querySelector('.program-filters__wrapper-outer');
+
+        if(filterMenus && searchButton) {
+          filterMenus.forEach(filterMenu => {
+            const filterTitle = filterMenu.querySelector('.program-filters__filter-label').textContent;
+            let selectionList = '';
+            let taxonomy = filterTitle.toLowerCase();
+            taxonomy = taxonomy.replaceAll(' ', '_');
+
+            filterMenu.addEventListener('change', function(e) {
+              selectionList = '';
+
+              if (e.target.value == 'default') {
+                delete selections[taxonomy];
+              }
+              else {
+                selections[taxonomy] = e.target.value;
+              }
+
+              for (const taxonomyName in selections) {
+                selectionList += `p_${taxonomyName}=${selections[taxonomyName]}&`;
+              }
+
+              const selectionString = `${searchButtonURL}?${selectionList}`;
+              
+              searchButton.setAttribute('href', selectionString);
+            });
+          });
+        }
+
+        if (mobileButton && mobileButtonClose && mobileModal) {
+          mobileButton.addEventListener('click', function() {
+            mobileModal.classList.toggle('active');
+          });
+
+          mobileButtonClose.addEventListener('click', function() {
+            mobileModal.classList.remove('active');
+          });
+        }
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -364,13 +418,15 @@ function wcagHelper() {
     addToAny();
     tribesFilterBar();
     iframes();
-    selectAll();
+    //selectAll();
     tabIndex();
     newsletterCleanup();
     cookieBar();
     accordions();
     tabs();
     player();
+    programSelectMenus();
+
   }
 
   window.addEventListener('DOMContentLoaded', init);

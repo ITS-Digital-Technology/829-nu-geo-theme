@@ -10,6 +10,8 @@ function FilterSelect(props) {
     label,
     collapsible,
     scrollable,
+    classFilter,
+    terraDotta,
 
     replaceSelected,
     isSelected
@@ -86,17 +88,20 @@ function FilterSelect(props) {
     filterId = `filter-${taxSlug}`;
   }
 
+  const filterClass = `filter-select ${classFilter}`;
+
   return (
     <FilterContainer
     filterId={filterId} 
-    className="filter-select"
+    className={filterClass}
     label={label}
     collapsible={collapsible}
     scrollable={scrollable}
+    terraDotta={terraDotta}
     >
       <select
         multiple={false}
-        value={selected[taxSlug]}
+        value={String(selected[taxSlug])}
         onChange={(e) => {changeValue(e.target.value)}}
       >
         {allTerms}

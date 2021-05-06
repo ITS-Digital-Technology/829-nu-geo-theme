@@ -97,7 +97,7 @@ function sidebar(props) {
     function toggleFilters(e) {
         e.preventDefault();
         const filtersWrapper = document.querySelector('.more-less-wrapper');
-        const filters = document.querySelectorAll('.eight29-filter.filter-checkbox');
+        const filters = document.querySelectorAll('.eight29-filter:not(.filter-search)');
         const buttonMore = document.querySelector('button.more-filters');
         filtersWrapper.classList.toggle('active');
         if ( filtersWrapper.classList.contains('active') ) {
@@ -130,7 +130,7 @@ function sidebar(props) {
                         className="more-filters"
                         onClick={(e) => { toggleFilters(e) }}
                     >
-                    More Fiters
+                    More Filters
                     </button>
                     </div>
                 }
