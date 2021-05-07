@@ -359,15 +359,6 @@ function wcagHelper() {
     }
   }
 
-  function player() {
-    const player = document.querySelector('#player');
-
-    if (player) {
-      player.removeAttribute('tabindex');
-      console.log('PLAYER!!!');
-    }
-  }
-
   function programSelectMenus() {
     const programFilters = document.querySelectorAll('.program-filters');
 
@@ -486,7 +477,6 @@ function wcagHelper() {
     newsletterCleanup();
     accordions();
     tabs();
-    player();
     programSelectMenus();
     blockGalleryVideo();
     blockGalleryLightbox();
