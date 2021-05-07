@@ -258,8 +258,9 @@ function sidebar(props) {
         const last_val     = parseInt(first_val) + parseInt(post_count - 1);
         const result_count = (current_page > 0 && results > 0) ? first_val + ' - ' + last_val : f_val + ' - ' + results + '';
         const result_string = `Showing ${result_count} of ${results} available programs`;
+        
         totalResults =
-            <span className="eight29-results">{result_string}</span>
+            <span className="eight29-results" tabindex="0" aria-label={result_string}>{result_string}</span>
     }
     if (layout === 'default' && totalResults) {
         sidebarDetail = <div className="eight29-sidebar-detail">

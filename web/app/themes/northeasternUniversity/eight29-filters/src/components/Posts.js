@@ -7,6 +7,7 @@ import Pagination from './Pagination';
 import LoadMore from './LoadMore';
 import NewsletterPost from './posts/NewsletterPost';
 import NewsletterNews from './posts/NewsletterNews';
+
 function Posts(props) {
   const {
     posts,
