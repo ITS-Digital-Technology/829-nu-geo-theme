@@ -60,7 +60,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 												<a class="post-card__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 											</div>
 										<?php endif; ?>
-											<h3 class="post-card__title"><?php echo $title; ?></h3>
+											<span class="post-card__title"><?php echo $title; ?></span>
 											<div class="post-card__author">
 												<a aria-label="By <?php echo $author; ?>" href="<?php echo $post_author_link; ?>" class="post-card__author-link">
 													<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
@@ -97,7 +97,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 											<a class="post-card__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 										</div>
 									<?php endif; ?>
-										<h4 class="news-card__title"><?php echo $title; ?></h4>
+										<span class="news-card__title"><?php echo $title; ?></span>
 										<p class="news-card__date"><?php echo get_the_date( 'm/d/Y', $post ); ?></p>
 									</div>
 								</article>
