@@ -18,7 +18,7 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		$link_target = $link['target'] ? $link['target'] : '_self';
 
 		?>
-		<a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $link_title; ?>"></a>
+		<a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $title; ?>"></a>
 	<?php endif; ?>
 		<?php if ( ! empty( $status ) ) : ?>
 		<span class="<?php echo $class_status; ?>"><?php echo $status; ?></span>
