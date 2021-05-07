@@ -408,7 +408,6 @@ function wcagHelper() {
     if (blocks) {
       blocks.forEach(block => {
         const lightbox = block.querySelector('.video-lightbox');
-        const lightboxVideo = lightbox.querySelector('iframe');
         const triggers = block.querySelectorAll('.js-play-lightbox-video');
         let videoTitle = '';
 
@@ -419,13 +418,35 @@ function wcagHelper() {
         if (triggers && lightbox) {
           lightbox.setAttribute('aria-modal', true);
           lightbox.setAttribute('role', 'dialog');
-          lightboxVideo.setAttribute('tabindex', 0);
 
           triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
               videoTitle = trigger.querySelector('.block-gallery-video__single-thumb-title').textContent;
               lightbox.setAttribute('aria-label', videoTitle);
-              lightboxVideo.focus();
+              lightbox.focus();
+            });
+          });
+        }
+      });
+    }
+  }
+
+  function blockGalleryLightbox() {
+    const blocks = document.querySelectorAll('.block-gallery-lightbox');
+
+    if (blocks) {
+      blocks.forEach(block => {
+        const lightbox = block.querySelector('.block-gallery-lightbox__gallery-wrapper');
+        const triggers = block.querySelectorAll('a.block-gallery-lightbox__single-thumb');
+
+        if (lightbox && triggers) {
+          lightbox.setAttribute('aria-modal', true);
+          lightbox.setAttribute('role', 'dialog');
+          lightbox.setAttribute('aria-label', 'Gallery lightbox');
+
+          triggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+              lightbox.focus();
             });
           });
         }
@@ -448,6 +469,7 @@ function wcagHelper() {
     player();
     programSelectMenus();
     blockGalleryVideo();
+    blockGalleryLightbox();
   }
 
   window.addEventListener('DOMContentLoaded', init);
