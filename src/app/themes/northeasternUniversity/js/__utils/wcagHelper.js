@@ -402,6 +402,37 @@ function wcagHelper() {
     }
   }
 
+  function blockGalleryVideo() {
+    const blocks = document.querySelectorAll('.block-gallery-video');
+
+    if (blocks) {
+      blocks.forEach(block => {
+        const lightbox = block.querySelector('.video-lightbox');
+        const lightboxVideo = lightbox.querySelector('iframe');
+        const triggers = block.querySelectorAll('.js-play-lightbox-video');
+        let videoTitle = '';
+
+        lightbox.addEventListener('focusin', function() {
+          console.log('focused');
+        });
+
+        if (triggers && lightbox) {
+          lightbox.setAttribute('aria-modal', true);
+          lightbox.setAttribute('role', 'dialog');
+          lightboxVideo.setAttribute('tabindex', 0);
+
+          triggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+              videoTitle = trigger.querySelector('.block-gallery-video__single-thumb-title').textContent;
+              lightbox.setAttribute('aria-label', videoTitle);
+              lightboxVideo.focus();
+            });
+          });
+        }
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -416,7 +447,7 @@ function wcagHelper() {
     tabs();
     player();
     programSelectMenus();
-
+    blockGalleryVideo();
   }
 
   window.addEventListener('DOMContentLoaded', init);
