@@ -6,6 +6,7 @@ import LayoutBlogC from './components/layouts/LayoutBlogC';
 import LayoutBlogD from './components/layouts/LayoutBlogD';
 import LayoutStaff from './components/layouts/LayoutStaff';
 import LayoutSearch from './components/layouts/LayoutSearch';
+
 function App(props) {
     //Props
     const {
@@ -56,6 +57,7 @@ function App(props) {
     const [postTypes, setPostTypes] = useState([]);
     const [changedFilter, setChangedFilter] = useState(false);
     const [filterReset, setFilterReset] = useState(false);
+    const [initialLoad, setInitialLoad] = useState(true);
 
     const layouts = {
         'default': LayoutDefault,
@@ -284,6 +286,8 @@ function App(props) {
         setResults(parseInt(response.headers.get('X-WP-Total')));
         setLoading(false);
         setChangedFilter(false);
+        wcag();
+        setInitialLoad(false);
     }
 
     function checkMainProps() {
@@ -598,6 +602,14 @@ function App(props) {
         }
 
         return string;
+    }
+
+    function wcag() {
+        const resultsMessage = document.querySelector('.eight29-sidebar-detail .eight29-results');
+    
+        if (resultsMessage && !initialLoad) {
+          resultsMessage.focus();
+        }
     }
 
     //Mounted (on ready)
