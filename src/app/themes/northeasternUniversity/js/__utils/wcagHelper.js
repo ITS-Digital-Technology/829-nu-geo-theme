@@ -201,11 +201,14 @@ function wcagHelper() {
 
     if (rightMenu) {
       const rightMenuButton = rightMenu.querySelector('.main-header__info-for');
+      const menuWrapper = rightMenu.querySelector('.menu');
+      const menuItems = rightMenu.querySelectorAll('.menu li');
       let menuStatus = rightMenuButton.classList.contains('active') ? true : false;
 
       rightMenuButton.setAttribute('tabIndex', "0");
       rightMenuButton.setAttribute('aria-haspopup', true);
       rightMenuButton.setAttribute('aria-expanded', menuStatus);
+      rightMenuButton.setAttribute('id', 'info-for-button');
       
       if (rightMenuButton) {
         rightMenuButton.addEventListener('keypress', function(e) {
@@ -224,6 +227,19 @@ function wcagHelper() {
         //     rightMenuButton.setAttribute('aria-expanded', menuStatus);
         //   }
         // });
+      }
+
+      menuWrapper.setAttribute('role', 'menu');
+      menuWrapper.setAttribute('aria-controls', 'menu-info-for-1');
+      menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
+
+      if (menuItems) {
+        menuItems.forEach(menuItem => {
+          const menuItemLink = menuItem.querySelector('a');
+          menuItem.setAttribute('role', 'none');
+
+          menuItemLink.setAttribute('role', 'menuitem');
+        });
       }
     }
 
