@@ -216,7 +216,7 @@ function sidebar(props) {
         ></FilterSearch>
     }
 
-    if (displaySort && layout === 'default') {
+    if (displaySort && layout === 'default' && results > 0) {
         sortComponent = <FilterOrderBy
             order={order}
             orderChange={orderChange}
