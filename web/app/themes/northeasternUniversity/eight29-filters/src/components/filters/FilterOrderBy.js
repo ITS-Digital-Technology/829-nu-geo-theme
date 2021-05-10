@@ -22,16 +22,14 @@ function FilterOrderBy(props) {
 
   const items = menuList.map(item => {
     return (
-      <li
+      <option 
         key={item.id}
+        id={`order-${item.value}`} 
+        className={activeClass(item.value)} 
+        value={item.value}
       >
-        <button
-          id={`order-${item.value}`}
-          className={activeClass(item.value)}
-          value={item.value}
-          onClick={(e) => {clickHandler(e)}}
-        >{item.label}</button>
-      </li>
+        {item.label}
+      </option>
     )
   });
 
@@ -64,24 +62,13 @@ function FilterOrderBy(props) {
   }, [order])
 
   return (
-    <FilterContainer
-      className="filter-orderby"
-      label={label}
-      collapsible={collapsible}
-      scrollable={scrollable}
+    <select 
+      value={order}
+      className="dropdown-list"
+      onChange={(e) => {clickHandler(e)}}
     >
-      <DropdownContainer
-      closeRequest={closeRequest}
-      orderBy ={true}
-      setCloseRequest={setCloseRequest}
-      menuList={menuList}
-      defaultLabel="Newest/Featured"
-      >
-        <ul className="dropdown-list">
-          {items}
-        </ul>
-      </DropdownContainer>
-    </FilterContainer>
+      {items}
+    </select>
   )
 }
 
