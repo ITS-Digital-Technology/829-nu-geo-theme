@@ -64,7 +64,7 @@ function FilterOrderBy(props) {
   return (
     <select 
       value={order}
-      className="dropdown-list"
+      className="dropdown-list eight29-orderby"
       onChange={(e) => {clickHandler(e)}}
     >
       {items}
