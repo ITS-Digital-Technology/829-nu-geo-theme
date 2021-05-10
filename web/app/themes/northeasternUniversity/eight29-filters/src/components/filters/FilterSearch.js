@@ -80,6 +80,7 @@ function FilterSearch(props) {
                 <button
                     className={`clear-search ${clearSearchVisible}`}
                     onClick={(e) => { clearSearchTerm(e) }}
+                    tabIndex="-1"
                 >
                     <span>+</span>
                 </button>
