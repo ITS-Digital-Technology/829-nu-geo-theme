@@ -201,14 +201,29 @@ function wcagHelper() {
 
     if (rightMenu) {
       const rightMenuButton = rightMenu.querySelector('.main-header__info-for');
+      let menuStatus = rightMenuButton.classList.contains('active') ? true : false;
+
       rightMenuButton.setAttribute('tabIndex', "0");
+      rightMenuButton.setAttribute('aria-haspopup', true);
+      rightMenuButton.setAttribute('aria-expanded', menuStatus);
       
       if (rightMenuButton) {
         rightMenuButton.addEventListener('keypress', function(e) {
           if (e.key === 13 || e.key === 'Enter') {
+            menuStatus = !menuStatus;
+
             rightMenuButton.classList.toggle('active');
+            rightMenuButton.setAttribute('aria-expanded', menuStatus);
           }
         });
+
+        // rightMenuButton.addEventListener('focusout', function(e) {
+        //   if (!rightMenu.contains(e.relatedTarget)) {
+        //     menuStatus = false;
+        //     rightMenuButton.classList.remove('active');
+        //     rightMenuButton.setAttribute('aria-expanded', menuStatus);
+        //   }
+        // });
       }
     }
 
