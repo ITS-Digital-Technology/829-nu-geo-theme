@@ -634,3 +634,11 @@
         height: 32px;
     }
 }
+
+.blog {
+    .eight29-filter {
+        .accordion-select h6 + div {
+            margin-top: 0;
+        }
+    }
+}
