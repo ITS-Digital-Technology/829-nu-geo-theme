@@ -62,9 +62,9 @@ function FilterContainer(props) {
 
   if (label) {
     labelcontent = <h6 onClick={() => toggleOpen()} className={countClass()} data-count={count}>
-      <span>{label}</span>{(terraDotta && terraDotta.title && terraDotta.text) && <button className="btn-info" aria-label={`${label} Button Info`} onClick={(e) => {toggleTerraModal(e)}}>
+      <span>{label}</span>{(terraDotta && terraDotta.title && terraDotta.text) && <span className="btn-info" title={terraDotta.tooltip} aria-label={terraDotta.tooltip}>
         <span className="icon-information-button"></span>
-      </button>}
+      </span>}
     </h6>
   }
 
@@ -72,16 +72,17 @@ function FilterContainer(props) {
     updateCount();
   }, [selected]);
 
+  const modalId = label ? `modal-${label.replaceAll(' ', '-').toLowerCase()}` : '';
+
   function toggleTerraModal(e) {
       e.preventDefault();
       const infoModals = document.querySelectorAll('.info-modal');
       const infoModal = e.target.closest('.eight29-filter').querySelector('.info-modal');
-      const infoModalTitle = infoModal.querySelector('h4');
+      const infoModalTitle = infoModal.querySelector('.info-modal-title');
       const infoModalClose = infoModal.querySelector('.info-modal__close');
 
       if (!infoModal.classList.contains('active')) {
         infoModal.classList.add('active');
-        infoModal.focus();
         document.body.classList.add('lock-scroll');
         document.body.addEventListener('keydown', function(e) {
           if (e.key === 27 || e.key === 'Escape') {
@@ -101,10 +102,10 @@ function FilterContainer(props) {
 
   modalInfo = <div className="info-modal">
         <div className="container">
-            <div className="info-modal__wrapper">
+            <div className="info-modal__wrapper" id={modalId}>
                 <div className="info-modal__title-wrapper">
-                    <h4>{terraDottaTitle}</h4>
-                    <button className="info-modal__close" onClick={(e) => {toggleTerraModal(e)}} aria-label=""><span className="icon-close"></span></button>
+                    <h4 className="info-modal-title">{terraDottaTitle}</h4>
+                    <button className="info-modal__close" onClick={(e) => {toggleTerraModal(e)}} aria-label="Close"><span className="icon-close"></span></button>
                 </div>
                 <div className="info-modal__text-wrapper">
                     <div className="info-modal__text"dangerouslySetInnerHTML={{__html: terraDottaText}}>
