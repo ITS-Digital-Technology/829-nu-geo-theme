@@ -119,18 +119,18 @@ $eight29_filter_data = [
     "post" => [
         "post_topic" => [
             "label" => "Topics",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
         "post_program" => [
             "label" => "Programs",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
         "post_destination" => [
             "label" => "Destinations",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
     ],
     "news" => [
