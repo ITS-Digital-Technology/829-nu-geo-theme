@@ -16,9 +16,12 @@ if($mobile_modal){
     <button class="program-filters__trigger-mobile"><?php _e("Search Programs",'northeasternUniversity'); ?></button>
     <div class="program-filters__wrapper-outer">
         <div class="container">
-            <div class="program-filters__wrapper" tabindex="0" aria-label="Program Filters">
+            <div class="program-filters__wrapper" aria-label="Program Filters">
                 <div class="program-filters__inner-wrapper-header">
-                    <button class="program-filters__mobile-close"><span class="icon-close"></span></button>
+                    <button class="program-filters__mobile-close">
+                        <span class="sr-only">Close</span>
+                        <span class="icon-close"></span>
+                    </button>
                 </div>
                 <div class="program-filters__scroll">
                     <div class="program-filters__inner-wrapper-content">
