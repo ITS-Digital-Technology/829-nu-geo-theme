@@ -17,8 +17,8 @@ $current_label_id = (str_replace(' ', '-', strtolower($current_label)));
 ?>
 
 <div id="filter-<?php echo $taxonomy; ?>" class="program-filters__filter">
-	<span class="program-filters__filter-label"><?php echo $label; ?></span>
-    <select>
+	<label class="program-filters__filter-label" for="select-<?php echo $taxonomy; ?>"><?php echo $label; ?></label>
+    <select id="select-<?php echo $taxonomy; ?>">
         <option value="default">Select Filter Name</option>
         <?php
         foreach ( $terms as $term ) :
