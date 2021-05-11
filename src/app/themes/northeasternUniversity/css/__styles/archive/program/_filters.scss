@@ -646,3 +646,19 @@
 .filter-label {
     display: flex;
 }
+
+.eight29-filter {
+    label {
+        font-size: 1.4rem;
+        color: #FFF;
+        font-weight: 400;
+    }
+}
+
+.blog {
+    .eight29-filter {
+        label {
+            color: #1f1f1f;
+        }
+    }
+}

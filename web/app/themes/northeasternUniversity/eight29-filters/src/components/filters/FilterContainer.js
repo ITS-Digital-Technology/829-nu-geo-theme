@@ -62,9 +62,9 @@ function FilterContainer(props) {
 
   if (label) {
     labelcontent = <div className="filter-label">
-      <h6 onClick={() => toggleOpen()} className={countClass()} data-count={count}>
-        <span>{label}</span>
-      </h6>
+      <label for={`select-${filterId}`} onClick={() => toggleOpen()} className={countClass()} data-count={count}>
+        {label}
+      </label>
       {(terraDotta && terraDotta.title && terraDotta.text) && <span tabIndex="0" className="btn-info" title={terraDotta.tooltip} aria-label={terraDotta.tooltip}>
           <span className="icon-information-button"></span>
         </span>}

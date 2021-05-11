@@ -69,9 +69,9 @@ function FilterSearch(props) {
             collapsible={collapsible}
             scrollable={scrollable}
         >
-            <h6 className="filter-input__label"><span>Search</span></h6>
+            <label for="search-filter" className="filter-input__label">Search</label>
             <div className="filter-input">
-                <input type="search"
+                <input id="search-filter" type="search"
                     placeholder={placeholder}
                     value={term}
                     onChange={(e) => { changeHandler(e) }}

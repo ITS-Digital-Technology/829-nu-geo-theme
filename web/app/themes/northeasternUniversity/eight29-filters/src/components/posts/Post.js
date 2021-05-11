@@ -76,7 +76,7 @@ function post(props) {
 
 	return (
 		<article id={`${postType}-${post.id}`} className="blog-post__card" >
-			<a className="blog-post__card-link" href={post.link} aria-label="Post Link"></a>
+			<a className="blog-post__card-link" href={post.link} aria-label={post.title.rendered}></a>
 			<div className="blog-post__card-wrapper">
 				{featuredImage}
 				<div className="blog-post__card-content">

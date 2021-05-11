@@ -173,7 +173,8 @@ function sidebar(props) {
         <button
             className="eight29-sidebar-close"
             onClick={(e) => { toggleModal(e) }}
-        >
+        >   
+            <span className="sr-only">Close</span>
             <CloseIcon></CloseIcon>
         </button>
         </div>
