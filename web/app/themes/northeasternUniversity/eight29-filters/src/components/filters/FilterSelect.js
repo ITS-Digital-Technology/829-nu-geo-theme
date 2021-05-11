@@ -100,6 +100,7 @@ function FilterSelect(props) {
     terraDotta={terraDotta}
     >
       <select
+        id={`select-${filterId}`}
         multiple={false}
         value={String(selected[taxSlug])}
         onChange={(e) => {changeValue(e.target.value)}}
