@@ -54,6 +54,12 @@ function wcagHelper() {
     if (menuWrappers && menuItems) {
       window.addEventListener('keydown', function(e){
         if (e.key === 'Escape') {
+          menuWrappers.forEach(menuWrapper => {
+            if (menuWrapper.classList.contains('active')) {
+              menuWrapper.previousElementSibling.focus();
+            }
+          });
+
           document.querySelector('body').click();
         }
       }); 
