@@ -61,7 +61,7 @@ if ( is_front_page() ) {
 }
 ?>
 </section>
-<div id="contentstart"></div>
+
 <?php
 
 

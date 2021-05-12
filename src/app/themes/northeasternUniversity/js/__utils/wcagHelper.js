@@ -573,6 +573,17 @@ function wcagHelper() {
     }
   }
 
+  function contentStart() {
+    const content = document.querySelector('.page-content > section:first-child');
+    const newDiv = document.createElement('div');
+
+    newDiv.setAttribute('id', 'contentstart')
+
+    if (content) {
+      content.parentElement.insertBefore(newDiv, content);
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -589,6 +600,7 @@ function wcagHelper() {
     programSelectMenus();
     blockGalleryVideo();
     blockGalleryLightbox();
+    contentStart();
   }
 
   window.addEventListener('DOMContentLoaded', init);

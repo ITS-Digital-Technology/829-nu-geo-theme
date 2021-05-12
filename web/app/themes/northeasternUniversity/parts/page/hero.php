@@ -67,7 +67,7 @@ if ( ! $banner_bool ) :
 	<?php endif; ?>
 	</div>
 </section>
-<div id="contentstart"></div>
+
 		<?php
 	endif;
 endif;
