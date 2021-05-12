@@ -281,6 +281,22 @@ function wcagHelper() {
           rightMenuButton.setAttribute('aria-expanded', menuStatus);
         }
       });
+
+      window.addEventListener('click', function(e) {
+        if (rightMenuButton.classList.contains('active')) {
+          menuStatus = false;
+          rightMenuButton.classList.remove('active');
+          rightMenuButton.setAttribute('aria-expanded', menuStatus);
+        }
+      });
+
+      rightMenuButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+
+      menuWrapper.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
     }
 
     //Non React filters
