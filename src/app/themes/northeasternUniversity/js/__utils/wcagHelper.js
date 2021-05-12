@@ -37,7 +37,7 @@ function wcagHelper() {
 
           menuItem.removeAttribute('href');
           menuItem.classList.add('menu-trigger'); 
-          menuItem.setAttribute('aria-label', `Toggle ${label} dropdown menu`);
+          //menuItem.setAttribute('aria-label', `Toggle ${label} dropdown menu`);
           menuItem.setAttribute('aria-haspopup', true);
           menuItem.setAttribute('aria-expanded', false);
 
@@ -52,12 +52,20 @@ function wcagHelper() {
     }
 
     if (menuWrappers && menuItems) {
+      //close on esc
       window.addEventListener('keydown', function(e){
         if (e.key === 'Escape') {
+          menuWrappers.forEach(menuWrapper => {
+            if (menuWrapper.classList.contains('active')) {
+              menuWrapper.previousElementSibling.focus();
+            }
+          });
+
           document.querySelector('body').click();
         }
       }); 
 
+      //close on focusout
       menuWrappers.forEach(menuWrapper => {
         const menuParent = menuWrapper.closest('.menu-item');
 
@@ -67,6 +75,19 @@ function wcagHelper() {
           }
         });
       });
+
+      const triggers = document.querySelectorAll('#menu-main-nav-1 .menu-trigger, .main-header__logo, .main-header__search-button');
+
+      if (triggers) {
+        triggers.forEach(trigger => {
+          trigger.addEventListener('focusin', function() {
+            menuWrappers.forEach(menuWrapper => {
+              if (menuWrapper.classList.contains('active'));
+              document.querySelector('body').click();
+            });
+          });
+        });
+      }
     }
   }
 
@@ -215,6 +236,7 @@ function wcagHelper() {
       const rightMenuButton = rightMenu.querySelector('.main-header__info-for');
       const menuWrapper = rightMenu.querySelector('.menu');
       const menuItems = rightMenu.querySelectorAll('.menu li');
+      const menuItemsLinks = rightMenu.querySelectorAll('.menu li a');
       let menuStatus = rightMenuButton.classList.contains('active') ? true : false;
 
       rightMenuButton.setAttribute('tabIndex', "0");
@@ -223,34 +245,77 @@ function wcagHelper() {
       rightMenuButton.setAttribute('id', 'info-for-button');
       
       if (rightMenuButton) {
-        rightMenuButton.addEventListener('keypress', function(e) {
-          if (e.key === 13 || e.key === 'Enter') {
+        rightMenuButton.addEventListener('keydown', function(e) {
+          if (e.keyCode === 13 || e.key === 'Enter' || e.key === 'Space' || e.keyCode === 32) {
             menuStatus = !menuStatus;
 
             rightMenuButton.classList.toggle('active');
             rightMenuButton.setAttribute('aria-expanded', menuStatus);
           }
+
+          if (e.keyCode === 40 || e.key === 'ArrowDown') {
+            document.querySelector('#menu-info-for-1 > li:first-child > a').focus();
+          }
         });
 
-        // rightMenuButton.addEventListener('focusout', function(e) {
-        //   if (!rightMenu.contains(e.relatedTarget)) {
-        //     menuStatus = false;
-        //     rightMenuButton.classList.remove('active');
-        //     rightMenuButton.setAttribute('aria-expanded', menuStatus);
-        //   }
-        // });
-      }
+        if (menuItemsLinks) {
+          menuItemsLinks.forEach(menuItemsLink => {
+            menuItemsLink.addEventListener('keydown', function(e) {
+              const prevLink = menuItemsLink.parentElement.previousElementSibling ? menuItemsLink.parentElement.previousElementSibling.firstElementChild : false;
+              const nextLink = menuItemsLink.parentElement.nextElementSibling ? menuItemsLink.parentElement.nextElementSibling.firstElementChild : false;
 
-      menuWrapper.setAttribute('role', 'menu');
-      menuWrapper.setAttribute('aria-controls', 'menu-info-for-1');
-      menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
+              if (e.keyCode === 38 || e.key === 'ArrowUp') {
+                //move up
+                if (prevLink && prevLink.tagName === 'A') {
+                  prevLink.focus();
+                }
+              }
 
-      if (menuItems) {
-        menuItems.forEach(menuItem => {
-          const menuItemLink = menuItem.querySelector('a');
-          menuItem.setAttribute('role', 'none');
+              if (e.keyCode === 40 || e.key === 'ArrowDown') {
+                //move down
+                if (nextLink && nextLink.tagName === 'A') {
+                  nextLink.focus();
+                }
+              }
+            });
+          });
+        }
 
-          menuItemLink.setAttribute('role', 'menuitem');
+        menuWrapper.setAttribute('role', 'menu');
+        rightMenuButton.setAttribute('aria-controls', 'menu-info-for-1');
+        menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
+
+        if (menuItems) {
+          menuItems.forEach(menuItem => {
+            const menuItemLink = menuItem.querySelector('a');
+
+            menuItem.setAttribute('role', 'none');
+            menuItemLink.setAttribute('role', 'menuitem');
+          });
+        }
+
+        menuWrapper.addEventListener('focusout', function(e) {
+          if (!menuWrapper.contains(e.relatedTarget)) {
+            menuStatus = false;
+            rightMenuButton.classList.remove('active');
+            rightMenuButton.setAttribute('aria-expanded', menuStatus);
+          }
+        });
+
+        window.addEventListener('click', function(e) {
+          if (rightMenuButton.classList.contains('active')) {
+            menuStatus = false;
+            rightMenuButton.classList.remove('active');
+            rightMenuButton.setAttribute('aria-expanded', menuStatus);
+          }
+        });
+
+        rightMenuButton.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+
+        menuWrapper.addEventListener('click', function(e) {
+          e.stopPropagation();
         });
       }
     }
@@ -508,6 +573,17 @@ function wcagHelper() {
     }
   }
 
+  function contentStart() {
+    const content = document.querySelector('.page-content > section:first-child');
+    const newDiv = document.createElement('div');
+
+    newDiv.setAttribute('id', 'contentstart')
+
+    if (content) {
+      content.parentElement.insertBefore(newDiv, content);
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -524,6 +600,7 @@ function wcagHelper() {
     programSelectMenus();
     blockGalleryVideo();
     blockGalleryLightbox();
+    contentStart();
   }
 
   window.addEventListener('DOMContentLoaded', init);
