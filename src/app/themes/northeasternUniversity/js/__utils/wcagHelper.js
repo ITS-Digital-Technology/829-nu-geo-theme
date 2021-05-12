@@ -259,44 +259,44 @@ function wcagHelper() {
             });
           });
         }
-      }
 
-      menuWrapper.setAttribute('role', 'menu');
-      rightMenuButton.setAttribute('aria-controls', 'menu-info-for-1');
-      menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
+        menuWrapper.setAttribute('role', 'menu');
+        rightMenuButton.setAttribute('aria-controls', 'menu-info-for-1');
+        menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
 
-      if (menuItems) {
-        menuItems.forEach(menuItem => {
-          const menuItemLink = menuItem.querySelector('a');
+        if (menuItems) {
+          menuItems.forEach(menuItem => {
+            const menuItemLink = menuItem.querySelector('a');
 
-          menuItem.setAttribute('role', 'none');
-          menuItemLink.setAttribute('role', 'menuitem');
+            menuItem.setAttribute('role', 'none');
+            menuItemLink.setAttribute('role', 'menuitem');
+          });
+        }
+
+        menuWrapper.addEventListener('focusout', function(e) {
+          if (!menuWrapper.contains(e.relatedTarget)) {
+            menuStatus = false;
+            rightMenuButton.classList.remove('active');
+            rightMenuButton.setAttribute('aria-expanded', menuStatus);
+          }
+        });
+
+        window.addEventListener('click', function(e) {
+          if (rightMenuButton.classList.contains('active')) {
+            menuStatus = false;
+            rightMenuButton.classList.remove('active');
+            rightMenuButton.setAttribute('aria-expanded', menuStatus);
+          }
+        });
+
+        rightMenuButton.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+
+        menuWrapper.addEventListener('click', function(e) {
+          e.stopPropagation();
         });
       }
-
-      menuWrapper.addEventListener('focusout', function(e) {
-        if (!menuWrapper.contains(e.relatedTarget)) {
-          menuStatus = false;
-          rightMenuButton.classList.remove('active');
-          rightMenuButton.setAttribute('aria-expanded', menuStatus);
-        }
-      });
-
-      window.addEventListener('click', function(e) {
-        if (rightMenuButton.classList.contains('active')) {
-          menuStatus = false;
-          rightMenuButton.classList.remove('active');
-          rightMenuButton.setAttribute('aria-expanded', menuStatus);
-        }
-      });
-
-      rightMenuButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-
-      menuWrapper.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
     }
 
     //Non React filters
