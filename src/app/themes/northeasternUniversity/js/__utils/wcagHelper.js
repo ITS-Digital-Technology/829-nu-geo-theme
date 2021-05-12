@@ -215,6 +215,7 @@ function wcagHelper() {
       const rightMenuButton = rightMenu.querySelector('.main-header__info-for');
       const menuWrapper = rightMenu.querySelector('.menu');
       const menuItems = rightMenu.querySelectorAll('.menu li');
+      const menuItemsLinks = rightMenu.querySelectorAll('.menu li a');
       let menuStatus = rightMenuButton.classList.contains('active') ? true : false;
 
       rightMenuButton.setAttribute('tabIndex', "0");
@@ -223,14 +224,41 @@ function wcagHelper() {
       rightMenuButton.setAttribute('id', 'info-for-button');
       
       if (rightMenuButton) {
-        rightMenuButton.addEventListener('keypress', function(e) {
-          if (e.key === 13 || e.key === 'Enter') {
+        rightMenuButton.addEventListener('keydown', function(e) {
+          if (e.keyCode === 13 || e.key === 'Enter' || e.key === 'Space' || e.keyCode === 32) {
             menuStatus = !menuStatus;
 
             rightMenuButton.classList.toggle('active');
             rightMenuButton.setAttribute('aria-expanded', menuStatus);
           }
+
+          if (e.keyCode === 40 || e.key === 'ArrowDown') {
+            document.querySelector('#menu-info-for-1 > li:first-child > a').focus();
+          }
         });
+
+        if (menuItemsLinks) {
+          menuItemsLinks.forEach(menuItemsLink => {
+            menuItemsLink.addEventListener('keydown', function(e) {
+              const prevLink = menuItemsLink.parentElement.previousElementSibling ? menuItemsLink.parentElement.previousElementSibling.firstElementChild : false;
+              const nextLink = menuItemsLink.parentElement.nextElementSibling ? menuItemsLink.parentElement.nextElementSibling.firstElementChild : false;
+
+              if (e.keyCode === 38 || e.key === 'ArrowUp') {
+                //move up
+                if (prevLink && prevLink.tagName === 'A') {
+                  prevLink.focus();
+                }
+              }
+
+              if (e.keyCode === 40 || e.key === 'ArrowDown') {
+                //move down
+                if (nextLink && nextLink.tagName === 'A') {
+                  nextLink.focus();
+                }
+              }
+            });
+          });
+        }
 
         // rightMenuButton.addEventListener('focusout', function(e) {
         //   if (!rightMenu.contains(e.relatedTarget)) {
@@ -238,6 +266,10 @@ function wcagHelper() {
         //     rightMenuButton.classList.remove('active');
         //     rightMenuButton.setAttribute('aria-expanded', menuStatus);
         //   }
+        // });
+
+        // document.window.addEventListener('click', function(e) {
+        //   rightMenuButton.classList.remove('active');
         // });
       }
 
