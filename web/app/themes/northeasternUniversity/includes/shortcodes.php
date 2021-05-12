@@ -210,7 +210,13 @@ function accordion( $atts, $content ) {
 	?>
 
 	<div class="<?php echo $acc_class; ?>">
-		<div class="single-accordion__title"><h4><?php echo $atts['title']; ?><span class="icon-chev-expand"></span></h4></div>
+		<div class="single-accordion__title">
+			<span class="heading">
+				<?php echo $atts['title']; ?>
+				<span class="icon-chev-expand"></span>
+			</span>
+		</div>
+
 		<div class="single-accordion__content"<?php echo $acc_style; ?>><?php echo do_shortcode( $content ); ?></div>
 	</div>
 

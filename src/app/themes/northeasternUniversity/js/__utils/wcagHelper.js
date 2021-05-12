@@ -311,7 +311,7 @@ function wcagHelper() {
     if (accordions) {
       accordions.forEach(accordion => {
         let menuStatus = accordion.classList.contains('active') ? true : false;
-        const accordionTrigger = accordion.querySelector('.single-accordion__title > h4');
+        const accordionTrigger = accordion.querySelector('.single-accordion__title .heading');
 
         accordionTrigger.setAttribute('tabindex', 0);
         accordionTrigger.setAttribute('aria-expanded', menuStatus);

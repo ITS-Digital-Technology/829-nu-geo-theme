@@ -53,7 +53,7 @@ if ( $gallery ) :
                         <button class="block-gallery-video__single-thumb-button" aria-label='Play Video'></button>
                         </figure>
                     <?php if ( $title ) : ?>
-                        <h3 class="block-gallery-video__single-thumb-title"><?php echo $title; ?></h3>
+                        <span class="heading block-gallery-video__single-thumb-title"><?php echo $title; ?></span>
                     <?php endif; ?>
                     </a>
                 </div>
