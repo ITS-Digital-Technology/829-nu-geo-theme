@@ -259,18 +259,6 @@ function wcagHelper() {
             });
           });
         }
-
-        // rightMenuButton.addEventListener('focusout', function(e) {
-        //   if (!rightMenu.contains(e.relatedTarget)) {
-        //     menuStatus = false;
-        //     rightMenuButton.classList.remove('active');
-        //     rightMenuButton.setAttribute('aria-expanded', menuStatus);
-        //   }
-        // });
-
-        // document.window.addEventListener('click', function(e) {
-        //   rightMenuButton.classList.remove('active');
-        // });
       }
 
       menuWrapper.setAttribute('role', 'menu');
@@ -280,11 +268,19 @@ function wcagHelper() {
       if (menuItems) {
         menuItems.forEach(menuItem => {
           const menuItemLink = menuItem.querySelector('a');
-          menuItem.setAttribute('role', 'none');
 
+          menuItem.setAttribute('role', 'none');
           menuItemLink.setAttribute('role', 'menuitem');
         });
       }
+
+      menuWrapper.addEventListener('focusout', function(e) {
+        if (!menuWrapper.contains(e.relatedTarget)) {
+          menuStatus = false;
+          rightMenuButton.classList.remove('active');
+          rightMenuButton.setAttribute('aria-expanded', menuStatus);
+        }
+      });
     }
 
     //Non React filters
