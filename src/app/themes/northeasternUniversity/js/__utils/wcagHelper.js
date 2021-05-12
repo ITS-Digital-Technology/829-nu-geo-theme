@@ -14,6 +14,18 @@ function wcagHelper() {
     }
   }
 
+  function blockIds() {
+    const blocks = document.querySelectorAll('.page-content > section');
+    let i = 0;
+
+    if (blocks) {
+      blocks.forEach(block => {
+        i++;
+        block.setAttribute('id', `block-${i}`);
+      });
+    }
+  }
+
   function topLevelNav() {
     const menuItems = document.querySelectorAll('.main-header__mobile ul > li > a, .main-header__right ul > li > a');
     const menuWrappers = document.querySelectorAll('.mega-menu-wrapper');
@@ -453,10 +465,6 @@ function wcagHelper() {
         const triggers = block.querySelectorAll('.js-play-lightbox-video');
         let videoTitle = '';
 
-        lightbox.addEventListener('focusin', function() {
-          console.log('focused');
-        });
-
         if (triggers && lightbox) {
           lightbox.setAttribute('aria-modal', true);
           lightbox.setAttribute('role', 'dialog');
@@ -469,6 +477,10 @@ function wcagHelper() {
             });
           });
         }
+
+        lightbox.addEventListener('focusin', function() {
+          console.log('focused');
+        });
       });
     }
   }
@@ -499,6 +511,7 @@ function wcagHelper() {
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
+    blockIds();
     topLevelNav();
     addToAny();
     tribesFilterBar();
