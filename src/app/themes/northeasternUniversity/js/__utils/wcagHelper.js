@@ -274,7 +274,7 @@ function wcagHelper() {
       }
 
       menuWrapper.setAttribute('role', 'menu');
-      menuWrapper.setAttribute('aria-controls', 'menu-info-for-1');
+      rightMenuButton.setAttribute('aria-controls', 'menu-info-for-1');
       menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
 
       if (menuItems) {
