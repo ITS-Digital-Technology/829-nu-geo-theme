@@ -13,8 +13,8 @@ function FilterOrderBy(props) {
 
   const options = [
     {id: 0, value: 'date', label: 'Newest/Featured'},
-    {id: 1, value: 'abc', label: 'Alphabetical(A - Z)'},
-    {id: 2, value: 'xyz', label: 'Alphabetical(Z - A)'}
+    {id: 1, value: 'abc', label: 'Sort Alphabetical(A - Z)'},
+    {id: 2, value: 'xyz', label: 'Sort Alphabetical(Z - A)'}
   ]
 
   const [closeRequest, setCloseRequest] = useState(false);
