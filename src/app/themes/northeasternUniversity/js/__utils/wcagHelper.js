@@ -529,25 +529,41 @@ function wcagHelper() {
 
     if (blocks) {
       blocks.forEach(block => {
+        const blockId = block.getAttribute('id');
         const lightbox = block.querySelector('.video-lightbox');
+        const lightboxDialog = block.querySelector('#video-lightbox-dialog');
+        const lightboxClose = block.querySelector('.video-lightbox__close');
         const triggers = block.querySelectorAll('.js-play-lightbox-video');
+        let lastItem;
         let videoTitle = '';
 
         if (triggers && lightbox) {
           lightbox.setAttribute('aria-modal', true);
           lightbox.setAttribute('role', 'dialog');
+          lightbox.setAttribute('id', `dialog-${blockId}`);
 
           triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
               videoTitle = trigger.querySelector('.block-gallery-video__single-thumb-title').textContent;
-              lightbox.setAttribute('aria-label', videoTitle);
-              lightbox.focus();
+              lightboxDialog.textContent = videoTitle;
+              lightbox.setAttribute('aria-labelledby', 'video-lightbox-dialog');
+              lightboxDialog.focus();
+              lastItem = trigger;
+              console.log(lastItem);
             });
           });
         }
 
-        lightbox.addEventListener('focusin', function() {
-          console.log('focused');
+        window.addEventListener('keydown', function(e) {
+          if ((e.keyCode === 27 || e.key === 'Escape') && lastItem && lightbox.classList.contains('active')) {
+            lastItem.focus();
+          }
+        });
+
+        lightboxClose.addEventListener('click', function() {
+          if (lastItem) {
+            lastItem.focus();
+          }
         });
       });
     }
