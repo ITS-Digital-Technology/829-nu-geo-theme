@@ -589,7 +589,6 @@ function wcagHelper() {
             trigger.addEventListener('click', function() {
               nextButton.focus();
               lastItem = trigger;
-              console.log('clicked');
             });
 
             // trigger.addEventListener('keydown', function(e) {
