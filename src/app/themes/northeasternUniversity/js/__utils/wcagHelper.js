@@ -395,7 +395,6 @@ function wcagHelper() {
         const accordionContent = accordion.querySelector('.single-accordion__content');
 
         accordion.setAttribute('id', `accordion-${i}`);
-        accordionTrigger.setAttribute('tabindex', 0);
         accordionTrigger.setAttribute('aria-expanded', menuStatus);
         accordionTrigger.setAttribute('id', `accordion-trigger-${i}`);
         accordionTrigger.setAttribute('aria-controls', `accordion-content-${i}`);
