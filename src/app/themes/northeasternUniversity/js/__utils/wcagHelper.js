@@ -626,6 +626,22 @@ function wcagHelper() {
     }
   }
 
+  function tempCleanup() {
+    const body = document.querySelector('body');
+    const videoBlocks = document.querySelectorAll('.block-gallery-video');
+    const photoBlocks = document.querySelectorAll('.block-gallery-lightbox');
+
+    if (body.classList.contains('page-id-129') && videoBlocks && photoBlocks) {
+      videoBlocks.forEach(videoBlock => {
+        videoBlock.remove();
+      });
+
+      photoBlocks.forEach(photoBlock => {
+        photoBlock.remove();
+      });
+    }
+  }
+
   function init() {
     console.log('init wcagHelper');
     removeNavIds();
@@ -643,6 +659,7 @@ function wcagHelper() {
     blockGalleryVideo();
     blockGalleryLightbox();
     contentStart();
+    tempCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);
