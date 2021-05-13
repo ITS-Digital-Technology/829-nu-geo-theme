@@ -30,7 +30,10 @@ $accordions   = isset( $accordions ) ? $accordions : get_sub_field( 'accordions'
                         ?>
                         <div class="<?php echo $acc_class; ?>">
                             <div class="single-accordion__title">
-                                <span class="heading"><?php echo $title; ?><span class="icon-chev-expand"></span></span>
+                                <button class="heading">
+                                    <?php echo $title; ?>
+                                    <span class="icon-chev-expand"></span>
+                                </button>
                             </div>
                             <div class="single-accordion__content"<?php echo $acc_style; ?>><?php echo $content; ?></div>
                         </div>
