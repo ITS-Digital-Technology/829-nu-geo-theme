@@ -576,6 +576,9 @@ function wcagHelper() {
       blocks.forEach(block => {
         const lightbox = block.querySelector('.block-gallery-lightbox__gallery-wrapper');
         const triggers = block.querySelectorAll('a.block-gallery-lightbox__single-thumb');
+        const nextButton = block.querySelector('.slick-next');
+        const closeButton = block.querySelector('.block-gallery-lightbox__close');
+        let lastItem;
 
         if (lightbox && triggers) {
           lightbox.setAttribute('aria-modal', true);
@@ -584,8 +587,29 @@ function wcagHelper() {
 
           triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
-              lightbox.focus();
+              nextButton.focus();
+              lastItem = trigger;
+              console.log('clicked');
             });
+
+            // trigger.addEventListener('keydown', function(e) {
+            //   if (e.key === 'Enter') {
+            //     trigger.click();
+            //     console.log('pressed key');
+            //   }
+            // });
+          });
+
+          window.addEventListener('keydown', function(e) {
+            if ((e.keyCode === 27 || e.key === 'Escape') && lastItem) {
+              lastItem.focus();
+            }
+          });
+
+          closeButton.addEventListener('click', function() {
+            if (lastItem) {
+              lastItem.focus();
+            }
           });
         }
       });
