@@ -22,6 +22,7 @@ class LightboxGallery {
         e.preventDefault();
         const slideNum = parseInt(this.hash.slice(1), 10);
         const lightboxBlock = $(this).closest('.block-gallery-lightbox');
+        const nextButton = lightboxBlock.find('.slick-next');
 
         lightboxBlock.find('.block-gallery-lightbox__gallery-wrapper').addClass('active');
         lightboxBlock.find('.block-gallery-lightbox__slider').slick('slickGoTo', slideNum, true);
