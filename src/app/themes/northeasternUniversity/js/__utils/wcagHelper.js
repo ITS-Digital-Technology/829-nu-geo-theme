@@ -384,24 +384,28 @@ function wcagHelper() {
 
   function accordions() {
     const accordions = document.querySelectorAll('.single-accordion');
+    let i = 0;
 
     if (accordions) {
       accordions.forEach(accordion => {
+        i++;
+
         let menuStatus = accordion.classList.contains('active') ? true : false;
         const accordionTrigger = accordion.querySelector('.single-accordion__title .heading');
+        const accordionContent = accordion.querySelector('.single-accordion__content');
 
+        accordion.setAttribute('id', `accordion-${i}`);
         accordionTrigger.setAttribute('tabindex', 0);
         accordionTrigger.setAttribute('aria-expanded', menuStatus);
+        accordionTrigger.setAttribute('id', `accordion-trigger-${i}`);
+        accordionTrigger.setAttribute('aria-controls', `accordion-content-${i}`);
+        accordionContent.setAttribute('id', `accordion-content-${i}`);
+        accordionContent.setAttribute('role', `region`);
+        accordionContent.setAttribute('aria-labelledby', `accordion-trigger-${i}`);
 
         accordionTrigger.addEventListener('click', function() {
           menuStatus = !menuStatus;
           accordionTrigger.setAttribute('aria-expanded', menuStatus);
-        });
-
-        accordionTrigger.addEventListener('keypress', function(e) {
-          if (e.key === 13 || e.key === 'Enter') {
-            accordionTrigger.click();
-          }
         });
       });
     }
