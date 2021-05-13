@@ -9,6 +9,24 @@
         margin: rem(97) 0;
     }
 
+    button {
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.block-gallery-video__single-thumb {
+            border: none;
+            background: none;
+            padding: 0;
+            display: block;
+            width: 100%;
+        }
+
+        .heading {
+            text-align: left;
+        }
+    }
+
     &__text-content {
         margin-bottom: rem(62);
 
@@ -201,4 +219,12 @@
 .heading {
     font-family: "ff-real-headline-pro", sans-serif;
     display: block;
+}
+
+.video-lightbox {
+    flex-direction: column;
+}
+
+#video-lightbox-dialog {
+    color: #FFF;
 }

@@ -26,6 +26,7 @@
     &:not(.active) {
         opacity: 0;
         visibility: hidden;
+        display: none;
     }
 
     &__video-wrapper {
