@@ -127,9 +127,20 @@ function Posts(props) {
         Sorry, no results.
 
         <div className="c-btn-wrapper">
-          <button className="c-btn c-btn-secondary c-btn-color-normal" onClick={() => {resetSelected()}}>Clear Filters</button>
+          <button className="c-btn c-btn-secondary c-btn-color-normal" onClick={() => {resetHandler()}}>Clear Filters</button>
         </div>
       </div>
+    }
+  }
+
+  function resetHandler() {
+    const programsURL = `${window.location.origin}/${window.location.pathname}`;
+
+    if (postType === 'program') {
+        window.location.href = programsURL;
+    }
+    else {
+      resetSelected()
     }
   }
 

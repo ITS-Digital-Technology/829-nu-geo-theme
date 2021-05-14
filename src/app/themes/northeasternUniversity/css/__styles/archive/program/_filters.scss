@@ -662,3 +662,26 @@
         }
     }
 }
+
+.post-type-archive-program {
+    .eight29-sidebar-content-scroll {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eight29-sidebar-reset {
+        order: -1;
+    }
+
+    .eight29-reset {
+        border: none;
+        background: none;
+        padding: 0;
+        color: #f56565;
+
+        &:hover {
+            color: #b8b8b8;
+            cursor: pointer;
+        }
+    }
+}

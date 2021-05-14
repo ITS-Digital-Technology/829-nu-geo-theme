@@ -39,6 +39,7 @@ $preselect = get_post_type() === 'program' ? "data-pre-select='$JSON'" : null;
             display_search="true"
             pagination_style="pagination"
             order_by="abc"
+            display_reset="true"
             display_sort = "true"
             display_results = "true"]');
         }
