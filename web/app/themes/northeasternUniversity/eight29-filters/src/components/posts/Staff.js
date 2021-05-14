@@ -36,12 +36,18 @@ function staff(props) {
 
     if (categories) {
         categoryItems = categories.map((category, index) => {
+        const seperator = index === categories.length - 1 ? '' : ', ';
+
             return (
+                <>
                 <a
                     href={category.link}
                     className="staff-card__category"
-                    key={category.id}
+                    key={index}
+                    data-cat={category.id}
                 >{category.name}</a>
+                {seperator}
+                </>
             );
         });
 
@@ -58,7 +64,7 @@ function staff(props) {
             {featuredImage}
             <div className="staff-card__content">
                 <div className="staff-card__category">
-                    {theCategory}
+                    {categoryItems}
                 </div>
                 <h4 className="staff-card__title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                 {position}
