@@ -90,9 +90,15 @@ function sidebar(props) {
 
     function resetCat(e) {
         e.preventDefault();
-        resetSelected();
-      }
+        const programsURL = `${window.location.origin}/${window.location.pathname}`;
 
+        if (postType === 'program') {
+            window.location.href = programsURL;
+        }
+        else {
+            resetSelected();
+        }
+    }
 
     function toggleFilters(e) {
         e.preventDefault();
@@ -199,7 +205,7 @@ function sidebar(props) {
     if (displayReset) {
         reset = <div className="eight29-reset-wrapper">
             <button className="eight29-reset" onClick={(e) => { resetCat(e) }}>
-                <span>Clear All</span>
+                <span>Clear All Filters</span>
             </button>
         </div>
     }

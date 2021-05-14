@@ -69,7 +69,7 @@ function FilterSearch(props) {
             collapsible={collapsible}
             scrollable={scrollable}
         >
-            <label for="search-filter" className="filter-input__label">Search</label>
+            <label htmlFor="search-filter" className="filter-input__label">Search</label>
             <div className="filter-input">
                 <input id="search-filter" type="search"
                     placeholder={placeholder}
