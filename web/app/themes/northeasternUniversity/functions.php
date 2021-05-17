@@ -141,6 +141,7 @@ function create_programs_json() {
       $fields_of_study = [];
       $partners = [];
       $program_mode = '';
+      $program_status = '';
       $internship = false;
 
       foreach($parameters as $parameter) {
@@ -162,6 +163,10 @@ function create_programs_json() {
           $program_mode = $parameter->PARAM_VALUE;
         }
 
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
+          $program_status = $parameter->PARAM_VALUE;
+        }
+
         if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES') {
           $internship = true;
         }
@@ -171,6 +176,7 @@ function create_programs_json() {
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
       $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode);
+      $program_data->DETAILS->CUSTOM->PROGRAM_STATUS = check_data($program_status);
       $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
     }
 
