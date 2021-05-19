@@ -7,6 +7,7 @@ $content   = get_the_content();
 $excerpt   = has_excerpt() ? get_the_excerpt() : '';
 $keys      = implode( '|', explode( ' ', get_search_query() ) );
 $excerpt   = ! empty( $excerpt ) ? $excerpt : ( ! empty( $content ) ? substr( strip_tags( do_shortcode( $content ) ), 0, 200 ) . '...' : false );
+$aria = strip_tags($title);
 if ( ! empty( $excerpt ) ) {
 	$excerpt = preg_replace( '/(' . $keys . ')/iu', '<strong>\0</strong>', $excerpt );
 }
@@ -28,7 +29,7 @@ if ( $post_type === 'program' ) {
 ?>
 <article class= "search-result-card">
 	<?php if ( ! empty( $link ) ) : ?>
-	<a class="search-result-card__link" href="<?php echo $link; ?>" data-id="<?php echo $id; ?>"></a>
+	<a class="search-result-card__link" href="<?php echo $link; ?>" data-id="<?php echo $id; ?>" aria-label="<?php echo $aria; ?>"></a>
 	<?php endif; ?>
 	<div class="search-result-card__wrapper">
 		<div class="search-result-card__content">

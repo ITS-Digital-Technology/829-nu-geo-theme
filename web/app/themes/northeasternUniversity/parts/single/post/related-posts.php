@@ -7,6 +7,7 @@ $related_link_target = ! empty( $related_link_field['target'] ) ? 'target="' . $
 
 $category   = wp_get_post_terms( get_the_ID(), 'post_topic' );
 $categories = [];
+$aria = $related_link_title ? $related_link_title : 'Blog';
 
 foreach ( $category as $single ) {
 	array_push( $categories, $single->term_id );
@@ -36,7 +37,11 @@ if ( $query->have_posts() ) :
 			<h2 class="related-blog-posts__heading">
 				<?php echo $related_heading; ?>
 			</h2>
-			<a href="<?php echo $related_link; ?>" <?php echo $related_link_target; ?> class="related-blog-posts__all-posts c-btn c-btn-tertiary c-btn-color-normal">
+			<a 
+				href="<?php echo $related_link; ?>" <?php echo $related_link_target; ?> 
+				class="related-blog-posts__all-posts c-btn c-btn-tertiary c-btn-color-normal"
+				aria-label="<?php echo $aria; ?>"
+			>
 				<span><?php echo $related_link_title; ?></span>
 				<span class='c-btn-icon'><span class='icon-arrow-right-circle'></span></span>
 			</a>
