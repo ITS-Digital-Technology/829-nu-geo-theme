@@ -616,13 +616,19 @@ function wcagHelper() {
   }
 
   function contentStart() {
+    const header = document.querySelector('#main-header');
     const content = document.querySelector('.page-content > section:first-child');
     const newDiv = document.createElement('div');
+    const contentStart = document.createElement('a');
 
-    newDiv.setAttribute('id', 'contentstart')
+    newDiv.setAttribute('id', 'contentstart');
+    contentStart.setAttribute('href', '#contentstart');
+    contentStart.textContent = 'Skip to main content';
+    contentStart.classList.add('skip-main');
 
-    if (content) {
+    if (content && page) {
       content.parentElement.insertBefore(newDiv, content);
+      header.parentElement.insertBefore(contentStart, header);
     }
   }
 
