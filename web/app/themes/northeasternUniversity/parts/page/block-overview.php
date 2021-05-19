@@ -38,12 +38,12 @@ if ( strpos( $video_url, 'wistia' ) !== false ) {
 				<?php if ( empty( $video ) && ! empty( $image ) ) : ?>
 					<figure class="block-overview__image"><?php echo $img; ?></figure>
 				<?php else : ?>
-					<a href="#" data-video="<?php echo $video_src; ?>" class="block-overview__video js-play-lightbox-video" aria-label="<?php _e( 'Play Video', 'northeasternUniversity' ); ?>">
+					<div data-video="<?php echo $video_src; ?>" class="block-overview__video js-play-lightbox-video" aria-label="<?php _e( 'Play Video', 'northeasternUniversity' ); ?>">
 						<figure class="block-overview__image block-overview__image--video">
 							<img src="<?php echo $img_src; ?>" alt="Video Thumbnail">
 							<button class="block-overview__video-button" aria-label='Play Video'></button>
 						</figure>
-					</a>
+					</div>
 				<?php endif; ?>
 				</div>
 			</div>
