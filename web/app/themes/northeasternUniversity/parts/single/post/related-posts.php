@@ -7,7 +7,7 @@ $related_link_target = ! empty( $related_link_field['target'] ) ? 'target="' . $
 
 $category   = wp_get_post_terms( get_the_ID(), 'post_topic' );
 $categories = [];
-$aria = $related_link_title ? $related_link_title : 'Blog';
+$aria = $related_link_title ? $related_link_title : 'Return to Latest Posts';
 
 foreach ( $category as $single ) {
 	array_push( $categories, $single->term_id );
