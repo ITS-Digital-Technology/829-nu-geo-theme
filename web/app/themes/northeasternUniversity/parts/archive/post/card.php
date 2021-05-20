@@ -19,7 +19,7 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 		<div class="blog-post__card-content">
 		<?php if ( ! empty( $cat ) ) : ?>
 			<div class="blog-post__card-cat">
-				<a class="blog-post__card-cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
+				<a class="blog-post__card-cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 			</div>
 		<?php endif; ?>
 		<?php if ($is_h3) : ?>
