@@ -5,7 +5,7 @@
  ?>
 <a href="#"><?php the_title(); ?></a>
 <?php if(have_rows('mega_menu_columns')): ?>
-	<div class="mega-menu-wrapper" aria-label="<?php  __( 'Menu listings', 'sr-description' ); ?>"><!-- Mega menu wrapper -->
+	<div class="mega-menu-wrapper"><!-- Mega menu wrapper -->
 		<div class="container">
             <div class="row"><!-- Mega menu row -->
             <button class="mega-menu-back"><?php echo get_the_title(); ?></button>
