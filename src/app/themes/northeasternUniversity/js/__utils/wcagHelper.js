@@ -14,6 +14,31 @@ function wcagHelper() {
     }
   }
 
+  function anchorLinkMenu() {
+    const body = document.querySelector('body');
+    const menuLinks = document.querySelectorAll('#menu-info-for-1 a');
+
+    if (body.classList.contains('page-id-1848') && menuLinks) {
+      menuLinks.forEach(menuLink => {
+        menuLink.addEventListener('click', function(e) {
+          const path = menuLink.getAttribute('href').split('#');
+          const id = path[1];
+          const element = document.querySelector(`#${id}`);
+
+          e.preventDefault();
+
+          if (element) {
+            window.scrollTo({
+              top: element.offsetTop - 130,
+              left: 0,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+  }
+
   function blockIds() {
     const blocks = document.querySelectorAll('.page-content > section');
     let i = 0;
@@ -656,6 +681,7 @@ function wcagHelper() {
     console.log('init wcagHelper');
     removeNavIds();
     blockIds();
+    anchorLinkMenu();
     topLevelNav();
     addToAny();
     tribesFilterBar();
