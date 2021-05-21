@@ -57,7 +57,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 										<div class="post-card__content">
 										<?php if ( ! empty( $cat ) ) : ?>
 											<div class="post-card__cat">
-												<a class="post-card__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
+												<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 											</div>
 										<?php endif; ?>
 											<span class="post-card__title"><?php echo $title; ?></span>
@@ -94,7 +94,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 									<div class="news-card__wrapper">
 									<?php if ( ! empty( $cat ) ) : ?>
 										<div class="news-card__cat">
-											<a class="post-card__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
+											<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 										</div>
 									<?php endif; ?>
 										<span class="news-card__title"><?php echo $title; ?></span>
