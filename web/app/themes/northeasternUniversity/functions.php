@@ -140,7 +140,7 @@ function create_programs_json() {
       $program_types = [];
       $fields_of_study = [];
       $partners = [];
-      $program_mode = '';
+      $program_mode = [];
       $program_status = '';
       $internship = false;
 
@@ -160,7 +160,7 @@ function create_programs_json() {
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Program Mode') {
-          $program_mode = $parameter->PARAM_VALUE;
+          array_push($program_mode, $parameter->PARAM_VALUE);
         }
 
         if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
@@ -175,7 +175,7 @@ function create_programs_json() {
       $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
-      $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode);
+      $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode) ? stringify($program_mode) : false;
       $program_data->DETAILS->CUSTOM->PROGRAM_STATUS = check_data($program_status);
       $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
     }
