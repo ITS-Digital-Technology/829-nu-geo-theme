@@ -17,7 +17,7 @@
 		</a>
 		<div class="block-post-hero__wrapper">
 		<?php if ( ! empty( $cat ) ) : ?>
-			<a class="block-post-hero__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>">
+			<a class="block-post-hero__cat-link" href="<?php echo $cat['url']; ?>">
 				<?php echo $cat['title']; ?>
 			</a>
 		<?php endif; ?>
@@ -25,7 +25,7 @@
 			<div class="block-post-hero__meta">
 				<?php if ( $author !== 'Northeastern University' ) : ?>
 					<div class="block-post-hero__author">
-						<a aria-label="<?php echo $author . ' link'; ?>" href="<?php echo $post_author_link; ?>" class="block-post-hero__author-link">
+						<a href="<?php echo $post_author_link; ?>" class="block-post-hero__author-link">
 							<?php echo $author; ?>
 						</a>
 					</div>
