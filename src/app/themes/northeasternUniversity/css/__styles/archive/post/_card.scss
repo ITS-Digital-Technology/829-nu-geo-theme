@@ -96,3 +96,22 @@
         }
     }
 }
+
+#page {
+    .blog-post__card {
+        a {
+            color: $color-dark;
+            text-decoration: none;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        .blog-post__card-title {
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+}

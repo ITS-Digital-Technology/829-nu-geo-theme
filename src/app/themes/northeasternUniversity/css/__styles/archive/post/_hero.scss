@@ -252,3 +252,20 @@
         }
     }
 }
+
+#page {
+    .featured-post-card {
+        h2,
+        .heading {
+            a {
+                color: $color-dark;
+                text-decoration: none;
+                font-weight: 700;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}
