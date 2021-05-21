@@ -11,7 +11,7 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 
 
 <article class="blog-post__card">
-	<a class="blog-post__card-link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
+	<!-- <a class="blog-post__card-link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a> -->
 	<div class="blog-post__card-wrapper">
 	<?php if ( ! empty( $thumbnail ) ) : ?>
 		<figure class="blog-post__card-thumbnail"><?php echo $thumbnail; ?></figure>
@@ -23,9 +23,13 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 			</div>
 		<?php endif; ?>
 		<?php if ($is_h3) : ?>
-			<h3 class="blog-post__card-title"><?php echo $title; ?></h3>
+			<h3 class="blog-post__card-title">
+				<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
+			</h3>
 		<?php else : ?>
-			<h4 class="blog-post__card-title"><?php echo $title; ?></h4>
+			<h4 class="blog-post__card-title">
+				<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
+			</h4>
 		<?php endif; ?>
 
 			<?php if ($author !== 'Northeastern University'): ?>
