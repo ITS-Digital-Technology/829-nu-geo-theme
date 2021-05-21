@@ -20,8 +20,12 @@ function wcagHelper() {
 
     if (blocks) {
       blocks.forEach(block => {
-        i++;
-        block.setAttribute('id', `block-${i}`);
+        const id = block.getAttribute('id');
+        
+        if (!id) {
+          i++;
+          block.setAttribute('id', `block-${i}`);
+        }
       });
     }
   }
