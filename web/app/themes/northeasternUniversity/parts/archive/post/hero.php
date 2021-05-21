@@ -52,7 +52,7 @@ if ( empty( $featured_post ) ) {
 						<div class="featured-post-card__content">
 						<?php if ( ! empty( $cat ) ) : ?>
 							<div class="featured-post-card__cat">
-								<a class="post-card__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
+								<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 							</div>
 						<?php endif; ?>
 							<h2 class="featured-post-card__title">
