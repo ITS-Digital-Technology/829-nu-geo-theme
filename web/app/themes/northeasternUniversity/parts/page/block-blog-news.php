@@ -62,7 +62,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 										<?php endif; ?>
 											<span class="post-card__title"><?php echo $title; ?></span>
 											<div class="post-card__author">
-												<a aria-label="By <?php echo $author; ?>" href="<?php echo $post_author_link; ?>" class="post-card__author-link">
+												<a href="<?php echo $post_author_link; ?>" class="post-card__author-link">
 													<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
 												</a>
 											</div>
