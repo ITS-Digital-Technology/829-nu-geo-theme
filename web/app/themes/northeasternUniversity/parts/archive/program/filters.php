@@ -7,6 +7,8 @@ $program_tracks = isset( $_GET['p_program_track'] ) ? array_map('intval', explod
 $cities = isset( $_GET['p_city'] ) ? array_map('intval', explode(',', $_GET['p_city'])) : [];
 $regions = isset( $_GET['p_region'] ) ? array_map('intval', explode(',', $_GET['p_region'])) : [];
 $class_types = isset( $_GET['p_class_type'] ) ? array_map('intval', explode(',', $_GET['p_class_type'])) : [];
+$program_status = isset( $_GET['p_program_status'] ) ? array_map('intval', explode(',', $_GET['p_program_status'])) : [];
+$program_mode = isset( $_GET['p_program_mode'] ) ? array_map('intval', explode(',', $_GET['p_program_mode'])) : [];
 
 
 $obj = (object) [
@@ -18,6 +20,8 @@ $obj = (object) [
     'city' => $cities,
     'region' => $regions,
     'class_type' => $class_types,
+    'program_status' => $program_status,
+    'program_mode' => $program_mode
 ];
 
 $JSON =  json_encode($obj);
