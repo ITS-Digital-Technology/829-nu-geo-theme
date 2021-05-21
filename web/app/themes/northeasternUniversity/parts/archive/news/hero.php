@@ -34,7 +34,7 @@ if ( empty( $news_featured_post ) ) {
 			}
 			?>
 			<article class="featured-news-card">
-				<a class="featured-news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
+				<!-- <a class="featured-news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a> -->
 				<div class="featured-news-card__wrapper">
 				<?php if ( ! empty( $thumbnail ) ) : ?>
 					<figure class="featured-news-card__thumbnail">
@@ -47,7 +47,11 @@ if ( empty( $news_featured_post ) ) {
                             <a class="featured-news__cat-link" aria-label="<?php echo $cat['title']; ?> " href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 						</div>
 					<?php endif; ?>
-						<h2 class="featured-news-card__title"><?php echo $title; ?></h2>
+						<h2 class="featured-news-card__title">
+							<a href="<?php echo $permalink; ?>">
+								<?php echo $title; ?>
+							</a>
+						</h2>
 					<?php if ( ! empty( $excerpt ) ) : ?>
 						<div class="featured-news-card__excerpt"><?php echo wp_trim_words( $excerpt, 40, '...' ); ?></div>
 					<?php endif; ?>

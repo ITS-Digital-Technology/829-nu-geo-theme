@@ -49,7 +49,7 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 								$permalink = get_permalink( $post );
 								?>
 								<article class="post-card">
-									<a class="post-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
+									<!-- <a class="post-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a> -->
 									<div class="post-card__wrapper">
 									<?php if ( ! empty( $thumbnail ) ) : ?>
 										<figure class="post-card__thumbnail"><?php echo $thumbnail; ?></figure>
@@ -60,7 +60,10 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 												<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 											</div>
 										<?php endif; ?>
-											<span class="post-card__title"><?php echo $title; ?></span>
+											<a class="post-card__title" href="<?php echo $permalink; ?>">
+												<?php echo $title; ?>
+											</a>
+
 											<div class="post-card__author">
 												<a href="<?php echo $post_author_link; ?>" class="post-card__author-link">
 													<?php echo __( 'By', 'norheasternUniversity' ) . ' ' . $author; ?>
@@ -90,14 +93,17 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 								$permalink = get_permalink( $post );
 								?>
 								<article class="news-card">
-									<a class="news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a>
+									<!-- <a class="news-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a> -->
 									<div class="news-card__wrapper">
 									<?php if ( ! empty( $cat ) ) : ?>
 										<div class="news-card__cat">
 											<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 										</div>
 									<?php endif; ?>
-										<span class="news-card__title"><?php echo $title; ?></span>
+										<a href="<?php echo $permalink; ?>" class="news-card__title">
+											<?php echo $title; ?>
+										</a>
+
 										<p class="news-card__date"><?php echo get_the_date( 'm/d/Y', $post ); ?></p>
 									</div>
 								</article>
