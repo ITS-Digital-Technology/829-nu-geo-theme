@@ -38,7 +38,7 @@ if ( ! empty( $testimonials ) ) :
 						if ( ! empty( $program ) ) :
 							$link_url    = $program['url'];
 							$link_title  = $program['title'];
-							$link_target = $program['target'] ? $link['target'] : '_self';
+							$link_target = $program['target'] ? $program['target'] : '_self';
 							?>
 							<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 						<?php endif; ?>
