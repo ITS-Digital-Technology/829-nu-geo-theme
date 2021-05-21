@@ -196,6 +196,18 @@ $eight29_filter_data = [
             "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_class_type
+        ],
+        "program_status" => [
+            "label" => "Program Status",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
+        ],
+        "program_mode" => [
+            "label" => "Program Mode",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
         ]
 	],
 ];
@@ -260,6 +272,18 @@ function get_filter_names($field) {
             "type" => "checkbox",
             "dropdown" => true,
             "terraDotta" => $program_class_type
+        ],
+        "program_status" => [
+            "label" => "Program Status",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
+        ],
+        "program_mode" => [
+            "label" => "Program Mode",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
         ]
     ];
   
