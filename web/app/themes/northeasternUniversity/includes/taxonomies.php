@@ -204,6 +204,40 @@ function class_type() {
 }
 add_action( 'init', 'BaseTheme\Taxonomies\class_type' );
 
+// program status
+function program_status() {
+	$args = array(
+		'labels'            => get_labels( 'Program Status', 'Program Status' ),
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array( 'slug' => 'program-status', 'with_front' => false )
+	);
+
+	register_taxonomy( 'program_status', array( 'program' ), $args );
+}
+add_action( 'init', 'BaseTheme\Taxonomies\program_status' );
+
+// program mode
+function program_mode() {
+	$args = array(
+		'labels'            => get_labels( 'Program Mode' ),
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array( 'slug' => 'program-mode', 'with_front' => false )
+	);
+
+	register_taxonomy( 'program_mode', array( 'program' ), $args );
+}
+add_action( 'init', 'BaseTheme\Taxonomies\program_mode' );
+
 // NEWS
 //news_category
 function news_category() {
