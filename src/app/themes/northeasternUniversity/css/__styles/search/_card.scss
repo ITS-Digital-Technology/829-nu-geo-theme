@@ -109,3 +109,23 @@
         }
     }
 }
+
+#page {
+    .search-result-card {
+        a {
+            text-decoration: none;
+            color: $color-dark;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        h5,
+        .heading {
+            a {
+                font-weight: 700;
+            }
+        }
+    }
+}

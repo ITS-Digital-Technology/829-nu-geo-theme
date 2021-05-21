@@ -29,7 +29,7 @@ if ( $post_type === 'program' ) {
 ?>
 <article class= "search-result-card">
 	<?php if ( ! empty( $link ) ) : ?>
-	<a class="search-result-card__link" href="<?php echo $link; ?>" data-id="<?php echo $id; ?>" aria-label="<?php echo $aria; ?>"></a>
+	<!-- <a class="search-result-card__link" href="<?php echo $link; ?>" data-id="<?php echo $id; ?>" aria-label="<?php echo $aria; ?>"></a> -->
 	<?php endif; ?>
 	<div class="search-result-card__wrapper">
 		<div class="search-result-card__content">
@@ -37,7 +37,9 @@ if ( $post_type === 'program' ) {
 			<p class="search-result-card__cat"><?php echo $cat; ?></p>
 		<?php endif; ?>
 		<?php if ( ! empty( $title ) ) : ?>
-			<h5 class="search-result-card__title"><?php echo $title; ?></h5>
+			<h5 class="search-result-card__title">
+				<a href="<?php echo $link; ?>" data-id="<?php echo $id; ?>"><?php echo $title; ?></a>
+			</h5>
 		<?php endif; ?>
 		<?php if ( ! empty( $excerpt ) ) : ?>
 			<div class="search-result-card__excerpt"><?php echo $excerpt; ?> </div>
