@@ -248,12 +248,14 @@
 }
 
 #page {
-    a {
-        color: $color-dark;
-        text-decoration: none;
-
-        &:hover {
-           color: $accent; 
+    .program-card {
+        a {
+            color: $color-dark;
+            text-decoration: none;
+    
+            &:hover {
+               color: $accent; 
+            }
         }
     }
 }
