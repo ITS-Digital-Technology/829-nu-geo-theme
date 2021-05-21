@@ -250,6 +250,7 @@
 #page {
     a {
         color: $color-dark;
+        text-decoration: none;
 
         &:hover {
            color: $accent; 
