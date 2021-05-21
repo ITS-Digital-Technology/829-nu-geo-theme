@@ -8,7 +8,7 @@ $image     = get_the_post_thumbnail( $post_id, 'thumbnail-content-image' );
 ?>
 <article class="news-card col-12 col-lg-4 <?php if ( empty( $image ) ) { echo 'news-card--no-image'; } ?>">
 	<div class="news-card__container">
-		<a class="news-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo $title; ?>"></a>
+		<!-- <a class="news-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo $title; ?>"></a> -->
 		<div class="news-card__wrapper">
 			<?php if ( ! empty( $cat ) ) : ?>
 				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="news-card__cat"><?php echo esc_html( $cat['title'] ); ?></a>
@@ -19,7 +19,11 @@ $image     = get_the_post_thumbnail( $post_id, 'thumbnail-content-image' );
 				</figure>
 			<?php endif; ?>
 			<div class="news-card__content">
-				<h3 class="news-card__title"><?php echo esc_html( $title ); ?></h3>
+				<h3 class="news-card__title">
+					<a href="<?php echo esc_url( $permalink ); ?>">
+						<?php echo esc_html( $title ); ?>
+					</a>
+				</h3>
 			<?php if ( ! empty( $excerpt ) ) : ?>
 				<p class="news-card__excerpt"><?php echo $excerpt; ?></p>
 			<?php endif; ?>

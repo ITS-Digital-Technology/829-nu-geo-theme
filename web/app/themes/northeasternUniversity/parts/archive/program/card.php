@@ -18,7 +18,7 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		$link_target = $link['target'] ? $link['target'] : '_self';
 
 		?>
-		<a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $title; ?>"></a>
+		<!-- <a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $title; ?>"></a> -->
 	<?php endif; ?>
 		<?php if ( ! empty( $status ) ) : ?>
 		<span class="<?php echo $class_status; ?>"><?php echo $status; ?></span>
@@ -34,7 +34,11 @@ $class_status = isset( $class_status ) ? $class_status : false;
 				<a class="program-card__type" href="<?php echo $type['url']; ?>"><?php echo $type['title']; ?></a>
 			</div>
 		<?php endif; ?>
-			<h3 class="program-card__title"><?php echo $title; ?></h3>
+			<h3 class="program-card__title">
+				<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+					<?php echo $title; ?>
+				</a>
+			</h3>
 		<?php if ( ! empty( $city ) || ! empty( $country ) || ! empty( $terms ) ) : ?>
 			<div class="program-card__info">
 			<?php if ( ! empty( $city ) || ! empty( $country ) ) : ?>

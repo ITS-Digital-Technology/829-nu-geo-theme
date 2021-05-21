@@ -246,3 +246,14 @@
 .program-card__title {
     text-transform: capitalize;
 }
+
+#page {
+    a {
+        color: $color-dark;
+        text-decoration: none;
+
+        &:hover {
+           color: $accent; 
+        }
+    }
+}
