@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import FilterSearch from './filters/FilterSearch';
 import FilterCheckbox from './filters/FilterCheckbox';
 import FilterSelect from './filters/FilterSelect';
@@ -50,6 +50,12 @@ function sidebar(props) {
 
     const className = props.className ? props.className : '';
 
+    const aria = {
+        role: window.matchMedia("(max-width: 991px)").matches ? 'dialog' : '',
+        modal: window.matchMedia("(max-width: 991px)").matches ? true : '',
+        label: window.matchMedia("(max-width: 991px)").matches ? 'Filters' : '',
+    }
+
     const components = {
         'checkbox': FilterCheckbox,
         'select': FilterSelect,
@@ -58,6 +64,9 @@ function sidebar(props) {
         'accordion-single-select': FilterAccordionSingleSelect,
         'date': FilterDate
     }
+
+    const searchInput = document.querySelector('#search-filter');
+    const buttonTrigger = document.querySelector('.eight29-sidebar-open');
 
     const filterList = autoLoadFilters ? [] : props.children;
     let modalClose;
@@ -77,15 +86,24 @@ function sidebar(props) {
 
     function toggleModal(e) {
         e.preventDefault();
+
         if (document.body.classList.contains('modal-open')) {
             document.body.classList.remove('modal-open');
             document.querySelector('.eight29-sidebar').classList.remove('modal-active');
-        } else {
+        } 
+        else {
             document.body.classList.add('modal-open');
             document.querySelector('.eight29-sidebar').classList.add('modal-active');
         }
 
         setModalVisible(!modalVisible);
+
+        if (modalVisible) {
+            searchInput.focus();
+        }
+        else {
+            buttonTrigger.focus();
+        }
     }
 
     function resetCat(e) {
@@ -118,6 +136,30 @@ function sidebar(props) {
             filters.forEach( (el, index ) => {
                 if(index >= 4){
                     el.classList.add('d-hide');
+                }
+            });
+        }
+    }
+
+    function openModal(e) {
+        e.preventDefault();
+        setModalVisible(true);
+        document.querySelector('.eight29-sidebar').classList.add('modal-active');
+    }
+
+    function closeModal(e) {
+        e.preventDefault();
+        setModalVisible(false);
+        document.querySelector('.eight29-sidebar').classList.remove('modal-active');
+    }
+
+    function wcagHelper() {
+        if (modalVisible) {
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    setModalVisible(false);
+                    document.querySelector('.eight29-sidebar').classList.remove('modal-active');
+                    buttonTrigger.focus();
                 }
             });
         }
@@ -180,7 +222,7 @@ function sidebar(props) {
         <h3 className="eight29-sidebar-close-title">Filters</h3>
         <button
             className="eight29-sidebar-close"
-            onClick={(e) => { toggleModal(e) }}
+            onClick={(e) => { closeModal(e) }}
         >   
             <span className="sr-only">Close</span>
             <CloseIcon></CloseIcon>
@@ -190,7 +232,7 @@ function sidebar(props) {
         modalOpen =
             <button
                 className="eight29-sidebar-open c-btn c-btn-secondary c-btn-color-normal"
-                onClick={(e) => { toggleModal(e) }}
+                onClick={(e) => { openModal(e) }}
             >
                 <span>Filter</span>
                 <span className="c-btn-icon"><span className="icon-filter"></span></span>
@@ -200,7 +242,7 @@ function sidebar(props) {
         applyFilters =
             <button
                 className="apply-filters c-btn c-btn-primary c-btn-color-normal"
-                onClick={(e) => { toggleModal(e) }}
+                onClick={(e) => { closeModal(e) }}
             >Apply Filters</button>
     }
 
@@ -239,7 +281,8 @@ function sidebar(props) {
             {filterList}
             {moreFiltersButton}
         </div>
-    } else {
+    } 
+    else {
         contentLeft = <div className="eight29-filter-list left-content">
             {postType==='program' ? searchComponent : ''}
             {sidebarLeft}
@@ -292,8 +335,17 @@ function sidebar(props) {
         {contentRight}
     </div>
 
+    useEffect(() => {
+        wcagHelper();
+    }, [modalVisible]);
+
     return (
-        <form className={`eight29-sidebar ${className}`}>
+        <form
+            role={aria.role}
+            aria-modal={aria.modal}
+            aria-label={aria.label}
+            className={`eight29-sidebar ${className}`}
+        >
             <div className="eight29-sidebar-top">
                 <div className="container">
                     <div className="eight29-sidebar-content">
