@@ -16,7 +16,7 @@ if($mobile_modal){
     <button class="program-filters__trigger-mobile"><?php _e("Search Programs",'northeasternUniversity'); ?></button>
     <div class="program-filters__wrapper-outer">
         <div class="container">
-            <div class="program-filters__wrapper" aria-label="Program Filters">
+            <div class="program-filters__wrapper">
                 <div class="program-filters__inner-wrapper-header">
                     <button class="program-filters__mobile-close">
                         <span class="sr-only">Close</span>
