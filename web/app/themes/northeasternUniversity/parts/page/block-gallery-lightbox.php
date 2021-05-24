@@ -40,7 +40,7 @@ if ( $gallery ) :
 		</div>
 	</div>
 
-	<div class="block-gallery-lightbox__gallery-wrapper" role="dialog" aria-model="true" aria-label="Photo Gallery Lightbox">
+	<div class="block-gallery-lightbox__gallery-wrapper" role="dialog" aria-modal="true" aria-label="Photo Gallery Lightbox">
 		<button class="block-gallery-lightbox__close" tabindex="0" aria-label="<?php _e( 'Close Lightbox', 'nationsClassroom' ); ?>">
 			<span class="icon-close"></span>
 		</button>
