@@ -1,5 +1,4 @@
 <div class="video-lightbox">
-    <span id="video-lightbox-dialog" tabindex="0">Video</span>
     <button class="video-lightbox__close">
         <span class="sr-only">Close Lightbox</span>
         <span class="icon-close"></span>
