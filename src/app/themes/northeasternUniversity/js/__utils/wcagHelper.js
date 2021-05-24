@@ -660,8 +660,9 @@ function wcagHelper() {
       });
 
       window.addEventListener('keydown', function(e) {
-        if (e.keyCode === 27 || e.key === 'Escape') {
-          programModal.classList.remove('acitve');
+        if ((e.keyCode === 27 || e.key === 'Escape') && programModal.classList.contains('active')) {
+          programModal.classList.remove('active');
+          buttonTrigger.focus();
         }
       });
     }
