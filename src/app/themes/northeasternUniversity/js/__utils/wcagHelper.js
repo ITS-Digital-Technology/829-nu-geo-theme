@@ -692,7 +692,7 @@ function wcagHelper() {
     blockGalleryLightbox();
     contentStart();
     mobileModal();
-    //tempCleanup();
+    tempCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);
