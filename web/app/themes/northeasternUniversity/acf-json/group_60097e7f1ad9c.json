@@ -79,6 +79,25 @@
             "ui": 1
         },
         {
+            "key": "field_60abaa10115e1",
+            "label": "Share Buttons",
+            "name": "share_buttons",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_60097e93d70e6",
             "label": "Latest Posts",
             "name": "",
@@ -362,5 +381,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612873874
+    "modified": 1621862954
 }

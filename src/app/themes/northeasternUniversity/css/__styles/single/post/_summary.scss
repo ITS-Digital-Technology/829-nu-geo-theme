@@ -177,3 +177,47 @@
         }
     }
 }
+
+.share-buttons {
+    br,
+    p:empty {
+        display: none;
+    }
+
+    .a2a_kit {
+        display: flex;
+    }
+
+    a {
+       width: 32px;
+       height: 32px;
+       display: flex;
+       background-color: rgb(24, 119, 242);
+       margin-right: 16px;
+       border-radius: 4px;
+       background-repeat: no-repeat;
+       background-position: center;
+       transition: 0.2s all ease-in-out;
+       
+       &:hover {
+           opacity: 0.85;
+       }
+      
+       &.a2a_button_facebook {
+           background-image: url(../images/icons/addtoany/facebook.svg);
+       }
+       
+       &.a2a_button_twitter {
+            background-image: url(../images/icons/addtoany/twitter.svg);
+            background-color: rgb(85, 172, 238);
+       }
+
+       &.a2a_button_email {
+            background-image: url(../images/icons/addtoany/email.svg);
+       }
+
+       &.a2a_dd {
+            background-image: url(../images/icons/addtoany/plus.svg);
+       }
+    }
+}
