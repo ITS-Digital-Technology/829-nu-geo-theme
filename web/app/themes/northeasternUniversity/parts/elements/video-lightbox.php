@@ -1,4 +1,4 @@
-<div class="video-lightbox">
+<div class="video-lightbox" role="dialog" aria-model="true" aria-label="Video Lightbox">
     <button class="video-lightbox__close">
         <span class="sr-only">Close Lightbox</span>
         <span class="icon-close"></span>
