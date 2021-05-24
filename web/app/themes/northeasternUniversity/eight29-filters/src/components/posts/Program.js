@@ -70,7 +70,9 @@ function post(props) {
     postTitle = post['title']['rendered'];
     postTitle = postTitle.toLowerCase();
 
-    title= <h3 className="program-card__title" dangerouslySetInnerHTML={{__html: postTitle}}/>
+    title= <h3 className="program-card__title">
+        <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
+    </h3>
 
     //city
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:term') && post.city) {
@@ -146,9 +148,9 @@ function post(props) {
     return (
         <article id={`${postType}-${post.id}`} className="program-card">
             <div className="program-card__wrapper">
-                <a className="program-card__link" href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} aria-label="Program Link"></a>
                 {status}
-                {featuredImage}
+                <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']}>{featuredImage}</a>
+
                 <div className="program-card__content">
                     {type}
                     {title}
