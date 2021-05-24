@@ -21,7 +21,8 @@ $description = get_the_author_meta( 'description', $authorID );
                         <p class="single-post-summary__tags-headline">
                             <?php _e('Share Post', 'northeasternUniversity'); ?>
                         </p>
-                        <?php echo do_shortcode('[addtoany]'); ?>
+                        <?php //echo do_shortcode('[addtoany]'); ?>
+                        <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60aba75cea7f3c00119845e7&product=image-share-buttons' async='async'></script>
                     </div>
                 </div>
 
