@@ -120,25 +120,6 @@ function wcagHelper() {
     }
   }
 
-  function addToAny() {
-    const socialLinks = document.querySelectorAll('.a2a_kit a:not(.addtoany_share)');
-    const shareLink = document.querySelector('.addtoany_share');
-
-    if(socialLinks) {
-      socialLinks.forEach(socialLink => {
-        const title = socialLink.getAttribute('title');
-
-        if (title) {
-          socialLink.setAttribute('aria-label', `Connect on ${title}`);
-        }
-      });
-    }
-    
-    if(shareLink) {
-      shareLink.setAttribute('aria-label', 'Share this page');
-    }
-  }
-
   function tribesFilterBar() {
     const formFields = document.querySelectorAll('form.tribe-filter-bar__form input[type="checkbox"]');
     const fieldSets = document.querySelectorAll('fieldset.tribe-filter-bar-c-filter__filters-fieldset');
@@ -708,7 +689,6 @@ function wcagHelper() {
     blockIds();
     anchorLinkMenu();
     topLevelNav();
-    addToAny();
     tribesFilterBar();
     iframes();
     //selectAll();
