@@ -661,6 +661,31 @@ function wcagHelper() {
     }
   }
 
+  function mobileModal() {
+    const programModal = document.querySelector('#program-mobile-modal');
+    const buttonTrigger = document.querySelector('.program-filters__trigger-mobile');
+    const closeTriggers = document.querySelectorAll('.program-filters__mobile-close');
+    const firstFilter = document.querySelector('#select-program_type');
+
+    if (programModal && buttonTrigger && firstFilter) {
+      buttonTrigger.addEventListener('click', function() {
+        firstFilter.focus();
+      });
+
+      closeTriggers.forEach(closeTrigger => {
+        closeTrigger.addEventListener('click', function() {
+          buttonTrigger.focus();
+        });
+      });
+
+      window.addEventListener('keydown', function(e) {
+        if (e.keyCode === 27 || e.key === 'Escape') {
+          programModal.classList.remove('acitve');
+        }
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -695,6 +720,7 @@ function wcagHelper() {
     blockGalleryVideo();
     blockGalleryLightbox();
     contentStart();
+    mobileModal();
     tempCleanup();
   }
 

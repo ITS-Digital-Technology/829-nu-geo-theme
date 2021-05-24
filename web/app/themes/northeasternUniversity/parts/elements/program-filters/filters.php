@@ -14,7 +14,7 @@ if($mobile_modal){
 ?>
 <div class="<?php echo implode( ' ', $block_class ); ?>">
     <button class="program-filters__trigger-mobile"><?php _e("Search Programs",'northeasternUniversity'); ?></button>
-    <div class="program-filters__wrapper-outer">
+    <div role="dialog" id="program-mobile-modal" aria-label="program filters" aria-modal="true" class="program-filters__wrapper-outer">
         <div class="container">
             <div class="program-filters__wrapper">
                 <div class="program-filters__inner-wrapper-header">
