@@ -120,25 +120,6 @@ function wcagHelper() {
     }
   }
 
-  function addToAny() {
-    const socialLinks = document.querySelectorAll('.a2a_kit a:not(.addtoany_share)');
-    const shareLink = document.querySelector('.addtoany_share');
-
-    if(socialLinks) {
-      socialLinks.forEach(socialLink => {
-        const title = socialLink.getAttribute('title');
-
-        if (title) {
-          socialLink.setAttribute('aria-label', `Connect on ${title}`);
-        }
-      });
-    }
-    
-    if(shareLink) {
-      shareLink.setAttribute('aria-label', 'Share this page');
-    }
-  }
-
   function tribesFilterBar() {
     const formFields = document.querySelectorAll('form.tribe-filter-bar__form input[type="checkbox"]');
     const fieldSets = document.querySelectorAll('fieldset.tribe-filter-bar-c-filter__filters-fieldset');
@@ -661,6 +642,32 @@ function wcagHelper() {
     }
   }
 
+  function mobileModal() {
+    const programModal = document.querySelector('#program-mobile-modal');
+    const buttonTrigger = document.querySelector('.program-filters__trigger-mobile');
+    const closeTriggers = document.querySelectorAll('.program-filters__mobile-close');
+    const firstFilter = document.querySelector('#select-program_type');
+
+    if (programModal && buttonTrigger && firstFilter) {
+      buttonTrigger.addEventListener('click', function() {
+        firstFilter.focus();
+      });
+
+      closeTriggers.forEach(closeTrigger => {
+        closeTrigger.addEventListener('click', function() {
+          buttonTrigger.focus();
+        });
+      });
+
+      window.addEventListener('keydown', function(e) {
+        if ((e.keyCode === 27 || e.key === 'Escape') && programModal.classList.contains('active')) {
+          programModal.classList.remove('active');
+          buttonTrigger.focus();
+        }
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -683,7 +690,6 @@ function wcagHelper() {
     blockIds();
     anchorLinkMenu();
     topLevelNav();
-    addToAny();
     tribesFilterBar();
     iframes();
     //selectAll();
@@ -695,6 +701,7 @@ function wcagHelper() {
     blockGalleryVideo();
     blockGalleryLightbox();
     contentStart();
+    mobileModal();
     tempCleanup();
   }
 

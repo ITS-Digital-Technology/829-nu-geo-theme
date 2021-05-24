@@ -40,9 +40,8 @@ if ( $query->have_posts() ) :
 			<a 
 				href="<?php echo $related_link; ?>" <?php echo $related_link_target; ?> 
 				class="related-blog-posts__all-posts c-btn c-btn-tertiary c-btn-color-normal"
-				aria-label="<?php echo $aria; ?>"
 			>
-				<span><?php echo $related_link_title; ?></span>
+				<span><?php echo $aria; ?></span>
 				<span class='c-btn-icon'><span class='icon-arrow-right-circle'></span></span>
 			</a>
 		</div>
