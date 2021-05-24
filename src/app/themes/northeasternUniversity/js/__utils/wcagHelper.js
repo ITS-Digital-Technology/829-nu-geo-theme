@@ -541,25 +541,17 @@ function wcagHelper() {
       blocks.forEach(block => {
         const blockId = block.getAttribute('id');
         const lightbox = block.querySelector('.video-lightbox');
-        const lightboxDialog = block.querySelector('#video-lightbox-dialog');
         const lightboxClose = block.querySelector('.video-lightbox__close');
         const triggers = block.querySelectorAll('.js-play-lightbox-video');
         let lastItem;
-        let videoTitle = '';
 
         if (triggers && lightbox) {
-          lightbox.setAttribute('aria-modal', true);
-          lightbox.setAttribute('role', 'dialog');
           lightbox.setAttribute('id', `dialog-${blockId}`);
 
           triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
-              videoTitle = trigger.querySelector('.block-gallery-video__single-thumb-title').textContent;
-              lightboxDialog.textContent = videoTitle;
-              lightbox.setAttribute('aria-labelledby', 'video-lightbox-dialog');
-              lightboxDialog.focus();
               lastItem = trigger;
-              console.log(lastItem);
+              lightboxClose.focus();
             });
           });
         }
@@ -584,6 +576,7 @@ function wcagHelper() {
 
     if (blocks) {
       blocks.forEach(block => {
+        const blockId = block.getAttribute('id');
         const lightbox = block.querySelector('.block-gallery-lightbox__gallery-wrapper');
         const triggers = block.querySelectorAll('a.block-gallery-lightbox__single-thumb');
         const nextButton = block.querySelector('.slick-next');
@@ -591,26 +584,23 @@ function wcagHelper() {
         let lastItem;
 
         if (lightbox && triggers) {
-          lightbox.setAttribute('aria-modal', true);
-          lightbox.setAttribute('role', 'dialog');
-          lightbox.setAttribute('aria-label', 'Gallery lightbox');
+          lightbox.setAttribute('id', `photo-galley-${blockId}`);
 
           triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
-              nextButton.focus();
               lastItem = trigger;
+              closeButton.focus();
             });
 
-            // trigger.addEventListener('keydown', function(e) {
-            //   if (e.key === 'Enter') {
-            //     trigger.click();
-            //     console.log('pressed key');
-            //   }
-            // });
+            trigger.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter') {
+                closeButton.focus();
+              }
+            })
           });
 
           window.addEventListener('keydown', function(e) {
-            if ((e.keyCode === 27 || e.key === 'Escape') && lastItem) {
+            if ((e.keyCode === 27 || e.key === 'Escape') && lastItem && lightbox.classList.contains('active')) {
               lastItem.focus();
             }
           });
@@ -702,7 +692,7 @@ function wcagHelper() {
     blockGalleryLightbox();
     contentStart();
     mobileModal();
-    tempCleanup();
+    //tempCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);
