@@ -106,14 +106,16 @@ function sidebar(props) {
         const filters = document.querySelectorAll('.eight29-filter:not(.filter-search)');
         const buttonMore = document.querySelector('button.more-filters');
         filtersWrapper.classList.toggle('active');
+
         if ( filtersWrapper.classList.contains('active') ) {
             buttonMore.innerHTML = 'Less Filters';
             filters.forEach(el => {
                 el.classList.remove('d-hide');
             });
-        }else{
+        }
+        else {
             buttonMore.innerHTML = 'More Filters';
-            filters.forEach( (el,index ) => {
+            filters.forEach( (el, index ) => {
                 if(index >= 4){
                     el.classList.add('d-hide');
                 }
