@@ -324,6 +324,13 @@
 }
 
 #page {
+    .post-card__title,
+    .news-card__title {
+        &:hover {
+            color: $accent;
+        }
+    }
+
     .news-card {
         a {
             text-decoration: none;
