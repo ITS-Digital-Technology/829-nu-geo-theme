@@ -39,7 +39,7 @@ $columns  = get_sub_field( 'columns' );
 						endforeach; 
 						?>   
 						</div>
-                    </div?>
+                    </div>
 				<?php endif; ?>
 				</div>
             </div>
