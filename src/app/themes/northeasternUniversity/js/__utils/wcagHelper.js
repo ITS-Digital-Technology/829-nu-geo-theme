@@ -573,6 +573,7 @@ function wcagHelper() {
 
   function blockGalleryLightbox() {
     const blocks = document.querySelectorAll('.block-gallery-lightbox');
+    const lastBlock = document.querySelector('.page-content > :last-child');
 
     if (blocks) {
       blocks.forEach(block => {
@@ -612,6 +613,12 @@ function wcagHelper() {
           });
         }
       });
+    }
+
+    if (lastBlock) {
+      if (lastBlock.classList.contains('block-cta')) {
+        lastBlock.classList.add('no-margin');
+      }
     }
   }
 
