@@ -12,6 +12,7 @@ import CloseIcon from '../assets/images/icons/CloseIcon.svgr';
 
 function sidebar(props) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [aria, setAria] = useState({});
 
     const {
         layout,
@@ -49,12 +50,6 @@ function sidebar(props) {
     } = props;
 
     const className = props.className ? props.className : '';
-
-    const aria = {
-        role: window.matchMedia("(max-width: 991px)").matches ? 'dialog' : '',
-        modal: window.matchMedia("(max-width: 991px)").matches ? true : '',
-        label: window.matchMedia("(max-width: 991px)").matches ? 'Filters' : '',
-    }
 
     const components = {
         'checkbox': FilterCheckbox,
@@ -334,6 +329,21 @@ function sidebar(props) {
         {contentLeft}
         {contentRight}
     </div>
+
+    const body = document.body;
+    const updateAria = new ResizeObserver(entries => {
+        entries.forEach(entry => {
+            const ariaClone = {role: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'dialog' : '',
+            modal: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? true : '',
+            label: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'Filters' : ''};
+
+            setAria(ariaClone);
+        });
+    });
+
+    useEffect(() => {
+        updateAria.observe(body);
+    }, []);
 
     useEffect(() => {
         wcagHelper();
