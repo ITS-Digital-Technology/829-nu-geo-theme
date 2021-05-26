@@ -58,11 +58,11 @@ if ( $links ) :
             <div class="<?php echo $class; ?>">
                 <div class="content-link-wrapper">
                     <?php if ( $img ) : ?>
-                        <a class="image-link" href="<?php echo esc_url( $link_url ); ?>" <?php echo $link_target; ?>>
                             <figure class="image-link__image">
-                                <?php echo $img; ?>
+                                <a class="image-link" href="<?php echo esc_url( $link_url ); ?>" <?php echo $link_target; ?>>
+                                    <?php echo $img; ?>
+                                </a>
                             </figure>
-                        </a>
                     <?php endif; ?>
 
                     <?php if( !empty( $link_title )): ?>
