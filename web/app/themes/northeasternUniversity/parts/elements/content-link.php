@@ -11,7 +11,7 @@ $hyperlink_end = $link_url ? '</a>' : '';
         <span class="heading content-link__title">
             <?php echo $link_title; ?>
         </span>
-        <?php if ( $link_target ) : ?>
+        <?php if ( $link_target !== 'target="_self"' ) : ?>
             <span class="content-link__icon"><span class="icon-external-link"></span></span>
         <?php else : ?>
             <span class="content-link__icon"><span class="icon-arrow-right-circle"></span></span>
