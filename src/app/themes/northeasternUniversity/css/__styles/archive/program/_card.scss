@@ -258,4 +258,11 @@
             }
         }
     }
+
+    .program-card__thumbnail {
+        > a {
+            display: block;
+            height: 100%;
+        }
+    }
 }
