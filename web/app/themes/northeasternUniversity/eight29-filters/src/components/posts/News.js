@@ -70,12 +70,16 @@ function post(props) {
 
     return (
         <article id={`${postType}-${post.id}`} className="news-post-card">
-            <a className="news-post-card__link" href={post.link} aria-label="Post Link"></a>
             <div className="news-post-card__wrapper">
                 {categoryItems}
-                {featuredImage}
+
+                <a href={post.link}>{featuredImage}</a>
+
                 <div className="news-post-card__content">
-                    <h3 className="news-post-card__title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                    <h3 className="news-post-card__title">
+                        <a className="news-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+                    </h3>
+
                     {excerpt}
                     {date}
                 </div>
