@@ -109,7 +109,7 @@
         }
 
         .blog-post__card-title {
-            a {
+            a:not(.blog-link) {
                 font-weight: bold;
             }
         }
