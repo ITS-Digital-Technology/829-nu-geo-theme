@@ -52,7 +52,29 @@
             }
             .content-link__icon {
                 transform: translate(4px, -50%);
+                color: $accent-variant;
+            }
+        }
+    }
+}
 
+#page {
+    .content-link-wrapper {
+        a {
+            text-decoration: none;
+        }
+    
+        &:hover {
+            .content-link__title {
+                color: $accent-variant;
+            }
+
+            .content-link {
+                box-shadow: 0 rem(8) rem(18) rgba($color-black, .1);
+            }
+            
+            .content-link__icon {
+                transform: translate(4px, -50%);
                 color: $accent-variant;
             }
         }
