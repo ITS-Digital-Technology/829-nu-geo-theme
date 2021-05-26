@@ -23,22 +23,28 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		<?php if ( ! empty( $status ) ) : ?>
 		<span class="<?php echo $class_status; ?>"><?php echo $status; ?></span>
 		<?php endif; ?>
+
 		<?php if ( ! empty( $thumbnail ) ) : ?>
-		<figure class="program-card__thumbnail">
-			<?php echo $thumbnail; ?>
-		</figure>
+		<a href="<?php echo esc_url( $link_url ); ?>">
+			<figure class="program-card__thumbnail">
+				<?php echo $thumbnail; ?>
+			</figure>
+		</a>
 		<?php endif; ?>
+
 		<div class="program-card__content">
 		<?php if ( ! empty( $type ) ) : ?>
 			<div class="program-card__type-wrapper">
 				<a class="program-card__type" href="<?php echo $type['url']; ?>"><?php echo $type['title']; ?></a>
 			</div>
 		<?php endif; ?>
+
 			<h3 class="program-card__title">
 				<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 					<?php echo $title; ?>
 				</a>
 			</h3>
+
 		<?php if ( ! empty( $city ) || ! empty( $country ) || ! empty( $terms ) ) : ?>
 			<div class="program-card__info">
 			<?php if ( ! empty( $city ) || ! empty( $country ) ) : ?>
