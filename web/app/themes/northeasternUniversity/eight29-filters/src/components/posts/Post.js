@@ -75,13 +75,15 @@ function post(props) {
 	}
 
 	return (
-		<article id={`${postType}-${post.id}`} className="blog-post__card" >
-			<a className="blog-post__card-link" href={post.link} aria-label={post.title.rendered}></a>
+		<article id={`${postType}-${post.id}`} className="blog-post__card">
 			<div className="blog-post__card-wrapper">
-				{featuredImage}
+				<a className="blog-link" href={post.link}>{featuredImage}</a>
+				
 				<div className="blog-post__card-content">
 					{type}
-					<h3 className="blog-post__card-title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+					<h3 className="blog-post__card-title">
+						<a className="blog-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+					</h3>
 					{author}
 				</div>
 			</div>
