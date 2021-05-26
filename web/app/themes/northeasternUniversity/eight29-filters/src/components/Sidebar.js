@@ -62,6 +62,7 @@ function sidebar(props) {
 
     const searchInput = document.querySelector('#search-filter');
     const buttonTrigger = document.querySelector('.eight29-sidebar-open');
+    const firstInput = document.querySelector('.sr-wrapper .apply-filters');
 
     const filterList = autoLoadFilters ? [] : props.children;
     let modalClose;
@@ -140,12 +141,20 @@ function sidebar(props) {
         e.preventDefault();
         setModalVisible(true);
         document.querySelector('.eight29-sidebar').classList.add('modal-active');
+
+        if (firstInput) {
+            firstInput.focus();
+        }
     }
 
     function closeModal(e) {
         e.preventDefault();
         setModalVisible(false);
         document.querySelector('.eight29-sidebar').classList.remove('modal-active');
+
+        if (buttonTrigger) {
+            buttonTrigger.focus();
+        }
     }
 
     function wcagHelper() {
@@ -350,20 +359,22 @@ function sidebar(props) {
     }, [modalVisible]);
 
     return (
-        <form
-            role={aria.role}
-            aria-modal={aria.modal}
-            aria-label={aria.label}
-            className={`eight29-sidebar ${className}`}
-        >
+        <form className={`eight29-sidebar ${className}`}>
             <div className="eight29-sidebar-top">
                 <div className="container">
                     <div className="eight29-sidebar-content">
-                        {modalClose}
-                        <div className="eight29-sidebar-content-scroll">
-                            {content}
-                            {sidebarReset}
-                            {applyFilters}
+                        <div 
+                        role={aria.role}
+                        aria-modal={aria.modal}
+                        aria-label={aria.label}
+                        className="sr-wrapper"
+                        >
+                            {modalClose}
+                            <div className="eight29-sidebar-content-scroll">
+                                {content}
+                                {sidebarReset}
+                                {applyFilters}
+                            </div>
                         </div>
                         {modalOpen}
                     </div>
