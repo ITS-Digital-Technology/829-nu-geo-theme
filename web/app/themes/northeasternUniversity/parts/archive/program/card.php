@@ -25,11 +25,9 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		<?php endif; ?>
 
 		<?php if ( ! empty( $thumbnail ) ) : ?>
-		<a href="<?php echo esc_url( $link_url ); ?>">
 			<figure class="program-card__thumbnail">
-				<?php echo $thumbnail; ?>
+			<a href="<?php echo esc_url( $link_url ); ?>"><?php echo $thumbnail; ?></a>
 			</figure>
-		</a>
 		<?php endif; ?>
 
 		<div class="program-card__content">
