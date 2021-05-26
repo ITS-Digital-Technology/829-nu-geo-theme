@@ -60,13 +60,19 @@ function staff(props) {
 
     return (
         <article id={`${postType}-${post.id}`} className="staff-card">
-            <a className="staff-card__link" href={post.link} aria-label="Staff Link"></a>
-            {featuredImage}
+            <a href={post.link}>
+                {featuredImage}
+            </a>
+
             <div className="staff-card__content">
                 <div className="staff-card__category">
                     {categoryItems}
                 </div>
-                <h4 className="staff-card__title" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                
+                <h4 className="staff-card__title">
+                    <a className="staff-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+                </h4>
+                
                 {position}
             </div>
         </article>
