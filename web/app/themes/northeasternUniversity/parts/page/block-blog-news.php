@@ -49,10 +49,11 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 								$permalink = get_permalink( $post );
 								?>
 								<article class="post-card">
-									<!-- <a class="post-card__link" href="<?php echo $permalink; ?>" aria-label="<?php echo $title; ?>"></a> -->
 									<div class="post-card__wrapper">
 									<?php if ( ! empty( $thumbnail ) ) : ?>
-										<figure class="post-card__thumbnail"><?php echo $thumbnail; ?></figure>
+										<figure class="post-card__thumbnail">
+											<a href="<?php echo $permalink; ?>"><?php echo $thumbnail; ?></a>
+										</figure>
 									<?php endif; ?>
 										<div class="post-card__content">
 										<?php if ( ! empty( $cat ) ) : ?>
