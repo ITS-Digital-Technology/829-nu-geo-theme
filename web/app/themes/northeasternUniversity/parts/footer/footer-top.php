@@ -48,7 +48,7 @@ $logo             = get_svg( $logo );
 							?>
 						<div class="col-6">
 							<div class="footer-top__menu-col">
-								<span class="footer-top__menu-title"><?php echo $title; ?></span>
+								<span class="footer-top__menu-title h4"><?php echo $title; ?></span>
 								<div class="footer-top__menu"><?php echo $menu; ?></div>
 							</div>
 						</div>
