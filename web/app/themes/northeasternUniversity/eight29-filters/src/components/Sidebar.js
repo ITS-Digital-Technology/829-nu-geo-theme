@@ -342,7 +342,7 @@ function sidebar(props) {
     const body = document.body;
     const updateAria = new ResizeObserver(entries => {
         entries.forEach(entry => {
-            const ariaClone = {role: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'dialog' : '',
+            const ariaClone = {role: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'dialog' : 'none',
             modal: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? true : '',
             label: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'Filters' : ''};
 
