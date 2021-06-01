@@ -203,3 +203,26 @@
         }
     }
 }
+
+#page {
+    .event-card__title, h3 {
+        a {
+            color: $color-dark;
+            text-decoration: none;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+
+    .event-card__wrapper {
+        a {
+         &:hover {
+            img {
+                transform: scale(1.05);
+            }
+         }   
+        }
+    }
+}
