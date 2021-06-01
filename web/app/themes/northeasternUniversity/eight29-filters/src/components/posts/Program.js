@@ -70,9 +70,9 @@ function post(props) {
     postTitle = post['title']['rendered'];
     postTitle = postTitle.toLowerCase();
 
-    title= <h3 className="program-card__title">
+    title= <span className="program-card__title">
         <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
-    </h3>
+    </span>
 
     //city
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:term') && post.city) {
