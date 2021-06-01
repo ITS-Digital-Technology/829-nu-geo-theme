@@ -623,9 +623,20 @@
     }
 }
 
+.eight29-label {
+    font-size: 16px;
+    display: block;
+
+    @include sm {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+}
+
 .eight29-orderby {
     width: 100%;
     max-width: 300px;
+    min-height: 30px;
 
     @include sm {
         max-width: 100%;

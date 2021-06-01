@@ -62,13 +62,17 @@ function FilterOrderBy(props) {
   }, [order])
 
   return (
-    <select 
-      value={order}
-      className="dropdown-list eight29-orderby"
-      onChange={(e) => {clickHandler(e)}}
-    >
-      {items}
-    </select>
+    <div>
+      <label className="eight29-label" htmlFor="select-order">Sort</label>
+      <select 
+        value={order}
+        id="select-order"
+        className="dropdown-list eight29-orderby"
+        onChange={(e) => {clickHandler(e)}}
+      >
+        {items}
+      </select>
+    </div>
   )
 }
 
