@@ -25,13 +25,13 @@ $is_h3			  = isset($is_h3) ? $is_h3 : false;
 			</div>
 		<?php endif; ?>
 		<?php if ($is_h3) : ?>
-			<h3 class="blog-post__card-title">
+			<span class="blog-post__card-title h3">
 				<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
-			</h3>
+			</span>
 		<?php else : ?>
-			<h4 class="blog-post__card-title">
+			<span class="blog-post__card-title h4">
 				<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
-			</h4>
+			</span>
 		<?php endif; ?>
 
 			<?php if ($author !== 'Northeastern University'): ?>
