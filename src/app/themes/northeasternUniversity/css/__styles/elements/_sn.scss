@@ -12,3 +12,19 @@
 .no-margin {
     margin-bottom: 0 !important;
 }
+
+.block-upcoming-events__left,
+.related-events__header {
+    .c-btn-tertiary {
+        color: #A81321;
+    }
+}
+
+.block-program-comparison__programs-nav-item.c-btn-secondary {
+    border-color: #A81321;
+    color: #A81321;
+
+    &:hover {
+        color: #FFF;
+    }
+}
