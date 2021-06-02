@@ -443,3 +443,15 @@
         }
     }
 }
+
+#page {
+    .eight29-filter.filter-search {
+      .clear-search {
+        display: none;
+  
+        &.visible {
+          display: flex;
+        }
+      }
+    }
+  }
