@@ -60,7 +60,7 @@ $logo             = get_svg( $logo );
 				<div class="col-12 col-lg-5">
 					<div class="footer-top__newsletter">
 						<?php if ( ! empty( $newsletter_title ) ) : ?>
-						<h4 class="footer-top__newsletter-title"><?php echo $newsletter_title; ?></h4>
+						<span class="footer-top__newsletter-title h4"><?php echo $newsletter_title; ?></span>
 						<?php endif; ?>
 						<?php if ( ! empty( $newsletter_text ) ) : ?>
 						<p class="footer-top__newsletter-text"><?php echo $newsletter_text; ?></p>
