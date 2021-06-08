@@ -343,7 +343,8 @@ textarea {
 }
 
 figure.post-card__thumbnail,
-button {
+button,
+.post-card__thumbnail > a {
     &:focus {
         outline: $outline !important;
     }
