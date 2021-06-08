@@ -1,14 +1,11 @@
 .staff-directory-hero {
     display: flex;
-
     justify-content: flex-end;
-
     min-height: rem(588);
-
     position: relative;
     margin-bottom: rem(96);
-
     overflow: hidden;
+    background-color: #000;
 
     &.no-infobox {
         &::after {
