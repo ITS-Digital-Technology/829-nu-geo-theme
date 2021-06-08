@@ -27,12 +27,17 @@ function post(props) {
     let termContent;
     let postTitle;
 
+    //title
+    postTitle = post['title']['rendered'];
+    postTitle = postTitle.toLowerCase();
 
     //feature-image
     featuredImage = <figure className="program-card__thumbnail" dangerouslySetInnerHTML={{ __html: acfData.acf_program_card_image }}></figure>;
+    
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
         featuredImage =
           <figure className="program-card__thumbnail">
+            <span className="sr-only">{postTitle}</span>
             <FeaturedImage
               imageSize={'thumbnail-card'}
               image={post._embedded['wp:featuredmedia']}
@@ -65,10 +70,6 @@ function post(props) {
             </div>
         }
     }
-
-    //title
-    postTitle = post['title']['rendered'];
-    postTitle = postTitle.toLowerCase();
 
     title= <span className="program-card__title">
         <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
@@ -149,7 +150,9 @@ function post(props) {
         <article id={`${postType}-${post.id}`} className="program-card">
             <div className="program-card__wrapper">
                 {status}
-                <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']}>{featuredImage}</a>
+                <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']}>
+                    {featuredImage}
+                </a>
 
                 <div className="program-card__content">
                     {type}
