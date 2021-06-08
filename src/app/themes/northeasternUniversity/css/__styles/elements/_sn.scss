@@ -28,3 +28,22 @@
         color: #FFF;
     }
 }
+
+.home {
+    .blog-posts__title-wrapper,
+    .news-posts__title-wrapper {
+        .c-btn-tertiary,
+        span {
+            color: #A81321;
+        }
+    }
+}
+
+.page-template-page-tpl-compare-programs {
+    .b-content-images__content-wrapper {
+        .c-btn-tertiary,
+        span {
+            color: #A81321;
+        }
+    }
+}
