@@ -37,7 +37,7 @@ function post(props) {
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
         featuredImage =
           <figure className="program-card__thumbnail">
-            <span className="sr-only">{postTitle}</span>
+            <span className="sr-only" dangerouslySetInnerHTML={{ __html: postTitle }}></span>
             <FeaturedImage
               imageSize={'thumbnail-card'}
               image={post._embedded['wp:featuredmedia']}
