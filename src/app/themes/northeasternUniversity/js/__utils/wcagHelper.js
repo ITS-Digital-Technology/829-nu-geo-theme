@@ -665,6 +665,22 @@ function wcagHelper() {
     }
   }
 
+  function imageFocus() {
+    const elements = document.querySelectorAll('.post-card__thumbnail > a');
+
+    if (elements) {
+      elements.forEach(element => {
+        element.addEventListener('focus', function() {
+          element.classList.add('focused');
+        });
+
+        element.addEventListener('focusout', function() {
+          element.classList.remove('focused');
+        });
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -700,6 +716,7 @@ function wcagHelper() {
     contentStart();
     mobileModal();
     tempCleanup();
+    imageFocus();
   }
 
   window.addEventListener('DOMContentLoaded', init);
