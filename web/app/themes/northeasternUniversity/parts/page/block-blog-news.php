@@ -52,7 +52,10 @@ $news  = $news_manual_selection ? $news_manual_posts : $query_news->posts;
 									<div class="post-card__wrapper">
 									<?php if ( ! empty( $thumbnail ) ) : ?>
 										<figure class="post-card__thumbnail">
-											<a href="<?php echo $permalink; ?>"><?php echo $thumbnail; ?></a>
+											<a href="<?php echo $permalink; ?>">
+												<span class="sr-only"><?php echo $title; ?></span>
+												<?php echo $thumbnail; ?>
+											</a>
 										</figure>
 									<?php endif; ?>
 										<div class="post-card__content">
