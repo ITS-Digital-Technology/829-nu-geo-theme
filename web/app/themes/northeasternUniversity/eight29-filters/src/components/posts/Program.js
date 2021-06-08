@@ -108,7 +108,7 @@ function post(props) {
     }
 
     terms = terms.map((term,i)=>(
-        <a key={i} className="program-card__info-term" href={term.link}>{term['name'].replace('&amp;', '&')}
+        <a key={i} className="program-card__info-term" aria-label={`${term['name']} programs.`} href={term.link}>{term['name'].replace('&amp;', '&')}
         {i < terms.length - 1 ? ", " : null}</a>
     ));
 
@@ -126,11 +126,11 @@ function post(props) {
                 <div className="program-card__info-location">
                     <span className="program-card__info-name program-card__info-name-location ">Location: </span>
                     {city ?
-                    <a href={city[0].link} className="program-card__info-city" dangerouslySetInnerHTML={{__html:city[0].name + ", "}}/>
+                    <a href={city[0].link} className="program-card__info-city" aria-label={`${city[0].name} programs.`} dangerouslySetInnerHTML={{__html:city[0].name + ", "}}/>
                     : null
                     }
                     {country ?
-                    <a href={country[0].link} className="program-card__info-country" dangerouslySetInnerHTML={{__html:country[0].name}}/>
+                    <a href={country[0].link} className="program-card__info-country" aria-label={`${country[0].name} programs.`} dangerouslySetInnerHTML={{__html:country[0].name}}/>
                     : null
                     }
                 </div>

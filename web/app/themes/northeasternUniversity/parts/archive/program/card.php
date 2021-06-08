@@ -49,10 +49,10 @@ $class_status = isset( $class_status ) ? $class_status : false;
 				<div class="program-card__info-location">
 					<span class="program-card__info-name-location program-card__info-name"><?php _e( 'Location: ', 'northeasternUniversity' ); ?></span>
 					<?php if ( ! empty( $city ) ) : ?>
-					<a href="<?php echo $city['url']; ?>" class="program-card__info-city"><?php echo $city['title'] . ', '; ?></a>
+					<a href="<?php echo $city['url']; ?>" class="program-card__info-city" aria-label="<?php echo $city['title']; ?> programs."><?php echo $city['title'] . ', '; ?></a>
 					<?php endif; ?>
 					<?php if ( ! empty( $country ) ) : ?>
-					<a href="<?php echo $country['url']; ?>" class="program-card__info-country"><?php echo $country['title']; ?></a>
+					<a href="<?php echo $country['url']; ?>" class="program-card__info-country" aria-label="<?php echo $country['title']; ?> programs."><?php echo $country['title']; ?></a>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -64,7 +64,7 @@ $class_status = isset( $class_status ) ? $class_status : false;
 					$len       = count( $terms );
 					foreach ( $terms as $term ) :
 						?>
-					<a class="program-card__info-term" href="<?php echo get_term_link( $term->term_id ); ?>">
+					<a class="program-card__info-term" href="<?php echo get_term_link( $term->term_id ); ?>" aria-label="<?php echo $term->name; ?> programs.">
 						<?php
 							echo $term->name;
 						if ( $len > 1 ) {

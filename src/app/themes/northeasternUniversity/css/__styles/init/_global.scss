@@ -343,9 +343,18 @@ textarea {
 }
 
 figure.post-card__thumbnail,
-button {
+button,
+.post-card__thumbnail > a {
     &:focus {
         outline: $outline !important;
+    }
+}
+
+.post-card__thumbnail > a {
+    border: 2px solid transparent;
+    
+    &.focused {
+        border: $outline !important;
     }
 }
 
