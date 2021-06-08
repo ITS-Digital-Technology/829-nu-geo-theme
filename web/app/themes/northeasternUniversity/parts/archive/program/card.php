@@ -26,7 +26,7 @@ $class_status = isset( $class_status ) ? $class_status : false;
 
 		<?php if ( ! empty( $thumbnail ) ) : ?>
 			<figure class="program-card__thumbnail">
-			<a href="<?php echo esc_url( $link_url ); ?>"><?php echo $thumbnail; ?></a>
+			<a href="<?php echo esc_url( $link_url ); ?>"><span class="sr-only"><?php echo $title; ?></span><?php echo $thumbnail; ?></a>
 			</figure>
 		<?php endif; ?>
 
