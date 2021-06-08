@@ -329,7 +329,6 @@ a {
 }
 
 a,
-button,
 input,
 select,
 textarea {
@@ -337,9 +336,16 @@ textarea {
         outline: none;
 
         html.user-tab-nav & {
-            outline: $outline;
+            outline: $outline !important;
             outline-offset: 0;
         }
+    }
+}
+
+figure.post-card__thumbnail,
+button {
+    &:focus {
+        outline: $outline !important;
     }
 }
 
