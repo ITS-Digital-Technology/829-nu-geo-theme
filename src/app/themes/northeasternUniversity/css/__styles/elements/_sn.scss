@@ -47,3 +47,13 @@
         }
     }
 }
+
+.content-steps__content {
+    a {
+        color: red !important;
+
+        &:hover {
+            color: $accent !important;
+        }
+    }
+}
