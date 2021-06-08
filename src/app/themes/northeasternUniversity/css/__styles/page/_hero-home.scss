@@ -1,7 +1,7 @@
 .page-hero-home {
     display: flex;
-
     flex-direction: column;
+
     // min-height: calc(100vh - #{rem(144)});
     // min-height: calc(var(--vh100, 1vh) * 100 - #{rem(144)});
 
@@ -19,14 +19,12 @@
 
     &__wrapper {
         display: flex;
-
         flex: 1;
         justify-content: flex-end;
-
         min-height: rem(560);
-
         position: relative;
         margin-bottom: 0;
+        background-color: #000;
 
         @include md {
             min-height: rem(380);
