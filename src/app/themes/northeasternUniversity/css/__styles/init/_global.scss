@@ -329,7 +329,6 @@ a {
 }
 
 a,
-button,
 input,
 select,
 textarea {
@@ -343,7 +342,8 @@ textarea {
     }
 }
 
-figure.post-card__thumbnail {
+figure.post-card__thumbnail,
+button {
     &:focus {
         outline: $outline !important;
     }
