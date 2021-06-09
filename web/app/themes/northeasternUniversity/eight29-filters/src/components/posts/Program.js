@@ -66,7 +66,7 @@ function post(props) {
 
         if (type && type.length > 0) {
             type = <div className="program-card__type-wrapper">
-                <a className="program-card__type" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
+                <a className="program-card__type" aria-label={`${type[0].name} programs.`} href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
             </div>
         }
     }
