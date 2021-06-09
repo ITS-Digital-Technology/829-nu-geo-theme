@@ -53,14 +53,14 @@ function post(props) {
 
 		if (type && type.length > 0) {
 			type = <div className="blog-post__card-cat">
-				<a className="blog-post__card-cat-link" href={type[0].link} dangerouslySetInnerHTML={{ __html: type[0].name }} />
+				<a className="blog-post__card-cat-link" aria-label={`${type[0].name} blog posts.`} href={type[0].link} dangerouslySetInnerHTML={{ __html: type[0].name }} />
 			</div>
 		}
 	}
 
 	if (post.author && post.author !== 'Northeastern University' && displayAuthor) {
 		author = <div className="blog-post__card-author">
-			<a href={post._embedded['author'][0]['link']} className="block-post__card__author-link" dangerouslySetInnerHTML={{ __html: "By " + post.author }} />
+			<a href={post._embedded['author'][0]['link']} className="block-post__card__author-link" aria-label={`${post.author} blog posts.`} dangerouslySetInnerHTML={{ __html: "By " + post.author }} />
 
 		</div>
 	}

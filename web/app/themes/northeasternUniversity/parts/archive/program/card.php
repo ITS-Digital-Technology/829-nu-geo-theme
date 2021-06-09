@@ -33,7 +33,9 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		<div class="program-card__content">
 		<?php if ( ! empty( $type ) ) : ?>
 			<div class="program-card__type-wrapper">
-				<a class="program-card__type" href="<?php echo $type['url']; ?>"><?php echo $type['title']; ?></a>
+				<a class="program-card__type" href="<?php echo $type['url']; ?>" aria-label="<?php echo $type['title']; ?> programs.">
+					<?php echo $type['title']; ?>
+				</a>
 			</div>
 		<?php endif; ?>
 
