@@ -60,7 +60,7 @@ $related_class = count($events) === 0 ? 'no-related-events' : '';
 					endforeach;
 				else :
 					?>
-						<h2 class="col-12 text-center"><?php esc_html_e( 'Sorry, nothing found', 'northeasternUniversity' ); ?></h2>
+						<span class="col-12 text-center h2"><?php esc_html_e( 'Sorry, nothing found', 'northeasternUniversity' ); ?></span>
 					<?php
 				endif;
 				?>
