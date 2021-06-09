@@ -40,7 +40,7 @@ if ( strpos( $video_url, 'wistia' ) !== false ) {
 				<?php else : ?>
 					<div data-video="<?php echo $video_src; ?>" class="block-overview__video js-play-lightbox-video" aria-label="<?php _e( 'Play Video', 'northeasternUniversity' ); ?>">
 						<figure class="block-overview__image block-overview__image--video">
-							<img src="<?php echo $img_src; ?>" alt="Video Thumbnail">
+							<img src="<?php echo $img_src; ?>" alt="Video Thumbnail.">
 							<button class="block-overview__video-button" aria-label='Play Video'></button>
 						</figure>
 					</div>
