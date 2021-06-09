@@ -49,7 +49,7 @@ if ( $gallery ) :
 				<div class="col-6 col-xl-<?php echo $column;?> block-gallery-video__thumb-col">
                     <button data-video="<?php echo $video_src; ?>" class="block-gallery-video__single-thumb js-play-lightbox-video" aria-label="<?php echo $title; ?>">
                         <figure class="block-gallery-video__single-thumb-wrapper">
-                        <img src="<?php echo $img_src; ?>" alt="Video Thumbnail">
+                        <img src="<?php echo $img_src; ?>" alt="Video Thumbnail.">
                         <span class="block-gallery-video__single-thumb-button"></span>
                         </figure>
                     <?php if ( $title ) : ?>
