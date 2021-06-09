@@ -1,6 +1,16 @@
 .event-hero {
     position: relative;
 
+    > .event-hero__wrapper {
+        > .container {
+            > .row:first-child {
+                > .col-12 {
+                    background-color: #1f1f1f;
+                }
+            }
+        }
+    }
+
     &:after {
         content: "";
 
