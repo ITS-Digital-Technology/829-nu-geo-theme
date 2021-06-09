@@ -20,10 +20,11 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 ?>
 <article class="event-card col-12 col-lg-4 <?php if ( empty( $image ) ) { echo 'event-card--no-image'; } ?>">
 	<div class="news-card__container">
-		<!-- <a class="event-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo $title; ?>"></a> -->
 		<div class="event-card__wrapper">
 			<?php if ( ! empty( $cat ) ) : ?>
-				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="event-card__cat d-none d-lg-block"><?php echo esc_html( $cat['title'] ); ?></a>
+				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="event-card__cat d-none d-lg-block" aria-label="<?php echo esc_html( $cat['title'] ); ?> events.">
+					<?php echo esc_html( $cat['title'] ); ?>
+				</a>
 			<?php endif; ?>
 			<?php if ( ! empty( $image ) ) : ?>
 				<a href="<?php echo esc_url( $permalink ); ?>">
@@ -34,7 +35,9 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 			<?php endif; ?>
 			<div class="event-card__content">
 			<?php if ( ! empty( $cat ) ) : ?>
-				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="event-card__cat d-lg-none"><?php echo esc_html( $cat['title'] ); ?></a>
+				<a href="<?php echo esc_url( $cat['url'] ); ?>" class="event-card__cat d-lg-none" aria-label="<?php echo esc_html( $cat['title'] ); ?> events.">
+					<?php echo esc_html( $cat['title'] ); ?>
+				</a>
 			<?php endif; ?>
 				<span class="event-card__title h3">
 					<a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
