@@ -350,11 +350,14 @@ button,
     }
 }
 
-.post-card__thumbnail > a {
-    border: 2px solid transparent;
+.post-card__thumbnail,
+.program-card__thumbnail {
+    > a {
+        border: 2px solid transparent;
     
-    &.focused {
-        border: $outline !important;
+        &.focused {
+            border: $outline !important;
+        }
     }
 }
 

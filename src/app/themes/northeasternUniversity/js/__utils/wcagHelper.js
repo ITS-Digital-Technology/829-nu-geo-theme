@@ -666,7 +666,7 @@ function wcagHelper() {
   }
 
   function imageFocus() {
-    const elements = document.querySelectorAll('.post-card__thumbnail > a');
+    const elements = document.querySelectorAll('.post-card__thumbnail > a, .program-card__thumbnail > a');
 
     if (elements) {
       elements.forEach(element => {
