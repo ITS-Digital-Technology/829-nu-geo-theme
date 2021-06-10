@@ -48,9 +48,11 @@
                 "id": ""
             },
             "choices": {
-                "open": "Open",
-                "full": "Full",
-                "pending": "Pending"
+                "Open": "Open",
+                "Full": "Full",
+                "Pending": "Pending",
+                "Cancelled": "Cancelled",
+                "Closed": "Closed"
             },
             "default_value": "open",
             "allow_null": 0,
@@ -114,5 +116,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614100762
+    "modified": 1623333249
 }

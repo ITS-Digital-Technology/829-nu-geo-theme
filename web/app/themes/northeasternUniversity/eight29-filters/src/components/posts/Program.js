@@ -47,12 +47,20 @@ function post(props) {
     }
 
     //status
-    if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='open') {
+    if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Open') {
         status = <span className="program-card__status status-open">Open</span>
-    } else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='pending') {
+    } 
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Pending') {
         status = <span className="program-card__status status-pending">Pending</span>
-    } else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='full') {
+    } 
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Full') {
         status = <span className="program-card__status status-full">Full</span>
+    }
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Cancelled') {
+        status = <span className="program-card__status status-cancelled">Cancelled</span>
+    }
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Closed') {
+        status = <span className="program-card__status status-closed">Closed</span>
     }
 
     //type

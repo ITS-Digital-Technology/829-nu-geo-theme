@@ -98,6 +98,8 @@ function create_programs_json() {
     $locations = $program_data->DETAILS->LOCATIONS->LOCATION;
     $program_name = $program_data->DETAILS->PROGRAM_NAME;
     $program_deadline = false;
+    $program_active = $program_data->DETAILS->PROGRAM_ACTIVE;
+    $program_active = $program_active === 1 ? 'publish' : 'draft'; 
 
     if ($program_data->DETAILS->DATES->DATE->APP_DEADLINE) {
       $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
@@ -133,6 +135,7 @@ function create_programs_json() {
     $program_data->DETAILS->CUSTOM->PROGRAM_ID = check_data($program_id);
     $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
     $program_data->DETAILS->CUSTOM->PROGRAM_DEADLINE = $program_deadline;
+    $program_data->DETAILS->CUSTOM->PROGRAM_ACTIVE = $program_active;
     $program_data->DETAILS->CUSTOM->LAST_UPDATED = $formatted_time;
     //$program_data->DETAILS->CUSTOM->FEATURED_IMAGE = $featured_image;
 
@@ -141,6 +144,7 @@ function create_programs_json() {
       $fields_of_study = [];
       $partners = [];
       $program_mode = [];
+      $program_tracks = [];
       $program_status = '';
       $internship = false;
 
@@ -163,6 +167,10 @@ function create_programs_json() {
           array_push($program_mode, $parameter->PARAM_VALUE);
         }
 
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Tracks') {
+          array_push($program_tracks, $parameter->PARAM_VALUE);
+        }
+
         if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
           $program_status = $parameter->PARAM_VALUE;
         }
@@ -172,10 +180,13 @@ function create_programs_json() {
         }
       }
 
+      $program_tracks = implode('| ', $program_tracks); //has commas in it...
+
       $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
       $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode) ? stringify($program_mode) : false;
+      $program_data->DETAILS->CUSTOM->PROGRAM_TRACKS = check_data($program_tracks) ? $program_tracks : false;
       $program_data->DETAILS->CUSTOM->PROGRAM_STATUS = check_data($program_status);
       $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
     }
