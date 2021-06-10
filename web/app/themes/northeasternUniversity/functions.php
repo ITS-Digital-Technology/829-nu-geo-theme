@@ -145,6 +145,7 @@ function create_programs_json() {
       $partners = [];
       $program_mode = [];
       $program_tracks = [];
+      $class_type = [];
       $program_status = '';
       $internship = false;
 
@@ -171,6 +172,10 @@ function create_programs_json() {
           array_push($program_tracks, $parameter->PARAM_VALUE);
         }
 
+        if ($parameter->PROGRAM_PARAM_TEXT === 'Colleges and Schools') {
+          array_push($class_type, $parameter->PARAM_VALUE);
+        }
+
         if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
           $program_status = $parameter->PARAM_VALUE;
         }
@@ -181,12 +186,12 @@ function create_programs_json() {
       }
 
       $program_tracks = implode('| ', $program_tracks); //has commas in it...
-
       $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
       $program_data->DETAILS->CUSTOM->PROGRAM_MODE = check_data($program_mode) ? stringify($program_mode) : false;
       $program_data->DETAILS->CUSTOM->PROGRAM_TRACKS = check_data($program_tracks) ? $program_tracks : false;
+      $program_data->DETAILS->CUSTOM->CLASS_TYPE = check_data($class_type) ? stringify($class_type) : false;
       $program_data->DETAILS->CUSTOM->PROGRAM_STATUS = check_data($program_status);
       $program_data->DETAILS->CUSTOM->INTERNSHIP = check_data($internship);
     }
