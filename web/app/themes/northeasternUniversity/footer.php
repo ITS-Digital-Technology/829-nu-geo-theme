@@ -19,7 +19,14 @@
 </div> <!-- /#page -->
 <?php wp_footer(); ?>
 <script type="text/javascript">
-console.log("Dillip");
+$(document).ready(function(){
+$(".btn-hamburger").click(function(){
+$(this).addAttr("aria-expanded","true");
+
+});
+
+
+});
 </script>
 </body>
 </html>
