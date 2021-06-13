@@ -18,6 +18,8 @@
     </footer>
 </div> <!-- /#page -->
 <?php wp_footer(); ?>
-
+<script type="text/javascript">
+console.log("Dillip");
+</script>
 </body>
 </html>
