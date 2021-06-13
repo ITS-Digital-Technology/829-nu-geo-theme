@@ -9,7 +9,7 @@
  * @since      defaultTheme 1.0
  */
 
-get_theme_part( 'html-head' );
+//get_theme_part( 'html-head' );
 ?>
 
 <body <?php body_class(); ?>>
