@@ -20,6 +20,8 @@
 <?php wp_footer(); ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
+$(".more-filters").attr("role","alert");
+$(".more-filters").attr("aria-live","Polite");
 $(".main-header__hamburger").click(function(){
 if($(this).hasClass("open")){
 $(this).attr("aria-expanded","true");
