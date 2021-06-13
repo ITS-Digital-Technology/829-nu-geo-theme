@@ -21,7 +21,7 @@
 <script type="text/javascript">
 jQuery(document).ready(function($){
 $(".main-header__hamburger").click(function(){
-if($(this).hasClass("open"){
+if($(this).hasClass("open")){
 console.log("HI");
 $(this).attr("aria-expanded","false");
 }else{
