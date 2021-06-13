@@ -20,6 +20,7 @@
 <?php wp_footer(); ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
+console.log("HI");
 $(".more-filters").attr("role","alert");
 $(".more-filters").attr("aria-live","Polite");
 $(".main-header__hamburger").click(function(){
