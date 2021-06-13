@@ -24,7 +24,7 @@ $log_in_link = get_field('h_log_in_link', 'options');
             <button class="main-header__info-for" role="application">
                 <?php echo __('Info for...', 'northeasternUniversity'); ?>
             </button>
-            <?php wp_nav_menu( array( 'theme_location' => 'info_for', 'container' => false ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'info_for', 'container' => false ) ); ?> 
         </div>
     </div>
 </div>
