@@ -19,7 +19,7 @@
 </div> <!-- /#page -->
 <?php wp_footer(); ?>
 <script type="text/javascript">
-$(document).ready(function(){
+jQuery(document).ready(function($){
 $(".btn-hamburger").click(function(){
 $(this).addAttr("aria-expanded","true");
 
