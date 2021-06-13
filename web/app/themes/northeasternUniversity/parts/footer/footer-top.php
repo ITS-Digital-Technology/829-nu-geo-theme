@@ -20,7 +20,7 @@ $logo             = get_svg( $logo );
 				<div class="col-12 col-lg-3">
 				<?php if ( ! empty( $logo ) ) : ?>
 					<figure class="footer-top__logo">
-						<img src="<?php echo $logo; ?>" alt="Northeaster University  Global Experience">
+						<?php echo $logo; ?>
 					</figure>
 				<?php endif; ?>
 				<?php if ( ! empty( $address ) ) : ?>
