@@ -27,6 +27,8 @@
     $("#menu-information-1").removeAttr("role");
     $("#menu-information-1 li a").removeAttr("role");
     
+    $("#students h2:first").focus();
+    
     
     $("#nu-global-header :button").click(function() {
       if ($(this).attr("aria-expanded") == "false") {
