@@ -44,6 +44,9 @@
       $("#filter-staff_category :button").attr("aria-selected", "false");
       $(this).attr("aria-selected", "true")
     });
+    $(".load-more-btn").find(":button").click(function(){
+      console.log("here");
+    });
    
     $(".main-header__hamburger").click(function() {
       if ($(this).hasClass("open")) {
