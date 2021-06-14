@@ -38,7 +38,7 @@
         $(this).focus();
       }
     });
-    $("#filter-staff_category :button").click(function() {
+    $("#98").click(function() {
      console.log("HERE");
     
       $("#filter-staff_category :button").attr("aria-selected", "false");
