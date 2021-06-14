@@ -18,6 +18,34 @@
     </footer>
 </div> <!-- /#page -->
 <?php wp_footer(); ?>
+< script type = "text/javascript" >
+  jQuery(document).ready(function($) {
+    console.log("HI");
+    $(".more-filters").attr("role", "alert");
+    $(".more-filters").attr("aria-live", "Polite");
+    $("#nu-global-header :button").click(function() {
+      if ($(this).attr("aria-expanded") == "false") {
+        console.log("HERE");
+        $(this).focus();
+      }
+    });
+    $("#filter-staff_category :button").click(function() {
+      $("#filter-staff_category :button").attr("aria-selected", "false");
+      $(this).attr("aria-selected", "false")
+    });
+    $(".main-header__hamburger").click(function() {
+      if ($(this).hasClass("open")) {
+        $(this).attr("aria-expanded", "true");
+      } else {
+        $(this).attr("aria-expanded", "false");
+      }
+
+    });
+
+
+  }); <
+/script>
+
 
 </body>
 </html>
