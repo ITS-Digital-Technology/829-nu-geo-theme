@@ -39,8 +39,10 @@
       }
     });
     $("#filter-staff_category :button").click(function() {
+     console.log("HERE");
+    
       $("#filter-staff_category :button").attr("aria-selected", "false");
-      $(this).attr("aria-selected", "false")
+      $(this).attr("aria-selected", "true")
     });
    
     $(".main-header__hamburger").click(function() {
