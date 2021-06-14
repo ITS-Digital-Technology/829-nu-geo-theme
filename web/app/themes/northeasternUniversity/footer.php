@@ -29,6 +29,8 @@
     
     $("#students h2:first").focus();
     
+    $("#filter-staff_category .active").attr("aria-selected", "false");
+    
     
     $("#nu-global-header :button").click(function() {
       if ($(this).attr("aria-expanded") == "false") {
