@@ -24,6 +24,9 @@
     $(".more-filters").attr("role", "alert");
     $(".more-filters").attr("aria-live", "Polite");
     
+    $("menu-information-1").removeAttr("role");
+    $("menu-information-1 li a").removeAttr("role");
+    
     
     $("#nu-global-header :button").click(function() {
       if ($(this).attr("aria-expanded") == "false") {
