@@ -29,7 +29,7 @@
     
     $("#students h2:first").focus();
     
-   // $("#filter-staff_category .active").attr("aria-selected", "true");
+    $("#filter-staff_category .button-wrap :button .active").attr("aria-selected", "true");
     
     
     $("#nu-global-header :button").click(function() {
