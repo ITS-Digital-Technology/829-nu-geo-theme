@@ -18,7 +18,7 @@
     </footer>
 </div> <!-- /#page -->
 <?php wp_footer(); ?>
-< script type = "text/javascript" >
+<script type = "text/javascript">
   jQuery(document).ready(function($) {
     console.log("HI");
     $(".more-filters").attr("role", "alert");
@@ -43,8 +43,8 @@
     });
 
 
-  }); <
-/script>
+  }); 
+</script>
 
 
 </body>
