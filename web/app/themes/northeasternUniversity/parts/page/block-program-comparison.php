@@ -9,7 +9,7 @@ $programs = get_sub_field( 'programs' );
 			<div class="row">
 				<div class="col-12">
 				<?php if ( ! empty( $title ) ) : ?>
-					<h2 class="block-program-comparison__title"><?php echo $title; ?></h2>
+					<span class="block-program-comparison__title h2"><?php echo $title; ?></span>
 				<?php endif; ?>
 				<?php if ( ! empty( $programs ) ) : ?>
 					<div class="block-program-comparison__programs">
