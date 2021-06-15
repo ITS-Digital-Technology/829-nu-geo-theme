@@ -38,6 +38,7 @@
         $(this).focus();
       }
     });
+    $(".block-program-comparison__programs-article").removeAttr("aria-hidden");
     $("#98").click(function() {
      console.log("HERE");
     
