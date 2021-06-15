@@ -363,12 +363,7 @@ function sidebar(props) {
             <div className="eight29-sidebar-top">
                 <div className="container">
                     <div className="eight29-sidebar-content">
-                        <div 
-                        role={aria.role}
-                        aria-modal={aria.modal}
-                        aria-label={aria.label}
-                        className="sr-wrapper"
-                        >
+                        <div>
                             {modalClose}
                             <div className="eight29-sidebar-content-scroll">
                                 {content}
