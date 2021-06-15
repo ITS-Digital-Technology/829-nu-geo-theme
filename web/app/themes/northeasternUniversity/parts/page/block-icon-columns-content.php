@@ -9,7 +9,7 @@ $columns  = get_sub_field( 'columns' );
 			<div class="row">
 				<div class="col-12">
 				<?php if ( ! empty( $title ) ) : ?>
-					<h2 class="block-icon-columns-content__title"><?php echo $title; ?></h2>
+					<span class="block-icon-columns-content__title h2"><?php echo $title; ?></span>
 				<?php endif; ?>
 				<?php if ( ! empty( $columns ) ) : ?>
 					<div class="block-icon-columns-content__columns">
