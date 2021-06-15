@@ -34,9 +34,9 @@ if ( $query->have_posts() ) :
 	<div class="related-blog-posts__pattern"></div>
 	<div class="container">
 		<div class="related-blog-posts__heading-wrapper">
-			<h2 class="related-blog-posts__heading">
+			<span class="related-blog-posts__heading h2">
 				<?php echo $related_heading; ?>
-			</h2>
+			</span>
 			<a 
 				href="<?php echo $related_link; ?>" <?php echo $related_link_target; ?> 
 				class="related-blog-posts__all-posts c-btn c-btn-tertiary c-btn-color-normal"
