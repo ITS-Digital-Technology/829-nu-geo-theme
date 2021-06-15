@@ -362,6 +362,12 @@ button,
     }
 }
 
+input[type="search"] {
+    &:focus {
+        border: $outline !important;
+    }
+}
+
 .text-center {
     text-align: center;
 }
