@@ -65,7 +65,7 @@ function FilterContainer(props) {
       <label htmlFor={`select-${filterId}`} onClick={() => toggleOpen()} className={countClass()} data-count={count}>
         {label}
       </label>
-      {(terraDotta && terraDotta.title && terraDotta.text) && <span tabIndex="0" className="btn-info" title={terraDotta.tooltip} aria-label={terraDotta.tooltip}>
+      {(terraDotta && terraDotta.title && terraDotta.text) && <span role="img" tabIndex="0" className="btn-info" title={terraDotta.tooltip} aria-label={terraDotta.tooltip}>
           <span className="icon-information-button"></span>
         </span>}
     </div>

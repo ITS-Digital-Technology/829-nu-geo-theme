@@ -83,14 +83,28 @@
                 background-color: $warning;
             }
         }
+
         &.status-full {
             &:before {
                 background-color: $error;
             }
         }
+
         &.status-open {
             &:before {
                 background-color: $success;
+            }
+        }
+
+        &.status-closed {
+            &:before {
+                background-color: $error;
+            }
+        }
+
+        &.status-cancelled {
+            &:before {
+                background-color: $error;
             }
         }
     }
