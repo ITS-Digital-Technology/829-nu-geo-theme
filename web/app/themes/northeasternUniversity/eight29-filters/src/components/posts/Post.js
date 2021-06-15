@@ -81,9 +81,9 @@ function post(props) {
 				
 				<div className="blog-post__card-content">
 					{type}
-					<h3 className="blog-post__card-title">
+					<span className="blog-post__card-title h3">
 						<a className="blog-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
-					</h3>
+					</span>
 					{author}
 				</div>
 			</div>
