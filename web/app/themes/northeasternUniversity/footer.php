@@ -33,6 +33,7 @@
     
     
     $("#nu-global-header :button").click(function() {
+    console.log("HERE");
       if ($(this).attr("aria-expanded") == "false") {
         console.log("HERE");
         $(this).focus();
