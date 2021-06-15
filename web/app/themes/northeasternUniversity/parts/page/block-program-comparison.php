@@ -96,7 +96,7 @@ $programs = get_sub_field( 'programs' );
 								</div>
 								<?php if ( $show_button ) : ?>
 								<div class="block-program-comparison__programs-information-button">
-									<button class="c-btn c-btn-secondary c-btn-color-normal">
+									<button class="c-btn c-btn-secondary c-btn-color-normal" role="alert" aria-live="Assertive">
 										<span><?php esc_html_e( 'Compare Results', 'northeasternUniversity' ); ?></span>
 										<span><?php esc_html_e( 'Hide Results', 'northeasternUniversity' ); ?></span>
 										<span class="c-btn-icon"><span class="icon-arrow-downward"></span></span>
