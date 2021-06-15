@@ -33,12 +33,11 @@
     
     
     $("#nu-global-header :button").click(function() {
-        console.log("!@#");
-        $(this).focus();
+         $(this).focus();
      });
     $(".block-program-comparison__programs-article").removeAttr("aria-hidden");
-    $("#98").click(function() {
-     console.log("HERE");
+    $("#filter-staff_category :button").click(function() {
+     console.log("staff");
     
       $("#filter-staff_category :button").attr("aria-selected", "false");
       $(this).attr("aria-selected", "true")
