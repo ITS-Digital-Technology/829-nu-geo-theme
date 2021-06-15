@@ -12,7 +12,7 @@ $posts            = $manual_selection ? $posts : get_posts( $args_posts );
 <section class="block-blog-latest-post">
 	<div class="container">
 		<div class="latest-post__title-wrapper">
-			<h3 class="latest-post__title"><?php echo $title; ?></h3>
+			<span class="latest-post__title h3"><?php echo $title; ?></span>
 		</div>
 		<?php if ( ! empty( $posts ) ) : ?>
 		<div class="row">
