@@ -23,6 +23,9 @@
     console.log("HI");
     $(".more-filters").attr("role", "alert");
     $(".more-filters").attr("aria-live", "Polite");
+    $(".eight29-pagination-list button.current-page").attr("aria-label", "Active");
+    $("div.no-results").attr("aria-label", "No result found");
+    
     
     $("#menu-information-1").removeAttr("role");
     $("#menu-information-1 li a").removeAttr("role");

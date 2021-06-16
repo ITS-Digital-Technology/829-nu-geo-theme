@@ -62,12 +62,12 @@ if ( ! empty( $columns ) ) {
 <?php endif; ?>
 <?php if ( ! empty( $about_content ) ) : ?>
 	<section class="staff-about">
-		<span class="staff-about__title h3">
+		<h2 class="staff-about__title h3">
 			<?php
 			echo esc_html_e( 'About', 'northeasternUniversity' );
 			echo ' ' . $name;
 			?>
-		</span>
+		</h2>
 		<div class="staff-about__wrapper"><?php echo $about_content; ?></div>
 	</section>
 <?php endif; ?>

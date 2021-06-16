@@ -10,7 +10,7 @@ $featured_events = isset( $featured_events ) ? $featured_events : get_field( 'eo
 				<?php if ( ! empty( $events_title ) ) : ?>
 					<h1 class="event-hero__title"><?php echo esc_html( $events_title ); ?></h1>
 				<?php endif; ?>
-				<span class="event-hero__subtitle h3"><span><?php esc_html_e( 'Featured', 'northeasternUniversity' ); ?></span></span> 
+				<h2 class="event-hero__subtitle h3"><span><?php esc_html_e( 'Featured', 'northeasternUniversity' ); ?></span></h2> 
 				</div>
 			</div>
 			<?php if ( ! empty( $featured_events ) ) : ?>
