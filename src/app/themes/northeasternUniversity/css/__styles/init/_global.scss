@@ -371,6 +371,17 @@ button,
     }
 }
 
+.content-link-wrapper {
+    a {
+        border: 2px solid transparent;
+        display: block;
+
+        &:focus {
+            border: $outline;
+        }
+    }
+}
+
 input[type="search"] {
     &:focus {
         border: $outline !important;
