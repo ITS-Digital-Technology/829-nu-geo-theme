@@ -21,11 +21,13 @@ function staff(props) {
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
         featuredImage =
             <figure className="staff-card__thumbnail">
-                <FeaturedImage
-                    imageSize={'staff-card'}
-                    image={post._embedded['wp:featuredmedia']}
-                    srcset={post.featured_image_srcset}
-                ></FeaturedImage>
+                <a href={post.link}>
+                    <FeaturedImage
+                        imageSize={'staff-card'}
+                        image={post._embedded['wp:featuredmedia']}
+                        srcset={post.featured_image_srcset}
+                    ></FeaturedImage>
+                </a>
             </figure>
     }
 
@@ -60,9 +62,7 @@ function staff(props) {
 
     return (
         <article id={`${postType}-${post.id}`} className="staff-card">
-            <a href={post.link}>
-                {featuredImage}
-            </a>
+            {featuredImage}
 
             <div className="staff-card__content">
                 <div className="staff-card__category">
