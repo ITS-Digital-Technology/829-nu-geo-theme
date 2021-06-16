@@ -35,7 +35,7 @@ $cta_button  = isset( $cta_button ) ? $cta_button : get_sub_field( 'cta_button' 
                             <div class="<?php echo $class_col; ?>">
                                 <div class="content-steps__step">
                                 <?php if ( ! empty( $number ) ) : ?>
-                                    <p class="content-steps__step-number"><?php echo $number; ?></p>
+                                    <h2 class="content-steps__step-number"><?php echo $number; ?></h2>
                                 <?php endif; ?>
                                 <?php if ( ! empty( $title ) ) : ?>
                                     <p class="content-steps__step-title"><?php echo $title; ?></p>
