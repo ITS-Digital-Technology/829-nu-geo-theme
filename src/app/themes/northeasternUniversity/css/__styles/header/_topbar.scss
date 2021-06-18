@@ -571,6 +571,19 @@ a.skip-main:active {
     z-index: 999;
 }
 
+.eight29-sidebar-top {
+    z-index: 9;
+}
+
+.post-type-archive-staff {
+    .eight29-sidebar-top {
+        a.skip-main:focus {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
 #neu-external-menu {
     width: 48px;
     height: 48px;
