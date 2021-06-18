@@ -284,6 +284,7 @@ function sidebar(props) {
             {postType === 'program' ? searchComponent : ''}
             {filterList}
             {moreFiltersButton}
+            <a id="the-skip-link" href="#after-posts" className="skip-main">Skip after posts</a>
         </div>
     } 
     else {
@@ -350,8 +351,22 @@ function sidebar(props) {
         });
     });
 
+    function skipAfterPosts() {
+        const theSkipLink = document.querySelector('#the-skip-link');
+        const linksAfterPosts = document.querySelectorAll('.posts-list + div a, .posts-list + section a, .posts-list + footer a');
+        const linkAfterPosts = linksAfterPosts && linksAfterPosts[0] ? linksAfterPosts[0] : document.querySelector('.main-footer a.footer-top__phone');
+
+        if (theSkipLink && linkAfterPosts){
+            theSkipLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                linkAfterPosts.focus();
+            });
+        }
+    }
+
     useEffect(() => {
         updateAria.observe(body);
+        skipAfterPosts();
     }, []);
 
     useEffect(() => {
