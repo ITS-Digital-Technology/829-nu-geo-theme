@@ -681,6 +681,31 @@ function wcagHelper() {
     }
   }
 
+  function tablePress() {
+    const tables = document.querySelectorAll('.tablepress');
+
+    if (tables) {
+      tables.forEach(table => {
+        const tableHeaders = table.querySelectorAll('th');
+        const prevEl = table.previousElementSibling;
+
+        if (tableHeaders) {
+          tableHeaders.forEach(tableHeader => {
+            tableHeader.setAttribute('scope', 'col');
+          });
+        }
+
+        if (prevEl && prevEl.tagName === 'H2') {
+          const tableCaption = document.createElement('caption');
+          const prevElHTML = prevEl.innerHTML;
+
+          tableCaption.innerHTML = prevElHTML;
+          table.insertBefore(tableCaption, table.childNodes[0]);
+        }
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -715,8 +740,9 @@ function wcagHelper() {
     blockGalleryLightbox();
     contentStart();
     mobileModal();
-    tempCleanup();
     imageFocus();
+    tablePress();
+    tempCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);
