@@ -41,7 +41,7 @@ function staff(props) {
         const seperator = index === categories.length - 1 ? '' : ', ';
 
             return (
-                <>
+                <span key={index}>
                 <a
                     href={category.link}
                     className="staff-card__category"
@@ -49,7 +49,7 @@ function staff(props) {
                     data-cat={category.id}
                 >{category.name}</a>
                 {seperator}
-                </>
+                </span>
             );
         });
 
