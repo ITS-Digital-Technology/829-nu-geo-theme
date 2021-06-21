@@ -371,6 +371,10 @@ button,
     }
 }
 
+.blog .blog-post__card-thumbnail > a:focus {
+    border: $outline !important;
+}
+
 .content-link-wrapper {
     a {
         border: 2px solid transparent;
