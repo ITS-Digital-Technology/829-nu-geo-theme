@@ -21,13 +21,11 @@ function staff(props) {
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
         featuredImage =
             <figure className="staff-card__thumbnail">
-                <a href={post.link}>
-                    <FeaturedImage
-                        imageSize={'staff-card'}
-                        image={post._embedded['wp:featuredmedia']}
-                        srcset={post.featured_image_srcset}
-                    ></FeaturedImage>
-                </a>
+                <FeaturedImage
+                    imageSize={'staff-card'}
+                    image={post._embedded['wp:featuredmedia']}
+                    srcset={post.featured_image_srcset}
+                ></FeaturedImage>
             </figure>
     }
 
