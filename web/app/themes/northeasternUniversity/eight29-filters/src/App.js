@@ -606,7 +606,7 @@ function App(props) {
 
     function wcag() {
         const resultsMessage = document.querySelector('.eight29-sidebar-detail .eight29-results');
-        const firstPostLinks = document.querySelectorAll('.eight29-posts > article:first-child a');
+        const firstPostLinks = document.querySelectorAll('.eight29-posts > article:first-child a.main-post-link');
         const firstPostLink = firstPostLinks ? firstPostLinks[0] : false;
     
         if (resultsMessage && !initialLoad) {

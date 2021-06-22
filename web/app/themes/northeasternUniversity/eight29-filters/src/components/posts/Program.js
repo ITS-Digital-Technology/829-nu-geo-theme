@@ -80,7 +80,7 @@ function post(props) {
     }
 
     title= <span className="program-card__title">
-        <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
+        <a className="main-post-link" href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
     </span>
 
     //city

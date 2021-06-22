@@ -68,7 +68,7 @@ function staff(props) {
                 </div>
                 
                 <span className="staff-card__title">
-                    <a className="staff-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+                    <a className="staff-link main-post-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
                 </span>
                 
                 {position}

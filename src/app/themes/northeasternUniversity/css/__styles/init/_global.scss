@@ -375,7 +375,8 @@ button,
     border: $outline !important;
 }
 
-.staff-card__category {
+.staff-card__category,
+.main-post-link {
     &:focus {
         outline: $outline !important;
     }
