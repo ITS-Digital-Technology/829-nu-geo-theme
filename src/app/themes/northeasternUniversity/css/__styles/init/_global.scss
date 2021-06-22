@@ -375,6 +375,12 @@ button,
     border: $outline !important;
 }
 
+.staff-card__category {
+    &:focus {
+        outline: $outline !important;
+    }
+}
+
 .content-link-wrapper {
     a {
         border: 2px solid transparent;
