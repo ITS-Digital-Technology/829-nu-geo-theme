@@ -21,7 +21,7 @@ $log_in_link = get_field('h_log_in_link', 'options');
             </a>
         </div>
         <div class="main-header__bottom-menu">
-            <button class="main-header__info-for" role="application" aria-label="information" aria-controls="menu-info-for-1">
+            <button class="main-header__info-for" role="application" aria-label="information" aria-controls="menu-information-1">
                 <?php echo __('Info for...', 'northeasternUniversity'); ?>
             </button>
             <?php wp_nav_menu( array( 'theme_location' => 'info_for', 'container' => false ) ); ?> 
