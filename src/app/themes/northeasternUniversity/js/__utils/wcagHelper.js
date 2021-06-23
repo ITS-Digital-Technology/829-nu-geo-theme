@@ -713,7 +713,7 @@ function wcagHelper() {
 
     if (body.classList.contains('search') && searchResults) {
       //searchResults.focus();
-      searchResults.innerHTML = searchResultsText;
+      searchResults.querySelector('span').innerHTML = searchResultsText;
     }
   }
 
