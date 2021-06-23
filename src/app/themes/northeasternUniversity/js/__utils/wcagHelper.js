@@ -706,6 +706,15 @@ function wcagHelper() {
     }
   }
 
+  function searchPage() {
+    const body = document.body;
+    const searchResults = document.querySelector('.search-results-info');
+
+    if (body.classList.contains('search') && searchResults) {
+      searchResults.focus();
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -742,6 +751,7 @@ function wcagHelper() {
     mobileModal();
     imageFocus();
     tablePress();
+    searchPage();
     tempCleanup();
   }
 
