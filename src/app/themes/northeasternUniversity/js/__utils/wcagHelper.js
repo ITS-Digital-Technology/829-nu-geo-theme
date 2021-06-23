@@ -709,9 +709,11 @@ function wcagHelper() {
   function searchPage() {
     const body = document.body;
     const searchResults = document.querySelector('.search-results-info');
+    const searchResultsText = searchResults.getAttribute('data-results');
 
     if (body.classList.contains('search') && searchResults) {
-      searchResults.focus();
+      //searchResults.focus();
+      searchResults.innerHTML = searchResultsText;
     }
   }
 
