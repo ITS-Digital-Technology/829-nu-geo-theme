@@ -711,7 +711,6 @@ function wcagHelper() {
     const searchResults = document.querySelector('.search-results-info');
 
     if (body.classList.contains('search') && searchResults) {
-      document.title = searchResults.textContent;
       searchResults.focus();
     }
   }
