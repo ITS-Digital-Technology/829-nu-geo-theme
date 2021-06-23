@@ -15,7 +15,7 @@ $results            = $found_posts . __( ' results for ', 'northeasternUniversit
 			<div class="row">
 				<div class="col-12 col-lg-8">
 					<div class="posts-list">
-						<p role="alert" aria-live="assertive" class="search-results-info" tabindex="0"><?php echo $results; ?></p>
+						<p role="alert" aria-live="assertive" class="search-results-info" tabindex="0" data-results='<?php echo $results; ?>'></p>
 						<div class="posts-wrapper">
 						<?php
 						if ( have_posts() ) :
