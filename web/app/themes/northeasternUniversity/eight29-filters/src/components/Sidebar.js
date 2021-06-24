@@ -284,7 +284,7 @@ function sidebar(props) {
             {postType === 'program' ? searchComponent : ''}
             {filterList}
             {moreFiltersButton}
-            <a id="the-skip-link" href="#after-posts" className="skip-main">Skip after posts</a>
+            <a id="the-skip-link" href="#" className="skip-main">Skip after posts</a>
         </div>
     } 
     else {
