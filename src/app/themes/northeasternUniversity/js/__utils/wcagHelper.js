@@ -624,7 +624,7 @@ function wcagHelper() {
 
   function contentStart() {
     const header = document.querySelector('#main-header');
-    const content = document.querySelector('.page-content > section:first-child');
+    const content = document.querySelector('.page-content > section:nth-of-type(1)');
     const newDiv = document.createElement('div');
     const contentStart = document.createElement('a');
 
