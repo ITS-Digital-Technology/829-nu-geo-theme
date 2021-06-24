@@ -23,7 +23,6 @@ if ( $alert_show && ! empty( $alert_content ) && ! isset( $_COOKIE['hideAlertBar
 
 <body <?php body_class( implode( ' ', $body_class ) ); ?>>
 <div id="page">
-    <!-- <a class="skip-main" href="#contentstart">Skip to main content</a> -->
 	<header id="main-header" class="main-header"><?php
         get_theme_part(
             'header/alert-bar',
