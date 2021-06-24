@@ -26,7 +26,6 @@ if ( $bg_video ) {
 }
 
 ?>
-<!-- <a class="skip-main" href="#contentstart">Skip to main content</a> -->
 <section class="<?php echo implode( ' ', $block_class ); ?>">
 	<div class="page-hero-home__wrapper">
 		<?php
