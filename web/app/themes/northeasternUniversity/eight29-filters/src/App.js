@@ -617,7 +617,9 @@ function App(props) {
         }
 
         if (resultsMessage && from && from === 'filter-bar') {
-            resultsMessage.focus();
+            setTimeout(function() {
+                resultsMessage.focus();
+            }, 1000);
         }
 
         if (!initialLoad && postType !== 'program' && firstPostLink) {
