@@ -608,9 +608,16 @@ function App(props) {
         const resultsMessage = document.querySelector('.eight29-sidebar-detail .eight29-results');
         const firstPostLinks = document.querySelectorAll('.eight29-posts > article:first-child a.main-post-link');
         const firstPostLink = firstPostLinks ? firstPostLinks[0] : false;
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const from = urlParams.get('from');
     
         if (resultsMessage && !initialLoad) {
           resultsMessage.focus();
+        }
+
+        if (resultsMessage && from && from === 'filter-bar') {
+            resultsMessage.focus();
         }
 
         if (!initialLoad && postType !== 'program' && firstPostLink) {

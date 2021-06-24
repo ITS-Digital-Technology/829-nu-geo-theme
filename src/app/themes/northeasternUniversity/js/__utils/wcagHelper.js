@@ -514,7 +514,7 @@ function wcagHelper() {
                 selectionList += `p_${taxonomyName}=${selections[taxonomyName]}&`;
               }
 
-              const selectionString = `${searchButtonURL}?${selectionList}`;
+              const selectionString = `${searchButtonURL}&${selectionList}`;
               
               searchButton.setAttribute('href', selectionString);
             });
@@ -712,7 +712,7 @@ function wcagHelper() {
 
     if (body.classList.contains('search') && searchResults) {
       const searchResultsText = searchResults.getAttribute('data-results');
-      
+
       setTimeout(function() {
         searchResults.querySelector('span').innerHTML = searchResultsText;
       }, 1000);
