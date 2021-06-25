@@ -719,6 +719,21 @@ function wcagHelper() {
     }
   }
 
+  function comparePrograms() {
+    const buttons = document.querySelectorAll('.block-program-comparison__programs-article-buttons a');
+    const compareItems = document.querySelectorAll('.block-program-comparison__programs-article');
+
+    if (buttons && compareItems) {
+      buttons.forEach(button => {
+        button.removeAttribute('tabindex');
+      });
+
+      compareItems.forEach(compareItem => {
+        compareItem.removeAttribute('tabindex');
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -756,6 +771,7 @@ function wcagHelper() {
     imageFocus();
     tablePress();
     searchPage();
+    comparePrograms();
     tempCleanup();
   }
 

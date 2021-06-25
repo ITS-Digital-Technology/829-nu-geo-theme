@@ -344,7 +344,8 @@ textarea {
 
 figure.post-card__thumbnail,
 button,
-.post-card__thumbnail > a {
+.post-card__thumbnail > a,
+.block-program-comparison__programs-article-buttons > a {
     &:focus {
         outline: $outline !important;
     }
