@@ -20,7 +20,6 @@
 <?php wp_footer(); ?>
 <script type = "text/javascript">
   jQuery(document).ready(function($) {
-    console.log("HI");
     $(".more-filters").attr("role", "alert");
     $(".more-filters").attr("aria-live", "Polite");
     $(".eight29-pagination-list button.current-page").attr("aria-label", "Active");
@@ -40,13 +39,10 @@
      });
     $(".block-program-comparison__programs-article").removeAttr("aria-hidden");
     $("#filter-staff_category :button").click(function() {
-     console.log("staff");
-    
       $("#filter-staff_category :button").attr("aria-selected", "false");
       $(this).attr("aria-selected", "true")
     });
     $(".load-more-btn").find(":button").click(function(){
-      console.log("here");
     });
    
     $(".main-header__hamburger").click(function() {
