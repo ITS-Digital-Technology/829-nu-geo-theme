@@ -1,0 +1,271 @@
+.block-blog-hero {
+    padding: rem(82) 0 0 0;
+
+    position: relative;
+    z-index: 1;
+
+    background-color: $aqua;
+
+    @include md {
+        padding: rem(40) 0 0 0;
+
+        background-color: $gray-5;
+    }
+    &-wrapper {
+        position: relative;
+    }
+
+
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: rem(-120);
+        left: 0;
+
+        background-image: url(../images/icons/archive-blog/pattern.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% auto;
+
+        @include md {
+            bottom: 48.5%;
+        }
+    }
+    &:after {
+        pointer-events: none;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-color: $aqua;
+
+        @include md {
+            content: '';
+
+            height: 45%;
+        }
+    }
+    &__title {
+        margin-bottom: rem(13);
+
+        @include sm {
+            margin-bottom: rem(15);
+        }
+    }
+    &__desc {
+        @include font(26,40);
+
+        max-width: 50%;
+
+        margin: 0 auto;
+
+        font-weight: 400;
+
+        @include lg {
+            max-width: 70%;
+        }
+        @include md {
+            @include font(20,24);
+
+            max-width: 100%;
+        }
+    }
+    &__top-wrapper {
+        margin-bottom: rem(65);
+
+        text-align: center;
+
+        @include md {
+            margin-bottom: rem(40);
+        }
+    }
+    .featured-post-card {
+        position: relative;
+        &__link {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            &:hover {
+                & ~ .featured-post-card__wrapper  .featured-post-card__title {
+                    color: $accent;
+                }
+                & ~ .featured-post-card__wrapper .featured-post-card__thumbnail img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+        &__wrapper {
+            display: flex;
+
+            @include md {
+                flex-direction: column;
+            }
+        }
+        &__thumbnail {
+            flex: 0 0 66%;
+
+            max-width: 66%;
+            max-height: rem(480);
+
+            margin-bottom: rem(-100);
+
+            overflow: hidden;
+
+            @include lg {
+                flex: 0 0 55%;
+
+                max-width: 55%;
+            }
+            @include md {
+                flex: 0 0 100%;
+
+                max-width: 100%;
+
+                margin-bottom: rem(17);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+
+                transition: transform .2s;
+            }
+        }
+        &__content {
+            flex: 0 0 34%;
+
+            max-width: 34%;
+            padding-bottom: rem(30);
+            padding-left: rem(30);
+
+            @include lg {
+                flex: 0 0 45%;
+
+                max-width: 45%;
+            }
+            @include md {
+                flex: 0 0 100%;
+
+                max-width: 100%;
+                padding-left: 0;
+            }
+        }
+        &__title {
+            margin-bottom: rem(14);
+
+            @include sm {
+                margin-bottom: rem(6);
+            }
+        }
+        &__cat {
+            @include font(14,16);
+
+            margin-bottom: rem(26);
+
+            font-weight: 700;
+
+            @include sm {
+                @include font(12,16);
+
+                margin-bottom: rem(5);
+            }
+
+            a {
+                position: relative;
+                z-index: 3;
+
+                transition: color .2s;
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+        &__label {
+            @include font(12,16);
+
+            padding: rem(7) rem(12);
+
+            position: absolute;
+            z-index: 1;
+            top: rem(28);
+            left: rem(30);
+
+            font-weight: 700;
+            letter-spacing: rem(1.2);
+            text-transform: uppercase;
+
+            background-color: $color-white;
+
+            @include sm {
+                padding: rem(7) rem(12);
+
+                top: rem(8);
+                left: rem(8);
+            }
+        }
+        &__excerpt {
+            margin-bottom: rem(16);
+
+            @include sm {
+                margin-bottom: rem(10);
+            }
+        }
+        &__author {
+            @include font(14,16);
+
+            font-weight: 700;
+
+            @include sm {
+                @include font(12,16);
+            }
+
+            a {
+                position: relative;
+                z-index: 3;
+
+                transition: color .2s;
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}
+
+#page {
+    .featured-post-card {
+        h2,
+        .heading {
+            a {
+                color: $color-dark;
+                text-decoration: none;
+                font-weight: 700;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+    }
+}

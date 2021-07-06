@@ -1,0 +1,48 @@
+.block-program-tax-hero {
+    padding: rem(32) 0 rem(96);
+
+    @include sm {
+        padding: rem(16) 0 rem(48);
+    }
+
+    .program-tax {
+        &__btn {
+            @include font(16,24);
+
+            display: flex;
+
+            align-items: center;
+
+            font-weight: 700;
+
+            transition: color .2s;
+            &:hover {
+                color: $accent;
+            }
+            span:first-child {
+                margin-right: rem(3);
+            }
+        }
+        &__title-wrapper {
+            @include md {
+                margin-bottom: rem(15);
+            }
+        }
+        &__btn-wrapper {
+            margin-bottom: rem(80);
+
+            @include sm {
+                margin-bottom: rem(25);
+            }
+        }
+        &__desc {
+            @include font(26,40);
+
+            font-weight: 400;
+
+            @include sm {
+                @include font(20,24);
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.blog {
+    .eight29-sidebar {
+        margin-bottom: 0!important;
+
+        &-top {
+            padding: rem(25) 0 rem(20);
+
+            background-color: transparent;
+
+            @include md {
+                padding: rem(50) 0 rem(40);
+            }
+        }
+        &-bottom {
+            display: none;
+        }
+        .eight29-sidebar-top .accordion-select h6 {
+            display: none;
+        }
+    }
+
+    .eight29-sidebar-reset {
+        display: none;
+    }
+
+    .eight29-app .sidebar-top {
+        margin-bottom: 0;
+    }
+}

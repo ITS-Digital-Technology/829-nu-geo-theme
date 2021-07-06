@@ -1,0 +1,361 @@
+/* Main Header */
+.main-header {
+    filter: drop-shadow(0 0 rem(10) rgba(0, 0, 0, .1));
+
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    font-weight: 500;
+
+    background-color: $body-color;
+
+    transition: transform .2s;
+
+    &__top {
+        height: rem(48);
+
+        background: $color-black;
+
+        @include lg {
+            height: rem(43);
+        }
+    }
+
+    &__logo {
+        display: inline-block;
+
+        max-width: rem(200);
+
+        line-height: 1;
+
+        @include lg {
+            max-width: rem(170);
+        }
+    }
+
+    &__nav {
+        @include font(16, 24);
+
+        height: 100%;
+
+        position: static;
+
+        font-weight: bold;
+        color: $color-dark;
+
+        @include lg() {
+            @include font(14, 16);
+        }
+
+        @include md() {
+            display: none;
+        }
+
+        .highlight-text {
+            padding: 0;
+        }
+
+        li {
+            padding: 0 rem(7);
+        }
+
+        >.menu {
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: flex-end;
+
+            height: 100%;
+
+            >li {
+                padding: 0 rem(16);
+            }
+        }
+
+        a {
+            display: inline-block;
+
+            padding: rem(20) rem(21) rem(20) 0;
+
+            position: relative;
+
+            color: $text-color-base;
+
+            &:before {
+                content: '';
+
+                display: block;
+
+                height: rem(2);
+
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                background: transparent;
+
+                transition: background .2s linear;
+            }
+
+            &::after {
+                content: '';
+
+                display: block;
+
+                width: rem(6);
+                height: rem(6);
+
+                position: absolute;
+                top: 47%;
+                right: rem(7);
+                transform: rotate(45deg) translateY(-50%);
+
+                border-right: rem(1) solid $color-dark;
+                border-bottom: rem(1) solid $color-dark;
+            }
+
+            &:focus {
+                color: currentColor;
+            }
+
+            &:hover {
+                color: currentColor;
+
+                &:before {
+                    background: $accent;
+                }
+            }
+        }
+    }
+
+    .main-header__nav > ul > li >a {
+        &.active {
+            color: currentColor;
+
+            &:before {
+                background: $accent;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+
+        justify-content: space-between;
+    }
+
+    &__left {
+        display: inline-flex;
+
+        flex: 0 0 auto;
+        align-items: center;
+
+        padding: rem(6) rem(32) rem(5);
+
+        @include lg {
+            padding: rem(14) rem(10) rem(12) rem(20);
+        }
+    }
+
+    &__right {
+        display: flex;
+
+        flex: 1 1 auto;
+
+        text-align: right;
+
+        @include md() {
+            display: none;
+        }
+    }
+
+    &__nav-wrapper {
+        flex: 1 1 auto;
+    }
+
+    &__right-wrapper {
+        display: flex;
+
+        justify-content: flex-end;
+    }
+
+    &__login {
+        display: flex;
+
+        align-items: center;
+
+        padding: 0 rem(21) 0 rem(19);
+
+        position: relative;
+
+        &::after {
+            content: '';
+
+            display: inline-block;
+
+            height: rem(24);
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            border-left: rem(1) solid $gray-4;
+        }
+    }
+
+    &__search-button-wrapper {
+        display: flex;
+
+        align-items: center;
+
+        padding: 0 rem(16) 0 rem(17);
+    }
+
+    &__search-button {
+        display: inline-block;
+
+        padding: 0;
+
+        line-height: 1;
+
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    &__login-link {
+        @include font(14, 16);
+
+        font-weight: 600;
+
+        transition: color .2s ease-in-out;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    &__bottom-menu {
+        position: relative;
+
+        .main-header__info-for {
+            @include font(16, 24);
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            height: 100%;
+            padding: rem(10) rem(40) rem(10) rem(27);
+
+            position: relative;
+            margin: 0;
+            border: 0;
+
+            font-weight: 600;
+            text-align: center;
+            color: $color-white;
+
+            background: $color-dark;
+            cursor: pointer;
+
+            &::after {
+                content: '';
+
+                display: inline-block;
+
+                width: rem(6);
+                height: rem(6);
+
+                position: absolute;
+                top: 48%;
+                right: rem(27);
+                transform: translateY(-50%) rotate(45deg);
+
+                border-right: rem(1) solid $color-white;
+                border-bottom: rem(1) solid $color-white;
+            }
+
+            &:hover, &.active {
+                &+.menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+
+            flex-direction: column;
+            justify-content: flex-start;
+
+            padding: 1.3rem 0 1.9rem 1.4rem;
+
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            margin: 0;
+
+            text-align: left;
+            color: $color-white;
+
+            background: $color-dark;
+            opacity: 0;
+            visibility: hidden;
+
+            transition: opacity .2s, visibility .2s ease-in-out;
+
+            &:hover {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            li {
+                display: inline-block;
+
+                padding: 0;
+
+                margin: 0;
+
+                a {
+                    @include font(14, 16);
+
+                    display: inline-block;
+
+                    padding: rem(4) rem(16) rem(4) rem(4);
+
+                    margin: 0;
+
+                    font-family: $font-base;
+                    font-weight: 600;
+                    color: $color-white;
+
+                    &:hover {
+                        color: $gray-3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.menu-trigger {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.main-header__info-for.active,
+.main-header__info-for:hover {
+    &::after {
+        transform: translateY(-50%) rotate(-135deg);
+    }
+}

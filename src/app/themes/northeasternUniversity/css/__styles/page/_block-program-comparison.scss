@@ -1,0 +1,393 @@
+.block-program-comparison {
+    $block: &;
+
+    padding-bottom: 9vw;
+
+    position: relative;
+
+    @include sm() {
+        padding-bottom: 6vw;
+    }
+
+    &:after {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: .1rem;
+        left: 0;
+
+        background-image: url('../images/icons/compare-programs/compare-progams-pattern.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background-size: 100% auto;
+    }
+
+    &__wrapper {
+        padding: rem(127) 0 rem(19);
+
+        background-color: $gray-5;
+
+        @include sm() {
+            padding: rem(39) 0 0;
+        }
+
+        &:before {
+            content: '';
+
+            width: 25vw;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background-image: url('../images/icons/compare-programs/map-left.svg');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+
+            @include sm() {
+                display: none;
+            }
+        }
+
+        &:after {
+            content: '';
+
+            width: 25vw;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            background-image: url('../images/icons/compare-programs/map-right.svg');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+
+            @include sm() {
+                display: none;
+            }
+        }
+    }
+
+    &__title {
+        max-width: rem(758);
+
+        position: relative;
+        z-index: 1;
+        margin: 0 auto rem(31);
+
+        text-align: center;
+
+        @include sm() {
+            margin: 0 auto rem(24);
+        }
+    }
+
+    &__programs {
+        position: relative;
+        z-index: 1;
+
+        overflow: hidden;
+
+        &-nav {
+            display: flex;
+
+            flex-wrap: wrap;
+            justify-content: center;
+
+            margin-bottom: rem(65);
+
+            @include sm() {
+                margin-bottom: rem(24);
+            }
+
+            &-item {
+                min-width: rem(190);
+
+                margin: 0 rem(15) rem(30);
+
+                @include sm() {
+                    width: 100%;
+
+                    margin: 0 0 rem(16);
+                }
+
+                &.active {
+                    color: $color-white;
+
+                    border-color: $accent-variant;
+                    background-color: $accent-variant;
+                }
+            }
+        }
+
+        &-tab {
+            display: none;
+
+            max-width: rem(960);
+
+            margin: 0 auto;
+
+            animation: fadeIn .5s;
+            padding-bottom: 4.9rem;
+
+            @include sm() {
+                padding-bottom: 6.1rem;
+            }
+
+            &.active {
+                display: block;
+            }
+
+            &-content {
+                @include sm() {
+                    margin-top: rem(33);
+                }
+            }
+        }
+
+        &-article {
+            margin-bottom: rem(20);
+
+            @include sm() {
+                margin-bottom: 0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &-wrapper {
+                display: flex;
+
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            &-image {
+                width: 100%;
+                margin-bottom: rem(17);
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &-content {
+                flex-grow: 1;
+            }
+
+            &-title {
+                margin-bottom: rem(7);
+            }
+
+            &-description {
+                @include font(16, 24);
+
+                margin-bottom: rem(16) !important;
+
+                @include sm() {
+                    @include font(14, 24);
+                }
+            }
+
+            &-buttons {
+                display: flex;
+
+                flex-direction: column;
+                align-items: flex-start;
+
+                width: 100%;
+
+                .c-btn {
+                    &-primary {
+                        margin-bottom: rem(10);
+
+                        @include sm() {
+                            width: 100%;
+
+                            margin-bottom: rem(16);
+                        }
+                    }
+                }
+            }
+
+            &-informations {
+                display: none;
+
+                margin-top: rem(56);
+                margin-bottom: rem(22);
+
+                @include sm() {
+                    margin-top: rem(15);
+                    margin-bottom: rem(8);
+                }
+            }
+
+            &-information {
+                &-item {
+                    &-wrapper {
+                        padding: rem(48) 0 0 rem(30);
+
+                        border-left: rem(1) solid $gray-9;
+
+                        @include sm() {
+                            padding: 0 0 rem(20) rem(16);
+
+                            &:last-child {
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                &-title {
+                    @include font(12, 16);
+
+                    margin-bottom: rem(8);
+
+                    font-family: $font-third;
+                    font-weight: 700;
+                    letter-spacing: rem(1.2);
+                    text-transform: uppercase;
+
+                    @include sm() {
+                        margin-bottom: rem(4);
+                    }
+                }
+
+                &-text {
+                    @include font(26, 40);
+
+                    font-family: $font-third;
+                    font-weight: 400;
+
+                    @include sm() {
+                        @include font(20, 24);
+                    }
+                }
+            }
+        }
+
+        &-information {
+            width: 100%;
+
+            margin: rem(42) 0 0;
+
+            @include sm() {
+                margin: rem(18) 0 0;
+            }
+
+            &-wrapper {
+                margin-bottom: rem(103);
+
+                @include sm() {
+                    margin-bottom: rem(30);
+                }
+            }
+
+            &-button {
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+
+                position: relative;
+                margin-top: rem(58);
+
+                @include sm() {
+                    padding-top: rem(31);
+
+                    margin-top: rem(28);
+                    border-top: rem(1) solid $gray-3;
+                }
+
+                &:before,
+                &:after {
+                    content: '';
+
+                    width: 100%;
+                    height: rem(1);
+
+                    background-color: $gray-3;
+
+                    @include sm() {
+                        display: none;
+                    }
+                }
+
+                &:before {
+                    margin-left: rem(-180);
+                }
+
+                &:after {
+                    margin-right: rem(-180);
+                }
+
+                .c-btn {
+                    flex: 1 0 auto;
+
+                    min-width: rem(200);
+                    padding: rem(8) 2rem;
+
+                    margin: 0 rem(20);
+
+                    @include sm() {
+                        padding: rem(11) 2rem;
+
+                        margin: 0;
+                    }
+
+                    span {
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+
+                    .c-btn-icon {
+                        transition: transform .2s linear;
+                    }
+
+                    &.active {
+                        span {
+                            &:nth-child(1) {
+                                display: none;
+                            }
+
+                            &:nth-child(2) {
+                                display: inline;
+                            }
+                        }
+
+                        .c-btn-icon {
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+.block-program-landing-hero {
+    background-color: $color-dark;
+
+    .program-landing-hero {
+        &__icon {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: rem(72);
+            height: rem(72);
+            padding: rem(5);
+
+            margin-bottom: rem(26);
+
+            border-radius: 50%;
+            background-color: $color-white;
+        }
+        &__top {
+            padding: rem(81) 0;
+
+            text-align: center;
+
+            @include md {
+                padding: rem(50) 0 rem(46);
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: $color-white;
+            }
+        }
+
+        &__images {
+            display: grid;
+
+            grid-gap: rem(4);
+            grid-template-columns: 56.5% 21.75% 21.75%;
+            grid-template-rows: repeat(2, 18.3vw);
+
+            overflow: hidden;
+
+            @include md {
+                grid-gap: rem(2);
+                grid-template-columns: repeat(2 , 50%);
+                grid-template-rows: 65vw 43vw 43vw;
+            }
+        }
+        &__image {
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+
+            background-color: white;
+            img {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+
+            &:nth-child(1) {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 2;
+
+                @include md {
+                    grid-column: 1 / span 2;
+                    grid-row: 1 / span 1;
+                }
+            }
+            &:nth-child(2) {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+
+                @include md {
+                    grid-column: 1 / span 1;
+                    grid-row: 2 / span 1;
+                }
+            }
+            &:nth-child(3) {
+                grid-column: 3 / span 1;
+                grid-row: 1 / span 1;
+
+                @include md {
+                    grid-column: 2 / span 1;
+                    grid-row: 2 / span 1;
+                }
+            }
+            &:nth-child(4) {
+                grid-column: 2 / span 1;
+                grid-row: 2 / span 1;
+
+                @include md {
+                    grid-column: 1 / span 1;
+                    grid-row: 3 / span 1;
+                }
+            }
+            &:nth-child(5) {
+                grid-column: 3 / span 1;
+                grid-row: 2 / span 1;
+
+                @include md {
+                    grid-column: 2 / span 1;
+                    grid-row: 3 / span 1;
+                }
+            }
+        }
+    }
+    &--icon {
+        .program-landing-hero__top {
+            padding: rem(63) 0 rem(78);
+
+            @include md {
+                padding: rem(50) 0;
+            }
+        }
+    }
+}

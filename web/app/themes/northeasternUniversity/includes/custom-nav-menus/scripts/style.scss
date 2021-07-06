@@ -1,0 +1,31 @@
+.ccs-cnm-empty-p {
+	font-style: italic;
+}
+
+#ccs-custom-nav-menus {
+	label {
+		vertical-align: top;
+	}
+
+	input[type="checkbox"] {
+		margin-right: 7px;
+	}
+}
+
+.ccs-custom-menu-settings {
+	overflow: hidden;
+
+	.ccs-custom-menu-settings-message {
+		padding-left: 10px;
+		border-left: 4px solid #e5e5e5;
+	}
+
+	.field-move {
+		margin-bottom: 0;
+	}
+
+	.menu-item-actions {
+		padding-top: 0;
+		margin-left: -2px;
+	}
+}

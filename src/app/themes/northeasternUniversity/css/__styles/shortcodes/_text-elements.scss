@@ -1,0 +1,167 @@
+.leadparagraph {
+    @include font(26,40);
+
+    margin: 0 0 rem(82);
+
+    font-weight: 500;
+
+    @include sm {
+        @include font(20,24);
+
+        margin: 0 0 rem(41);
+    }
+
+    &.align-left {
+        text-align: left;
+    }
+
+    &.align-right {
+        text-align: right;
+    }
+
+    &.align-center {
+        text-align: center;
+    }
+}
+
+.highlight-text {
+    padding: rem(3) 0;
+
+    background: rgba($accent,.1);
+}
+
+blockquote.alternate,
+blockquote {
+    @include font(34,40);
+
+    padding: 0 0 0 rem(40);
+
+    margin: rem(48) 0;
+
+    font-weight: 300;
+    font-style: italic;
+    text-align: left;
+
+    border-left: rem(4) solid $yellow;
+
+    @include sm {
+        @include font(20,24);
+
+        padding: 0 0 0 rem(15);
+
+        margin: rem(32) 0;
+
+        letter-spacing: rem(-.2);
+    }
+    & > p {
+        margin: 0;
+        &::before,
+        &::after {
+            content: '“';
+
+            display: inline;
+
+            @include sm {
+                content: none;
+            }
+        }
+        &::after {
+            content: '”';
+
+            @include sm {
+                content: none;
+            }
+        }
+    }
+    footer {
+        margin-top: rem(32);
+
+        @include sm {
+            margin-top: rem(24);
+        }
+        &:before {
+            content: '–';
+
+            display: inline;
+
+            margin-right: rem(10);
+
+            @include sm {
+                margin-right: rem(5);
+            }
+        }
+    }
+}
+
+
+.check-icon-list {
+    margin: rem(30) 0 rem(35);
+
+    @include sm {
+        margin: rem(26) 0 rem(26);
+    }
+    ul:not([class]),
+    ol {
+        margin: 0;
+        ul:not([class]),
+        ol {
+            margin-top: rem(16);
+        }
+        li {
+            &::before {
+                content: url(../images/icons/check-circle.svg);
+
+                width: rem(18);
+                height: rem(18);
+
+                top: rem(7);
+                left: rem(1);
+
+                font-size: 0;
+                line-height: 0;
+
+                background: transparent;
+
+                @include sm {
+                    top: rem(4);
+                    transform: scale(.8);
+                    transform-origin: left top;
+                }
+            }
+        }
+    }
+}
+
+
+.preheading {
+    @include font(16,16);
+
+    margin-bottom: rem(10);
+
+    font-family: $font-third;
+    font-weight: 700;
+    letter-spacing: rem(1.2);
+    text-transform: uppercase;
+
+    @include sm {
+        margin-bottom: rem(8);
+
+        font-size: rem(12);
+    }
+
+
+    & +  {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: rem(10);
+
+            @include sm {
+                margin-top: rem(8);
+            }
+        }
+    }
+}

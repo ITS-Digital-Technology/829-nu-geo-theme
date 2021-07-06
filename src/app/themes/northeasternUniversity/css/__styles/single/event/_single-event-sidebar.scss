@@ -1,0 +1,69 @@
+.event-sidebar {
+    padding: rem(30) rem(29) rem(33);
+
+    margin-right: rem(52);
+
+    border-radius: rem(8);
+    background-color: $gray-6;
+
+    @include md() {
+        margin-right: 0;
+        margin-bottom: rem(33);
+    }
+
+    @include sm() {
+        padding: rem(20);
+    }
+
+    &__button {
+        padding-bottom: rem(23);
+
+        margin-bottom: rem(25);
+
+        border-bottom: rem(1) solid $gray-4;
+
+        @include sm() {
+            padding-bottom: rem(16);
+
+            margin-bottom: rem(17);
+        }
+
+        .c-btn {
+            width: 100%;
+
+            @include sm() {
+                padding: rem(10) 3.15rem;
+            }
+        }
+    }
+
+    &__content {
+        padding: 0 rem(4) 0;
+
+        @include sm() {
+            padding: 0;
+        }
+    }
+
+    &__item {
+        margin: 0 0 rem(17);
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &-label {
+            @include font(12, 16);
+
+            margin: 0 0 rem(7);
+
+            font-weight: 700;
+            letter-spacing: rem(1.2);
+            text-transform: uppercase;
+        }
+
+        &-content {
+            font-weight: 400;
+        }
+    }
+}

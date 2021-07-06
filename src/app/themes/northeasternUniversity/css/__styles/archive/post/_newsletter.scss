@@ -1,0 +1,246 @@
+.newsletter-post {
+    display: flex;
+
+    grid-column-end: calc(var(--posts-per-row) + 1);
+    grid-column-start: 1;
+    grid-row-start: var(--newsletter-post-row);
+
+    margin: rem(15) 0 rem(15);
+
+    overflow: hidden;
+
+    @include lg {
+        grid-column-end: calc(var(--posts-per-row) );
+        grid-row-start: var(--newsletter-post-row);
+    }
+    @include md {
+        flex-direction: column;
+
+        width: calc(100%);
+
+        margin: rem(30) 0 rem(30);
+    }
+    @include sm {
+        width: calc(100% + #{rem(40)});
+
+        margin: rem(65) rem(-20) rem(30);
+    }
+    @include xs {
+        grid-column-end: 1;
+        grid-row-start: 7;
+    }
+
+    &__left {
+        flex: 0 0 50%;
+
+        max-width: 50%;
+        padding: rem(65) rem(80);
+
+        background-color: $gray-5;
+
+        @include md {
+            flex: 0 0 100%;
+
+            max-width: 100%;
+            padding: rem(48) rem(20);
+        }
+
+        form {
+            br {
+                display: none;
+            }
+        }
+        p {
+            margin-bottom: rem(19);
+
+            @include sm {
+                margin-bottom: rem(22);
+            }
+        }
+    }
+    &__right {
+        display: flex;
+
+        flex: 0 0 50%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        max-width: 50%;
+        padding: rem(65) rem(80);
+
+        position: relative;
+
+        color: $color-white;
+
+        background-color: $color-dark;
+
+        @include md {
+            flex: 0 0 100%;
+
+            max-width: 100%;
+            padding: rem(50) rem(20) rem(48);
+        }
+
+        &:after {
+            content: '';
+
+            width: rem(214);
+            height: rem(167);
+
+            position: absolute;
+            right: rem(-13);
+            bottom: rem(63);
+
+            background-image: url('../images/icons/archive-blog/newsletter-icon.svg');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+
+            @include sm {
+                width: rem(111);
+                height: rem(87);
+
+                top: rem(25);
+                right: rem(-12);
+                bottom: auto;
+            }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $color-white;
+        }
+        .c-btn {
+            padding: rem(10) rem(27);
+
+            @include sm {
+                width: 100%;
+            }
+        }
+    }
+
+
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+    textarea {
+        @include ie11 {
+            height: rem(1);
+        }
+        @include font(16,16);
+
+        -webkit-appearance: none;
+
+        display: block;
+
+        width: 100%;
+        min-height: rem(48);
+        padding: rem(5) rem(11) rem(5) rem(11);
+
+        position: relative;
+        margin-bottom: rem(12);
+
+        font-family: $font-base;
+        font-weight: 400;
+        color: $text-color-base;
+
+        border: none;
+        border-radius: 0;
+        background-color: $color-white;
+        box-shadow: none;
+
+        @include sm {
+            margin-bottom: rem(8);
+        }
+        &:focus {
+            border-color: $accent;
+        }
+
+        &::placeholder {
+            font-weight: 400;
+            color: $gray-2;
+        }
+        &:-ms-input-placeholder {
+            font-weight: 400;
+            color: $gray-2;
+        }
+        &::-ms-clear {
+            display: none;
+        }
+
+        /* Change Autocomplete styles in -webkit- browsers - START */
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-transition: color 9999s, background-color 9999s;
+            -webkit-transition-delay: 9999s;
+        }
+        /* Change Autocomplete styles in -webkit- browsers - END */
+    }
+
+    textarea {
+        display: block;
+
+        resize: none;
+        height: auto;
+        min-height: rem(240);
+        padding: rem(16) rem(11) rem(5) rem(11);
+
+        line-height: rem(20);
+
+        overflow-y: hidden;
+    }
+    input[type=submit] {
+        @include font(16,24);
+
+        display: inline-block;
+
+        min-width: rem(190);
+        min-height: rem(48);
+        padding: rem(12) rem(32);
+
+        margin-bottom: 0;
+
+        font-weight: 700;
+        text-align: center;
+        text-align: center;
+        color: $text-color-opposite;
+
+        border: none;
+        border-radius: rem(4);
+        background-color: $accent;
+        box-shadow: none;
+        cursor: pointer;
+
+        transition: color .2s, background-color .2s, border-color .2s;
+
+        @include sm {
+            display: block;
+
+            width: 100%;
+            padding: rem(10) rem(31.5);
+
+            margin-top: rem(16);
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $text-color-opposite;
+
+            background-color: $accent-variant;
+        }
+        &.color-alt {
+            color: $accent;
+
+            background-color: $text-color-opposite;
+
+            &:hover {
+                color: $accent-variant;
+            }
+        }
+    }
+}

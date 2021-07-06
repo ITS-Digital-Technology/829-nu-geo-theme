@@ -1,0 +1,306 @@
+.block-gallery-lightbox {
+    $root: &;
+
+    margin: rem(180) 0;
+
+    overflow: hidden;
+
+    @include sm {
+        margin: rem(97) 0;
+    }
+
+    &__text-content {
+        margin-bottom: rem(62);
+
+        @include sm {
+            margin-bottom: rem(32);
+        }
+    }
+
+
+    &__thumbnails-wrapper {
+        margin-bottom: rem(-46);
+
+        @include lg {
+            margin: 0 rem(5) rem(-35);
+        }
+        @include sm {
+            margin: 0 rem(12) rem(-30);
+        }
+    }
+
+    &__thumb-col {
+        padding: 0;
+    }
+
+    &__single-thumb {
+        display: block;
+
+        padding: 0;
+        padding-top: 52.25%;
+
+        position: relative;
+        margin: 0 rem(15) rem(32);
+
+        overflow: hidden;
+
+        @include lg {
+            margin: 0 rem(10) rem(20);
+        }
+        @include sm {
+            padding-top: 53.85%;
+
+            margin: 0 rem(8) rem(16);
+        }
+
+        &::after {
+            content: '';
+            pointer-events: none;
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            background: $color-white;
+            opacity: 0;
+
+            transition: opacity .2s;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            object-fit: cover;
+
+            transition: transform .2s;
+
+            will-change: transform;
+        }
+
+        &:hover {
+            &::after {
+                opacity: .2;
+            }
+
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    &__gallery-wrapper {
+        display: flex;
+
+        align-items: center;
+
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        padding-top: rem(15);
+
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-color: $color-dark;
+        opacity: 1;
+        visibility: visible;
+
+        transition: opacity .2s, visibility .2s;
+
+        &:not(.active) {
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+    }
+
+    &__slider {
+        max-width: 100%;
+
+        position: relative;
+
+
+        .slick-arrow {
+            width: rem(48);
+            height: rem(48);
+
+            top: calc(#{rem(728)} / 2);
+
+            @include xxl {
+                top: calc(#{rem(620)} / 2);
+            }
+            @include lg {
+                top: calc(#{rem(490)} / 2);
+            }
+            @include md {
+                top: calc(#{rem(390)} / 2);
+            }
+            @include sm {
+                width: rem(32);
+                height: rem(32);
+
+                top: calc(#{rem(290)} / 2);
+            }
+            @include xs {
+                top: calc(#{rem(160)} / 2);
+            }
+            @include sm-h {
+                top: 43%;
+            }
+
+            &:after {
+                @include sm {
+                    width: rem(8);
+                    height: rem(8);
+                }
+            }
+
+            &.slick-prev {
+                left: calc((100vw - #{rem(1230)}) / 2);
+
+                @include xxl {
+                    left: calc((100vw - #{rem(1040)}) / 2);
+                }
+                @include lg {
+                    left: calc((100vw - #{rem(808)}) / 2);
+                }
+                @include md {
+                    left: calc((100vw - #{rem(631)}) / 2);
+                }
+                @include sm {
+                    left: calc((100vw - #{rem(450)}) / 2);
+                }
+                @include xs {
+                    left: calc((100vw - #{rem(260)}) / 2);
+                }
+            }
+
+            &.slick-next {
+                right: calc((100vw - #{rem(1230)}) / 2);
+
+                @include xxl {
+                    right: calc((100vw - #{rem(1040)}) / 2);
+                }
+                @include lg {
+                    right: calc((100vw - #{rem(810)}) / 2);
+                }
+                @include md {
+                    right: calc((100vw - #{rem(630)}) / 2);
+                }
+                @include sm {
+                    right: calc((100vw - #{rem(450)}) / 2);
+                }
+                @include xs {
+                    right: calc((100vw - #{rem(260)}) / 2);
+                }
+            }
+        }
+    }
+
+    &__slide {
+        margin: 0 rem(8);
+
+        @include sm {
+            margin: 0 rem(5);
+        }
+        @include xs {
+            margin: 0 rem(2);
+        }
+
+        img {
+            width: auto;
+            height: rem(728);
+            max-height: calc(100vh - #{rem(150)});
+            max-height: calc(var(--vh, 1vh) * 100 - #{rem(150)});
+
+            @include xxl {
+                height: rem(620);
+            }
+            @include lg {
+                height: rem(490);
+            }
+            @include md {
+                height: rem(390);
+            }
+            @include sm {
+                height: rem(290);
+            }
+            @include xs {
+                height: rem(160);
+            }
+
+            #{$root}--has-captions & {
+                @include sm {
+                    max-height: calc(100vh - #{rem(180)});
+                    max-height: calc(var(--vh, 1vh) * 100 - #{rem(180)});
+                }
+            }
+        }
+    }
+
+    &__slide-caption {
+        @include font(12,16);
+
+        display: block;
+
+        max-width: 100%;
+        padding: rem(18) rem(5) 0;
+
+        font-weight: 400;
+        text-align: center;
+        color: $color-white;
+
+        transition: opacity .2s;
+
+        @include sm {
+            @include font(12,16);
+
+            padding: rem(15) rem(5) 0;
+        }
+
+        .slick-slide:not(.slick-center) & {
+            opacity: 0;
+        }
+    }
+
+    &__close {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(40);
+        height: rem(40);
+
+        position: absolute;
+        z-index: 1;
+        top: rem(17);
+        right: rem(20);
+
+        color: $color-white;
+
+        border: none;
+        border-radius: 50%;
+        background: rgba($gray-2, .35);
+        cursor: pointer;
+
+        @include sm {
+            top: rem(16);
+            right: rem(16);
+        }
+
+        &:hover {
+            background-color: $accent-variant;
+        }
+    }
+}

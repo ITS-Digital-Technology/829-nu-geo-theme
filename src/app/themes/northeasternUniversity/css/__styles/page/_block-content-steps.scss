@@ -1,0 +1,202 @@
+.block-content-steps {
+    padding: 9.5vw 0 8.7vw;
+
+    position: relative;
+    margin: rem(75) 0;
+
+    color: $color-white;
+
+    @include sm {
+        margin: rem(45) 0;
+    }
+    &-wrapper {
+        padding: rem(63) 0 rem(12);
+
+        background-color: $color-dark;
+
+        @include xxl {
+            padding: rem(65) 0;
+        }
+        @include md {
+            padding: rem(62) 0;
+        }
+    }
+    & + .block-text-links--bg-shape {
+        padding-top: 0;
+
+        margin-top: rem(-75);
+
+        @include sm {
+            margin-top: rem(-73);
+        }
+        &:after {
+            content: '';
+
+            width: 100%;
+            height: 12vw;
+
+            position: absolute;
+            top: -11vw;
+            bottom: auto;
+
+            background-color: $gray-6;
+            background-image: none;;
+        }
+    }
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+    &:after {
+        content: '';
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: 1;
+        top: rem(1);
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-image: url('../images/icons/content-steps/pattern-top.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% auto;
+    }
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: rem(1);
+        left: 0;
+
+        background-image: url('../images/icons/content-steps/pattern-bottom.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% auto;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $color-white;
+    }
+
+    .content-steps {
+        &__content {
+            max-width: 66%;
+
+            margin: 0 auto;
+            margin-bottom: rem(65);
+
+            @include md {
+                max-width: 100%;
+            }
+            @include sm {
+                margin-bottom: rem(50);
+            }
+            h2 {
+                margin-bottom: rem(20);
+
+                @include sm {
+                    margin-bottom: rem(6);
+                }
+            }
+        }
+        &__steps {
+            margin-bottom: rem(57);
+
+            @include md {
+                margin-bottom: rem(20);
+            }
+        }
+        &__step {
+            padding: 0 rem(25);
+
+            @include md {
+                padding: 0;
+            }
+        }
+        &__step-col {
+            &:not(:last-child) {
+                @include md {
+                    margin-bottom: rem(30);
+                }
+            }
+        }
+
+        &__step-number {
+            @include font(26,32);
+
+            padding-bottom: rem(15);
+
+            margin-bottom: rem(15);
+
+            font-family: $font-sec;
+            font-weight: 500;
+
+            border-bottom: 1px solid $gray-9;
+
+            @include sm {
+                @include font(18,24);
+            }
+        }
+        &__step-title {
+            @include font(20,24);
+
+            margin-bottom: rem(10);
+
+            font-weight: 700;
+
+            @include sm {
+                @include font(16,24);
+            }
+        }
+        &__step-desc {
+            margin-bottom: rem(9);
+        }
+        &__step-btn {
+            @include font(16,24);
+        }
+        &__cta {
+            padding: rem(47) 0 0;
+
+            margin: 0 rem(25);
+
+            text-align: center;
+
+            border-top: 1px solid $gray-9;
+
+            @include md {
+                padding: rem(33) 0 0;
+
+                margin: 0;
+            }
+        }
+        &__cta-title {
+            @include font(26,40);
+
+            margin-bottom: rem(3);
+
+            font-weight: 400;
+
+            @include sm {
+                @include font(20,24);
+
+                margin-bottom: rem(10);
+            }
+        }
+    }
+}

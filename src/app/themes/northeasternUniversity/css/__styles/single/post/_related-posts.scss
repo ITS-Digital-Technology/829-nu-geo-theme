@@ -1,0 +1,136 @@
+.related-blog-posts {
+    padding: rem(215) 0 rem(110);
+
+    position: relative;
+
+    @include md {
+        padding: rem(90) 0 rem(50);
+    }
+
+    &::after {
+        content: '';
+
+        height: 40%;
+
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: $gray-5;
+
+        @include md {
+            height: calc(100% - #{rem(200)});
+        }
+
+        @include xs {
+            height: calc(100% - #{rem(100)});
+        }
+    }
+
+    &__pattern {
+        pointer-events: none;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &::before {
+            content: '';
+            pointer-events: none;
+
+            width: 100%;
+            height: 100%;
+            min-height: rem(600);
+
+            position: absolute;
+            z-index: -2;
+            top: rem(45);
+            right: 0;
+            left: 0;
+
+            background-image: url('../images/icons/single-blog/pattern-gray-light.svg');
+            background-repeat: no-repeat;
+            background-position: top 0 right 0, top 0 right 0;
+            background-size: 100% auto;
+
+            @include xs {
+                top: rem(35);
+            }
+
+            ;
+        }
+
+        &::after {
+            content: '';
+            pointer-events: none;
+
+            width: 100%;
+            height: 100%;
+            min-height: rem(600);
+
+            position: absolute;
+            z-index: -2;
+            top: rem(9);
+            right: 0;
+            left: 0;
+
+            background-image: url('../images/icons/single-blog/pattern-gray-dark.svg');
+            background-repeat: no-repeat;
+            background-position: top 0 right 0, top 0 right 0;
+            background-size: 100% auto;
+
+            @include xs {
+                top: rem(27);
+            }
+
+            ;
+        }
+    }
+
+    &__heading-wrapper {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: rem(48);
+
+        @include md {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            margin-bottom: rem(28);
+        }
+    }
+
+    &__heading {
+        margin-bottom: 0;
+
+        @include md {
+            margin-bottom: rem(2);
+        }
+    }
+
+    &__all-posts {
+        margin-top: rem(5);
+        margin-right: rem(3);
+
+        @include md {
+            margin-top: 0;
+            margin-right: 0;
+        }
+    }
+
+    &__posts {
+        .blog-post__card {
+            @include md {
+                margin-bottom: 4.3rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.block-intro {
+    margin: rem(112) 0;
+
+    @include sm {
+        margin: rem(48) 0;
+    }
+    & + .block-upcoming-events {
+        margin-top: rem(-11);
+
+        @include sm {
+            margin-top: rem(0);
+        }
+    }
+    h2 {
+        margin-bottom: rem(25);
+
+        @include sm {
+            margin-bottom: rem(15);
+        }
+    }
+    p {
+        margin-bottom: rem(22);
+
+        @include sm {
+            padding: 0 rem(1);
+
+            margin-bottom: rem(20);
+        }
+    }
+    .c-btn-wrapper {
+        margin-top: rem(22);
+
+        @include sm {
+            margin-top: rem(20);
+        }
+    }
+}

@@ -1,0 +1,211 @@
+.block-tabs {
+    margin: rem(80) 0;
+
+    overflow: hidden;
+
+    .default-content + & {
+        margin-top: 0;
+    }
+    &__content {
+        position: relative;
+
+        background-color: $gray-6;
+        &:before {
+            content: '';
+
+            width: 100%;
+            height: rem(1);
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            background-color: $gray-4;
+        }
+        &:after {
+            content: '';
+
+            width: 100%;
+            height: rem(1);
+
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background-color: $gray-4;
+        }
+    }
+    .tabs-mobile-trigger {
+        display: none;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(30);
+        height: rem(30);
+        padding: 0;
+
+        z-index: 1;
+        margin: 0;
+
+        border: none;
+        background: none;
+        box-shadow: none;
+        cursor: pointer;
+
+        @include sm {
+            display: flex;
+        }
+        i {
+            pointer-events: none;
+
+            display: block;
+
+            font-size: rem(30);
+        }
+        &.hide {
+            pointer-events: none;
+
+            opacity: 0;
+        }
+    }
+    &__head-nav {
+        display: flex;
+
+        align-items: center;
+    }
+    &__list {
+        display: flex;
+
+        padding: 0;
+
+        margin: 0;
+
+        font-size: 0;
+        white-space: nowrap;
+
+        list-style: none;
+        overflow-x: auto;
+
+        @include sm {
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 rem(20);
+
+            margin: 0 rem(-20);
+        }
+    }
+
+    &__list-item {
+        @include font(16,24);
+
+        display: block;
+
+        min-width: rem(200);
+        padding: rem(12) rem(20);
+
+        position: relative;
+
+        font-family: $font-base;
+        font-weight: 700;
+        text-align: center;
+        color: $text-color-base;
+
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+        cursor: pointer;
+
+        transition: color .2s, background-color .2s;
+
+        @include lg {
+            min-width: rem(120);
+            padding: rem(10);
+        }
+        @include sm {
+            display: none;
+        }
+        &.active {
+            @include sm {
+                display: block;
+            }
+        }
+
+        &:hover {
+            background-color: $gray-6;
+            .touch-device & {
+                background-color: transparent;
+            }
+        }
+
+        &::after {
+            content: '';
+            pointer-events: none;
+
+            width: 0;
+            height: rem(2);
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            background-color: $accent;
+
+            transition: width .2s;
+
+            @include sm {
+                display: none;
+            }
+        }
+
+        &.active {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+
+    &__tab-content {
+        padding: rem(31) 0 rem(80);
+
+        animation: fadeIn .5s;
+
+        @include sm {
+            padding: rem(25) 0 rem(48);
+        }
+
+        &:not(.active) {
+            display: none;
+        }
+
+        p {
+            .alignnone {
+                margin: rem(8) 0 0;
+
+                @include sm {
+                    margin: rem(8) 0 rem(8);
+                }
+            }
+
+            &:last-child {
+                .alignnone {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}

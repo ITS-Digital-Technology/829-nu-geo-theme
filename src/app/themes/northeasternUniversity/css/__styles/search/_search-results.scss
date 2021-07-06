@@ -1,0 +1,83 @@
+.page-content--search {
+    .search-found-posts {
+        padding-top: 5vw;
+
+        position: relative;
+        margin: 0;
+        .posts-list {
+            @include md {
+                margin-bottom: rem(64);
+            }
+        }
+        &-wrapper {
+            padding: rem(62) 0 rem(157);
+
+            background-color: $gray-6;
+
+            @include md {
+                padding: rem(22) 0 rem(53);
+            }
+        }
+        &:before {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+
+            position: absolute;
+            z-index: -1;
+            top: rem(1);
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background-image: url(../images/icons/search/pattern-top.svg);
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 100% auto;
+        }
+    }
+    .search-results-info {
+        @include font(16, 24);
+
+        margin: 0 0 rem(40) 0;
+
+        font-weight: 400;
+
+        @include md {
+            margin: 0 0 rem(25) 0;
+        }
+    }
+    .eight29-posts {
+        grid-row-gap: 0;
+
+        margin-bottom: 0;
+    }
+    .eight29-posts-wrapper {
+        @include md {
+            margin-bottom: rem(64);
+        }
+    }
+    .no-results {
+        padding-top: rem(79);
+
+        @include md {
+            padding-top: rem(8);
+
+            margin-bottom: rem(40);
+        }
+        .c-btn-group {
+            @include sm {
+                margin-top: 0;
+            }
+        }
+    }
+    .eight29-pagination {
+        margin-top: rem(107) !important;
+
+        @include md {
+            margin-top: rem(60) !important;
+        }
+    }
+}

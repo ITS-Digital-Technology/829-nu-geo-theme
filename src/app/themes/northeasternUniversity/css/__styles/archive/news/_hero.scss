@@ -1,0 +1,229 @@
+.block-news-hero {
+    padding: rem(66) 0 8.3vw 0;
+
+    position: relative;
+    z-index: 1;
+
+    @include xxl {
+        padding-bottom: 10vw;
+    }
+    @include md {
+        padding: rem(37) 0 26vw 0;
+    }
+
+    & + .posts-list {
+        margin-top: -6.3vw;
+
+        @include md {
+            margin-top: rem(14);
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+    &:before {
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: rem(1);
+        left: 0;
+
+        background-image: url(../images/icons/archive-news/pattern.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100% auto;
+    }
+
+    &:after {
+        content: '';
+        pointer-events: none;
+
+        width: 100%;
+        height: 80%;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-color: $color-white;
+    }
+
+    &__title {
+        margin-bottom: rem(63);
+
+        text-align: center;
+
+        @include sm {
+            margin-bottom: rem(38);
+        }
+    }
+
+
+    .featured-news-card {
+        filter: drop-shadow(0px 16px 36px rgba(0, 0, 0, .16));
+
+        position: relative;
+
+        &__link {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            &:hover {
+                & ~ .featured-news-card__wrapper  .featured-news-card__title {
+                    color: $accent;
+                }
+                & ~ .featured-news-card__wrapper .featured-news-card__thumbnail img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+        &__wrapper {
+            display: flex;
+
+            padding-bottom: rem(30);
+
+            @include md {
+                flex-direction: column;
+
+                padding-bottom: rem(20);
+            }
+        }
+        &__thumbnail {
+            flex: 0 0 66%;
+
+            max-width: 66%;
+            max-height: rem(480);
+
+            overflow: hidden;
+
+            @include lg {
+                flex: 0 0 55%;
+
+                max-width: 55%;
+            }
+            @include md {
+                flex: 0 0 100%;
+
+                max-width: 100%;
+
+                margin-bottom: rem(17);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+
+                transition: transform .2s;
+            }
+        }
+        &__content {
+            flex: 0 0 34%;
+
+            max-width: 34%;
+            padding-left: rem(30);
+
+            @include lg {
+                flex: 0 0 45%;
+
+                max-width: 45%;
+            }
+            @include md {
+                flex: 0 0 100%;
+
+                max-width: 100%;
+                padding-left: 0;
+            }
+        }
+        &__title {
+            margin-bottom: rem(6);
+
+            @include sm {
+                margin-bottom: rem(6);
+            }
+        }
+        &__cat {
+            @include font(14,16);
+
+            position: relative;
+            z-index: 2;
+            margin-bottom: rem(18);
+
+            font-weight: 700;
+
+            @include sm {
+                @include font(12,16);
+
+                margin-bottom: rem(8);
+            }
+
+            a {
+                transition: color .2s;
+                &:hover {
+                    color: $accent;
+                }
+            }
+        }
+        &__label {
+            @include font(12,16);
+
+            padding: rem(7) rem(12);
+
+            position: absolute;
+            z-index: 1;
+            top: rem(28);
+            left: rem(30);
+
+            font-weight: 700;
+            letter-spacing: rem(1.2);
+            text-transform: uppercase;
+
+            background-color: $color-white;
+
+            @include sm {
+                padding: rem(7) rem(12);
+
+                top: rem(8);
+                left: rem(8);
+            }
+        }
+        &__excerpt {
+            margin-bottom: rem(17);
+
+            @include sm {
+                margin-bottom: rem(10);
+            }
+        }
+        &__date {
+            @include font(12,16);
+
+            color: $gray-2;
+        }
+    }
+}
+
+#page {
+    .featured-news-card {
+        a {
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+.block-blog-latest-post {
+    padding: rem(155) 0 rem(40);
+    position: relative;
+    background-color: $gray-5;
+
+    .blog-post__card {
+        padding-right: 20px;
+    }
+
+    .blog-post__card-title {
+        a {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-all;
+            word-break: break-word;
+        }
+    }
+
+    @include md {
+        padding: rem(18) 0 rem(26);
+    }
+
+    &:after {
+        content: '';
+
+        height: rem(694);
+
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: rem(-248);
+        left: 0;
+
+        background-image: url('../images/icons/archive-blog/filter-pattern.svg');
+        background-repeat: no-repeat;
+        background-size: 100% rem(694);
+
+        @include min-xxl {
+            background-size: 100% auto;
+        }
+        @include lg {
+            bottom: rem(-320);
+        }
+        @include md {
+            height: rem(200);
+
+            bottom: rem(-85);
+
+            background-size: 100% auto;
+        }
+    }
+    .blog-post {
+        &__card-title {
+            margin-bottom: rem(15);
+
+            @include sm {
+                margin-bottom: rem(6);
+            }
+        }
+        &__card-cat {
+            margin-bottom: rem(16);
+
+            @include sm {
+                margin-bottom: rem(5);
+            }
+        }
+    }
+
+    .latest-post__card-col {
+        position: relative;
+        &:not(:last-child) {
+            &:after {
+                content: '';
+
+                width: rem(1);
+
+                position: absolute;
+                top: rem(-10);
+                right: rem(15);
+                bottom: rem(-10);
+
+                background-color: $gray-4;
+
+                @include md {
+                    display: none;
+                }
+            }
+        }
+    }
+    .latest-post__title {
+        margin-right: rem(25);
+
+        @include sm {
+            margin-right: rem(15);
+        }
+
+        &-wrapper {
+            display: flex;
+
+            align-items: center;
+
+            width: 100%;
+
+            position: relative;
+            margin-bottom: rem(31);
+
+            @include sm {
+                margin-bottom: rem(15);
+            }
+
+            &:after {
+                content: '';
+
+                flex-grow: 1;
+
+                height: .1rem;
+
+                top: 58%;
+                right: 0;
+                transform: translate(0, -50%);
+
+                background-color: $gray-3;
+            }
+        }
+    }
+}

@@ -1,0 +1,115 @@
+.news-post {
+    &-card {
+        filter: drop-shadow(rem(0) rem(6) rem(24) rgba($color-black, .06));
+
+        position: relative;
+
+        border-radius: rem(8);
+        background-color: $color-white;
+
+        @include sm {
+            filter: drop-shadow(rem(0) rem(0) rem(36) rgba($color-black, .16));
+        }
+    }
+    &-card__link {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        transition: box-shadow .2s;
+        &:hover {
+            box-shadow: 0 rem(8) rem(18) rgba($color-black, .1);
+            & ~ .news-post-card__wrapper  .news-post-card__title {
+                color: $accent;
+            }
+            & ~ .news-post-card__wrapper .news-post-card__thumbnail img {
+                transform: scale(1.05);
+            }
+        }
+    }
+    &-card__wrapper {
+        display: flex;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        height: 100%;
+    }
+    &-card__thumbnail {
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .2s;
+        }
+    }
+    &-card__content {
+        display: flex;
+
+        flex: 1;
+        flex-direction: column;
+
+        padding: rem(22) rem(24) rem(25);
+
+        @include sm {
+            padding: rem(22) rem(20) rem(23);
+        }
+    }
+    &-card__title {
+        margin-bottom: rem(5);
+
+        @include sm {
+            margin-bottom: rem(6);
+        }
+    }
+    &-card__excerpt {
+        @include font(16,24);
+
+        margin-bottom: rem(17);
+
+        @include sm {
+            @include font(14,24);
+
+            margin-bottom: rem(9);
+        }
+    }
+    &-card__cat {
+        @include font(14,16);
+
+        position: relative;
+        z-index: 2;
+
+        font-weight: 700;
+
+
+        a {
+            display: block;
+
+            padding: rem(16) rem(23);
+
+            @include sm {
+                padding: rem(8) rem(20);
+            }
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+    &-card__date {
+        @include font(12,16);
+
+        margin-top: auto!important;
+
+        color: $gray-2;
+    }
+}

@@ -1,0 +1,59 @@
+.post-type-archive-staff {
+    background-color: $gray-6;
+
+    @include md {
+        background-color: $gray-5;
+    }
+    .posts-list {
+        margin-bottom: rem(78);
+
+        @include md {
+            margin-bottom: rem(50);
+        }
+    }
+    .eight29-posts-container {
+        flex: 0 0 74.4%;
+
+        max-width: 74.4%;
+
+        @include md {
+            flex: 0 0 100%;
+
+            max-width: 100%;
+        }
+        .container {
+            padding: 0;
+        }
+    }
+    .eight29-posts {
+        grid-row-gap: rem(50);
+
+        margin-bottom: 0;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include md {
+            grid-row-gap: rem(30);
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .load-more-btn {
+        margin-top: rem(80);
+
+        @include md {
+            margin-top: rem(45);
+        }
+        button:disabled,
+        button[disabled] {
+            display: none;
+        }
+        button {
+            @include sm {
+                width: 100%;
+            }
+        }
+    }
+}

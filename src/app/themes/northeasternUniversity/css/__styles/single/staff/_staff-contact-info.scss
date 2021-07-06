@@ -1,0 +1,44 @@
+.staff-contact-info {
+    padding: rem(24) 0 0;
+
+    border-top: rem(1) solid $gray-3;
+
+    @include sm() {
+        padding: rem(17) 0 0;
+    }
+
+    &__title {
+        @include font(12, 16);
+
+        margin-bottom: rem(15);
+
+        letter-spacing: rem(1.2);
+        text-transform: uppercase;
+    }
+
+    p {
+        @include font(16, 24);
+
+        display: flex;
+
+        align-items: center;
+
+        margin: 0 0 rem(17);
+
+        @include sm() {
+            margin: 0 0 rem(8);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        span[class^="icon-"] {
+            margin-right: rem(10);
+
+            @include sm() {
+                margin-right: rem(11);
+            }
+        }
+    }
+}

@@ -1,0 +1,250 @@
+.post-type-archive-tribe_events {
+    .tribe-events-header {
+        @include sm() {
+            align-items: flex-start;
+
+            padding-bottom: rem(3);
+
+            margin-top: rem(20);
+        }
+
+        &__events-bar {
+            border: none !important;
+            border-radius: rem(8);
+        }
+
+        .tribe-common-form-control-text__input {
+            @include font(26, 40);
+
+            padding: rem(17) rem(20) rem(17) rem(60);
+
+            margin: 0;
+
+            font-family: $font-base;
+            color: $gray-2;
+
+            border-radius: rem(8);
+        }
+
+        .tribe-events-c-search__input-control {
+            margin: 0;
+        }
+
+        .tribe-common-c-svgicon--search {
+            width: rem(24);
+
+            left: rem(25);
+
+            color: $color-dark;
+
+            @include sm() {
+                width: rem(22);
+            }
+
+            path {
+                fill: $color-dark;
+            }
+        }
+
+        .tribe-events-c-search__button {
+            padding: 1rem rem(27);
+        }
+
+        .tribe-events-c-events-bar {
+            margin-bottom: rem(48);
+
+            @include sm() {
+                margin-bottom: rem(16);
+            }
+
+            @include sm() {
+                &:before {
+                    content: "";
+
+                    display: block;
+
+                    width: rem(1);
+                    height: rem(28);
+
+                    margin-right: rem(11);
+
+                    background-color: $gray-3;
+                }
+            }
+
+            &__search-container {
+                border-radius: rem(8) 0 0 rem(8);
+            }
+
+            &__filter {
+                &-button-container {
+                    display: flex;
+
+                    align-items: center;
+
+                    min-width: rem(155);
+
+                    margin: 0 rem(21) 0 rem(25) !important;
+
+                    border: none !important;
+
+                    @include sm() {
+                        min-width: auto;
+
+                        margin: 0 !important;
+                    }
+
+                    &:before {
+                        content: "";
+
+                        display: block;
+
+                        width: rem(1);
+                        height: rem(32);
+
+                        margin-right: rem(5);
+
+                        background-color: $gray-3;
+
+                        @include sm() {
+                            display: none;
+                        }
+                    }
+                }
+
+                &-button {
+                    padding: rem(10) !important;
+
+                    margin: 0 !important;
+
+                    @include sm() {
+                        padding: 0 !important;
+                    }
+
+                    &:before {
+                        display: none;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        opacity: 1;
+                    }
+
+                    &-text {
+                        @include font(16, 16);
+
+                        display: flex;
+
+                        align-items: center;
+
+                        font-family: $font-base;
+                        color: $color-dark;
+                    }
+
+                    &:after {
+                        @include icon-font('\EA22');
+
+                        margin-left: rem(10);
+
+                        @include sm() {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tribe-events-header__top-bar {
+            margin-bottom: rem(29);
+        }
+
+        .tribe-events-c-top-bar__nav {
+            &-list-item {
+                padding-right: rem(7);
+            }
+
+            &-link {
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+
+                width: rem(36);
+                height: rem(36);
+
+                border: rem(1) solid $color-dark;
+                border-radius: 100%;
+
+                &:before {
+                    @include icon-font('', #{rem(30)});
+                }
+
+                &:disabled {
+                    opacity: .5;
+                }
+
+                &--prev {
+                    &:before {
+                        content: "\EA12";
+                    }
+                }
+
+                &--next {
+                    &:before {
+                        content: "\EA13";
+                    }
+                }
+            }
+        }
+
+        .tribe-events-c-top-bar__today-button.tribe-common-c-btn-border-small {
+            @include font(14, 16);
+
+            padding: rem(8) rem(19);
+
+            margin-right: rem(17);
+            margin-left: rem(18);
+        }
+
+        .tribe-events-c-top-bar__datepicker-button-icon-svg {
+            width: rem(18);
+            height: auto;
+
+            @include sm() {
+                width: rem(12);
+            }
+
+            path {
+                fill: $color-dark;
+            }
+        }
+
+        .tribe-events-c-top-bar__datepicker-button--open {
+            .tribe-events-c-top-bar__datepicker-button-icon-svg {
+                margin-top: rem(-3);
+            }
+        }
+
+        .tribe-events-header__messages {
+            order: 1;
+
+            font-family: $font-base;
+            font-weight: 700;
+        }
+    }
+
+    .tribe-common .tribe-common-h3 {
+        @include font(26, 32);
+
+        font-family: $font-sec;
+        font-weight: 500;
+
+        @include sm() {
+            @include font(18, 24);
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

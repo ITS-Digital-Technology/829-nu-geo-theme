@@ -1,0 +1,7 @@
+.event-wrapper {
+    &--disable-bar {
+        .tribe-events-header__events-bar {
+            display: none !important;
+        }
+    }
+}

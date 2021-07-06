@@ -1,0 +1,339 @@
+{
+
+	"theme_name": "northeasternUniversity",
+
+	"acf_options": {
+		"init": true,
+		"page_title": "Theme Options",
+		"menu_title": "Theme Options",
+		"menu_slug": "theme-options",
+		"subpages": {
+			"general": {
+				"page_title": "Theme General Settings",
+				"menu_title": "General"
+			},
+			"header": {
+				"page_title": "Theme Header Settings",
+				"menu_title": "Header"
+			},
+			"footer": {
+				"page_title": "Theme Footer Settings",
+				"menu_title": "Footer"
+            },
+            "404_page": {
+				"page_title": "404 Page Settings",
+				"menu_title": "404 Page"
+            },
+            "programs" : {
+                "page_title" : "Programs Settings",
+                "menu_title" : "Programs"
+            },
+            "program_taxonomy" :{
+                "page_title" : "Program Taxonomy Settings",
+                "menu_title"  : "Program Taxonomy"
+            },
+            "blog" :{
+                "page_title" : "Blog Settings",
+                "menu_title" : "Blog"
+            },
+            "news" : {
+                "page_title" : "News Settings",
+                "menu_title" : "News"
+            },
+            "events" : {
+                "page_title" : "Events Settings",
+                "menu_title" : "Events"
+            },
+            "single_events" : {
+                "page_title" : "Single Event Settings",
+                "menu_title" : "Single Event"
+            },
+            "staff" : {
+                "page_title" : "Staff Settings",
+                "menu_title" : "Staff"
+            },
+            "single_news" : {
+                "page_title" : "Single News Settings",
+                "menu_title" : "Single News"
+            },
+            "search" : {
+                "page_title" : "Search Settings",
+                "menu_title" : "Search"
+            }
+		}
+	},
+
+	"enqueue_styles": {
+        "fonts": "https://use.typekit.net/fzs0tbi.css",
+		"fonts-sec": "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap",
+		"font-open" : "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap",
+        "bootstrap": "css/vendor/bootstrap/bootstrap.min.css",
+        "select2": "css/vendor/select2/select2.min.css",
+        "slick": "css/vendor/slick/slick.css",
+        "simplebar": "css/vendor/simplebar/simplebar.css",
+		"theme-styles": "css/style.css",
+		"style": "style.css"
+	},
+
+	"enqueue_scripts": {
+        "select2": "js/vendor/select2/select2.min.js",
+		"select2_multi_checkbox": "js/vendor/select2/select2.multi-checkboxes.js",
+        "slick": "js/vendor/slick/slick.min.js",
+        "simplebar": "js/vendor/simplebar/simplebar.min.js",
+        "yt_api": "//www.youtube.com/iframe_api"
+	},
+
+	"enqueue_built_in_scripts": [
+
+	],
+
+	"register_nav_menus": {
+        "primary": "Main Navigation",
+        "info_for": "Info For...",
+		"mobile_primary": "Mobile - Main Navigation"
+	},
+
+	"theme_widgets_init": {
+		"Primary": {
+			"name": "Primary Widget Area",
+			"id": "primary_widget_area"
+		}
+	},
+
+	"enable_shortcodes_fix": true,
+
+	"enable_thumbnails": true,
+
+	"thumbnails": [
+        [
+            "main-logo",
+            200,
+            200,
+            false
+        ],
+        [
+            "slider-image-full",
+            9999,
+            728,
+            false
+        ],
+        [
+            "testimonial-img",
+            72,
+            72,
+            true
+        ],
+		[
+			"thumbnail-content-image",
+			410,
+			232,
+			true
+        ],
+        [
+			"image-link",
+			630,
+			352,
+			true
+        ],
+        [
+            "full-width-block",
+            680,
+            416,
+            true
+        ],
+        [
+            "thumbnail-card",
+            690,
+            391,
+            true
+        ],
+        [
+            "mega-menu-link-image",
+            300,
+			168,
+			true
+		],
+		[
+            "post-card",
+            690,
+            404,
+            true
+        ],
+        [
+            "image-social",
+            991,
+            991,
+            true
+		],
+		[
+			"mother-logo",
+			60,
+			50,
+			false
+        ],
+        [
+            "cta-img",
+            450,
+            450,
+            true
+        ],
+        [
+            "post-featured-card",
+            850,
+            480,
+            true
+		],
+		[
+            "events-archive",
+            520,
+            294,
+            true
+		],
+		[
+            "single-event",
+            798,
+			451,
+			true
+        ],
+        [
+            "staff-card",
+            300,
+            198,
+            true
+        ],
+        [
+            "program-compare",
+            300,
+            170,
+            true
+        ],
+        [
+            "columns-content-icon",
+            999,
+            91,
+            false
+        ],
+        [
+            "single-staff",
+            630,
+            415,
+            true
+        ],
+        [
+            "single-news",
+            1290,
+            728,
+            true
+        ],
+        [
+            "image-collage",
+            950,
+            620,
+            true
+        ],
+        [
+            "overview-image",
+            410,
+            232,
+            true
+        ],
+        [
+            "search-thumbnail",
+            680,
+            384,
+            true
+        ]
+
+	]
+}
+
+/* ================================================================ */
+/* ========================= EXAMPLE CODE ========================= */
+/* ================================================================ */
+
+/*
+{
+
+	"theme_name" : "northeasternUniversity",
+
+	"acf_options": {
+		"init": true,
+		"page_title": "Theme Options",
+		"menu_title": "Theme Options",
+		"menu_slug": "theme-options",
+		"subpages": {
+			"subpage_1": {
+				"page_title": "Theme General Settings",
+				"menu_title": "General"
+			},
+			"subpage_2": {
+				"page_title": "Theme Header Settings",
+				"menu_title": "Header"
+			},
+			"subpage_3": {
+				"page_title": "Theme Footer Settings",
+				"menu_title": "Footer"
+			}
+		}
+	},
+
+	"register_nav_menus" : {
+		"primary" : "Main Navigation"
+	},
+
+	"enqueue_styles": {
+		"style": {
+			"src" : "style.css",
+			"deps": [ ],
+			"ver": "1.0",
+			"media": "all"
+		},
+
+		"simple": "css/simple.css"
+	},
+
+	"enqueue_scripts": {
+		"script": {
+			"src" : "js/script.js",
+			"deps": [ ],
+			"ver": "1.0",
+			"in_footer": true
+		},
+
+		"simple": "js/simple.js"
+	},
+
+	"enqueue_built_in_scripts": [
+		"jquery-ui-core", "iris", "underscore"
+	],
+
+	"theme_widgets_init" : {
+		"Primary" : {
+			"name" : "Primary Widget Area",
+			"id" : "primary_widget_area",
+			"before_widget" : "<div id='%1$s' class='widget %2$s'>",
+			"after_widget" : "</div>",
+			"before_title" : "<h3 class='widget-title'>",
+			"after_title" : "</h3>"
+		}
+	},
+
+	"enable_thumbnails" : true,
+
+	"thumbnails": [
+		[
+			"thumbnail-name-1",
+			800,
+			600,
+			["left", "top"]
+		],
+		[
+			"thumbnail-name-2",
+			400,
+			300,
+			true
+		]
+	]
+
+}
+*/

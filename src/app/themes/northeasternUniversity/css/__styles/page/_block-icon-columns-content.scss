@@ -1,0 +1,60 @@
+.block-icon-columns-content {
+    margin: rem(82) 0;
+
+    text-align: center;
+
+    @include sm() {
+        margin: rem(51) 0;
+    }
+
+    &__title {
+        max-width: rem(680);
+
+        margin: 0 auto rem(52);
+
+        @include sm() {
+            max-width: none;
+
+            margin: 0 auto rem(47);
+        }
+    }
+
+    &__column {
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+
+        @include md() {
+            margin: 0 0 rem(32);
+        }
+
+        &-image {
+            width: auto;
+            height: 100%;
+            max-height: rem(91);
+
+            margin: 0 0 rem(23);
+
+            @include sm() {
+                margin: 0 0 rem(13);
+            }
+        }
+
+        &-description {
+            margin: 0 0 rem(23);
+
+            @include sm() {
+                margin: 0 0 rem(7);
+            }
+        }
+    }
+
+    &+.block-content-images {
+        margin-top: rem(-22);
+
+        @include sm() {
+            margin-top: rem(-33);
+        }
+    }
+}

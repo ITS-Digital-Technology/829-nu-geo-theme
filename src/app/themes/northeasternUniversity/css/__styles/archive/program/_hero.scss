@@ -1,0 +1,23 @@
+.block-hero-programs {
+    padding: rem(98) 0 rem(102);
+
+    @include md {
+        padding: rem(46) 0 rem(46);
+    }
+    .hero-programs {
+        &__title {
+            @include md {
+                margin-bottom: rem(15);
+            }
+        }
+        &__description {
+            @include font(26,40);
+
+            font-weight: 400;
+
+            @include sm {
+                @include font(20,24);
+            }
+        }
+    }
+}

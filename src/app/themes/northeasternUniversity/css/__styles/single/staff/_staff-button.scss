@@ -1,0 +1,9 @@
+.staff-button {
+    padding-top: rem(58);
+
+    border-top: rem(1) solid $gray-3;
+
+    @include sm() {
+        padding-top: rem(27);
+    }
+}

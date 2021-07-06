@@ -1,0 +1,224 @@
+.block-testimonial-slider {
+    margin: rem(150) 0;
+
+    @include md {
+        margin: rem(90) 0;
+    }
+    & + .block-blog-news {
+        margin-top: rem(-140);
+
+        @include md {
+            margin-top: rem(-53);
+        }
+    }
+    & + .block-content-steps {
+        margin-top: rem(-140);
+
+        @include md {
+            margin-top: rem(-73);
+        }
+    }
+    &--single {
+        .slick-slider {
+            .slick-arrow,
+            .slick-dots {
+                display: none;
+            }
+        }
+    }
+    &--shape {
+        padding: rem(87) 0 rem(71);
+
+        position: relative;
+
+        background-color: $gray-6;
+
+        @include md {
+            padding: rem(50) 0 rem(27);
+        }
+
+        &:after {
+            content: '';
+
+            width: 100%;
+            height: rem(19);
+
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: rem(-19);
+            left: 0;
+
+            background-image: url('../images/icons/quote-pattern-bottom.svg');
+            background-repeat: repeat-x;
+            background-position: center bottom;
+        }
+        &:before {
+            content: '';
+
+            width: 100%;
+            height: rem(19);
+
+            position: absolute;
+            z-index: 1;
+            top: rem(-19);
+            right: 0;
+            left: 0;
+
+            background-image: url('../images/icons/quote-pattern-top.svg');
+            background-repeat: repeat-x;
+            background-position: center bottom;
+        }
+    }
+
+    .slick-arrow {
+        filter: drop-shadow(rem(0) rem(6) rem(24) rgba($color-black, .06));
+
+        top: calc(50% - #{rem(17)});
+
+        @include md {
+            top: auto;
+            right: auto;
+            bottom: 0;
+            transform: none;
+            margin: 0;
+        }
+
+        &.slick-prev {
+            left: 0;
+
+            @include md {
+                left: calc(50% - #{rem(60)});
+            }
+        }
+
+        &.slick-next {
+            right: 0;
+
+            @include md {
+                right: calc(50% - #{rem(60)});
+            }
+        }
+    }
+
+
+    .testimonial {
+        &-slider {
+            @include md {
+                padding-bottom: rem(77);
+            }
+            &:not(.slick-initialized) {
+                display: none;
+            }
+        }
+        &-quote {
+            @include font(34,40);
+
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            max-width: rem(850);
+            padding: rem(80) 0 0;
+
+            position: relative;
+            margin: 0 auto;
+
+            font-weight: 300;
+            font-style: italic;
+            text-align: center;
+
+            border: none;
+
+            @include lg {
+                max-width: rem(780);
+            }
+            @include sm {
+                @include font(20,24);
+
+                padding-top: rem(52);
+
+                letter-spacing: 0;
+            }
+
+            &::before {
+                content: '';
+
+                width: rem(48);
+                height: rem(48);
+
+                position: absolute;
+                top: rem(13);
+                left: 50%;
+                transform: translateX(-50%);
+
+                background-image: url(../images/icons/quote.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+
+                @include md {
+                    top: rem(-12);
+                }
+            }
+            & > p {
+                margin: 0 0 rem(25) 0;
+                &::before,
+                &::after {
+                    content: none;
+                }
+            }
+        }
+        &-thumb {
+            width: rem(88);
+            height: rem(88);
+
+            border: rem(8) solid $yellow;
+            border-radius: 50%;
+
+            @include md {
+                width: rem(76);
+                height: rem(76);
+
+                border: rem(6) solid $yellow;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        &-footer {
+            @include font(16,24);
+
+            margin-top: rem(8);
+
+            font-style: normal;
+            text-align: center;
+
+            @include sm {
+                margin-top: rem(15);
+            }
+
+            p {
+                margin-bottom: 0;
+
+                font-weight: 700;
+
+                @include sm {
+                    @include font(14,16);
+
+                    margin-bottom: rem(4);
+                }
+            }
+            &::before {
+                content: none;
+            }
+        }
+    }
+}

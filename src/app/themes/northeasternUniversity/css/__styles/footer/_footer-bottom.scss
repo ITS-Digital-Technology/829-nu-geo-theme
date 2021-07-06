@@ -1,0 +1,196 @@
+.main-footer {
+    &__bottom {
+        padding: rem(22) rem(15);
+
+        color: $gray-9;
+
+        background: $color-black;
+
+        @include md {
+            padding: rem(14) 0 rem(30);
+        }
+        .home & {
+            @include md {
+                padding-bottom: rem(80);
+            }
+        }
+    }
+
+    .footer-bottom {
+        &__left {
+            @include md {
+                margin-bottom: rem(25);
+            }
+        }
+        &__links {
+            display: flex;
+
+            flex-wrap: wrap;
+            align-items: center;
+
+            padding: 0 rem(20) rem(13) 0;
+
+            position: relative;
+
+            @include md {
+                align-items: center;
+                justify-content: center;
+
+                padding: 0 0 rem(20) 0;
+            }
+            &:after {
+                content: '';
+
+                width: 100%;
+                height: rem(1);
+
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                background-color: rgba(151,151,151,.8);
+            }
+            a {
+                @include font(16,28);
+
+                margin-right: rem(20);
+
+                color: $gray-9;
+                letter-spacing: rem(1);
+
+                @include md {
+                    margin-right: rem(5);
+                    margin-bottom: rem(0);
+                }
+                &:first-child {
+                    color: $color-white;
+                    &:hover {
+                        color: $gray-9;
+                    }
+                }
+                &:hover {
+                    color: $color-white;
+                }
+            }
+        }
+        &__text {
+            @include font(14,28);
+
+            padding-top: rem(20);
+
+            font-weight: 300;
+            color: rgba(151, 151, 151, .8);
+
+            @include md {
+                padding-top: rem(18);
+
+                text-align: center;
+            }
+            @include xs {
+                margin: 0 rem(-13);
+            }
+            a {
+                font-weight: 300;
+                color: rgba(151, 151, 151, .8);
+                &:hover {
+                    color: $color-white;
+                }
+            }
+        }
+        &__right {
+            display: flex;
+
+            flex-direction: column;
+            align-items: flex-end;
+
+            @include md {
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &__socials {
+            display: flex;
+
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
+            margin-bottom: rem(20);
+
+            @include md {
+                align-items: center;
+                justify-content: center;
+
+                margin-bottom: rem(10);
+            }
+        }
+        &__social {
+            margin-left: rem(24);
+
+            @include md {
+                margin-left: rem(13);
+            }
+
+
+            &:first-child {
+                margin: 0;
+            }
+            &-icon {
+                display: inline-flex;
+
+                align-items: center;
+                justify-content: center;
+
+                width: rem(30);
+                height: rem(30);
+
+                border-radius: 50%;
+                background-color: rgba(255,255,254,.6);
+
+                transition: background-color .2s;
+
+                span[class^="icon-"] {
+                    display: block;
+
+                    font-size: rem(18);
+                }
+
+                &:hover {
+                    background-color: $color-white;
+                }
+            }
+        }
+        &__add-links {
+            display: flex;
+
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
+            @include md {
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &__add-link {
+            margin-left: rem(20);
+
+            font-size: rem(14);
+            font-weight: 300;
+            color: rgba(151,151,151,.8);
+            &:first-child {
+                margin: 0;
+            }
+
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.footer-bottom__text {
+    a {
+        text-decoration: underline;
+    }
+}

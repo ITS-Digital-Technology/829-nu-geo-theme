@@ -1,0 +1,7 @@
+.event-content {
+    padding: 0 0 0 rem(41);
+
+    @include md() {
+        padding: 0;
+    }
+}

@@ -1,0 +1,223 @@
+.single-post-summary {
+    padding-top: rem(98);
+
+    @include md {
+        padding-top: rem(50);
+    }
+
+    &__top {
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-bottom: rem(76);
+
+        @include sm {
+            flex-direction: column;
+            justify-content: flex-start;
+
+            margin-bottom: 4.9rem;
+        }
+    }
+
+    &__tags-wrapper {
+        max-width: calc(100% - #{rem(260)});
+
+        @include md {
+            max-width: initial;
+        }
+
+        @include sm {
+            margin-bottom: rem(26);
+        }
+    }
+
+    &__tags-headline {
+        @include font(12, 14);
+
+        margin-bottom: rem(12);
+
+        font-weight: 700;
+        letter-spacing: rem(1.2);
+        text-transform: uppercase;
+
+        @include sm {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__bottom {
+        padding-top: rem(86);
+
+        margin-bottom: rem(35);
+
+        border-top: rem(1) solid $gray-4;
+
+        @include md {
+            padding-top: 4.8rem;
+        }
+    }
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+    margin-right: rem(20);
+
+    &__tag {
+        display: inline-block;
+
+        padding: 0;
+
+        margin: 0;
+        margin-right: rem(10);
+
+        line-height: 1;
+    }
+
+    &__link {
+        @include font(14, 16);
+
+        padding: 0;
+
+        margin: 0;
+
+        font-weight: 700;
+        color: $gray-2;
+        text-decoration: none;
+        transition: color .2s;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+.single-post-author {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__photo {
+        padding: rem(12);
+
+        position: relative;
+        margin-bottom: rem(16);
+
+        @include md {
+            max-width: rem(76);
+            padding: rem(6);
+        }
+
+        &::after {
+            content: '';
+
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            border: rem(12) solid rgba($yellow, .8);
+            border-radius: 50%;
+
+            @include md {
+                border-width: rem(6)
+            }
+        }
+    }
+
+    &__subheading {
+        @include font(12, 16);
+
+        margin-bottom: rem(8);
+
+        font-weight: 700;
+        color: $color-black;
+        letter-spacing: rem(1.2);
+        text-transform: uppercase;
+
+        @include md {
+            margin-bottom: rem(9);
+        }
+    }
+
+    &__name {
+        margin-top: 0;
+        margin-bottom: rem(24);
+
+        @include md {
+            margin-bottom: rem(7);
+        }
+    }
+
+    &__description {
+        @include font(16, 24);
+
+        max-width: rem(630);
+
+        margin-bottom: 0;
+
+        text-align: center;
+        color: $color-black;
+
+        @include md {
+            @include font(14, 24);
+            font-weight: 300;
+
+        }
+    }
+}
+
+.share-buttons {
+    br,
+    p:empty {
+        display: none;
+    }
+
+    .a2a_kit {
+        display: flex;
+    }
+
+    a {
+       width: 32px;
+       height: 32px;
+       display: flex;
+       background-color: rgb(24, 119, 242);
+       margin-right: 16px;
+       border-radius: 4px;
+       background-repeat: no-repeat;
+       background-position: center;
+       transition: 0.2s all ease-in-out;
+       
+       &:hover {
+           opacity: 0.85;
+       }
+      
+       &.a2a_button_facebook {
+           background-image: url(../images/icons/addtoany/facebook.svg);
+       }
+       
+       &.a2a_button_twitter {
+            background-image: url(../images/icons/addtoany/twitter.svg);
+            background-color: rgb(85, 172, 238);
+       }
+
+       &.a2a_button_email {
+            background-image: url(../images/icons/addtoany/email.svg);
+       }
+
+       &.a2a_dd {
+            background-image: url(../images/icons/addtoany/plus.svg);
+       }
+    }
+}

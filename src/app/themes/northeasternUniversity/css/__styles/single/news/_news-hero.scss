@@ -1,0 +1,125 @@
+.hero-news {
+    margin: 0 0 rem(81);
+
+    @include sm() {
+        margin: 0 0 rem(47);
+    }
+
+    &__container {
+        padding: rem(30) 0 14.2vw;
+
+        position: relative;
+
+        @include sm() {
+            padding: rem(17) 0 27.2vw;
+        }
+
+        &:before {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+            height: 50%;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            background-color: $gray-5;
+
+            @include sm() {
+                height: 85%;
+            }
+        }
+
+        &:after {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background-image: url('../images/icons/news/news-hero-pattern.svg');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100% auto;
+        }
+    }
+
+    &__content {
+        max-width: rem(804);
+
+        margin: rem(22) auto 0;
+
+        text-align: center;
+
+        @include sm() {
+            max-width: none;
+
+            margin: rem(28) auto 0;
+        }
+    }
+
+    &__cat {
+        @include font(20, 24);
+
+        display: inline-block;
+
+        margin: 0 0 rem(27);
+
+        font-weight: 700;
+
+        @include sm() {
+            @include font(16, 24);
+
+            margin: 0 0 rem(10);
+        }
+    }
+
+    &__date {
+        @include font(16, 24);
+
+        font-weight: 300;
+
+        @include sm() {
+            @include font(14, 24);
+
+            color: $gray-2;
+        }
+    }
+
+    &__title {
+        margin: 0 0 rem(29);
+
+        @include sm() {
+            margin: 0 0 rem(13);
+        }
+    }
+
+    &__media {
+        display: flex;
+
+        justify-content: center;
+
+        margin-top: -10.9vw;
+
+        @include sm() {
+            margin-top: -17.3vw;
+        }
+    }
+
+    &__image {
+        img {
+            object-fit: cover;
+        }
+    }
+}

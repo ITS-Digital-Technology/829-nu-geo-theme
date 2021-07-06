@@ -1,0 +1,126 @@
+/* Slider Global */
+.slick-arrow {
+    width: rem(56);
+    height: rem(56);
+    padding: 0;
+
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: 0;
+
+    font-size: 0;
+    line-height: 0;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    background-color: $color-white;
+    box-shadow: none;
+    cursor: pointer;
+
+    transition: background-color .2s;
+
+    &:hover {
+        outline: none;
+        background-color: $accent-variant;
+        &:after {
+            border-color: $color-white;
+        }
+    }
+
+    &::after {
+        content: '';
+
+        display: block;
+
+        width: rem(12);
+        height: rem(12);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+
+        border-width: rem(1) rem(1) 0 0;
+        border-style: solid;
+        border-color: $color-black;
+
+        transition: border-color .2s, border-width .1s;
+    }
+
+    &.slick-prev {
+        right: auto;
+        left: rem(20);
+
+        &:after {
+            transform: translate(-50%, -50%) rotate(-135deg);
+            margin-left: rem(2);
+
+            @include sm {
+                margin-left: (1);
+            }
+        }
+    }
+
+    &.slick-next {
+        right: rem(20);
+        left: auto;
+
+        &:after {
+            margin-left: rem(-2);
+
+            @include sm {
+                margin-left: (-1);
+            }
+        }
+    }
+}
+
+
+.slick-dots {
+    display: flex;
+
+    justify-content: center;
+
+    padding: 0;
+
+    margin: rem(12) 0;
+
+    list-style-type: none;
+
+    @include sm {
+        margin: rem(12) 0 rem(7);
+    }
+
+    li + li {
+        margin-left: rem(5);
+    }
+
+    .slick-active button {
+        background-color: $accent;
+    }
+
+    button {
+        width: rem(8);
+        height: rem(8);
+        padding: 0;
+
+        margin: 0;
+
+        font-size: 0;
+        line-height: 0;
+
+        border: none;
+        border-radius: 100vw;
+        background-color: $yellow-light;
+        cursor: pointer;
+
+        transition: background-color .3s ease;
+    }
+}
+
+.slick-slide {
+    outline: none;
+}

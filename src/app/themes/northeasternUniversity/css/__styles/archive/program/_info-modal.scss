@@ -1,0 +1,114 @@
+.info-modal {
+    display: flex;
+
+    align-items: center;
+
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    background-color: rgba($color-dark,.4);
+    box-shadow: 0 0 rem(10) rgba(0, 0, 0, .1);
+    opacity: 1;
+    visibility: visible;
+
+    transition: opacity .2s, visibility .2s;
+
+    &:not(.active) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .container {
+        display: flex;
+
+        align-items: center;
+
+        height: 100%;
+
+        @include min-xl {
+            max-width: rem(1000);
+        }
+    }
+
+    &__wrapper {
+        min-height: 40%;
+        max-height: 80%;
+
+        background-color: $color-white;
+        overflow-y: auto;
+    }
+    &__title-wrapper {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: rem(60);
+        padding: rem(10) rem(40);
+
+        position: relative;
+
+        text-align: center;
+        color: $color-white;
+
+        background-color: $accent;
+
+        @include sm {
+            padding: rem(20) rem(40);
+        }
+
+        h4 {
+            margin: 0;
+
+            color: $color-white;
+        }
+    }
+    &__text-wrapper {
+        padding: rem(50);
+
+        @include sm {
+            padding: rem(20);
+        }
+    }
+
+    &__close {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(40);
+        height: rem(40);
+
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: rem(20);
+        transform: translate(0, -50%);
+
+        color: $color-white;
+
+        border: none;
+        border-radius: 50%;
+        background: $color-dark!important;
+        cursor: pointer;
+
+        transition: color .2s ,background-color .2s;
+
+        @include sm {
+            top: rem(16);
+            right: rem(10);
+        }
+
+        &:hover {
+            color: $color-dark;
+
+            background-color: $color-white!important;
+        }
+    }
+}

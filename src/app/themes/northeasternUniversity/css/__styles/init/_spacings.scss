@@ -1,0 +1,70 @@
+/* Blocks / Columns Spacing Helpers */
+.block-margin-top {
+    margin-top: rem(80);
+
+    @include sm {
+        margin-top: rem(48);
+    }
+}
+.block-margin-bottom {
+    margin-bottom: rem(80);
+
+    @include sm {
+        margin-bottom: rem(48);
+    }
+}
+.block-top-spacing {
+    padding-top: rem(80);
+
+    @include sm {
+        padding-top: rem(48);
+    }
+}
+.block-bottom-spacing {
+    padding-bottom: rem(80);
+
+    @include sm {
+        padding-bottom: rem(48);
+    }
+}
+.columns-spacing-top {
+    padding-top: rem(70);
+
+    @include sm {
+        padding-top: rem(48);
+    }
+}
+.columns-spacing-bottom {
+    padding-bottom: rem(70);
+
+    @include sm {
+        padding-bottom: rem(48);
+    }
+}
+.content-column {
+    padding-right: rem(20);
+
+    margin-bottom: rem(32);
+
+    @include sm {
+        padding-right: rem(15);
+
+        margin-bottom: rem(24);
+    }
+    @include xs {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    &.last_column {
+        padding-right: 0;
+        padding-left: rem(20);
+
+        @include sm {
+            padding-right: 0;
+            padding-left: rem(15);
+        }
+        @include xs {
+            padding-left: 0;
+        }
+    }
+}

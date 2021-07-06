@@ -1,0 +1,52 @@
+.post-type-archive-tribe_events {
+    .tribe-events-calendar-list-nav {
+        padding-top: 0 !important;
+
+        margin: rem(86) 0;
+
+        border: none;
+
+        @include sm() {
+            margin: rem(55) 0;
+        }
+
+        .tribe-common-b2 {
+            span {
+                font-family: $font-third;
+                font-weight: 700;
+                color: $color-dark;
+
+                @include sm() {
+                    @include font(16, 16);
+                }
+            }
+        }
+
+        .tribe-events-c-nav__next {
+            &:disabled {
+                opacity: .5;
+            }
+
+            &:after {
+                @include icon-font('\EA13', #{rem(25)});
+                margin-left: rem(5);
+
+                color: $color-dark;
+            }
+        }
+
+        .tribe-events-c-nav__prev {
+            &:disabled {
+                opacity: .5;
+            }
+
+            &:before {
+                @include icon-font('\EA12', #{rem(25)});
+
+                margin-right: rem(5);
+
+                color: $color-dark;
+            }
+        }
+    }
+}

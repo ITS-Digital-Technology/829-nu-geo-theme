@@ -1,0 +1,146 @@
+.block-overview {
+    $root: &;
+
+    margin: rem(94) 0;
+
+    @include sm {
+        margin: rem(60) 0;
+    }
+
+    + .block-stats-bar {
+        margin-top: rem(-15);
+
+        @include md {
+            margin-top: rem(-10);
+        }
+    }
+    h2 {
+        margin-bottom: rem(24);
+
+        @include sm {
+            margin-bottom: rem(15);
+        }
+    }
+    &__left {
+        @include md {
+            margin-bottom: rem(25);
+        }
+    }
+    &__image {
+        position: relative;
+        img {
+            position: relative;
+            z-index: 1;
+        }
+        &:before {
+            content: '';
+
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translate(rem(23), rem(23));
+
+            background: $yellow;
+
+            @include md {
+                transform: translate(rem(10), rem(10));
+            }
+        }
+    }
+
+    &__image--video {
+        display: block;
+
+        padding: 56.25% 0 0 0;
+
+        position: relative;
+
+        background-color: $color-black;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            object-fit: cover;
+
+            transition: transform .2s;
+
+            will-change: transform;
+        }
+    }
+
+    &__video {
+        &:hover {
+            #{$root}__video-button {
+                // background-color: $accent-variant;
+                &::before {
+                    border-color: transparent transparent transparent $accent-variant;
+                }
+            }
+        }
+    }
+
+    &__video-button {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(64);
+        height: rem(64);
+        padding: 0;
+
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        border: 0;
+        border-radius: 50%;
+        background-color: $color-white;
+        cursor: pointer;
+
+        transition: background-color .2s;
+
+        &::before {
+            content: '';
+            pointer-events: none;
+
+            width: 0;
+            height: 0;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left: rem(2);
+
+            border-width: rem(10) 0 rem(10) rem(15);
+            border-style: solid;
+            border-color: transparent transparent transparent $accent;
+
+            transition: border-color .2s;
+
+            @include sm {
+                border-width: rem(9) 0 rem(9) rem(16);
+            }
+        }
+
+        &:hover {
+            // background-color: $accent-variant;
+            &::before {
+                border-color: transparent transparent transparent $accent-variant;
+            }
+        }
+    }
+}

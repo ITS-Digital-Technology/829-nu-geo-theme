@@ -1,0 +1,59 @@
+.sr-only {
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+.no-margin {
+    margin-bottom: 0 !important;
+}
+
+.block-upcoming-events__left,
+.related-events__header {
+    .c-btn-tertiary {
+        color: #A81321;
+    }
+}
+
+.block-program-comparison__programs-nav-item.c-btn-secondary {
+    border-color: #A81321;
+    color: #A81321;
+
+    &:hover {
+        color: #FFF;
+    }
+}
+
+.home {
+    .blog-posts__title-wrapper,
+    .news-posts__title-wrapper {
+        .c-btn-tertiary,
+        span {
+            color: #A81321;
+        }
+    }
+}
+
+.page-template-page-tpl-compare-programs {
+    .b-content-images__content-wrapper {
+        .c-btn-tertiary,
+        span {
+            color: #A81321;
+        }
+    }
+}
+
+.content-steps__content {
+    a {
+        color: red !important;
+
+        &:hover {
+            color: $accent !important;
+        }
+    }
+}

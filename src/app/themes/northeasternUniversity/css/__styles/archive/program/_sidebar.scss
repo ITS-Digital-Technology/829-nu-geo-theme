@@ -1,0 +1,59 @@
+.post-type-archive-program {
+    .eight29-sidebar {
+        margin-bottom: 0!important;
+        &-top {
+            padding: rem(32) 0 rem(32);
+
+            background-color: $color-dark;
+            box-shadow: 0 0 rem(10) rgba($color-black, .1);
+
+            @include md {
+                padding: rem(47) 0 rem(47);
+            }
+        }
+        &-bottom {
+            padding: rem(47) 0 rem(30);
+
+            background-color: $gray-5;
+
+            @include md {
+                padding: rem(50) 0 rem(15);
+            }
+        }
+        &-detail {
+            @include md {
+                flex-direction: column;
+            }
+        }
+
+        .eight29-sidebar-top .accordion-select h6 {
+            @include font(14,24);
+
+            padding: 0;
+
+            margin-bottom: rem(0);
+
+            font-weight: 400;
+            color: $color-white;
+            &:before {
+                display: none;
+            }
+            span {
+                flex: initial;
+            }
+        }
+        .eight29-results {
+            @include font(20,32);
+
+            font-style: italic;
+            color: $gray-1;
+
+            @include md {
+                @include font(16,24);
+            }
+        }
+    }
+    .eight29-app .sidebar-top {
+        margin-bottom: 0;
+    }
+}

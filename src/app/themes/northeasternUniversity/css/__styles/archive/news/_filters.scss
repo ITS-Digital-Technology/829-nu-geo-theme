@@ -1,0 +1,36 @@
+.post-type-archive-news {
+    .eight29-filter-list {
+        margin: 0;
+    }
+    .eight29-filter.filter-button-group {
+        .button-wrap {
+            border: none;
+        }
+        button {
+            @include font(16,24);
+
+            margin-right: 0;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: color .2s;
+
+            @include sm {
+                @include font(14,16);
+            }
+            &:hover {
+                color: $accent;
+            }
+            &:not(:last-child) {
+                margin-right: rem(45);
+            }
+            &.active {
+                color: $accent;
+
+                border-color: $accent;
+            }
+        }
+    }
+}

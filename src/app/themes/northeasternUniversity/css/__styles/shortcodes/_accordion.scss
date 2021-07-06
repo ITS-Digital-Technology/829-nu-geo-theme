@@ -1,0 +1,134 @@
+.page-accordion {
+    margin: rem(30) 0 rem(82);
+
+    @include sm {
+        margin: rem(30) 0 rem(46);
+    }
+}
+
+.single-accordion {
+    $root: &;
+
+    border-top: rem(1) solid $gray-4;
+
+    &:last-child {
+        border-bottom: rem(1) solid $gray-4;
+    }
+
+    p:empty {
+        display: none;
+    }
+
+
+    &__title {
+        display: block;
+
+        width: 100%;
+        padding: rem(35) rem(65) rem(35) rem(22);
+
+        position: relative;
+
+        text-align: left;
+
+        border: none;
+        border-radius: 0;
+        background: none;
+        cursor: pointer;
+
+        @include sm {
+            padding: rem(20) rem(45) rem(20) rem(10);
+        }
+
+        h4 {
+            margin: 0;
+
+            transition: color .2s;
+
+            @include sm {
+                letter-spacing: rem(.6);
+            }
+        }
+
+        span[class^="icon-"] {
+            pointer-events: none;
+
+            position: absolute;
+            top: rem(37);
+            right: rem(20);
+
+            font-size: rem(24);
+
+            transition: transform .2s;
+
+            @include sm {
+                top: rem(20);
+                right: rem(10);
+            }
+        }
+
+        &:hover {
+            h4 {
+                color: $accent;
+            }
+
+            .icon-chev-expand {
+                color: $accent;
+            }
+        }
+    }
+
+
+    &.active {
+        .icon-chev-expand {
+            transform: rotateZ(180deg);
+
+            @include sm {
+                transform: rotateZ(180deg);
+            }
+        }
+    }
+
+    &__content {
+        display: none;
+
+        padding: 0 rem(20) rem(40);
+
+        position: relative;
+        margin-top: rem(-8);
+
+        @include sm {
+            padding: 0 rem(10) rem(20);
+
+            margin-top: rem(-4);
+        }
+    }
+}
+
+.single-accordion__title {
+    .heading {
+        transition: color .2s;
+        font-size: 2rem;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        padding: 0;
+        border: none;
+        background: none;
+        text-align: left;
+        width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        br {
+            display: none;
+        }
+
+        @include sm {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            letter-spacing: 0.06rem;
+        }
+    }
+}

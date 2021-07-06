@@ -1,0 +1,13 @@
+.staff-content {
+    padding-left: rem(6);
+
+    margin-bottom: rem(59);
+
+    @include xl() {
+        padding-left: 0;
+    }
+
+    @include sm() {
+        margin-bottom: rem(43);
+    }
+}

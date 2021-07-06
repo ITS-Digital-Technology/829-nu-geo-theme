@@ -1,0 +1,252 @@
+.post-type-archive-tribe_events .tribe-common {
+    .tribe-events-calendar-list {
+        &__month-separator {
+            margin: rem(31) 0;
+
+            @include sm() {
+                margin: rem(23) 0;
+            }
+
+            &-text {
+                @include font(20, 24);
+
+                font-family: $font-base;
+                font-weight: 700;
+
+                @include sm() {
+                    @include font(16, 24);
+                }
+            }
+
+            &:after {
+                background: $gray-3;
+            }
+        }
+
+        &__event {
+            filter: drop-shadow(0px 6px 24px rgba(0, 0, 0, .06));
+
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+
+            border-radius: rem(8);
+            background-color: $color-white;
+
+            @include md() {
+                flex-direction: column;
+            }
+
+            @include sm() {
+                margin: 0;
+            }
+
+            &-row {
+                margin: 0 0 rem(33) !important;
+
+                @include sm() {
+                    margin: 0 0 rem(20) !important;
+                }
+            }
+
+            &-header {
+                display: flex;
+
+                flex-direction: column;
+
+                max-width: rem(826);
+                padding-right: rem(35);
+
+                @include md() {
+                    max-width: none;
+                    padding-right: 0;
+                }
+            }
+
+            &-type {
+                @include font(14, 16);
+
+                display: inline-block;
+
+                margin-bottom: rem(8);
+
+                font-family: $font-base;
+                font-weight: 700;
+                color: $color-dark;
+
+                @include sm() {
+                    @include font(12, 16);
+
+                    margin-bottom: rem(4);
+                }
+            }
+
+            &-title {
+                @include font(26, 32);
+
+                flex-grow: 1;
+
+                margin-bottom: rem(21);
+
+                font-family: $font-sec;
+                font-weight: 500;
+                color: $color-dark;
+
+                @include sm() {
+                    @include font(18, 24);
+
+                    margin-bottom: rem(15);
+                }
+
+                a {
+                    border: none;
+                }
+            }
+
+            &-featured-image {
+                &-wrapper {
+                    @include flex(#{rem(520)});
+
+                    padding: 0 !important;
+
+                    @include md() {
+                        @include flex(100%);
+                    }
+
+                    @include sm() {
+                        margin: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                        border-radius: rem(8) 0 0 rem(8);
+                        object-fit: cover;
+
+                        @include md() {
+                            border-radius: rem(8) rem(8) 0 0;
+                        }
+                    }
+                }
+
+                &-link {
+                    display: block;
+
+                    height: 100%;
+                }
+            }
+
+
+            &-details {
+                display: flex;
+
+                flex-grow: 1;
+                flex-shrink: unset;
+                justify-content: space-between;
+
+                width: auto;
+                max-width: none;
+                min-height: rem(294);
+                padding: rem(48) rem(48) rem(40) rem(60) !important;
+
+                @include lg() {
+                    flex-direction: column;
+                }
+
+                @include sm() {
+                    min-height: auto;
+                    padding: rem(22) rem(20) rem(16) rem(20) !important;
+                }
+            }
+
+            &-buttons {
+                width: 100%;
+                max-width: rem(153);
+
+                @include lg() {
+                    margin-top: rem(40);
+                }
+
+                @include sm() {
+                    width: 100%;
+                    max-width: none;
+
+                    margin-top: rem(16);
+                }
+
+                .c-btn {
+                    width: 100%;
+
+                    margin-bottom: rem(16);
+
+                    @include sm() {
+                        width: 100%;
+                        padding: rem(10) 3.15rem;
+
+                        margin-bottom: rem(7);
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            &-day,
+            &-time {
+                @include font(20, 24);
+
+                display: flex;
+
+                align-items: center;
+
+                font-weight: 700;
+
+                @include sm() {
+                    @include font(16, 24);
+                }
+
+                span[class^="icon-"] {
+                    margin-right: rem(10);
+
+                    font-size: rem(23);
+                    line-height: 1;
+                }
+            }
+
+            &-day {
+                margin-bottom: rem(17);
+
+                @include sm() {
+                    margin-bottom: rem(8);
+                }
+            }
+
+            &-time {
+                .tribe-events-calendar-list__start-time {
+                    margin-right: .4rem;
+                }
+
+                .tribe-events-calendar-list__end-time {
+                    &:before {
+                        content: '–';
+
+                        display: inline-block;
+
+                        margin-right: .4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tribe-events-c-nav__next-label,
+.tribe-events-c-nav__prev-label {
+    font-family: 'Lato', sans-serif !important;
+
+    span {
+        font-family: 'Lato', sans-serif !important;
+    }
+}

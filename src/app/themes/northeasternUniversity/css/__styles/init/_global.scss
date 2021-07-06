@@ -1,0 +1,413 @@
+/**
+ * Base styles that aim to normalize fonts, and display of elements
+ * across browsers, and make writing further styles easier.
+ */
+
+
+html {
+    font-size: 62.5%;
+    /* Sets up the Base 10 stuff */
+}
+
+/* Set font and clear body padding */
+html,
+button,
+input,
+select,
+textarea {
+    font-family: $font-base;
+}
+
+body {
+    min-width: rem(320);
+
+    margin: 0;
+
+    font-family: $font-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    color: $text-color-base;
+
+    background-color: $body-color;
+
+    @include sm {
+        font-size: rem(16);
+        line-height: rem(24);
+    }
+
+    -webkit-font-smoothing: antialiased;
+
+    &.lock-scroll,
+    &.modal-open {
+        overflow: hidden;
+    }
+
+    &.overlayed {
+        position: relative;
+        &:before {
+            content: '';
+
+            display: block;
+
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background: rgba(0, 0, 0, .75);
+        }
+    }
+}
+
+#page {
+    padding-top: rem(112);
+
+    @include lg {
+        padding-top: rem(107);
+    }
+}
+
+.alert-bar-on #page {
+    padding-top: rem(144);
+
+    @include lg {
+        padding-top: rem(139);
+    }
+    @include sm {
+        padding-top: rem(140);
+    }
+}
+
+.resize-animation-stopper {
+    .undermenu__wrapper ul,
+    .undermenu__wrapper a {
+        transition: none !important;
+    }
+}
+
+/* Setting sizes is much more predictable with border-box */
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+/* Make all images responsive */
+img {
+    height: auto;
+    max-width: 100%;
+
+    vertical-align: middle;
+}
+
+/* Make inputs on iOS look normal */
+input {
+    //-webkit-appearance: none;
+}
+
+/* Custom List Styles */
+ol {
+    counter-reset: item;
+
+    display: block;
+
+    padding: 0;
+
+    margin: rem(36) 0 rem(29);
+
+    @include sm {
+        margin: rem(24) 0 rem(24);
+    }
+
+    li {
+        display: block;
+
+        padding: 0 0 0 rem(30);
+
+        position: relative;
+        margin: 0 0 rem(16);
+
+        @include sm {
+            padding: 0 0 0 rem(24);
+
+            margin: 0 0 rem(15);
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+        &:before {
+            content: counters(item, '.') '.';
+            counter-increment: item;
+
+            position: absolute;
+            left: 0;
+
+            font-weight: 400;
+
+            @include sm {
+                font-size: rem(16);
+                font-weight: 300;
+            }
+        }
+        li {
+            padding: 0 0 0 rem(30);
+
+            margin: 0 0 rem(16);
+
+            @include sm {
+                padding: 0 0 0 rem(25);
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+            &:before {
+                content: counters(item, '.') ' ';
+
+                font-weight: 300;
+            }
+        }
+    }
+
+    ol {
+        margin: rem(15) 0 0;
+    }
+}
+
+ul:not([class]) {
+    padding: 0;
+
+    margin: 0 0 rem932;
+
+    list-style: none;
+
+    @include sm {
+        margin: 0 0 rem(25);
+    }
+
+    li {
+        padding: 0 0 0 rem(31);
+
+        position: relative;
+        margin: 0 0 rem(15);
+
+        @include sm {
+            padding: 0 0 0 rem(24);
+
+            margin: 0 0 rem(16);
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+        &:before {
+            content: '';
+
+            display: block;
+
+            width: rem(5);
+            height: rem(5);
+
+            position: absolute;
+            top: rem(14);
+            left: rem(7);
+
+            border-radius: 50%;
+            background: $text-color-base;
+
+            @include sm {
+                top: rem(9);
+                left: rem(8);
+            }
+        }
+        li {
+            padding: 0 0 0 rem(13);
+
+            margin: 0 0 rem(15);
+
+            @include sm {
+                padding: 0 0 0 rem(14);
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+            &:before {
+                content: '';
+
+                width: rem(9);
+                height: rem(1);
+
+                top: rem(17);
+                left: 0;
+
+                border: none;
+                border-radius: 0;
+
+                @include sm {
+                    top: rem(12);
+                }
+            }
+        }
+        ul {
+            margin: rem(16) 0 0;
+
+            @include sm {
+                margin: rem(18) 0 0;
+            }
+        }
+    }
+}
+
+
+/* Normalize links across browsers */
+a {
+    color: $text-color-base;
+    text-decoration: none;
+
+    transition: color .2s;
+    &:hover {
+        color: $text-color-base;
+        text-decoration: none;
+    }
+    .page-content &:not([class]) {
+        font-weight: 400;
+        color: $link-color;
+        text-decoration: underline;
+        &:hover {
+            color: $link-hover-color;
+        }
+    }
+}
+
+.section-title {
+    margin: 0 0 rem(39);
+
+    text-align: center;
+
+    @include sm {
+        margin: 0 0 rem(31);
+    }
+}
+
+
+.container {
+    @include min-xl {
+        max-width: rem(1320);
+    }
+    @include sm {
+        max-width: rem(720);
+        padding: 0 rem(20);
+    }
+}
+.container-fluid {
+    @include sm {
+        padding: 0 rem(20);
+    }
+}
+.row {
+    @include sm {
+        margin: 0 rem(-20);
+    }
+}
+
+.col-12,
+.col-6 {
+    @include sm {
+        padding: 0 rem(20);
+    }
+}
+
+a,
+input,
+select,
+textarea {
+    &:focus {
+        outline: none;
+
+        html.user-tab-nav & {
+            outline: $outline !important;
+            outline-offset: 0;
+        }
+    }
+}
+
+figure.post-card__thumbnail,
+button,
+.post-card__thumbnail > a,
+.block-program-comparison__programs-article-buttons > a {
+    &:focus {
+        outline: $outline !important;
+    }
+}
+
+.post-card__thumbnail,
+.program-card__thumbnail,
+.blog-post__card-thumbnail {
+    > a {
+        border: 2px solid transparent;
+    
+        &.focused {
+            border: $outline !important;
+        }
+    }
+}
+
+.staff-card__thumbnail > a {
+    border: 2px solid transparent;
+    display: block;
+
+    &:focus {
+        border: $outline;
+    }
+}
+
+.blog .blog-post__card-thumbnail > a:focus {
+    border: $outline !important;
+}
+
+.staff-card__category,
+.main-post-link {
+    &:focus {
+        outline: $outline !important;
+    }
+}
+
+.content-link-wrapper {
+    a {
+        border: 2px solid transparent;
+        display: block;
+
+        &:focus {
+            border: $outline;
+        }
+    }
+}
+
+input[type="search"] {
+    &:focus {
+        border: $outline !important;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+.pr-0 {
+    padding-right: 0;
+}
