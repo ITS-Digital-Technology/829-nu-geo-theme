@@ -6,8 +6,13 @@
     right: 0;
     bottom: 0;
     left: 0;
+    display: none;
 
     background-color: $color-white;
+
+    &.visible {
+        display: block;
+    }
 
     @include md {
         z-index: 3;
