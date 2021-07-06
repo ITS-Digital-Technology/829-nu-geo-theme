@@ -19,7 +19,7 @@ $logo             = get_svg( $logo );
 			<div class="row">
 				<div class="col-12 col-lg-3">
 				<?php if ( ! empty( $logo ) ) : ?>
-					<figure class="footer-top__logo">
+					<figure class="footer-top__logo" aria-label="Northeaster University  Global Experience">
 						<?php echo $logo; ?>
 					</figure>
 				<?php endif; ?>
