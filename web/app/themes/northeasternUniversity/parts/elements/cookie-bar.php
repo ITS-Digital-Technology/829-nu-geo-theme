@@ -1,9 +1,10 @@
 <?php
 $cookie_bar_text = get_field('cookie_bar_text', 'options');
+$today = date('Y-m-d');
 
 if (!empty($cookie_bar_text)) :
 ?>
-<div class="cookie-bar" id="cookie-bar">
+<div class="cookie-bar visible" id="cookie-bar" data-today="<?php echo $today; ?>">
     <div class="container">
         <div class="row">
             <div class="cookie-bar__wrapper col-12 col-lg-8">

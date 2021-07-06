@@ -734,6 +734,24 @@ function wcagHelper() {
     }
   }
 
+  function alertBanner() {
+    const alertBanner = document.querySelector('#cookie-bar');
+    const closeBtn = document.querySelector('.cookie-bar__accept');
+    const today = alertBanner ? alertBanner.getAttribute('data-today') : false;
+    const dateClicked = localStorage.getItem('dateClicked');
+  
+    if (alertBanner && closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        localStorage.setItem('dateClicked', today);
+        alertBanner.classList.remove('visible');
+      });
+  
+      if (!dateClicked || dateClicked !== today) {
+        alertBanner.classList.add('visible');
+      }
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
