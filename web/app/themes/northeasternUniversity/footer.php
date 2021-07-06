@@ -33,6 +33,7 @@
      $("li.slick-active button").removeAttr("role");
     
     $("#students h2:first").focus();
+    $("#students h2:first").attr('tabindex', '0');
     
     $("#filter-staff_category .button-wrap .active").attr("aria-selected", "true");
     
