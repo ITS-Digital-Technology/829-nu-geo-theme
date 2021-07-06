@@ -344,20 +344,59 @@ textarea {
 
 figure.post-card__thumbnail,
 button,
-.post-card__thumbnail > a {
+.post-card__thumbnail > a,
+.block-program-comparison__programs-article-buttons > a {
     &:focus {
         outline: $outline !important;
     }
 }
 
 .post-card__thumbnail,
-.program-card__thumbnail {
+.program-card__thumbnail,
+.blog-post__card-thumbnail {
     > a {
         border: 2px solid transparent;
     
         &.focused {
             border: $outline !important;
         }
+    }
+}
+
+.staff-card__thumbnail > a {
+    border: 2px solid transparent;
+    display: block;
+
+    &:focus {
+        border: $outline;
+    }
+}
+
+.blog .blog-post__card-thumbnail > a:focus {
+    border: $outline !important;
+}
+
+.staff-card__category,
+.main-post-link {
+    &:focus {
+        outline: $outline !important;
+    }
+}
+
+.content-link-wrapper {
+    a {
+        border: 2px solid transparent;
+        display: block;
+
+        &:focus {
+            border: $outline;
+        }
+    }
+}
+
+input[type="search"] {
+    &:focus {
+        border: $outline !important;
     }
 }
 

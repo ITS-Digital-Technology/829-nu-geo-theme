@@ -39,7 +39,7 @@ function staff(props) {
         const seperator = index === categories.length - 1 ? '' : ', ';
 
             return (
-                <>
+                <span key={index}>
                 <a
                     href={category.link}
                     className="staff-card__category"
@@ -47,7 +47,7 @@ function staff(props) {
                     data-cat={category.id}
                 >{category.name}</a>
                 {seperator}
-                </>
+                </span>
             );
         });
 
@@ -60,9 +60,7 @@ function staff(props) {
 
     return (
         <article id={`${postType}-${post.id}`} className="staff-card">
-            <a href={post.link}>
-                {featuredImage}
-            </a>
+            {featuredImage}
 
             <div className="staff-card__content">
                 <div className="staff-card__category">
@@ -70,7 +68,7 @@ function staff(props) {
                 </div>
                 
                 <span className="staff-card__title">
-                    <a className="staff-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+                    <a className="staff-link main-post-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
                 </span>
                 
                 {position}

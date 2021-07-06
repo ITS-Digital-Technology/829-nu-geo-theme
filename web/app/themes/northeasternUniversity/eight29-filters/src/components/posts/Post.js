@@ -30,11 +30,13 @@ function post(props) {
 	if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
 		featuredImage =
 			<figure className="blog-post__card-thumbnail">
-				<FeaturedImage
-					imageSize={'thumbnail-card'}
-					image={post._embedded['wp:featuredmedia']}
-					srcset={post.featured_image_srcset}
-				></FeaturedImage>
+				<a className="blog-link" href={post.link}>
+					<FeaturedImage
+						imageSize={'thumbnail-card'}
+						image={post._embedded['wp:featuredmedia']}
+						srcset={post.featured_image_srcset}
+					></FeaturedImage>
+				</a>
 			</figure>
 	}
 
@@ -77,13 +79,13 @@ function post(props) {
 	return (
 		<article id={`${postType}-${post.id}`} className="blog-post__card">
 			<div className="blog-post__card-wrapper">
-				<a className="blog-link" href={post.link}>{featuredImage}</a>
+				{featuredImage}
 				
 				<div className="blog-post__card-content">
 					{type}
-					<h3 className="blog-post__card-title">
-						<a className="blog-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
-					</h3>
+					<span className="blog-post__card-title h3">
+						<a className="blog-link main-post-link" href={post.link} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></a>
+					</span>
 					{author}
 				</div>
 			</div>

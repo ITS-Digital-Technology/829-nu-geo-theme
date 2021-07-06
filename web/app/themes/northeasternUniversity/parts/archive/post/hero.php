@@ -55,9 +55,9 @@ if ( empty( $featured_post ) ) {
 								<a class="post-card__cat-link" href="<?php echo $cat['url']; ?>"><?php echo $cat['title']; ?></a>
 							</div>
 						<?php endif; ?>
-							<h2 class="featured-post-card__title">
+							<span class="featured-post-card__title h2 heading">
 								<a href="<?php echo $permalink; ?>"><?php echo $title; ?></a>
-							</h2>
+							</span>
 						<?php if ( ! empty( $excerpt ) ) : ?>
 							<div class="featured-post-card__excerpt"><?php echo wp_trim_words( $excerpt, 40, '...' ); ?></div>
 						<?php endif; ?>

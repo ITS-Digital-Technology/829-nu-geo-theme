@@ -132,7 +132,7 @@
                     "key": "field_60110cee0f772",
                     "label": "Form",
                     "name": "news_newsletter_form",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -142,10 +142,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
                 }
             ]
         },
@@ -207,5 +207,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612780242
+    "modified": 1624647295
 }

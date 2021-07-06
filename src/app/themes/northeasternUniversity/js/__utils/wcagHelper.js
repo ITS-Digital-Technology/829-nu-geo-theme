@@ -16,7 +16,7 @@ function wcagHelper() {
 
   function anchorLinkMenu() {
     const body = document.querySelector('body');
-    const menuLinks = document.querySelectorAll('#menu-info-for-1 a');
+    const menuLinks = document.querySelectorAll('#menu-information-1 a');
 
     if (body.classList.contains('page-id-1848') && menuLinks) {
       menuLinks.forEach(menuLink => {
@@ -264,7 +264,7 @@ function wcagHelper() {
           }
 
           if (e.keyCode === 40 || e.key === 'ArrowDown') {
-            document.querySelector('#menu-info-for-1 > li:first-child > a').focus();
+            document.querySelector('#menu-information-1 > li:first-child > a').focus();
           }
         });
 
@@ -291,8 +291,8 @@ function wcagHelper() {
           });
         }
 
-        menuWrapper.setAttribute('role', 'menu');
-        rightMenuButton.setAttribute('aria-controls', 'menu-info-for-1');
+        //menuWrapper.setAttribute('role', 'menu');
+        //rightMenuButton.setAttribute('aria-controls', 'menu-information-1');
         menuWrapper.setAttribute('aria-labelledby', 'info-for-button');
 
         if (menuItems) {
@@ -514,7 +514,7 @@ function wcagHelper() {
                 selectionList += `p_${taxonomyName}=${selections[taxonomyName]}&`;
               }
 
-              const selectionString = `${searchButtonURL}?${selectionList}`;
+              const selectionString = `${searchButtonURL}&${selectionList}`;
               
               searchButton.setAttribute('href', selectionString);
             });
@@ -624,7 +624,7 @@ function wcagHelper() {
 
   function contentStart() {
     const header = document.querySelector('#main-header');
-    const content = document.querySelector('.page-content > section:first-child');
+    const content = document.querySelector('.page-content > section:nth-of-type(1)');
     const newDiv = document.createElement('div');
     const contentStart = document.createElement('a');
 
@@ -666,7 +666,7 @@ function wcagHelper() {
   }
 
   function imageFocus() {
-    const elements = document.querySelectorAll('.post-card__thumbnail > a, .program-card__thumbnail > a');
+    const elements = document.querySelectorAll('.post-card__thumbnail > a, .program-card__thumbnail > a, .blog-post__card-thumbnail > a');
 
     if (elements) {
       elements.forEach(element => {
@@ -677,6 +677,59 @@ function wcagHelper() {
         element.addEventListener('focusout', function() {
           element.classList.remove('focused');
         });
+      });
+    }
+  }
+
+  function tablePress() {
+    const tables = document.querySelectorAll('.tablepress');
+
+    if (tables) {
+      tables.forEach(table => {
+        const tableHeaders = table.querySelectorAll('th');
+        const prevEl = table.previousElementSibling;
+
+        if (tableHeaders) {
+          tableHeaders.forEach(tableHeader => {
+            tableHeader.setAttribute('scope', 'col');
+          });
+        }
+
+        if (prevEl && prevEl.tagName === 'H2') {
+          const tableCaption = document.createElement('caption');
+          const prevElHTML = prevEl.innerHTML;
+
+          tableCaption.innerHTML = prevElHTML;
+          table.insertBefore(tableCaption, table.childNodes[0]);
+        }
+      });
+    }
+  }
+
+  function searchPage() {
+    const body = document.body;
+    const searchResults = document.querySelector('.search-results-info');
+
+    if (body.classList.contains('search') && searchResults) {
+      const searchResultsText = searchResults.getAttribute('data-results');
+
+      setTimeout(function() {
+        searchResults.querySelector('span').innerHTML = searchResultsText;
+      }, 1000);
+    }
+  }
+
+  function comparePrograms() {
+    const buttons = document.querySelectorAll('.block-program-comparison__programs-article-buttons a');
+    const compareItems = document.querySelectorAll('.block-program-comparison__programs-article');
+
+    if (buttons && compareItems) {
+      buttons.forEach(button => {
+        button.removeAttribute('tabindex');
+      });
+
+      compareItems.forEach(compareItem => {
+        compareItem.removeAttribute('tabindex');
       });
     }
   }
@@ -715,8 +768,11 @@ function wcagHelper() {
     blockGalleryLightbox();
     contentStart();
     mobileModal();
-    tempCleanup();
     imageFocus();
+    tablePress();
+    searchPage();
+    comparePrograms();
+    tempCleanup();
   }
 
   window.addEventListener('DOMContentLoaded', init);

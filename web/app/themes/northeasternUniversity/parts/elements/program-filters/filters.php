@@ -78,7 +78,7 @@ if($mobile_modal){
                             ?>
                         </div>
                         <div class="program-filters__search-wrapper">
-                            <a href="<?php echo get_post_type_archive_link('program') ;?>" class="c-btn c-btn-primary c-btn-color-normal"><span class="sr-only"><?php _e('Click to ','northeasternUniversity');?></span><?php _e('Search Program','northeasternUniversity');?><span class="sr-only"><?php _e(' with selected filters','northeasternUniversity');?></span></a>
+                            <a href="<?php echo get_post_type_archive_link('program') ;?>?from=filter-bar" class="c-btn c-btn-primary c-btn-color-normal"><span class="sr-only"><?php _e('Click to ','northeasternUniversity');?></span><?php _e('Search Program','northeasternUniversity');?><span class="sr-only"><?php _e(' with selected filters','northeasternUniversity');?></span></a>
                         </div>
                     </div>
                 </div>
