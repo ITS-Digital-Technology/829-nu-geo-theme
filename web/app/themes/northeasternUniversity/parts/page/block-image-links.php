@@ -56,18 +56,23 @@ if ( $links ) :
                 $link_target = $link['target'] ? 'target="_blank" rel="noopener"' : 'target="_self"';
             ?>
             <div class="<?php echo $class; ?>">
-                <a class="image-link" href="<?php echo esc_url( $link_url ); ?>" <?php echo $link_target; ?>>
-                <?php if ( $img ) : ?>
-                    <figure class="image-link__image">
-                        <?php echo $img; ?>
-                    </figure>
-                <?php endif; ?>
-                <?php
-                if( !empty( $link_title )) {
-                    get_theme_part('elements/content-link', ['link_title'=> $link_title] );
-                }
-                ?>
-                </a>
+                <div class="content-link-wrapper">
+                    <?php if ( $img ) : ?>
+                            <figure class="image-link__image">
+                                <a class="image-link" href="<?php echo esc_url( $link_url ); ?>" <?php echo $link_target; ?>>
+                                    <?php echo $img; ?>
+                                </a>
+                            </figure>
+                    <?php endif; ?>
+
+                    <?php if( !empty( $link_title )): ?>
+                        <?php get_theme_part('elements/content-link', [
+                            'link_title' => $link_title,
+                            'link_target' => $link_target, 
+                            'link_url' => $link_url
+                        ]); ?>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php
             endif;

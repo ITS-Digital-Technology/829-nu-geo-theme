@@ -27,12 +27,17 @@ function post(props) {
     let termContent;
     let postTitle;
 
+    //title
+    postTitle = post['title']['rendered'];
+    postTitle = postTitle.toLowerCase();
 
     //feature-image
     featuredImage = <figure className="program-card__thumbnail" dangerouslySetInnerHTML={{ __html: acfData.acf_program_card_image }}></figure>;
+    
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:featuredmedia') && !post._embedded['wp:featuredmedia'][0].data) {
         featuredImage =
           <figure className="program-card__thumbnail">
+            <span className="sr-only" dangerouslySetInnerHTML={{ __html: postTitle }}></span>
             <FeaturedImage
               imageSize={'thumbnail-card'}
               image={post._embedded['wp:featuredmedia']}
@@ -42,12 +47,20 @@ function post(props) {
     }
 
     //status
-    if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='open') {
+    if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Open') {
         status = <span className="program-card__status status-open">Open</span>
-    } else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='pending') {
+    } 
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Pending') {
         status = <span className="program-card__status status-pending">Pending</span>
-    } else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='full') {
+    } 
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Full') {
         status = <span className="program-card__status status-full">Full</span>
+    }
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Cancelled') {
+        status = <span className="program-card__status status-cancelled">Cancelled</span>
+    }
+    else if(post.acf_program_card_program_status && post.acf_program_card_program_status ==='Closed') {
+        status = <span className="program-card__status status-closed">Closed</span>
     }
 
     //type
@@ -61,16 +74,14 @@ function post(props) {
 
         if (type && type.length > 0) {
             type = <div className="program-card__type-wrapper">
-                <a className="program-card__type" href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
+                <a className="program-card__type" aria-label={`${type[0].name} programs.`} href={type[0].link} dangerouslySetInnerHTML={{__html: type[0].name}} />
             </div>
         }
     }
 
-    //title
-    postTitle = post['title']['rendered'];
-    postTitle = postTitle.toLowerCase();
-
-    title= <h3 className="program-card__title" dangerouslySetInnerHTML={{__html: postTitle}}/>
+    title= <span className="program-card__title">
+        <a className="main-post-link" href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} dangerouslySetInnerHTML={{__html: postTitle}}/>
+    </span>
 
     //city
     if (post.hasOwnProperty('_embedded') && post._embedded.hasOwnProperty('wp:term') && post.city) {
@@ -105,7 +116,7 @@ function post(props) {
     }
 
     terms = terms.map((term,i)=>(
-        <a key={i} className="program-card__info-term" href={term.link}>{term['name'].replace('&amp;', '&')}
+        <a key={i} className="program-card__info-term" aria-label={`${term['name']} programs.`} href={term.link}>{term['name'].replace('&amp;', '&')}
         {i < terms.length - 1 ? ", " : null}</a>
     ));
 
@@ -123,11 +134,11 @@ function post(props) {
                 <div className="program-card__info-location">
                     <span className="program-card__info-name program-card__info-name-location ">Location: </span>
                     {city ?
-                    <a href={city[0].link} className="program-card__info-city" dangerouslySetInnerHTML={{__html:city[0].name + ", "}}/>
+                    <a href={city[0].link} className="program-card__info-city" aria-label={`${city[0].name} programs.`} dangerouslySetInnerHTML={{__html:city[0].name + ", "}}/>
                     : null
                     }
                     {country ?
-                    <a href={country[0].link} className="program-card__info-country" dangerouslySetInnerHTML={{__html:country[0].name}}/>
+                    <a href={country[0].link} className="program-card__info-country" aria-label={`${country[0].name} programs.`} dangerouslySetInnerHTML={{__html:country[0].name}}/>
                     : null
                     }
                 </div>
@@ -146,9 +157,11 @@ function post(props) {
     return (
         <article id={`${postType}-${post.id}`} className="program-card">
             <div className="program-card__wrapper">
-                <a className="program-card__link" href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']} aria-label="Program Link"></a>
                 {status}
-                {featuredImage}
+                <a href={post.acf_program_card_link['url']} target={post.acf_program_card_link['target']}>
+                    {featuredImage}
+                </a>
+
                 <div className="program-card__content">
                     {type}
                     {title}

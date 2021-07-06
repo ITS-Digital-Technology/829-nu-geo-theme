@@ -14,11 +14,14 @@ if($mobile_modal){
 ?>
 <div class="<?php echo implode( ' ', $block_class ); ?>">
     <button class="program-filters__trigger-mobile"><?php _e("Search Programs",'northeasternUniversity'); ?></button>
-    <div class="program-filters__wrapper-outer">
+    <div role="dialog" id="program-mobile-modal" aria-label="program filters" aria-modal="true" class="program-filters__wrapper-outer">
         <div class="container">
-            <div class="program-filters__wrapper" tabindex="0" aria-label="Program Filters">
+            <div class="program-filters__wrapper">
                 <div class="program-filters__inner-wrapper-header">
-                    <button class="program-filters__mobile-close"><span class="icon-close"></span></button>
+                    <button class="program-filters__mobile-close">
+                        <span class="sr-only">Close</span>
+                        <span class="icon-close"></span>
+                    </button>
                 </div>
                 <div class="program-filters__scroll">
                     <div class="program-filters__inner-wrapper-content">
@@ -75,7 +78,7 @@ if($mobile_modal){
                             ?>
                         </div>
                         <div class="program-filters__search-wrapper">
-                            <a href="<?php echo get_post_type_archive_link('program') ;?>" class="c-btn c-btn-primary c-btn-color-normal"><span class="sr-only"><?php _e('Click to ','northeasternUniversity');?></span><?php _e('Search Program','northeasternUniversity');?><span class="sr-only"><?php _e(' with selected filters','northeasternUniversity');?></span></a>
+                            <a href="<?php echo get_post_type_archive_link('program') ;?>?from=filter-bar" class="c-btn c-btn-primary c-btn-color-normal"><span class="sr-only"><?php _e('Click to ','northeasternUniversity');?></span><?php _e('Search Program','northeasternUniversity');?><span class="sr-only"><?php _e(' with selected filters','northeasternUniversity');?></span></a>
                         </div>
                     </div>
                 </div>

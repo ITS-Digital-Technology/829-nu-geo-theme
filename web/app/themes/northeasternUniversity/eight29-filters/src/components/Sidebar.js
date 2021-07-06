@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import FilterSearch from './filters/FilterSearch';
 import FilterCheckbox from './filters/FilterCheckbox';
 import FilterSelect from './filters/FilterSelect';
@@ -12,6 +12,7 @@ import CloseIcon from '../assets/images/icons/CloseIcon.svgr';
 
 function sidebar(props) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [aria, setAria] = useState({});
 
     const {
         layout,
@@ -59,6 +60,10 @@ function sidebar(props) {
         'date': FilterDate
     }
 
+    const searchInput = document.querySelector('#search-filter');
+    const buttonTrigger = document.querySelector('.eight29-sidebar-open');
+    const firstInput = document.querySelector('.sr-wrapper .apply-filters');
+
     const filterList = autoLoadFilters ? [] : props.children;
     let modalClose;
     let modalOpen;
@@ -77,39 +82,88 @@ function sidebar(props) {
 
     function toggleModal(e) {
         e.preventDefault();
+
         if (document.body.classList.contains('modal-open')) {
             document.body.classList.remove('modal-open');
             document.querySelector('.eight29-sidebar').classList.remove('modal-active');
-        } else {
+        } 
+        else {
             document.body.classList.add('modal-open');
             document.querySelector('.eight29-sidebar').classList.add('modal-active');
         }
 
         setModalVisible(!modalVisible);
+
+        if (modalVisible) {
+            searchInput.focus();
+        }
+        else {
+            buttonTrigger.focus();
+        }
     }
 
     function resetCat(e) {
         e.preventDefault();
-        resetSelected();
-      }
+        const programsURL = `${window.location.origin}/${window.location.pathname}`;
 
+        if (postType === 'program') {
+            window.location.href = programsURL;
+        }
+        else {
+            resetSelected();
+        }
+    }
 
     function toggleFilters(e) {
         e.preventDefault();
         const filtersWrapper = document.querySelector('.more-less-wrapper');
-        const filters = document.querySelectorAll('.eight29-filter.filter-checkbox');
+        const filters = document.querySelectorAll('.eight29-filter:not(.filter-search)');
         const buttonMore = document.querySelector('button.more-filters');
         filtersWrapper.classList.toggle('active');
+
         if ( filtersWrapper.classList.contains('active') ) {
             buttonMore.innerHTML = 'Less Filters';
             filters.forEach(el => {
                 el.classList.remove('d-hide');
             });
-        }else{
+        }
+        else {
             buttonMore.innerHTML = 'More Filters';
-            filters.forEach( (el,index ) => {
+            filters.forEach( (el, index ) => {
                 if(index >= 4){
                     el.classList.add('d-hide');
+                }
+            });
+        }
+    }
+
+    function openModal(e) {
+        e.preventDefault();
+        setModalVisible(true);
+        document.querySelector('.eight29-sidebar').classList.add('modal-active');
+
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }
+
+    function closeModal(e) {
+        e.preventDefault();
+        setModalVisible(false);
+        document.querySelector('.eight29-sidebar').classList.remove('modal-active');
+
+        if (buttonTrigger) {
+            buttonTrigger.focus();
+        }
+    }
+
+    function wcagHelper() {
+        if (modalVisible) {
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    setModalVisible(false);
+                    document.querySelector('.eight29-sidebar').classList.remove('modal-active');
+                    buttonTrigger.focus();
                 }
             });
         }
@@ -130,7 +184,7 @@ function sidebar(props) {
                         className="more-filters"
                         onClick={(e) => { toggleFilters(e) }}
                     >
-                    More Fiters
+                    More Filters
                     </button>
                     </div>
                 }
@@ -172,8 +226,9 @@ function sidebar(props) {
         <h3 className="eight29-sidebar-close-title">Filters</h3>
         <button
             className="eight29-sidebar-close"
-            onClick={(e) => { toggleModal(e) }}
-        >
+            onClick={(e) => { closeModal(e) }}
+        >   
+            <span className="sr-only">Close</span>
             <CloseIcon></CloseIcon>
         </button>
         </div>
@@ -181,7 +236,7 @@ function sidebar(props) {
         modalOpen =
             <button
                 className="eight29-sidebar-open c-btn c-btn-secondary c-btn-color-normal"
-                onClick={(e) => { toggleModal(e) }}
+                onClick={(e) => { openModal(e) }}
             >
                 <span>Filter</span>
                 <span className="c-btn-icon"><span className="icon-filter"></span></span>
@@ -191,14 +246,14 @@ function sidebar(props) {
         applyFilters =
             <button
                 className="apply-filters c-btn c-btn-primary c-btn-color-normal"
-                onClick={(e) => { toggleModal(e) }}
+                onClick={(e) => { closeModal(e) }}
             >Apply Filters</button>
     }
 
     if (displayReset) {
         reset = <div className="eight29-reset-wrapper">
             <button className="eight29-reset" onClick={(e) => { resetCat(e) }}>
-                <span>Clear All</span>
+                <span>Clear All Filters</span>
             </button>
         </div>
     }
@@ -216,7 +271,7 @@ function sidebar(props) {
         ></FilterSearch>
     }
 
-    if (displaySort && layout === 'default') {
+    if (displaySort && layout === 'default' && results > 0) {
         sortComponent = <FilterOrderBy
             order={order}
             orderChange={orderChange}
@@ -229,8 +284,10 @@ function sidebar(props) {
             {postType === 'program' ? searchComponent : ''}
             {filterList}
             {moreFiltersButton}
+            <a id="the-skip-link" href="#" className="skip-main">Skip after posts</a>
         </div>
-    } else {
+    } 
+    else {
         contentLeft = <div className="eight29-filter-list left-content">
             {postType==='program' ? searchComponent : ''}
             {sidebarLeft}
@@ -258,8 +315,9 @@ function sidebar(props) {
         const last_val     = parseInt(first_val) + parseInt(post_count - 1);
         const result_count = (current_page > 0 && results > 0) ? first_val + ' - ' + last_val : f_val + ' - ' + results + '';
         const result_string = `Showing ${result_count} of ${results} available programs`;
+        
         totalResults =
-            <span className="eight29-results">{result_string}</span>
+            <span className="eight29-results" tabIndex="0" aria-label={result_string}>{result_string}</span>
     }
     if (layout === 'default' && totalResults) {
         sidebarDetail = <div className="eight29-sidebar-detail">
@@ -282,16 +340,51 @@ function sidebar(props) {
         {contentRight}
     </div>
 
+    const body = document.body;
+    const updateAria = new ResizeObserver(entries => {
+        entries.forEach(entry => {
+            const ariaClone = {role: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'dialog' : 'none',
+            modal: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? true : '',
+            label: window.matchMedia("(max-width: 991px)").matches && postType === 'post' ? 'Filters' : ''};
+
+            setAria(ariaClone);
+        });
+    });
+
+    function skipAfterPosts() {
+        const theSkipLink = document.querySelector('#the-skip-link');
+        const linksAfterPosts = document.querySelectorAll('.posts-list + div a, .posts-list + section a, .posts-list + footer a');
+        const linkAfterPosts = linksAfterPosts && linksAfterPosts[0] ? linksAfterPosts[0] : document.querySelector('.main-footer a.footer-top__phone');
+
+        if (theSkipLink && linkAfterPosts){
+            theSkipLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                linkAfterPosts.focus();
+            });
+        }
+    }
+
+    useEffect(() => {
+        updateAria.observe(body);
+        skipAfterPosts();
+    }, []);
+
+    useEffect(() => {
+        wcagHelper();
+    }, [modalVisible]);
+
     return (
         <form className={`eight29-sidebar ${className}`}>
             <div className="eight29-sidebar-top">
                 <div className="container">
                     <div className="eight29-sidebar-content">
-                        {modalClose}
-                        <div className="eight29-sidebar-content-scroll">
-                            {content}
-                            {sidebarReset}
-                            {applyFilters}
+                        <div>
+                            {modalClose}
+                            <div className="eight29-sidebar-content-scroll">
+                                {content}
+                                {sidebarReset}
+                                {applyFilters}
+                            </div>
                         </div>
                         {modalOpen}
                     </div>

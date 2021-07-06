@@ -443,3 +443,25 @@
         }
     }
 }
+
+#page {
+    .eight29-filter.filter-search {
+        .clear-search {
+            display: none;
+
+            &.visible {
+                display: flex;
+            }
+        }
+    }
+}
+
+@include md {
+    .blog {
+        #page {
+            .filter-search {
+                margin-top: 16px;
+            }
+        }
+    }
+}

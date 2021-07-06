@@ -74,7 +74,6 @@
         border: rem(1) solid $gray-4;
         border-radius: 50%;
         background: none;
-        background-color: none;
         box-shadow: none;
     }
 
@@ -484,5 +483,15 @@
                 }
             }
         }
+    }
+}
+
+.program-filters {
+    select {
+        width: 100%;
+        height: 48px;
+        font-size: 16px;
+        padding: 8px;
+        -webkit-appearance: menulist-button;
     }
 }

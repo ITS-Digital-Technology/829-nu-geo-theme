@@ -119,18 +119,18 @@ $eight29_filter_data = [
     "post" => [
         "post_topic" => [
             "label" => "Topics",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
         "post_program" => [
             "label" => "Programs",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
         "post_destination" => [
             "label" => "Destinations",
-            "type" => "accordion-single-select",
-            "dropdown" => true
+            "type" => "select",
+            "dropdown" => false
         ],
     ],
     "news" => [
@@ -151,51 +151,63 @@ $eight29_filter_data = [
 	"program" => [
 		"program_type" => [
 			"label" => "Program Type",
-            "type" => "checkbox",
+            "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_type
 		],
 		"country" => [
 			"label" => "Country",
-			"type" => "checkbox",
+			"type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_country
         ],
         "term" => [
 			"label" => "Term",
-			"type" => "checkbox",
+			"type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_term
         ],
         "field_of_study" =>[
             "label" => "Field of Study",
-			"type" => "checkbox",
+			"type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_field_of_study
         ],
         "program_track" => [
             "label" => "Program Track",
-            "type" => "checkbox",
+            "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_track
         ],
         "city" => [
             "label" => "City",
-            "type" => "checkbox",
+            "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_city
         ],
         "region" => [
             "label" => "Region",
-            "type" => "checkbox",
+            "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_region
         ],
         "class_type" => [
             "label" => "Class Type",
-            "type" => "checkbox",
+            "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_class_type
+        ],
+        "program_status" => [
+            "label" => "Program Status",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
+        ],
+        "program_mode" => [
+            "label" => "Program Mode",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
         ]
 	],
 ];
@@ -260,6 +272,18 @@ function get_filter_names($field) {
             "type" => "checkbox",
             "dropdown" => true,
             "terraDotta" => $program_class_type
+        ],
+        "program_status" => [
+            "label" => "Program Status",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
+        ],
+        "program_mode" => [
+            "label" => "Program Mode",
+            "type" => "select",
+            "dropdown" => true,
+            //"terraDotta" => $program_class_type
         ]
     ];
   

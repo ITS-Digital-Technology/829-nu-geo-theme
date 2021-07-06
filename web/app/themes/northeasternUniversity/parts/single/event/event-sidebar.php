@@ -31,7 +31,9 @@ $program_type = get_the_terms( $event_id, 'event_program_type' );
 					echo ', ';
 				}
 				?>
-					<a href="<?php echo esc_url( get_term_link( $term_id ) ); ?>"><?php echo esc_html( $term_name ); ?></a>
+					<a href="<?php echo esc_url( get_term_link( $term_id ) ); ?>" aria-label="<?php echo $term_name; ?> events.">
+						<?php echo esc_html( $term_name ); ?>
+					</a>
 				<?php 
 			endforeach; 
 			?>

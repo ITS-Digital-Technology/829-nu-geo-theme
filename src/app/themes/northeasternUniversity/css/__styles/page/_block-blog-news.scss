@@ -305,3 +305,49 @@
         }
     }
 }
+
+.news-card__title {
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.post-card__title {
+    font-size: 2.6rem;
+    line-height: 1.23;
+    font-weight: bold;
+    display: block;
+
+    @include sm {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+}
+
+#page {
+    .post-card__title,
+    .news-card__title {
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    .news-card {
+        a {
+            text-decoration: none;
+        }
+
+        h3, 
+        .heading {
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.post-card__thumbnail {
+    > a {
+        height: 100%;
+        display: block;
+    }
+}

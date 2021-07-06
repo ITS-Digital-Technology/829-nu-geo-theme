@@ -45,7 +45,7 @@ const controller = {
 		LightboxGallery.init();
 		LightboxSlider.init();
 		alertBar.init();
-		ProgramFilters.init();
+		//ProgramFilters.init();
 		smoothScroll();
 		formLabel.init();
 		Tables.init();
@@ -86,7 +86,7 @@ const controller = {
 	},
 	mouseUp(e) {
 		MobileHeader.hideOutsideClick(e);
-		ProgramFilters.hideOutsideClick(e);
+		//ProgramFilters.hideOutsideClick(e);
 		Search.hideOutsideClick(e);
 	},
 	gformRender() {

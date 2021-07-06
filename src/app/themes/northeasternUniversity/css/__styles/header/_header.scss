@@ -352,3 +352,10 @@
         cursor: pointer;
     }
 }
+
+.main-header__info-for.active,
+.main-header__info-for:hover {
+    &::after {
+        transform: translateY(-50%) rotate(-135deg);
+    }
+}

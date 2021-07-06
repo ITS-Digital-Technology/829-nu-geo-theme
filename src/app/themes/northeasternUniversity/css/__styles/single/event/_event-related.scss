@@ -75,4 +75,8 @@
 .no-related-events {
     height: 0;
     overflow: hidden;
+
+    > div {
+        display: none;
+    }
 }

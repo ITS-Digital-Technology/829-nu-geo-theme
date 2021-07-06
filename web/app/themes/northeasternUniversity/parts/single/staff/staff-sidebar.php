@@ -47,12 +47,12 @@ $name                 = preg_split( '/[\s,]+/', $title )[0];
 <?php endif; ?>
 <?php if ( $display_contact_info && ( ! empty( $email ) || ! empty( $phone_number ) ) ) : ?>
 	<div class="staff-contact-info">
-		<h5 class="staff-contact-info__title">
+		<span class="staff-contact-info__title h5">
 			<?php
 			echo esc_html_e( 'Contact', 'northeasternUniversity' );
 			echo ' ' . $name;
 			?>
-		</h5>
+		</span>
 	<?php if ( ! empty( $email ) ) : ?>
 		<p class="staff-contact-info__email">
 			<span class="icon-email"></span>

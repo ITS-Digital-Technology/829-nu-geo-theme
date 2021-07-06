@@ -103,3 +103,32 @@
         }
     }
 }
+
+.single-accordion__title {
+    .heading {
+        transition: color .2s;
+        font-size: 2rem;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        padding: 0;
+        border: none;
+        background: none;
+        text-align: left;
+        width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        br {
+            display: none;
+        }
+
+        @include sm {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            letter-spacing: 0.06rem;
+        }
+    }
+}

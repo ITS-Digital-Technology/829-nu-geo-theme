@@ -22,9 +22,9 @@ if ( date( 'Y', $start_date ) !== date( 'Y', $end_date ) ) {
 			<div class="row">
 				<div class="col-12 col-lg-6">
 					<div class="single-event-hero__left">
-						<a aria-label="Return to Events" href="<?php echo esc_url( tribe_get_listview_link() ); ?>" class="btn-all-posts"><?php esc_html_e( 'All Events', 'northeasternUniversity' ); ?></a>
+						<a href="<?php echo esc_url( tribe_get_listview_link() ); ?>" class="btn-all-posts"><?php esc_html_e( 'All Events', 'northeasternUniversity' ); ?></a>
 						<?php if ( ! empty( $cat ) ) : ?>
-							<a href="<?php echo esc_url( $cat['url'] ); ?>" class="single-event-hero__cat"><?php echo esc_html( $cat['title'] ); ?></a>
+							<a href="<?php echo esc_url( $cat['url'] ); ?>" class="single-event-hero__cat" aria-label="<?php echo $cat['title'];?> events."><?php echo esc_html( $cat['title'] ); ?></a>
 						<?php endif; ?>
 						<h1 class="h2 single-event-hero__title"><?php echo esc_html( get_the_title( $event_id ) ); ?></h1>
 						<div class="single-event-hero__date">

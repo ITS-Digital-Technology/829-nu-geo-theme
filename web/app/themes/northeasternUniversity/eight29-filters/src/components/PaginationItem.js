@@ -19,7 +19,7 @@ function PaginationItem(props) {
 
   return (
     <li className={className}>
-      <button 
+      <button aria-label="Close"
         className={`pagination-item ${currentClass}`}
         onClick={() => {clickHandler(pageNumber)}}
       >{pageNumber}</button>

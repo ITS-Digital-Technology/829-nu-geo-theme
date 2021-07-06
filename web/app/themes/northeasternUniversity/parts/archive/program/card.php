@@ -18,33 +18,43 @@ $class_status = isset( $class_status ) ? $class_status : false;
 		$link_target = $link['target'] ? $link['target'] : '_self';
 
 		?>
-		<a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $link_title; ?>"></a>
+		<!-- <a class="program-card__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" aria-label="<?php echo $title; ?>"></a> -->
 	<?php endif; ?>
 		<?php if ( ! empty( $status ) ) : ?>
 		<span class="<?php echo $class_status; ?>"><?php echo $status; ?></span>
 		<?php endif; ?>
+
 		<?php if ( ! empty( $thumbnail ) ) : ?>
-		<figure class="program-card__thumbnail">
-			<?php echo $thumbnail; ?>
-		</figure>
+			<figure class="program-card__thumbnail">
+			<a href="<?php echo esc_url( $link_url ); ?>"><span class="sr-only"><?php echo $title; ?></span><?php echo $thumbnail; ?></a>
+			</figure>
 		<?php endif; ?>
+
 		<div class="program-card__content">
 		<?php if ( ! empty( $type ) ) : ?>
 			<div class="program-card__type-wrapper">
-				<a class="program-card__type" href="<?php echo $type['url']; ?>"><?php echo $type['title']; ?></a>
+				<a class="program-card__type" href="<?php echo $type['url']; ?>" aria-label="<?php echo $type['title']; ?> programs.">
+					<?php echo $type['title']; ?>
+				</a>
 			</div>
 		<?php endif; ?>
-			<h3 class="program-card__title"><?php echo $title; ?></h3>
+
+			<h3 class="program-card__title">
+				<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+					<?php echo $title; ?>
+				</a>
+			</h3>
+
 		<?php if ( ! empty( $city ) || ! empty( $country ) || ! empty( $terms ) ) : ?>
 			<div class="program-card__info">
 			<?php if ( ! empty( $city ) || ! empty( $country ) ) : ?>
 				<div class="program-card__info-location">
 					<span class="program-card__info-name-location program-card__info-name"><?php _e( 'Location: ', 'northeasternUniversity' ); ?></span>
 					<?php if ( ! empty( $city ) ) : ?>
-					<a href="<?php echo $city['url']; ?>" class="program-card__info-city"><?php echo $city['title'] . ', '; ?></a>
+					<a href="<?php echo $city['url']; ?>" class="program-card__info-city" aria-label="<?php echo $city['title']; ?> programs."><?php echo $city['title'] . ', '; ?></a>
 					<?php endif; ?>
 					<?php if ( ! empty( $country ) ) : ?>
-					<a href="<?php echo $country['url']; ?>" class="program-card__info-country"><?php echo $country['title']; ?></a>
+					<a href="<?php echo $country['url']; ?>" class="program-card__info-country" aria-label="<?php echo $country['title']; ?> programs."><?php echo $country['title']; ?></a>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -56,7 +66,7 @@ $class_status = isset( $class_status ) ? $class_status : false;
 					$len       = count( $terms );
 					foreach ( $terms as $term ) :
 						?>
-					<a class="program-card__info-term" href="<?php echo get_term_link( $term->term_id ); ?>">
+					<a class="program-card__info-term" href="<?php echo get_term_link( $term->term_id ); ?>" aria-label="<?php echo $term->name; ?> programs.">
 						<?php
 							echo $term->name;
 						if ( $len > 1 ) {

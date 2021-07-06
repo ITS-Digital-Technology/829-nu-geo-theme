@@ -13,8 +13,8 @@ function FilterOrderBy(props) {
 
   const options = [
     {id: 0, value: 'date', label: 'Newest/Featured'},
-    {id: 1, value: 'abc', label: 'Alphabetical(A - Z)'},
-    {id: 2, value: 'xyz', label: 'Alphabetical(Z - A)'}
+    {id: 1, value: 'abc', label: 'Sort Alphabetical(A - Z)'},
+    {id: 2, value: 'xyz', label: 'Sort Alphabetical(Z - A)'}
   ]
 
   const [closeRequest, setCloseRequest] = useState(false);
@@ -22,16 +22,14 @@ function FilterOrderBy(props) {
 
   const items = menuList.map(item => {
     return (
-      <li
+      <option 
         key={item.id}
+        id={`order-${item.value}`} 
+        className={activeClass(item.value)} 
+        value={item.value}
       >
-        <button
-          id={`order-${item.value}`}
-          className={activeClass(item.value)}
-          value={item.value}
-          onClick={(e) => {clickHandler(e)}}
-        >{item.label}</button>
-      </li>
+        {item.label}
+      </option>
     )
   });
 
@@ -64,24 +62,17 @@ function FilterOrderBy(props) {
   }, [order])
 
   return (
-    <FilterContainer
-      className="filter-orderby"
-      label={label}
-      collapsible={collapsible}
-      scrollable={scrollable}
-    >
-      <DropdownContainer
-      closeRequest={closeRequest}
-      orderBy ={true}
-      setCloseRequest={setCloseRequest}
-      menuList={menuList}
-      defaultLabel="Newest/Featured"
+    <div>
+      <label className="eight29-label" htmlFor="select-order">Sort</label>
+      <select 
+        value={order}
+        id="select-order"
+        className="dropdown-list eight29-orderby"
+        onChange={(e) => {clickHandler(e)}}
       >
-        <ul className="dropdown-list">
-          {items}
-        </ul>
-      </DropdownContainer>
-    </FilterContainer>
+        {items}
+      </select>
+    </div>
   )
 }
 

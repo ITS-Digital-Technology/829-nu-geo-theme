@@ -12,7 +12,7 @@ get_header();
 
 $type = get_post_type();
 ?>
-<main class="page-content">
+<main class="page-content" aria-label="Main">
 <?php
 //program archive
 if ( $type === 'program' && ! is_tax() ) {

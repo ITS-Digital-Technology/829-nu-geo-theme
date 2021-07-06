@@ -222,7 +222,7 @@ function wp_acf_link ( $link = false, $class = false, $icon = false ) {
 		$link_class   = $class ? 'class="' . $class . '"' : '';
 		$link_icon    = $icon ? '<span class="c-btn-icon"><span class="' . $icon . '"></span></span>' : '';
 
-		return '<a aria-label="'.$link_title.'" ' . $link_class . ' href="' . $link_url . '" ' . $link_target . '><span>' . $link_title . '</span>' . $link_icon . '</a>';
+		return '<a ' . $link_class . ' href="' . $link_url . '" ' . $link_target . '><span>' . $link_title . '</span>' . $link_icon . '</a>';
 	}
 
 	return;

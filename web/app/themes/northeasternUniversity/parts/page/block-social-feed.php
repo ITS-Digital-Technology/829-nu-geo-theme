@@ -21,7 +21,7 @@ $count    = 0;
 				<?php if ( $count === 1 ) : ?>
 					<div class="social-feed__info">
 						<span class="social-feed__instagram-icon"><span class="icon-social-instagram"></span></span>
-						<h3 class="social-feed__info-title"><?php echo $title; ?></h3>
+						<span class="social-feed__info-title h3"><?php echo $title; ?></span>
 						<?php echo wp_acf_link( $link, 'c-btn c-btn-secondary c-btn-color-normal' ); ?>
 					</div>
 				<?php endif; ?>

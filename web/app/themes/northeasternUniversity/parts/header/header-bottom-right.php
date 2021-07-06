@@ -7,7 +7,7 @@ $log_in_link = get_field('h_log_in_link', 'options');
     </div>
     <div class="main-header__right-wrapper">
         <div class="main-header__search-button-wrapper">
-            <button class="main-header__search-button" aria-label="Search Button">
+            <button class="main-header__search-button" aria-label="Search">
                 <span class="icon-search"></span>
             </button>
         </div>
@@ -21,10 +21,10 @@ $log_in_link = get_field('h_log_in_link', 'options');
             </a>
         </div>
         <div class="main-header__bottom-menu">
-            <button class="main-header__info-for">
-                <?php echo __('Info for...', 'northeasternUniversity'); ?>
+            <button class="main-header__info-for" role="application" aria-label="information" aria-controls="menu-information-1">
+            <?php echo __('Info for...', 'northeasternUniversity'); ?>
             </button>
-            <?php wp_nav_menu( array( 'theme_location' => 'info_for', 'container' => false ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'info_for', 'container' => false ) ); ?>  
         </div>
     </div>
 </div>

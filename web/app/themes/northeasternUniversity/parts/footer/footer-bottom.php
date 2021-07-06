@@ -35,7 +35,12 @@ $add_links = get_field( 'footer_b_add_links', 'options' );
                             $link_title  = $link['title'];
                             $link_target = $link['target'] ? $link['target'] : '_self';
                             ?>
-                        <a class="footer-bottom__social" aria-label="<?php echo $aria; ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><span class="footer-bottom__social-icon"><span class="<?php echo $icon; ?>"></span></span></a>
+                        <a class="footer-bottom__social" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                            <span class="sr-only"><?php echo $aria; ?></span>
+                            <span class="footer-bottom__social-icon">
+                                <span class="<?php echo $icon; ?>"></span>
+                            </span>
+                        </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
                     </div>

@@ -88,6 +88,7 @@ function LayoutDefault(props) {
       displaySort={displaySort}
       postsPerPage={postsPerPage}
       currentPage={currentPage}
+      
       orderChange={orderChange}
       toggleSelected={toggleSelected}
       addToSelected={addToSelected}

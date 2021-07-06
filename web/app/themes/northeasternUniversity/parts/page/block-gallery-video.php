@@ -47,15 +47,15 @@ if ( $gallery ) :
                 }
             ?>
 				<div class="col-6 col-xl-<?php echo $column;?> block-gallery-video__thumb-col">
-                    <a href="#" data-video="<?php echo $video_src; ?>" class="block-gallery-video__single-thumb js-play-lightbox-video" aria-label="<?php _e( 'Play Video', 'northeasternUniversity' ); ?>">
+                    <button data-video="<?php echo $video_src; ?>" class="block-gallery-video__single-thumb js-play-lightbox-video" aria-label="<?php echo $title; ?>">
                         <figure class="block-gallery-video__single-thumb-wrapper">
-                        <img src="<?php echo $img_src; ?>" alt="Video Thumbnail">
-                        <button class="block-gallery-video__single-thumb-button" aria-label='Play Video'></button>
+                        <img src="<?php echo $img_src; ?>" alt="Video Thumbnail.">
+                        <span class="block-gallery-video__single-thumb-button"></span>
                         </figure>
                     <?php if ( $title ) : ?>
-                        <h3 class="block-gallery-video__single-thumb-title"><?php echo $title; ?></h3>
+                        <span class="heading block-gallery-video__single-thumb-title"><?php echo $title; ?></span>
                     <?php endif; ?>
-                    </a>
+                    </button>
                 </div>
             <?php
             endwhile;

@@ -19,7 +19,7 @@ $logo             = get_svg( $logo );
 			<div class="row">
 				<div class="col-12 col-lg-3">
 				<?php if ( ! empty( $logo ) ) : ?>
-					<figure class="footer-top__logo">
+					<figure class="footer-top__logo" aria-label="Northeaster University  Global Experience">
 						<?php echo $logo; ?>
 					</figure>
 				<?php endif; ?>
@@ -48,7 +48,7 @@ $logo             = get_svg( $logo );
 							?>
 						<div class="col-6">
 							<div class="footer-top__menu-col">
-								<h4 class="footer-top__menu-title"><?php echo $title; ?></h4>
+								<span class="footer-top__menu-title h4"><?php echo $title; ?></span>
 								<div class="footer-top__menu"><?php echo $menu; ?></div>
 							</div>
 						</div>
@@ -60,7 +60,7 @@ $logo             = get_svg( $logo );
 				<div class="col-12 col-lg-5">
 					<div class="footer-top__newsletter">
 						<?php if ( ! empty( $newsletter_title ) ) : ?>
-						<h4 class="footer-top__newsletter-title"><?php echo $newsletter_title; ?></h4>
+						<span class="footer-top__newsletter-title h4"><?php echo $newsletter_title; ?></span>
 						<?php endif; ?>
 						<?php if ( ! empty( $newsletter_text ) ) : ?>
 						<p class="footer-top__newsletter-text"><?php echo $newsletter_text; ?></p>
@@ -106,7 +106,7 @@ $logo             = get_svg( $logo );
 								$link_title  = $link['title'];
 								$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<a class="footer-top__social" aria-label="<?php echo esc_html( $link_title ); ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+								<a class="footer-top__social" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 							<?php endif; ?>
 						<?php endforeach; ?>
 					</div>

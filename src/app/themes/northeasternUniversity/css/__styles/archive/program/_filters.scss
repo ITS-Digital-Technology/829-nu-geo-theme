@@ -29,7 +29,8 @@
     }
 
     //filters
-    .eight29-filter.filter-checkbox {
+    .eight29-filter.filter-checkbox,
+    .eight29-filter.filter-select {
         flex: 0 0 calc(20% - #{rem(22)});
 
         max-width: calc(20% - #{rem(22)});
@@ -618,6 +619,84 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.eight29-label {
+    font-size: 16px;
+    display: block;
+
+    @include sm {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+.eight29-orderby {
+    width: 100%;
+    max-width: 300px;
+    min-height: 30px;
+
+    @include sm {
+        max-width: 100%;
+        order: -1;
+        margin-bottom: 2.5rem;
+        height: 32px;
+    }
+}
+
+.blog {
+    .eight29-filter {
+        .accordion-select h6 + div {
+            margin-top: 0;
+        }
+    }
+}
+
+.filter-label {
+    display: flex;
+}
+
+.eight29-filter {
+    label {
+        font-size: 1.4rem;
+        color: #FFF;
+        font-weight: 400;
+    }
+}
+
+.blog {
+    .eight29-filter {
+        label {
+            color: #1f1f1f;
+        }
+    }
+}
+
+.post-type-archive-program {
+    .eight29-sidebar-content-scroll {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eight29-sidebar-reset {
+        order: -1;
+    }
+
+    .eight29-reset {
+        border: none;
+        background: none;
+        padding: 0;
+        color: #f56565;
+
+        &:hover {
+            color: #b8b8b8;
+            cursor: pointer;
+        }
+
+        @include sm {
+            margin-bottom: 16px;
         }
     }
 }

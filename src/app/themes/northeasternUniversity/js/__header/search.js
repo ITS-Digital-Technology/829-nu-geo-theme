@@ -52,6 +52,7 @@ class Search {
 		if (this.searchOverlay.hasClass('active')) {
 			this.searchOverlay.removeClass('active').find('input[type="search"]').blur();
 			screenLock.unlock();
+			this.searchTrigger.focus();
 		}
 	}
 

@@ -8,7 +8,6 @@
             display_search="true"
             pagination_style="pagination"
             display_reset="true"
-            mobile_style="modal"
             ]');
         }
     ?>

@@ -86,11 +86,13 @@ function pagination(props) {
     }
 
     return (
-      <ul className="eight29-pagination-list">
-        {first}
-        {list}
-        {last}
-      </ul>
+      <li>
+        <ul className="eight29-pagination-list">
+          {first}
+          {list}
+          {last}
+        </ul>
+      </li>
     );
   };
 

@@ -178,7 +178,7 @@ function northeasternUniversity_ajax_search( $request ) {
 		} elseif ( $post_type === 'news' ) {
 			$cat = get_primary_taxonomy_term( $id, 'news_category' )['title'];
 		} elseif ( $post_type === 'post' ) {
-			$cat = get_primary_taxonomy_term( $id, 'post_content_type' )['title'];
+			$cat = get_primary_taxonomy_term( $id, 'post_topic' )['title'];
 		} else {
 			$cat = '';
 

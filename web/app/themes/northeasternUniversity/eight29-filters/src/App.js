@@ -6,6 +6,7 @@ import LayoutBlogC from './components/layouts/LayoutBlogC';
 import LayoutBlogD from './components/layouts/LayoutBlogD';
 import LayoutStaff from './components/layouts/LayoutStaff';
 import LayoutSearch from './components/layouts/LayoutSearch';
+
 function App(props) {
     //Props
     const {
@@ -56,6 +57,7 @@ function App(props) {
     const [postTypes, setPostTypes] = useState([]);
     const [changedFilter, setChangedFilter] = useState(false);
     const [filterReset, setFilterReset] = useState(false);
+    const [initialLoad, setInitialLoad] = useState(true);
 
     const layouts = {
         'default': LayoutDefault,
@@ -284,6 +286,8 @@ function App(props) {
         setResults(parseInt(response.headers.get('X-WP-Total')));
         setLoading(false);
         setChangedFilter(false);
+        wcag();
+        setInitialLoad(false);
     }
 
     function checkMainProps() {
@@ -598,6 +602,29 @@ function App(props) {
         }
 
         return string;
+    }
+
+    function wcag() {
+        const resultsMessage = document.querySelector('.eight29-sidebar-detail .eight29-results');
+        const firstPostLinks = document.querySelectorAll('.eight29-posts > article:first-child a.main-post-link');
+        const firstPostLink = firstPostLinks ? firstPostLinks[0] : false;
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const from = urlParams.get('from');
+    
+        if (resultsMessage && !initialLoad) {
+          resultsMessage.focus();
+        }
+
+        if (resultsMessage && from && from === 'filter-bar') {
+            setTimeout(function() {
+                resultsMessage.focus();
+            }, 1000);
+        }
+
+        if (!initialLoad && postType !== 'program' && firstPostLink) {
+            firstPostLink.focus();
+        }
     }
 
     //Mounted (on ready)

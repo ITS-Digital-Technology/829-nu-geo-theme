@@ -15,7 +15,7 @@ $image    = get_the_post_thumbnail( null, 'single-staff' );
 					<?php endif; ?>
 						<h1 class="hero-staff__title"><?php echo esc_html( get_the_title() ); ?></h1>
 					<?php if ( ! empty( $position ) ) : ?>
-						<h3 class="hero-staff__position"><?php echo esc_html( $position ); ?></h3>
+						<span class="hero-staff__position h3"><?php echo esc_html( $position ); ?></span>
 					<?php endif; ?>
 					</div>
 				</div>

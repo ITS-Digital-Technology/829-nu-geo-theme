@@ -9,7 +9,7 @@
 
 get_header(); the_post();
 ?>
-    <main class="page-content"><?php
+    <main class="page-content" aria-label="Main"><?php
         get_theme_part('page/hero');
         defaultContent();
         ContentBlock::display_theme_blocks();

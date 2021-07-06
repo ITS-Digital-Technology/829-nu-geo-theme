@@ -120,6 +120,8 @@
     }
 
     .text-link {
+        display: block;
+
         &:hover {
             .content-link__title {
                 color: $accent-variant;
@@ -134,6 +136,10 @@
 
                 color: $accent-variant;
             }
+        }
+
+        &:focus {
+            outline: $outline;
         }
     }
 

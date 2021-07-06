@@ -12,7 +12,7 @@ if (!empty($cookie_bar_text)) :
                 </div>
             </div>
             <div class="cookie-bar__wrapper cookie-bar__wrapper--right col-12 col-lg-4">
-                <button href="#" class="cookie-bar__accept c-btn c-btn-secondary">
+                <button class="cookie-bar__accept c-btn c-btn-secondary">
                     <?php _e('Accept Cookies', 'northeasternUniversity'); ?>
                 </button>
 

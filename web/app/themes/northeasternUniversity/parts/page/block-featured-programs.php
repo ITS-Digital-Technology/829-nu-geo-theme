@@ -41,16 +41,32 @@ if ( empty( $button_text ) ) {
                     $country      = get_primary_taxonomy_term( $program, 'country' );
                     $terms        = get_the_terms( $program, 'term' );
                     $class_status = 'program-card__status';
-                    if ( $status === 'open' ) {
+
+                    if ( $status === 'Open' ) {
                         $status        = __( 'Open', 'norheasternUniversity' );
                         $class_status .= ' status-open';
-                    } elseif ( $status === 'pending' ) {
+                    }
+
+                    elseif ( $status === 'Pending' ) {
                         $status        = __( 'Pending', 'norheasternUniversity' );
                         $class_status .= ' status-pending';
-                    } elseif ( $status === 'full' ) {
+                    }
+
+                    elseif ( $status === 'Full' ) {
                         $status        = __( 'Full', 'norheasternUniversity' );
                         $class_status .= ' status-full';
                     }
+
+                    elseif ( $status === 'Cancelled' ) {
+                        $status        = __( 'Cancelled', 'norheasternUniversity' );
+                        $class_status .= ' status-cancelled';
+                    }
+
+                    elseif ( $status === 'Closed' ) {
+                        $status        = __( 'Closed', 'norheasternUniversity' );
+                        $class_status .= ' status-closed';
+                    }
+
                     get_theme_part('archive/program/card',[
                         'status' => $status,
                         'link' => $link,

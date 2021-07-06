@@ -9,6 +9,24 @@
         margin: rem(97) 0;
     }
 
+    button {
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.block-gallery-video__single-thumb {
+            border: none;
+            background: none;
+            padding: 0;
+            display: block;
+            width: 100%;
+        }
+
+        .heading {
+            text-align: left;
+        }
+    }
+
     &__text-content {
         margin-bottom: rem(62);
 
@@ -182,4 +200,31 @@
             }
         }
     }
+}
+
+.block-gallery-video__single-thumb-title {
+    font-weight: bold;
+    line-height: 1.23;
+    font-weight: 500;
+    margin: 2rem 1.5rem 3.2rem;
+    font-size: 2.6rem;
+
+    @include sm {
+        margin: 1.8rem 0.8rem 1.6rem;
+        font-size: 1.8rem;
+        line-height: 1.33333333;
+    }
+}
+
+.heading {
+    font-family: "ff-real-headline-pro", sans-serif;
+    display: block;
+}
+
+.video-lightbox {
+    flex-direction: column;
+}
+
+#video-lightbox-dialog {
+    color: #FFF;
 }
