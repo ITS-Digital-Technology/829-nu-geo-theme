@@ -29,6 +29,9 @@
     $("#menu-information-1").removeAttr("role");
     $("#menu-information-1 li a").removeAttr("role");
     
+     $("ul.slick-dots").removeAttr("role");
+     $("li.slick-active button").removeAttr("role");
+    
     $("#students h2:first").focus();
     
     $("#filter-staff_category .button-wrap .active").attr("aria-selected", "true");
