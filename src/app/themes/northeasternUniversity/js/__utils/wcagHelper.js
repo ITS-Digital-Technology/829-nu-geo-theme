@@ -752,6 +752,22 @@ function wcagHelper() {
     }
   }
 
+  function brokenImages() {
+    const images = document.querySelectorAll('.default-content img');
+
+    if (images) {
+      images.forEach(image => {
+        image.addEventListener('error', function() {
+          image.classList.add('not-loaded');
+
+          if (image.parentElement && image.parentElement.tagName === 'A') {
+            image.parentElement.classList.add('not-loaded');
+          }
+        });
+      });
+    }
+  }
+
   function tempCleanup() {
     const body = document.querySelector('body');
     const videoBlocks = document.querySelectorAll('.block-gallery-video');
@@ -790,6 +806,7 @@ function wcagHelper() {
     tablePress();
     searchPage();
     comparePrograms();
+    brokenImages();
     tempCleanup();
   }
 
