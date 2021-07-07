@@ -1,3 +1,4 @@
+<!-- Filter Toggle CSS -->
 <?php $options = get_field('program_filters', 'option'); ?>
 
 <?php if ($options): ?>
