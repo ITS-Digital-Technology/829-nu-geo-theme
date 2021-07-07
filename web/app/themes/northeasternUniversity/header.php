@@ -22,6 +22,9 @@ if ( $alert_show && ! empty( $alert_content ) && ! isset( $_COOKIE['hideAlertBar
 ?>
 
 <body <?php body_class( implode( ' ', $body_class ) ); ?>>
+
+<?php get_template_part('filter-options'); ?>
+
 <div id="page">
 	<header id="main-header" class="main-header"><?php
         get_theme_part(
