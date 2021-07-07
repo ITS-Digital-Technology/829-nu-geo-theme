@@ -2,7 +2,7 @@
 function loadScripts() {
 	$scriptFile = get_template_directory_uri() . '/js/bundle.js';
 
-	wp_enqueue_script( 'script', $scriptFile, [], false, true );
+	wp_enqueue_script( 'script', $scriptFile, [], filemtime(get_template_directory().'/js/bundle.js'), true);
 }
 
 add_action( 'wp_enqueue_scripts', 'loadScripts' );
