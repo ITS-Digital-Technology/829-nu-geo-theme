@@ -497,11 +497,15 @@
 .program-filters__filters-wrapper {
     flex-wrap: nowrap;
 
+    @include md {
+        flex-wrap: wrap;
+    }
+
     .program-filters__filter {
         width: 100%;
         margin-right: 16px;
 
-        @include sm {
+        @include md {
             margin-right: 0;
         }
     }
