@@ -17,6 +17,7 @@ function FilterSearch(props) {
     } = props;
 
     const [term, setTerm] = useState('');
+    const searchLabel = postType && postType === 'program' ? 'Search Program Name' : 'Search';
 
     let clearSearchVisible = '';
 
@@ -69,7 +70,7 @@ function FilterSearch(props) {
             collapsible={collapsible}
             scrollable={scrollable}
         >
-            <label htmlFor="search-filter" className="filter-input__label">Search</label>
+            <label htmlFor="search-filter" className="filter-input__label">{searchLabel}</label>
             <div className="filter-input">
                 <input id="search-filter" type="search"
                     placeholder={placeholder}
