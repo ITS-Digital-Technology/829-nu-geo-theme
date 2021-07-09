@@ -28,10 +28,7 @@
     
     $("#menu-information-1").removeAttr("role");
     $("#menu-information-1 li a").removeAttr("role");
-    
-     $("ul.slick-dots").removeAttr("role");
-     $("li.slick-active button").removeAttr("role");
-    
+       
     $("#students h2:first").focus();
     $("#students h2:first").attr('tabindex', '0');
     
@@ -61,6 +58,10 @@
 
   }); 
 </script>
+<script type="javascript">
+document.getElementsByClassName("ul.slick-dots").removeAttribute("role");
+</script>
+
 
 
 </body>
