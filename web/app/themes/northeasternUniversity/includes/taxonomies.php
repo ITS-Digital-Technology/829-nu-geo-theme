@@ -190,7 +190,7 @@ add_action( 'init', 'BaseTheme\Taxonomies\region' );
 // class type
 function class_type() {
 	$args = array(
-		'labels'            => get_labels( 'Class Type' ),
+		'labels'            => get_labels( 'Colleges and School' ),
 		'hierarchical'      => true,
 		'public'            => true,
 		'show_ui'           => true,
