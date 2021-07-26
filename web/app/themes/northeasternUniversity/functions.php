@@ -186,7 +186,7 @@ function create_programs_json() {
         }
       }
 
-      $program_tracks = implode('| ', $program_tracks); //has commas in it...
+      $program_tracks = implode('| ', $program_tracks); //Has commas in it
       $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
@@ -256,7 +256,7 @@ function create_programs_json() {
     array_push($data, $program_data);
   }
 
-  //JSON format the array and dump into a JSON file for WP All Import to process
+  //JSON format the array and add into a JSON file for WP All Import to process
   $data = json_encode($data);
   file_put_contents(get_template_directory().'/data.json', $data);
 

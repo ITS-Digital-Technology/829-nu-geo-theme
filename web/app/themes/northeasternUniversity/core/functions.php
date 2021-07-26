@@ -192,7 +192,7 @@ $eight29_filter_data = [
             "terraDotta" => $program_region
         ],
         "class_type" => [
-            "label" => "Class Type",
+            "label" => "Colleges and Schools",
             "type" => "select",
             "dropdown" => true,
             "terraDotta" => $program_class_type
@@ -221,8 +221,6 @@ if (class_exists('eight29_filters')) {
 function get_filter_names($field) {
     $field['choices'] = [];
     $data = [];
-
-    //TODO: get data without hardcoding
 
     $fields = [
         "program_type" => [
@@ -268,7 +266,7 @@ function get_filter_names($field) {
             "terraDotta" => $program_region
         ],
         "class_type" => [
-            "label" => "Class Type",
+            "label" => "Colleges and Schools",
             "type" => "checkbox",
             "dropdown" => true,
             "terraDotta" => $program_class_type
