@@ -29,7 +29,8 @@ if ( ! empty( $testimonials ) ) :
 			<div class="testimonial-slide">
 				<blockquote class="testimonial-quote">
 					<?php if ( ! empty( $quote ) ) : ?>
-					<p role="alert" aria-live="Polite"><?php echo $quote; ?></p>
+					<!--<p role="alert" aria-live="Polite">-->
+					<p><?php echo $quote; ?></p>
 					<?php endif; ?>
 					<figure class="testimonial-thumb"><?php echo $author_image; ?></figure>
 					<footer class="testimonial-footer">
