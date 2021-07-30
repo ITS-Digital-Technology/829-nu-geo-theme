@@ -87,7 +87,7 @@ class Search {
 	}
 
 	keyPressDispatcher(e) {
-		console.log("inside key dispatcher:  isSearchInput says " + isSearchInput(e.target) + " whereas isCloseButton says " + isCloseButton(e.target));
+		console.log("inside key dispatcher:  this.isSearchInput says " + this.isSearchInput(e.target) + " whereas this.isCloseButton says " + this.isCloseButton(e.target));
 		if (e.keyCode == 27 && this.searchOverlay.hasClass('active')) {
 			this.closeSearchOverlay();
 	}  else if(this.searchOverlay.hasClass('active') && this.isSearchInput(e.target) && e.shiftKey && e.keyCode == 9) {
