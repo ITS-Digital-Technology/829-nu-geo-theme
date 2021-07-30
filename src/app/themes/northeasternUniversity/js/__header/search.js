@@ -75,6 +75,7 @@ class Search {
 
 	isSearchInput(element) {
 		if(element) {
+			console.log("for Search Input  compare:" + $(element).attr("type") + "===" + this.searchInput.attr("type"));
 			return ($(element).attr("type") === this.searchInput.attr("type"));
 		}
 		return false;
@@ -82,20 +83,24 @@ class Search {
 
 	isCloseButton(element) {
 		if(element) {
+			console.log("for close button compare:" + $(element).attr("class") + "===" + this.searchTriggerCloseDesktop.attr("class"));
 			return ($(element).attr("class") === this.searchTriggerCloseDesktop.attr("class"));
 		}
 		return false;
 	}
+
 	handleTabbing(e) {
 		console.log("inside key dispatcher:  this.isSearchInput says " + this.isSearchInput(document.activeElement) + " whereas this.isCloseButton says " + this.isCloseButton(document.activeElement));
 		if(this.searchOverlay.hasClass('active') && this.isSearchInput(document.activeElement) && e.shiftKey && e.keyCode == 9) {
 			console.log("On search input, wrapping to close button");
-			this.wrapFocusToLast();
 			e.preventDefault();
+			this.wrapFocusToLast();
+			return false;
 		} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(document.activeElement) && e.keyCode == 9) {
 			console.log("on close button, wrapping to search input");
-			this.wrapFocusToFirst();
 			e.preventDefault();
+			this.wrapFocusToFirst();
+			return false;
 		}
 	}
 
