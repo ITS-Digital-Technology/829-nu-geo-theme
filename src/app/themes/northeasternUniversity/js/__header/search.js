@@ -19,6 +19,7 @@ class Search {
 		this.searchInput.on('focus', this.inputFocus);
 		this.searchSubmit.on('click', this.submitInput.bind(this));
 		this.searchDelete.on('click', this.deleteInput.bind(this));
+		this.searchOverlay.on("keydown", this.handleTabbing.bind(this));
 	}
 
 	inputFocus() {
@@ -85,19 +86,22 @@ class Search {
 		}
 		return false;
 	}
+	handleTabbing(e) {
+		console.log("inside key dispatcher:  this.isSearchInput says " + this.isSearchInput(document.activeElement) + " whereas this.isCloseButton says " + this.isCloseButton(document.activeElement));
+		if(this.searchOverlay.hasClass('active') && this.isSearchInput(document.activeElement) && e.shiftKey && e.keyCode == 9) {
+			console.log("On search input, wrapping to close button");
+			this.wrapFocusToLast();
+			e.preventDefault();
+		} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(document.activeElement) && e.keyCode == 9) {
+			console.log("on close button, wrapping to search input");
+			this.wrapFocusToFirst();
+			e.preventDefault();
+		}
+	}
 
 	keyPressDispatcher(e) {
-		console.log("inside key dispatcher:  this.isSearchInput says " + this.isSearchInput(document.activeElement) + " whereas this.isCloseButton says " + this.isCloseButton(document.activeElement));
 		if (e.keyCode == 27 && this.searchOverlay.hasClass('active')) {
 			this.closeSearchOverlay();
-	}  else if(this.searchOverlay.hasClass('active') && this.isSearchInput(document.activeElement) && e.shiftKey && e.keyCode == 9) {
-		console.log("On search input, wrapping to close button");
-		this.wrapFocusToLast();
-		e.preventDefault();
-	} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(document.activeElement) && e.keyCode == 9) {
-		console.log("on close button, wrapping to search input");
-		this.wrapFocusToFirst();
-		e.preventDefault();
 	}
 	}
 
