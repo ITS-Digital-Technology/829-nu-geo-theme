@@ -9,7 +9,10 @@
 
 get_header(); the_post();
 ?>
-    <main class="page-content" aria-label="Main"><?php
+    <!--ARIA landmark having same label as landmark type can cause confusion to screen reader users. Following will be read out as "main main landmark".
+    <main class="page-content" aria-label="Main">
+    -->
+    <main class="page-content"><?php
         get_theme_part('page/hero');
         defaultContent();
         ContentBlock::display_theme_blocks();

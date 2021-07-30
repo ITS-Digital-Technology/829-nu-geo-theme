@@ -10,7 +10,10 @@
 ?>
 
 <form method="get" action="<?php bloginfo( 'url' ); ?>" class="search-form">
+	<!--No need to have aria-label on label element. Inner text is enough
 	<label for="search" aria-label="Search">Search</label>
+	-->
+	<label for="search">Search</label>
 	<input id="search" class="search-form__input" type="search" name="s" placeholder="<?php _e('Search', 'northeasternUniversity'); ?>"/>
 	<button class="search-form__submit" type="submit" aria-label="Search Form Submit" value="<?php _e('Search', 'northeasternUniversity'); ?>">
 		<span class="icon-search"></span>

@@ -12,7 +12,10 @@ get_header();
 
 $type = get_post_type();
 ?>
+<!--ARIA landmark having same label as landmark type can cause confusion to screen reader users. Following will be read out as "main main landmark".
 <main class="page-content" aria-label="Main">
+-->
+<main class="page-content">
 <?php
 //program archive
 if ( $type === 'program' && ! is_tax() ) {
