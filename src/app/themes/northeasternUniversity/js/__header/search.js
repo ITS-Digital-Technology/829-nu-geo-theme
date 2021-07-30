@@ -91,11 +91,12 @@ class Search {
 
 	handleTabbing(e) {
 		console.log("inside key dispatcher:  this.isSearchInput says " + this.isSearchInput(document.activeElement) + " whereas this.isCloseButton says " + this.isCloseButton(document.activeElement));
-		if(this.searchOverlay.hasClass('active') && this.isSearchInput(document.activeElement) && e.shiftKey && e.keyCode == 9) {
-			console.log("On search input, wrapping to close button");
-			e.preventDefault();
-			this.wrapFocusToLast();
-			return false;
+		if(this.searchOverlay.hasClass('active') && e.shiftKey && e.keyCode == 9) {
+			if(this.isSearchInput(document.activeElement)) {
+				e.preventDefault();
+				this.wrapFocusToLast();
+				return false;
+			}
 		} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(document.activeElement) && e.keyCode == 9) {
 			console.log("on close button, wrapping to search input");
 			e.preventDefault();
