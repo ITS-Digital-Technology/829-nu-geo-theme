@@ -87,12 +87,15 @@ class Search {
 	}
 
 	keyPressDispatcher(e) {
+		console.log("inside key dispatcher:  isSearchInput says " + isSearchInput(e.target) + " whereas isCloseButton says " + isCloseButton(e.target));
 		if (e.keyCode == 27 && this.searchOverlay.hasClass('active')) {
 			this.closeSearchOverlay();
 	}  else if(this.searchOverlay.hasClass('active') && this.isSearchInput(e.target) && e.shiftKey && e.keyCode == 9) {
+		console.log("On search input, wrapping to close button");
 		this.wrapFocusToLast();
 		e.preventDefault();
 	} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(e.target) && e.keyCode == 9) {
+		console.log("on close button, wrapping to search input");
 		this.wrapFocusToFirst();
 		e.preventDefault();
 	}
