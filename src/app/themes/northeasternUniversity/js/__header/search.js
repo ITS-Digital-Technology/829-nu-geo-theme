@@ -91,8 +91,12 @@ class Search {
 			this.closeSearchOverlay();
 	}  else if(this.searchOverlay.hasClass('active') && this.isSearchInput(e.target) && e.shiftKey && e.keyCode == 9) {
 		this.wrapFocusToLast();
+		e.preventDefault();
+		return false;
 	} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(e.target) && e.keyCode == 9) {
 		this.wrapFocusToFirst();
+		e.preventDefault();
+		return false;
 	}
 	}
 
