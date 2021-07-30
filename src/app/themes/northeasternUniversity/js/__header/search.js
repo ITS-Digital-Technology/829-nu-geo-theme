@@ -89,9 +89,9 @@ class Search {
 	keyPressDispatcher(e) {
 		if (e.keyCode == 27 && this.searchOverlay.hasClass('active')) {
 			this.closeSearchOverlay();
-	}  else if(this.searchOverlay.hasClass('active') && isSearchInput(e.target) && e.shiftKey && e.keyCode == 9) {
+	}  else if(this.searchOverlay.hasClass('active') && this.isSearchInput(e.target) && e.shiftKey && e.keyCode == 9) {
 		this.wrapFocusToLast();
-	} else if (this.searchOverlay.hasClass('active') && isCloseButton(e.target) && e.keyCode == 9) {
+	} else if (this.searchOverlay.hasClass('active') && this.isCloseButton(e.target) && e.keyCode == 9) {
 		this.wrapFocusToFirst();
 	}
 	}
