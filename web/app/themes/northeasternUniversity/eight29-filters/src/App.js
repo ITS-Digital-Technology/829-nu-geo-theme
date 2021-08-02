@@ -621,10 +621,10 @@ function App(props) {
                 resultsMessage.focus();
             }, 1000);
         }
-		*/
+		
         if (!initialLoad && postType !== 'program' && firstPostLink) {
             firstPostLink.focus();
-        }
+        }*/
     }
 
     //Mounted (on ready)
