@@ -611,7 +611,7 @@ function App(props) {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const from = urlParams.get('from');
-    
+		/*
         if (resultsMessage && !initialLoad) {
           resultsMessage.focus();
         }
@@ -621,7 +621,7 @@ function App(props) {
                 resultsMessage.focus();
             }, 1000);
         }
-
+		*/
         if (!initialLoad && postType !== 'program' && firstPostLink) {
             firstPostLink.focus();
         }

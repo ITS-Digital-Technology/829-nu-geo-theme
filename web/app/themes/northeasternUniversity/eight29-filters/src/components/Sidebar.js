@@ -317,7 +317,7 @@ function sidebar(props) {
         const result_string = `Showing ${result_count} of ${results} available programs`;
         
         totalResults =
-            <span className="eight29-results" tabIndex="0" aria-label={result_string}>{result_string}</span>
+            <span className="eight29-results" aria-live="polite" tabIndex="0">{result_string}</span>
     }
     if (layout === 'default' && totalResults) {
         sidebarDetail = <div className="eight29-sidebar-detail">
