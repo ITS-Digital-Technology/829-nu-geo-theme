@@ -19,12 +19,12 @@ if ( $found_posts > $ppp ) :
 
 		<div class="pagination__numbers-wrapper">
 		<?php
-			echo str_replace('<span', '<span aria-label="There are more pages"', paginate_links(
+			echo paginate_links(
 				[
 					'mid_size'  => 1,
 					'prev_next' => false,
 				]
-			));
+			);
 		?>
 		</div>
 		<a href="<?php echo get_next_posts_page_link(); ?>" aria-label="<?php _e( 'Next Page', 'northeasternUniversity' ); ?>"  class="pagination-arrow eight29-pagination-next<?php echo ! $is_next_link ? ' disabled' : ''; ?>"><span class="icon-chev-right"></span></a>
