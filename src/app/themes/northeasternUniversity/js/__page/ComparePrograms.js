@@ -25,11 +25,10 @@ class ComparePrograms {
         const slickWrapper = $(tabContent).find('.block-program-comparison__programs-tab-wrapper');
 
         [...buttons].forEach(button => {
-			e.currentTarget.attr("aria-pressed", "false");
-            if (button.classList.contains("active")) {
+			button.setAttribute('aria-pressed', 'false');
+			if (button.classList.contains("active")) {
                 button.classList.remove('active');
-				e.currentTarget.attr("aria-pressed", "true");
-            }
+			}
         });
 
         [...tabContents].forEach(tab => {
@@ -39,6 +38,9 @@ class ComparePrograms {
             }
         })
 
+		if(e.currentTarget.classList.contains("block-program-comparison__programs-nav-item")) {
+			e.currentTarget.setAttribute('aria-pressed', 'true');
+		}
         e.currentTarget.classList.add('active');
         tabContent.classList.add('active');
         slickWrapper.slick('setPosition'); 
