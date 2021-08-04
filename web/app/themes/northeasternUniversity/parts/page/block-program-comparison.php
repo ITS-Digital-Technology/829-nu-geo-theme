@@ -18,7 +18,7 @@ $programs = get_sub_field( 'programs' );
 						foreach ( $programs as $key => $tab ) :
 							$tab_title = $tab['tab_title'];
 							?>
-							<button class="block-program-comparison__programs-nav-item c-btn c-btn-secondary c-btn-color-normal" data-tab="#tab-<?php echo $key; ?>"><span><?php echo $tab_title; ?></span></button>
+							<button class="block-program-comparison__programs-nav-item c-btn c-btn-secondary c-btn-color-normal" aria-pressed="false" data-tab="#tab-<?php echo $key; ?>"><span><?php echo $tab_title; ?></span></button>
 						<?php 
 						endforeach; 
 						?>   

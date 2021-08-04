@@ -25,8 +25,10 @@ class ComparePrograms {
         const slickWrapper = $(tabContent).find('.block-program-comparison__programs-tab-wrapper');
 
         [...buttons].forEach(button => {
+			e.currentTarget.attr("aria-pressed", "false");
             if (button.classList.contains("active")) {
                 button.classList.remove('active');
+				e.currentTarget.attr("aria-pressed", "true");
             }
         });
 

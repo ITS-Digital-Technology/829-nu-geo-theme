@@ -13,9 +13,9 @@ $is_next_link      = $current_page == $max_num_pages ? false : true;
 
 if ( $found_posts > $ppp ) :
 	?>
-<nav class="<?php echo $main_block_class; ?>">
+<nav class="<?php echo $main_block_class; ?>" aria-label="Pagination">
 	<div class="eight29-pagination">
-		<a href="<?php echo get_previous_posts_page_link(); ?>" aria-label="<?php _e( 'Pagination Arrow Prev', 'northeasternUniversity' ); ?>"  class="pagination-arrow eight29-pagination-prev<?php echo ! $is_prev_link ? ' disabled' : ''; ?>"><span class="icon-chev-left"></span></a>
+		<a href="<?php echo get_previous_posts_page_link(); ?>" aria-label="<?php _e( 'Previous Page', 'northeasternUniversity' ); ?>"  class="pagination-arrow eight29-pagination-prev<?php echo ! $is_prev_link ? ' disabled' : ''; ?>"><span class="icon-chev-left"></span></a>
 
 		<div class="pagination__numbers-wrapper">
 		<?php
@@ -27,7 +27,7 @@ if ( $found_posts > $ppp ) :
 			);
 		?>
 		</div>
-		<a href="<?php echo get_next_posts_page_link(); ?>" aria-label="<?php _e( 'Pagination Arrow Next', 'northeasternUniversity' ); ?>"  class="pagination-arrow eight29-pagination-next<?php echo ! $is_next_link ? ' disabled' : ''; ?>"><span class="icon-chev-right"></span></a>
+		<a href="<?php echo get_next_posts_page_link(); ?>" aria-label="<?php _e( 'Next Page', 'northeasternUniversity' ); ?>"  class="pagination-arrow eight29-pagination-next<?php echo ! $is_next_link ? ' disabled' : ''; ?>"><span class="icon-chev-right"></span></a>
 	</div>
 </nav>
 	<?php
