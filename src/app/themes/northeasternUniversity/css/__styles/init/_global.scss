@@ -411,3 +411,55 @@ input[type="search"] {
 .pr-0 {
     padding-right: 0;
 }
+
+/* Events Header CSS - START */
+
+.event-hero__subtitle:last-child {
+
+	margin-bottom: 3.2rem;
+
+	display: none;
+
+}
+
+
+
+element.style {
+
+}
+
+.event-hero > .event-hero__wrapper > .container > .row:first-child > .col-12, .tribe-common.tribe-events .event-hero > .event-hero__wrapper > .tribe-common-l-container > .row:first-child > .col-12 {
+
+	background: none;
+
+
+
+}
+
+.event-hero__wrapper {
+
+	padding: 7.3rem 0 3.2rem;
+
+	background: #000;
+
+}
+
+.event-hero:before {
+
+	
+
+	background-color: #000;
+
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-header--has-event-search {
+
+	background-color: transparent;
+
+	flex-direction: row;
+
+	padding-top: 2.5em;
+
+}
+
+/* Events Header CSS - END */
