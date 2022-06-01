@@ -20,7 +20,7 @@ if ( $type === 'program' && ! is_tax() ) {
 } else if ( $type === 'program' && is_tax() ) {
     get_theme_part( 'archive/program/tax/main' );
 //blog
-} else if ( $type === 'post' && ( is_tax() || is_author()) ) {
+} else if ( $type === 'post' && ( is_tax() || is_author() || is_tag()) ) {
     get_theme_part( 'archive/post/tax/main' );
 } else if ( $type === 'post' && is_home() && ! is_tax() ) {
     get_theme_part( 'archive/post/main' );
