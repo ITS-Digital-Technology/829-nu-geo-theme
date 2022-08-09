@@ -45,7 +45,8 @@ function staff(props) {
                     className="staff-card__category"
                     key={index}
                     data-cat={category.id}
-                >{category.name}</a>
+										dangerouslySetInnerHTML={{ __html: category.name }}
+                ></a>
                 {seperator}
                 </span>
             );
