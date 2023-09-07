@@ -8,6 +8,7 @@
             pagination_style="more"
             layout="staff"
             order_by="menu_order"
+			display_search="true"
             ]');
         }
     ?>
