@@ -392,3 +392,20 @@ function staff_category() {
 	register_taxonomy( 'staff_category', array( 'staff' ), $args );
 }
 add_action( 'init', 'BaseTheme\Taxonomies\staff_category' );
+
+// Staff location
+function staff_location() {
+	$args = array(
+		'labels'            => get_labels( 'Location', 'Locations' ),
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array( 'slug' => 'staff-location', 'with_front' => false )
+	);
+
+	register_taxonomy( 'staff_location', array( 'staff' ), $args );
+}
+add_action( 'init', 'BaseTheme\Taxonomies\staff_location' );

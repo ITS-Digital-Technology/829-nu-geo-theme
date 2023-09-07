@@ -141,11 +141,15 @@ $eight29_filter_data = [
         ],
     ],
     "staff" => [
-        "staff_category" => [
-            "label" => "",
-            //"type" => "accordion-single-select",
-            "type" => "button-group",
-            "dropdown" => true
+		"staff_location" => [
+            "label" => "Campus",
+            "type" => "checkbox",
+            "dropdown" => false
+        ],
+		"staff_category" => [
+            "label" => "Department",
+            "type" => "checkbox",
+            "dropdown" => false
         ],
     ],
 	"program" => [

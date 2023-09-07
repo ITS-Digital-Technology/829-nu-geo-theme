@@ -258,7 +258,7 @@ function sidebar(props) {
         </div>
     }
 
-    if (displaySearch && layout === 'default') {
+    if (displaySearch && ( layout === 'default' || layout === 'staff') ) {
         searchComponent = <FilterSearch
             filterReset={filterReset}
             currentSearchTerm={currentSearchTerm}
@@ -271,7 +271,7 @@ function sidebar(props) {
         ></FilterSearch>
     }
 
-    if (displaySort && layout === 'default' && results > 0) {
+    if (displaySort && ( layout === 'default' || layout === 'staff' ) && results > 0) {
         sortComponent = <FilterOrderBy
             order={order}
             orderChange={orderChange}
@@ -335,7 +335,8 @@ function sidebar(props) {
     }
 
     const content = <div className="eight29-filter-group">
-        {postType ==='post' ? searchComponent : null}
+        {( postType === 'post' || postType === 'staff' ) ? searchComponent : null}
+		<h6>Filter by:</h6>
         {contentLeft}
         {contentRight}
     </div>
