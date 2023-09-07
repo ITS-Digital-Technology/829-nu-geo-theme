@@ -28,6 +28,7 @@ recursive_include( get_template_directory() . '/widgets', 0 );
 
 function load_assets() {
   wp_enqueue_style('neu-external-menu', 'https://unpkg.com/@northeastern-web/global-elements@^1.0.0/dist/css/index.css');
+  wp_enqueue_style('theme-styles', get_stylesheet_directory_uri().'/css/style.css', NULL, filemtime(get_template_directory().'/css/style.css'));
 
   wp_enqueue_script('neu-external-menu-global', 'https://unpkg.com/@northeastern-web/global-elements@^1.0.0/dist/js/index.umd.js', NULL, NULL, true);
   wp_enqueue_script('neu-external-menu-kernl', 'https://unpkg.com/@northeastern-web/kernl-ui@^2.0.0/dist/js/index.umd.js', NULL, NULL, true);
@@ -185,7 +186,7 @@ function create_programs_json() {
         }
       }
 
-      $program_tracks = implode('| ', $program_tracks); //has commas in it...
+      $program_tracks = implode('| ', $program_tracks); //Has commas in it
       $program_data->DETAILS->CUSTOM->PROGRAM_TYPES = check_data($program_types) ? stringify($program_types) : false;
       $program_data->DETAILS->CUSTOM->FIELDS_OF_STUDY = check_data($fields_of_study) ? stringify($fields_of_study) : false;
       $program_data->DETAILS->CUSTOM->PARTNERS = check_data($partners);
@@ -255,7 +256,7 @@ function create_programs_json() {
     array_push($data, $program_data);
   }
 
-  //JSON format the array and dump into a JSON file for WP All Import to process
+  //JSON format the array and add into a JSON file for WP All Import to process
   $data = json_encode($data);
   file_put_contents(get_template_directory().'/data.json', $data);
 

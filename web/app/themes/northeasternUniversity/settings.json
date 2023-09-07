@@ -71,7 +71,6 @@
         "select2": "css/vendor/select2/select2.min.css",
         "slick": "css/vendor/slick/slick.css",
         "simplebar": "css/vendor/simplebar/simplebar.css",
-		"theme-styles": "css/style.css",
 		"style": "style.css"
 	},
 

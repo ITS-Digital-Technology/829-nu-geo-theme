@@ -1,6 +1,3 @@
-<?php //TODO: update styles to change width of element to same as browse-programs ?>
-<?php //get_template_part('filter-options'); ?>
-
 <?php
 $program_types   = isset( $program_types ) ? $program_types : [];
 $countries       = isset( $countries ) ? $countries : [];

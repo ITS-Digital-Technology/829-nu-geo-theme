@@ -25,14 +25,9 @@ $obj = (object) [
 ];
 
 $JSON =  json_encode($obj);
-
-//TODO - work with any query string
-// $selections = [];
-// $query_string = $_SERVER['QUERY_STRING'];
-// $queries = explode('&', $query_string);
-
 $preselect = get_post_type() === 'program' ? "data-pre-select='$JSON'" : null;
 ?>
+
 <div class="posts-list" <?php echo $preselect;?>>
     <?php
         if ( class_exists('eight29_filters') && !is_search() ) {

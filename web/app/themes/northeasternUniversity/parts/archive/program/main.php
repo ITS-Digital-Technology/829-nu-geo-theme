@@ -1,4 +1,4 @@
-<?php get_template_part('filter-options'); ?>
+<?php //get_template_part('filter-options'); ?>
 
 <?php
 get_theme_part( 'archive/program/hero' );

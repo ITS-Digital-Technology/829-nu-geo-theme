@@ -222,8 +222,6 @@ function get_filter_names($field) {
     $field['choices'] = [];
     $data = [];
 
-    //TODO: get data without hardcoding
-
     $fields = [
         "program_type" => [
 			"label" => "Program Type",
