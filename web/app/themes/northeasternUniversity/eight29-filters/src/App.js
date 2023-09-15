@@ -286,7 +286,7 @@ function App(props) {
         setResults(parseInt(response.headers.get('X-WP-Total')));
         setLoading(false);
         setChangedFilter(false);
-        wcag();
+        // wcag();
         setInitialLoad(false);
     }
 
