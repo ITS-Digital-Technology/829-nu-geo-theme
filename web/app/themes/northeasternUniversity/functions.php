@@ -46,7 +46,7 @@ add_filter(
 );
 
 function check_data($data) {
-  if (empty($data) || $data === NULL || $data === false || count($data) === 0) {
+  if (empty($data) || $data === NULL || $data === false || (is_array($data) && count($data) === 0)) {
     return false;
   }
   else {
@@ -59,8 +59,9 @@ function stringify($array) {
   return $data;
 }
 
-function parse_api_data($url) {
+function parse_api_data($url, $mode = 'all') {
   $ch = curl_init();
+  $data = array();
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_POST, 1);
@@ -71,25 +72,79 @@ function parse_api_data($url) {
   $result = str_replace('_cb_getProgramSearchResults(', '', $result);
   $result = str_replace('_cb_getProgramBrochure(', '', $result);
   $result = str_replace(');', '', $result);
-  $formatted = json_decode($result);
 
+  if ( 'all' === $mode ) {
+    error_log('List of all programs requested from API');
+    // Write data from API into a file
+    $file_put_contents_results = file_put_contents(get_template_directory().'/program_data_from_api.json', $result);
+
+    if ( false !== $file_put_contents_results ) {
+      error_log('Downloaded programs to file');      
+    }
+  } else {
+    error_log('Single program data requested from API');
+  }
+
+  $formatted = json_decode($result);
   return $formatted;
 }
 
 function create_programs_json() {
   $url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callname=getProgramSearchResults&ResponseEncoding=json';
-  $program_url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callName=getProgramBrochure&ResponseEncoding=JSON&Program_ID=';
 
-  //Connect to API to get a list of all available programs
+  // Get a list of all available programs
   $result = parse_api_data($url);
-  $programs = $result->PROGRAM;
+
+  if (file_exists(get_template_directory().'/program_data_from_api.json')) {
+    $result = file_get_contents(get_template_directory().'/program_data_from_api.json');
+    error_log('Loaded programs from file');
+  }
+
+  if ('' !== $result) {
+    $formatted = json_decode($result);
+    $programs = $formatted->PROGRAM;    
+  }
+
+  $batch_size = 50;
+  $total_programs = count($programs);
+
+  if ($total_programs > $batch_size) {
+    $total_batches = ceil($total_programs / $batch_size);
+    for ($i = 0; $i < $total_batches; $i++) {
+      $offset = $i * $batch_size;
+      $last_batch = false;
+
+      $programs_part = array();
+
+      $schedule_time = strtotime('now') + $i * $batch_size * 3; // Schedule each batch with a delay calculated from processing a program every 3 seconds
+
+      // Slice the programs array to get the desired part
+      $programs_part = array_slice($programs, $offset, $batch_size);
+
+      $event_scheduled = wp_schedule_single_event($schedule_time, 'process_programs_json_event', array($programs_part, $offset, $batch_size));
+
+      if ( $event_scheduled ) {
+        error_log('Event scheduled for batch # ' . $i);        
+      } else {
+        error_log('Event scheduling error for batch # ' . $i);
+      }
+    }
+  }
+}
+
+add_action('process_programs_json_event', 'process_programs_json', 10, 3);
+
+function process_programs_json($programs, $offset, $batch_size) {
+  error_log( 'Started processing batch # ' . floor($offset / $batch_size) );
   $data = [];
 
   //Loop thru the program list and get details about each program and add those details to an array
   foreach ($programs as $program) {
+    $program_url = 'https://goglobal.northeastern.edu/piapi/index.cfm?callName=getProgramBrochure&ResponseEncoding=JSON&Program_ID=';
+
     $program_id = $program->PROGRAM_ID;
     $api_url = $program_url.$program_id;
-    $api_result = parse_api_data($api_url);
+    $api_result = parse_api_data($api_url, 'program');
     $program_data = $api_result;
 
     $parameters = $program_data->DETAILS->PARAMETERS->PARAMETER;
@@ -102,19 +157,21 @@ function create_programs_json() {
     $program_active = $program_data->DETAILS->PROGRAM_ACTIVE;
     $program_active = $program_active === 1 ? 'publish' : 'draft'; 
 
-    if ($program_data->DETAILS->DATES->DATE->APP_DEADLINE) {
-      $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
-    }
-    else if ($program_data->DETAILS->DATES->DATE) {
-      $deadlines = $program_data->DETAILS->DATES->DATE;
-      $deadline_array = [];
-
-      foreach($deadlines as $deadline) {
-        array_push($deadline_array, $deadline->APP_DEADLINE);
+    if ( is_object ( $program_data->DETAILS->DATES ) ) {
+      if ($program_data->DETAILS->DATES->DATE->APP_DEADLINE) {
+        $program_deadline = $program_data->DETAILS->DATES->DATE->APP_DEADLINE;
       }
+      else if ($program_data->DETAILS->DATES->DATE) {
+        $deadlines = $program_data->DETAILS->DATES->DATE;
+        $deadline_array = [];
 
-      if (count($deadline_array) > 0) {
-        $program_deadline = $deadline_array[0];
+        foreach($deadlines as $deadline) {
+          array_push($deadline_array, $deadline->APP_DEADLINE);
+        }
+
+        if (count($deadline_array) > 0) {
+          $program_deadline = $deadline_array[0];
+        }
       }
     }
 
@@ -132,6 +189,13 @@ function create_programs_json() {
     $formatted_time->setTimeZone($timezone);
 
     //Add all of the data needed into the "custom" object
+    if (!isset($program_data->DETAILS)) {
+        $program_data->DETAILS = new stdClass();
+    }
+    if (!isset($program_data->DETAILS->CUSTOM)) {
+        $program_data->DETAILS->CUSTOM = new stdClass();
+    }
+
     $program_data->DETAILS->CUSTOM->PROGRAM_NAME = check_data($program_name);
     $program_data->DETAILS->CUSTOM->PROGRAM_ID = check_data($program_id);
     $program_data->DETAILS->CUSTOM->PROGRAM_LINK = $program_link;
@@ -151,38 +215,40 @@ function create_programs_json() {
       $internship = false;
 
       foreach($parameters as $parameter) {
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Global Program Type') {
-          array_push($program_types, $parameter->PARAM_VALUE);
-        }
+        if ( isset($parameter->PROGRAM_PARAM_TEXT) ) {
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Global Program Type') {
+            array_push($program_types, $parameter->PARAM_VALUE);
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study') {
-          $string = $parameter->PARAM_VALUE;
-          $string = preg_replace("/[^A-Za-z :]/", '', $string);
-          array_push($fields_of_study, $string); //API has whitespace in it
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Fields of Study') {
+            $string = $parameter->PARAM_VALUE;
+            $string = preg_replace("/[^A-Za-z :]/", '', $string);
+            array_push($fields_of_study, $string); //API has whitespace in it
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution') {
-          array_push($partners, $parameter->PARAM_VALUE);
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Partner Institution') {
+            array_push($partners, $parameter->PARAM_VALUE);
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Mode') {
-          array_push($program_mode, $parameter->PARAM_VALUE);
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Program Mode') {
+            array_push($program_mode, $parameter->PARAM_VALUE);
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Tracks') {
-          array_push($program_tracks, $parameter->PARAM_VALUE);
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Program Tracks') {
+            array_push($program_tracks, $parameter->PARAM_VALUE);
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Colleges and Schools') {
-          array_push($class_type, $parameter->PARAM_VALUE);
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Colleges and Schools') {
+            array_push($class_type, $parameter->PARAM_VALUE);
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
-          $program_status = $parameter->PARAM_VALUE;
-        }
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Program Status') {
+            $program_status = $parameter->PARAM_VALUE;
+          }
 
-        if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES') {
-          $internship = true;
+          if ($parameter->PROGRAM_PARAM_TEXT === 'Internship Available?' && $parameter->PARAM_VALUE === 'YES') {
+            $internship = true;
+          }
         }
       }
 
@@ -200,7 +266,7 @@ function create_programs_json() {
     if ($terms) {
       $program_terms = [];
 
-      if ($terms->PROGRAM_TERM) {
+      if (isset($terms->PROGRAM_TERM)) {
         array_push($program_terms, $terms->PROGRAM_TERM);
       }
 
@@ -218,7 +284,7 @@ function create_programs_json() {
       $program_cities = [];
       $program_regions = [];
 
-      if ($locations->PROGRAM_COUNTRY) {
+      if (isset($locations->PROGRAM_COUNTRY) && $locations->PROGRAM_COUNTRY) {
         array_push($program_countries, $locations->PROGRAM_COUNTRY);
       }
 
@@ -228,7 +294,7 @@ function create_programs_json() {
         }
       }
 
-      if ($locations->PROGRAM_CITY) {
+      if (isset($locations->PROGRAM_CITY) && $locations->PROGRAM_CITY) {
         array_push($program_cities, $locations->PROGRAM_CITY);
       }
 
@@ -238,7 +304,7 @@ function create_programs_json() {
         }
       }
 
-      if ($locations->PROGRAM_REGION) {
+      if (isset($locations->PROGRAM_REGION) && $locations->PROGRAM_REGION) {
         array_push($program_regions, $locations->PROGRAM_REGION);
       }
 
@@ -262,7 +328,13 @@ function create_programs_json() {
 
   //Trigger Import for WP All Import
   $trigger_url = get_field('wp_all_import_trigger_url', 'option');
-  wp_remote_get($trigger_url);
+  $wp_remote_get_triggered = wp_remote_get($trigger_url);
+
+  if ( is_array( $wp_remote_get_triggered ) && ! is_wp_error( $wp_remote_get_triggered ) ) {
+      error_log( 'Remote get triggered for batch # ' . floor( $offset / $batch_size) . ', result: ' . json_encode( $wp_remote_get_triggered ) );
+  } else {
+    error_log( 'Error triggering import for batch # ' . floor( $offset / $batch_size ) );
+  }
 }
 
 add_action('terra_dotta_query', 'create_programs_json');
