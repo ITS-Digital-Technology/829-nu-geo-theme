@@ -112,7 +112,8 @@ function create_programs_json() {
     $total_batches = ceil($total_programs / $batch_size);
     for ($i = 0; $i < $total_batches; $i++) {
       $offset = $i * $batch_size;
-      $last_batch = false;
+      $first_batch = $i === 0 ? true : false;
+      $last_batch = $i + 1 === (int)$total_batches ? true : false;
 
       $programs_part = array();
 
@@ -121,7 +122,7 @@ function create_programs_json() {
       // Slice the programs array to get the desired part
       $programs_part = array_slice($programs, $offset, $batch_size);
 
-      $event_scheduled = wp_schedule_single_event($schedule_time, 'process_programs_json_event', array($programs_part, $offset, $batch_size));
+      $event_scheduled = wp_schedule_single_event($schedule_time, 'process_programs_json_event', array($programs_part, $offset, $batch_size, $first_batch, $last_batch));
 
       if ( $event_scheduled ) {
         error_log('Event scheduled for batch # ' . $i);        
@@ -132,10 +133,14 @@ function create_programs_json() {
   }
 }
 
-add_action('process_programs_json_event', 'process_programs_json', 10, 3);
+add_action('process_programs_json_event', 'process_programs_json', 10, 5);
 
-function process_programs_json($programs, $offset, $batch_size) {
-  error_log( 'Started processing batch # ' . floor($offset / $batch_size) );
+function process_programs_json( $programs, $offset, $batch_size, $first_batch, $last_batch ) {
+
+  $first_batch_text = $first_batch ? 'yes' : 'no';
+  $last_batch_text = $last_batch ? 'yes' : 'no';
+  error_log( 'Started processing batch # ' . floor($offset / $batch_size) . ' , first batch: ' . $first_batch_text . ' , last batch: ' . $last_batch_text );
+
   $data = [];
 
   //Loop thru the program list and get details about each program and add those details to an array
@@ -146,6 +151,12 @@ function process_programs_json($programs, $offset, $batch_size) {
     $api_url = $program_url.$program_id;
     $api_result = parse_api_data($api_url, 'program');
     $program_data = $api_result;
+
+    if (is_object($api_result) && empty( (array)$api_result) ) {
+        error_log( "Failed fetching API data for program with ID " . $program_id . ", batch " . floor($offset / $batch_size) );
+    } else {
+        error_log( "Successfully fetched API data for program with ID " . $program_id . ", batch " . floor($offset / $batch_size) );
+    }
 
     $parameters = $program_data->DETAILS->PARAMETERS->PARAMETER;
     $terms = $program_data->DETAILS->TERMS->TERM;
@@ -322,18 +333,45 @@ function process_programs_json($programs, $offset, $batch_size) {
     array_push($data, $program_data);
   }
 
-  //JSON format the array and add into a JSON file for WP All Import to process
-  $data = json_encode($data);
-  file_put_contents(get_template_directory().'/data.json', $data);
-
-  //Trigger Import for WP All Import
-  $trigger_url = get_field('wp_all_import_trigger_url', 'option');
-  $wp_remote_get_triggered = wp_remote_get($trigger_url);
-
-  if ( is_array( $wp_remote_get_triggered ) && ! is_wp_error( $wp_remote_get_triggered ) ) {
-      error_log( 'Remote get triggered for batch # ' . floor( $offset / $batch_size) . ', result: ' . json_encode( $wp_remote_get_triggered ) );
+  if ( $first_batch ) {
+  // If this is the first batch, start writing to /data.json from scratch
+    $batch_write_result = file_put_contents( get_template_directory().'/data.json', json_encode($data ) );
+    if ( false !== $batch_write_result ) {
+      error_log( 'Successully written batch # 1 data to the file' );
+    } else {
+      error_log( 'Error writing batch # 1 data to the file' );
+    }
   } else {
-    error_log( 'Error triggering import for batch # ' . floor( $offset / $batch_size ) );
+    // If this is not the first batch, append to /data.json
+    $current_data = file_get_contents(get_template_directory().'/data.json');
+    $current_data = json_decode($current_data);
+    $data = array_merge($current_data, $data);
+    $batch_write_result = file_put_contents(get_template_directory().'/data.json', json_encode($data));
+
+    if ( false !== $batch_write_result ) {
+      error_log( 'Successully added batch # ' . floor($offset / $batch_size) . ' data to the file' );
+    } else {
+      error_log( 'Error adding batch # ' . floor($offset / $batch_size) . ' data to the file' );
+    }
+  }
+
+  if ( $last_batch ) {
+    // If this is the last batch, trigger the import
+    error_log( 'This is the last batch, triggering import' );
+
+    $trigger_url = get_field('wp_all_import_trigger_url', 'option');
+
+    error_log( 'Trigger URL: ' . esc_html( $trigger_url ) );
+
+    $wp_remote_get_triggered = wp_remote_get($trigger_url);
+
+    if ( is_array( $wp_remote_get_triggered ) && ! is_wp_error( $wp_remote_get_triggered ) ) {
+      error_log( 'Remote get triggered for events, result: ' . json_encode( $wp_remote_get_triggered ) );
+    } else {
+      error_log( 'Error triggering remote get for events , result: ' . json_encode( $wp_remote_get_triggered ) );
+    }
+  } else {
+    error_log( 'This is not the last batch' );
   }
 }
 
