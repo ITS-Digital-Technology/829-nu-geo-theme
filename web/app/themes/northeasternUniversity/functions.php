@@ -361,7 +361,7 @@ function process_programs_json( $programs, $offset, $batch_size, $first_batch, $
 
     $trigger_url = get_field('wp_all_import_trigger_url', 'option');
 
-    error_log( 'Trigger URL: ' . esc_html( $trigger_url ) );
+    // error_log( 'Trigger URL: ' . esc_html( $trigger_url ) );
 
     $wp_remote_get_triggered = wp_remote_get($trigger_url);
 
