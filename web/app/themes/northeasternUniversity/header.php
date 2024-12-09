@@ -35,7 +35,7 @@ if ( $alert_show && ! empty( $alert_content ) && ! isset( $_COOKIE['hideAlertBar
                 'link'    => $alert_link,
             ]
         );
-        get_theme_part( 'header/header-top' );
+        wp_body_open();
         get_theme_part( 'header/header-bottom' );
         get_theme_part( 'header/search' );
     ?></header>

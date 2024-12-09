@@ -15,7 +15,8 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "relevanssi_exclude": 0,
+            "placement": "left",
             "endpoint": 0
         },
         {
@@ -301,7 +302,8 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "relevanssi_exclude": 0,
+            "placement": "left",
             "endpoint": 0
         },
         {
@@ -478,7 +480,8 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "relevanssi_exclude": 0,
+            "placement": "left",
             "endpoint": 0
         },
         {
@@ -617,5 +620,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1618343148
+    "modified": 1733778650
 }
